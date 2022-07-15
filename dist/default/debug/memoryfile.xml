@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <executable name="dist/default/debug\MC50UNI.V.0.2.3.X.debug.hex">
+    <memory name="program">
+      <units>bytes</units>
+      <length>65536</length>
+      <used>33725</used>
+      <free>31811</free>
+    </memory>
+    <memory name="data">
+      <units>bytes</units>
+      <length>3720</length>
+      <used>975</used>
+      <free>2745</free>
+    </memory>
+  </executable>
+</project>

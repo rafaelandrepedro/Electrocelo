@@ -1,0 +1,117 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"12 sm_common_MC50.c
+[; ;sm_common_MC50.c: 12: void sm_init(sm_t *psm, int initial_state, sm_history_t hist_mode)
+[c E348 0 1 2 .. ]
+[n E348 . HIST_NONE HIST_SHALLOW HIST_DEEP  ]
+"73 ./sm_common.h
+[; ;./sm_common.h: 73: typedef struct {
+[s S3 `i 1 `i 1 `i 1 `E348 1 `*v 1 `i 1 ]
+[n S3 . current_state initial_state last_event history parent_machine parent_state ]
+"108
+[; ;./sm_common.h: 108: void sm_restart(sm_t *psm);
+[v _sm_restart `(v ~T0 @X0 0 ef1`*S3 ]
+"12 sm_common_MC50.c
+[; ;sm_common_MC50.c: 12: void sm_init(sm_t *psm, int initial_state, sm_history_t hist_mode)
+[v _sm_init `(v ~T0 @X0 1 ef3`*S3`i`E348 ]
+"13
+[; ;sm_common_MC50.c: 13: {
+{
+[e :U _sm_init ]
+"12
+[; ;sm_common_MC50.c: 12: void sm_init(sm_t *psm, int initial_state, sm_history_t hist_mode)
+[v _psm `*S3 ~T0 @X0 1 r1 ]
+[v _initial_state `i ~T0 @X0 1 r2 ]
+[v _hist_mode `E348 ~T0 @X0 1 r3 ]
+"13
+[; ;sm_common_MC50.c: 13: {
+[f ]
+"14
+[; ;sm_common_MC50.c: 14:  psm->initial_state = initial_state;
+[e = . *U _psm 1 _initial_state ]
+"15
+[; ;sm_common_MC50.c: 15:  psm->history = hist_mode;
+[e = . *U _psm 3 _hist_mode ]
+"16
+[; ;sm_common_MC50.c: 16:  psm->current_state = initial_state;
+[e = . *U _psm 0 _initial_state ]
+"19
+[; ;sm_common_MC50.c: 19:  psm->parent_machine = ((void*)0);
+[e = . *U _psm 4 -> -> 0 `i `*v ]
+"20
+[; ;sm_common_MC50.c: 20:  sm_restart(psm);
+[e ( _sm_restart (1 _psm ]
+"21
+[; ;sm_common_MC50.c: 21: }
+[e :UE 4 ]
+}
+"23
+[; ;sm_common_MC50.c: 23: void sm_restart(sm_t *psm){
+[v _sm_restart `(v ~T0 @X0 1 ef1`*S3 ]
+{
+[e :U _sm_restart ]
+[v _psm `*S3 ~T0 @X0 1 r1 ]
+[f ]
+"24
+[; ;sm_common_MC50.c: 24:  if(psm->history == HIST_NONE){
+[e $ ! == -> . *U _psm 3 `ui -> . `E348 0 `ui 6  ]
+{
+"25
+[; ;sm_common_MC50.c: 25:   psm->current_state = psm->initial_state;
+[e = . *U _psm 0 . *U _psm 1 ]
+"26
+[; ;sm_common_MC50.c: 26:  }
+}
+[e :U 6 ]
+"27
+[; ;sm_common_MC50.c: 27:  psm->last_event = 0;
+[e = . *U _psm 2 -> 0 `i ]
+"28
+[; ;sm_common_MC50.c: 28: }
+[e :UE 5 ]
+}
+"30
+[; ;sm_common_MC50.c: 30: int sm_get_current_state(sm_t *psm){
+[v _sm_get_current_state `(i ~T0 @X0 1 ef1`*S3 ]
+{
+[e :U _sm_get_current_state ]
+[v _psm `*S3 ~T0 @X0 1 r1 ]
+[f ]
+"31
+[; ;sm_common_MC50.c: 31:  return psm->current_state;
+[e ) . *U _psm 0 ]
+[e $UE 7  ]
+"32
+[; ;sm_common_MC50.c: 32: }
+[e :UE 7 ]
+}
+"34
+[; ;sm_common_MC50.c: 34: void sm_send_event(sm_t *psm, int event)
+[v _sm_send_event `(v ~T0 @X0 1 ef2`*S3`i ]
+"35
+[; ;sm_common_MC50.c: 35: {
+{
+[e :U _sm_send_event ]
+"34
+[; ;sm_common_MC50.c: 34: void sm_send_event(sm_t *psm, int event)
+[v _psm `*S3 ~T0 @X0 1 r1 ]
+[v _event `i ~T0 @X0 1 r2 ]
+"35
+[; ;sm_common_MC50.c: 35: {
+[f ]
+"36
+[; ;sm_common_MC50.c: 36:  if(( psm->parent_machine == ((void*)0)) || (sm_get_current_state(psm->parent_machine)==psm->parent_state))
+[e $ ! || == . *U _psm 4 -> -> 0 `i `*v == ( _sm_get_current_state (1 -> . *U _psm 4 `*S3 . *U _psm 5 9  ]
+"38
+[; ;sm_common_MC50.c: 38:  {
+{
+"39
+[; ;sm_common_MC50.c: 39:   psm->last_event = event;
+[e = . *U _psm 2 _event ]
+"40
+[; ;sm_common_MC50.c: 40:  }
+}
+[e :U 9 ]
+"41
+[; ;sm_common_MC50.c: 41: }
+[e :UE 8 ]
+}
