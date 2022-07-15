@@ -1,0 +1,4042 @@
+[p GLOBOPT AUTOSTATIC IEEE_FLT IEEE_DBL LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F46K40 ]
+[d frameptr 4065 ]
+"33 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/drivers/i2c_simple_master.c
+[e E360 . `uc
+I2C1_STOP 1
+I2C1_RESTART_READ 2
+I2C1_RESTART_WRITE 3
+I2C1_CONTINUE 4
+I2C1_RESET_LINK 5
+]
+"42
+[e E355 . `uc
+I2C1_NOERR 0
+I2C1_BUSY 1
+I2C1_FAIL 2
+]
+"69 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/examples/i2c1_master_example.c
+[e E522 . `uc
+I2C1_NOERR 0
+I2C1_BUSY 1
+I2C1_FAIL 2
+]
+"70
+[e E527 . `uc
+I2C1_STOP 1
+I2C1_RESTART_READ 2
+I2C1_RESTART_WRITE 3
+I2C1_CONTINUE 4
+I2C1_RESET_LINK 5
+]
+"107 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/adcc.c
+[e E10053 . `uc
+channel_current 0
+channel_VSS 60
+channel_Temp 61
+channel_DAC1 62
+channel_FVR_buf1 63
+]
+"146 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/i2c1_master.c
+[e E10442 . `uc
+I2C1_IDLE 0
+I2C1_SEND_ADR_READ 1
+I2C1_SEND_ADR_WRITE 2
+I2C1_TX 3
+I2C1_RX 4
+I2C1_RCEN 5
+I2C1_TX_EMPTY 6
+I2C1_SEND_RESTART_READ 7
+I2C1_SEND_RESTART_WRITE 8
+I2C1_SEND_RESTART 9
+I2C1_SEND_STOP 10
+I2C1_RX_ACK 11
+I2C1_RX_NACK_STOP 12
+I2C1_RX_NACK_RESTART 13
+I2C1_RESET 14
+I2C1_ADDRESS_NACK 15
+]
+"165
+[e E360 . `uc
+I2C1_STOP 1
+I2C1_RESTART_READ 2
+I2C1_RESTART_WRITE 3
+I2C1_CONTINUE 4
+I2C1_RESET_LINK 5
+]
+[e E355 . `uc
+I2C1_NOERR 0
+I2C1_BUSY 1
+I2C1_FAIL 2
+]
+"191
+[e E10460 . `uc
+I2C1_DATA_COMPLETE 0
+I2C1_WRITE_COLLISION 1
+I2C1_ADDR_NACK 2
+I2C1_DATA_NACK 3
+I2C1_TIMEOUT 4
+I2C1_NULL 5
+]
+"111 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/tmr2.c
+[e E10052 . `uc
+TMR2_ROP_STARTS_TMRON 0
+TMR2_ROP_STARTS_TMRON_ERSHIGH 1
+TMR2_ROP_STARTS_TMRON_ERSLOW 2
+TMR2_ROP_RESETS_ERSBOTHEDGE 3
+TMR2_ROP_RESETS_ERSRISINGEDGE 4
+TMR2_ROP_RESETS_ERSFALLINGEDGE 5
+TMR2_ROP_RESETS_ERSLOW 6
+TMR2_ROP_RESETS_ERSHIGH 7
+TMR2_OS_STARTS_TMRON 8
+TMR2_OS_STARTS_ERSRISINGEDGE 9
+TMR2_OS_STARTS_ERSFALLINGEDGE 10
+TMR2_OS_STARTS_ERSBOTHEDGE 11
+TMR2_OS_STARTS_ERSFIRSTRISINGEDGE 12
+TMR2_OS_STARTS_ERSFIRSTFALLINGEDGE 13
+TMR2_OS_STARTS_ERSRISINGEDGEDETECT 14
+TMR2_OS_STARTS_ERSFALLINGEDGEDETECT 15
+TMR2_OS_STARTS_TMRON_ERSHIGH 22
+TMR2_OS_STARTS_TMRON_ERSLOW 23
+TMR2_MS_STARTS_TMRON_ERSRISINGEDGEDETECT 17
+TMR2_MS_STARTS_TMRON_ERSFALLINGEDGEDETECT 18
+TMR2_MS_STARTS_TMRON_ERSBOTHEDGE 19
+]
+"117
+[e E10075 . `uc
+TMR2_T2INPPS 0
+TMR2_RESERVED 1
+TMR2_T4POSTSCALED 2
+TMR2_T6POSTSCALED 3
+TMR2_CCP1_OUT 4
+TMR2_CCP2_OUT 5
+TMR2_PWM3_OUT 6
+TMR2_PWM4_OUT 7
+TMR2_C1_OUT_SYNC 8
+TMR2_C2_OUT_SYNC 9
+TMR2_ZCD_OUTPUT 10
+]
+"218
+[e E10134 . `uc
+Stopped 0
+InOpenFull 1
+InOpenWalk 2
+InClose 3
+]
+[e E10150 . `uc
+NO 0
+YES 1
+ST 2
+SECUR 3
+]
+[e E10125 . `uc
+NoCMD 0
+TypeFull 1
+TypeWalk 2
+TypeFullOpen 3
+TypeFullClose 4
+TypeProgrammingModeWalk 5
+TypeProgrammingModeFull 6
+]
+[e E10156 . `uc
+Clear 0
+Active 1
+EmAlarme 2
+]
+"222
+[e E10382 direcao_contagem `uc
+stoped 0
+open 1
+close 2
+]
+"234
+[e E10397 TypeCycle_enum `uc
+Cycle12 0
+Cycle21 1
+Cycle32 2
+NumberOfCycles 3
+]
+"48 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\controlCurrent_MC50.c
+[e E10730 . `uc
+channel_current 0
+channel_VSS 60
+channel_Temp 61
+channel_DAC1 62
+channel_FVR_buf1 63
+]
+"83
+[e E10548 . `uc
+Stopped 0
+InOpenFull 1
+InOpenWalk 2
+InClose 3
+]
+[e E10564 . `uc
+NO 0
+YES 1
+ST 2
+SECUR 3
+]
+[e E10539 . `uc
+NoCMD 0
+TypeFull 1
+TypeWalk 2
+TypeFullOpen 3
+TypeFullClose 4
+TypeProgrammingModeWalk 5
+TypeProgrammingModeFull 6
+]
+[e E10570 . `uc
+Clear 0
+Active 1
+EmAlarme 2
+]
+"284
+[e E10854 TypeCycle_enum `uc
+Cycle12 0
+Cycle21 1
+Cycle32 2
+NumberOfCycles 3
+]
+"27 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\controlMemory_MC50.c
+[e E10564 . `uc
+NO 0
+YES 1
+ST 2
+SECUR 3
+]
+[e E10539 . `uc
+NoCMD 0
+TypeFull 1
+TypeWalk 2
+TypeFullOpen 3
+TypeFullClose 4
+TypeProgrammingModeWalk 5
+TypeProgrammingModeFull 6
+]
+"143
+[e E10921 . `uc
+SC 0
+SE 1
+br 2
+]
+"150
+[e E10915 . `uc
+pageMemoryP 0
+pageMemoryE 1
+pageMemoryCounters 2
+pageMemoryLearningVars 3
+]
+"168
+[e E10548 . `uc
+Stopped 0
+InOpenFull 1
+InOpenWalk 2
+InClose 3
+]
+[e E10570 . `uc
+Clear 0
+Active 1
+EmAlarme 2
+]
+"39 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\inputs_MC50.c
+[e E10559 . `uc
+Keeloq_RollingCode 0
+Keeloq_NoRollingCode 1
+DIP_12BIT 2
+]
+"235
+[e E10539 . `uc
+NoCMD 0
+TypeFull 1
+TypeWalk 2
+TypeFullOpen 3
+TypeFullClose 4
+TypeProgrammingModeWalk 5
+TypeProgrammingModeFull 6
+]
+"270
+[e E10548 . `uc
+Stopped 0
+InOpenFull 1
+InOpenWalk 2
+InClose 3
+]
+[e E10564 . `uc
+NO 0
+YES 1
+ST 2
+SECUR 3
+]
+[e E10570 . `uc
+Clear 0
+Active 1
+EmAlarme 2
+]
+"337
+[e E10729 DispValue_enum `uc
+d0 0
+d1 1
+d2 2
+d3 3
+d4 4
+d5 5
+d6 6
+d7 7
+d8 8
+d9 9
+dA 10
+dB 11
+dC 12
+dd 13
+dE 14
+dF 15
+dP 16
+dH 17
+dL 18
+dU 19
+dr 20
+dt 21
+du 22
+dM 23
+dMinus 24
+dBar 25
+sA 26
+sB 27
+sC 28
+sD 29
+sE 30
+sF 31
+dBlank 32
+dy 33
+db 34
+dc 35
+dq 36
+dSize 37
+]
+"206 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\keeloqDecrypt_MC50.c
+[e E10559 . `uc
+Keeloq_RollingCode 0
+Keeloq_NoRollingCode 1
+DIP_12BIT 2
+]
+"224
+[e E10730 . `uc
+NO_DATA 0
+VALID_PACKET 1
+NOT_VALID_PACKET 2
+NOT_LEARNED 3
+SEED_RECEIVED 4
+NOT_SEED_PACKET 5
+LEARN_SUCCESS 6
+NO_SPACE 7
+DECRYPT_FAIL 8
+RESYNC_REQ 9
+HOP_CHECK_FAIL 10
+NVM_WRITE_ERROR 11
+MAC_ERROR 12
+TIMER_OUT_OF_SYNC 13
+ENCODER_TIMER_RESYNC 14
+TX_LOW_VOLTAGE 15
+CNT_OUT_OF_SYNC 16
+]
+"299
+[e E10539 . `uc
+NoCMD 0
+TypeFull 1
+TypeWalk 2
+TypeFullOpen 3
+TypeFullClose 4
+TypeProgrammingModeWalk 5
+TypeProgrammingModeFull 6
+]
+"310
+[e E10564 . `uc
+NO 0
+YES 1
+ST 2
+SECUR 3
+]
+"46 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\main_MC50.c
+[e E10676 . `uc
+Stopped 0
+InOpenFull 1
+InOpenWalk 2
+InClose 3
+]
+[e E10692 . `uc
+NO 0
+YES 1
+ST 2
+SECUR 3
+]
+[e E10667 . `uc
+NoCMD 0
+TypeFull 1
+TypeWalk 2
+TypeFullOpen 3
+TypeFullClose 4
+TypeProgrammingModeWalk 5
+TypeProgrammingModeFull 6
+]
+[e E10698 . `uc
+Clear 0
+Active 1
+EmAlarme 2
+]
+"47
+[e E10901 ListDisp_enum `uc
+disp1_e 0
+disp2_e 1
+numberDisplays 2
+]
+"50
+[e E11106 . `uc
+HIST_NONE 0
+HIST_SHALLOW 1
+HIST_DEEP 2
+]
+"70
+[e E10857 DispValue_enum `uc
+d0 0
+d1 1
+d2 2
+d3 3
+d4 4
+d5 5
+d6 6
+d7 7
+d8 8
+d9 9
+dA 10
+dB 11
+dC 12
+dd 13
+dE 14
+dF 15
+dP 16
+dH 17
+dL 18
+dU 19
+dr 20
+dt 21
+du 22
+dM 23
+dMinus 24
+dBar 25
+sA 26
+sB 27
+sC 28
+sD 29
+sE 30
+sF 31
+dBlank 32
+dy 33
+db 34
+dc 35
+dq 36
+dSize 37
+]
+"117
+[e E11130 . `uc
+st_MainMenu 0
+st_EditParameter 1
+st_SaveParameter 2
+st_Counter 3
+st_SelectRemote 4
+st_SaveRemotes 5
+st_LearningMode 6
+]
+"118
+[e E11219 . `uc
+st_standBy 0
+st_MenuConfiguration 1
+st_MotorON 2
+]
+"119
+[e E11227 . `uc
+st_Idle 0
+st_Closed 1
+st_Opening 2
+st_Closing 3
+st_Opened 4
+st_Learning 5
+]
+"120
+[e E11263 . `uc
+st_InitLearning 0
+st_WaitForClosed 1
+st_WaitLearnigOpen 2
+st_WaitLearnigClose 3
+st_WaitForOpened 4
+st_WaitForEndLearn 5
+]
+"140
+[e E11192 functioncode_t `uc
+READ 0
+WRITE 1
+PROGRAMMING_ENABLE 2
+]
+"23 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\outputs_MC50.c
+[e E10397 . `uc
+NO 0
+YES 1
+ST 2
+SECUR 3
+]
+[e E10644 TypeCycle_enum `uc
+Cycle12 0
+Cycle21 1
+Cycle32 2
+NumberOfCycles 3
+]
+"33
+[e E10381 . `uc
+Stopped 0
+InOpenFull 1
+InOpenWalk 2
+InClose 3
+]
+"54
+[e E10606 ListDisp_enum `uc
+disp1_e 0
+disp2_e 1
+numberDisplays 2
+]
+"124
+[e E10602 . `uc
+Left 0
+Rigth 1
+]
+"131
+[e E10562 DispValue_enum `uc
+d0 0
+d1 1
+d2 2
+d3 3
+d4 4
+d5 5
+d6 6
+d7 7
+d8 8
+d9 9
+dA 10
+dB 11
+dC 12
+dd 13
+dE 14
+dF 15
+dP 16
+dH 17
+dL 18
+dU 19
+dr 20
+dt 21
+du 22
+dM 23
+dMinus 24
+dBar 25
+sA 26
+sB 27
+sC 28
+sD 29
+sE 30
+sF 31
+dBlank 32
+dy 33
+db 34
+dc 35
+dq 36
+dSize 37
+]
+"204
+[e E10772 . `uc
+HIST_NONE 0
+HIST_SHALLOW 1
+HIST_DEEP 2
+]
+[e E10929 . `uc
+st_standBy 0
+st_MenuConfiguration 1
+st_MotorON 2
+]
+"276
+[e E10372 . `uc
+NoCMD 0
+TypeFull 1
+TypeWalk 2
+TypeFullOpen 3
+TypeFullClose 4
+TypeProgrammingModeWalk 5
+TypeProgrammingModeFull 6
+]
+[e E10403 . `uc
+Clear 0
+Active 1
+EmAlarme 2
+]
+"729
+[e E10629 direcao_contagem `uc
+stoped 0
+open 1
+close 2
+]
+"769
+[e E10796 . `uc
+st_Idle 0
+st_Closed 1
+st_Opening 2
+st_Closing 3
+st_Opened 4
+st_Learning 5
+]
+"835
+[e E10617 RGB_type `uc
+rgb_fixo 0
+rgb_pisca 1
+rgb_pre 2
+rgb_capacitor 3
+]
+"836
+[e E10611 RGBY_enum `uc
+BLUE 1
+GREEN 2
+RED 3
+YELLOW 4
+]
+"868
+[e E10623 flashtype `uc
+fixo 0
+pisca 1
+condominio 2
+electroiman 3
+]
+"890
+[e E10828 . `uc
+SC 0
+SE 1
+br 2
+]
+"32 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\sm_ControlGate_MC50.c
+[e E10381 . `uc
+Stopped 0
+InOpenFull 1
+InOpenWalk 2
+InClose 3
+]
+[e E10397 . `uc
+NO 0
+YES 1
+ST 2
+SECUR 3
+]
+[e E10372 . `uc
+NoCMD 0
+TypeFull 1
+TypeWalk 2
+TypeFullOpen 3
+TypeFullClose 4
+TypeProgrammingModeWalk 5
+TypeProgrammingModeFull 6
+]
+[e E10403 . `uc
+Clear 0
+Active 1
+EmAlarme 2
+]
+"33
+[e E10595 . `uc
+HIST_NONE 0
+HIST_SHALLOW 1
+HIST_DEEP 2
+]
+[e E10572 . `uc
+ev_NULL 0
+ev_ParameterIsSelected 1
+ev_ParameterIsEdited 2
+ev_CancelEdition 3
+ev_ParameterIsSaved 4
+ev_showCounter 5
+ev_goto_MenuConfig 6
+ev_goto_StandBy 7
+ev_addRemotes 8
+ev_NextRemote 9
+ev_GateClosed 10
+ev_GateOpened 11
+ev_OpenGate 12
+ev_StopGate 13
+ev_CloseGate 14
+ev_ClosedGate 15
+ev_ErrorGate 16
+ev_MotorIsOpen 17
+ev_ErrorLearning 18
+ev_LearningComplete 19
+ev_SartLearning 20
+]
+"44
+[e E10700 RGB_type `uc
+rgb_fixo 0
+rgb_pisca 1
+rgb_pre 2
+rgb_capacitor 3
+]
+"77
+[e E10619 . `uc
+st_Idle 0
+st_Closed 1
+st_Opening 2
+st_Closing 3
+st_Opened 4
+st_Learning 5
+]
+"133
+[e E10963 . `uc
+st_standBy 0
+st_MenuConfiguration 1
+st_MotorON 2
+]
+[e E10971 . `uc
+st_MainMenu 0
+st_EditParameter 1
+st_SaveParameter 2
+st_Counter 3
+st_SelectRemote 4
+st_SaveRemotes 5
+st_LearningMode 6
+]
+"253
+[e E10645 DispValue_enum `uc
+d0 0
+d1 1
+d2 2
+d3 3
+d4 4
+d5 5
+d6 6
+d7 7
+d8 8
+d9 9
+dA 10
+dB 11
+dC 12
+dd 13
+dE 14
+dF 15
+dP 16
+dH 17
+dL 18
+dU 19
+dr 20
+dt 21
+du 22
+dM 23
+dMinus 24
+dBar 25
+sA 26
+sB 27
+sC 28
+sD 29
+sE 30
+sF 31
+dBlank 32
+dy 33
+db 34
+dc 35
+dq 36
+dSize 37
+]
+"498
+[e E10387 . `uc
+ModoAutomatico 0
+ModoPassoPasso 1
+ModoCondominio 2
+]
+"29 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\sm_ControlLearning_MC50.c
+[e E10586 . `uc
+HIST_NONE 0
+HIST_SHALLOW 1
+HIST_DEEP 2
+]
+"31
+[e E10372 . `uc
+NoCMD 0
+TypeFull 1
+TypeWalk 2
+TypeFullOpen 3
+TypeFullClose 4
+TypeProgrammingModeWalk 5
+TypeProgrammingModeFull 6
+]
+"37
+[e E10563 . `uc
+ev_NULL 0
+ev_ParameterIsSelected 1
+ev_ParameterIsEdited 2
+ev_CancelEdition 3
+ev_ParameterIsSaved 4
+ev_showCounter 5
+ev_goto_MenuConfig 6
+ev_goto_StandBy 7
+ev_addRemotes 8
+ev_NextRemote 9
+ev_GateClosed 10
+ev_GateOpened 11
+ev_OpenGate 12
+ev_StopGate 13
+ev_CloseGate 14
+ev_ClosedGate 15
+ev_ErrorGate 16
+ev_MotorIsOpen 17
+ev_ErrorLearning 18
+ev_LearningComplete 19
+ev_SartLearning 20
+]
+[e E10381 . `uc
+Stopped 0
+InOpenFull 1
+InOpenWalk 2
+InClose 3
+]
+[e E10397 . `uc
+NO 0
+YES 1
+ST 2
+SECUR 3
+]
+[e E10403 . `uc
+Clear 0
+Active 1
+EmAlarme 2
+]
+"39
+[e E10646 . `uc
+st_InitLearning 0
+st_WaitForClosed 1
+st_WaitLearnigOpen 2
+st_WaitLearnigClose 3
+st_WaitForOpened 4
+st_WaitForEndLearn 5
+]
+"342
+[e E10610 . `uc
+st_Idle 0
+st_Closed 1
+st_Opening 2
+st_Closing 3
+st_Opened 4
+st_Learning 5
+]
+"362
+[e E10973 . `uc
+pageMemoryP 0
+pageMemoryE 1
+pageMemoryCounters 2
+pageMemoryLearningVars 3
+]
+"430
+[e E10847 . `uc
+st_MainMenu 0
+st_EditParameter 1
+st_SaveParameter 2
+st_Counter 3
+st_SelectRemote 4
+st_SaveRemotes 5
+st_LearningMode 6
+]
+"431
+[e E11013 . `uc
+st_standBy 0
+st_MenuConfiguration 1
+st_MotorON 2
+]
+"26 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\sm_Main_MC50.c
+[e E10586 . `uc
+HIST_NONE 0
+HIST_SHALLOW 1
+HIST_DEEP 2
+]
+"34
+[e E10563 . `uc
+ev_NULL 0
+ev_ParameterIsSelected 1
+ev_ParameterIsEdited 2
+ev_CancelEdition 3
+ev_ParameterIsSaved 4
+ev_showCounter 5
+ev_goto_MenuConfig 6
+ev_goto_StandBy 7
+ev_addRemotes 8
+ev_NextRemote 9
+ev_GateClosed 10
+ev_GateOpened 11
+ev_OpenGate 12
+ev_StopGate 13
+ev_CloseGate 14
+ev_ClosedGate 15
+ev_ErrorGate 16
+ev_MotorIsOpen 17
+ev_ErrorLearning 18
+ev_LearningComplete 19
+ev_SartLearning 20
+]
+"37
+[e E10903 . `uc
+st_standBy 0
+st_MenuConfiguration 1
+st_MotorON 2
+]
+"88
+[e E10928 . `uc
+P_Menu 0
+E_Menu 1
+Direction_Menu 2
+TypeMotor_Menu 3
+P0_SMenu 4
+P1_SMenu 5
+P2_SMenu 6
+P4_SMenu 7
+P5_SMenu 8
+P6_SMenu 9
+E0_SMenu 10
+E1_SMenu 11
+S_Menu 12
+Del_Menu 13
+]
+"97
+[e E10610 DispValue_enum `uc
+d0 0
+d1 1
+d2 2
+d3 3
+d4 4
+d5 5
+d6 6
+d7 7
+d8 8
+d9 9
+dA 10
+dB 11
+dC 12
+dd 13
+dE 14
+dF 15
+dP 16
+dH 17
+dL 18
+dU 19
+dr 20
+dt 21
+du 22
+dM 23
+dMinus 24
+dBar 25
+sA 26
+sB 27
+sC 28
+sD 29
+sE 30
+sF 31
+dBlank 32
+dy 33
+db 34
+dc 35
+dq 36
+dSize 37
+]
+"128
+[e E10381 . `uc
+Stopped 0
+InOpenFull 1
+InOpenWalk 2
+InClose 3
+]
+[e E10397 . `uc
+NO 0
+YES 1
+ST 2
+SECUR 3
+]
+[e E10372 . `uc
+NoCMD 0
+TypeFull 1
+TypeWalk 2
+TypeFullOpen 3
+TypeFullClose 4
+TypeProgrammingModeWalk 5
+TypeProgrammingModeFull 6
+]
+[e E10403 . `uc
+Clear 0
+Active 1
+EmAlarme 2
+]
+"176
+[e E10970 . `uc
+st_Idle 0
+st_Closed 1
+st_Opening 2
+st_Closing 3
+st_Opened 4
+st_Learning 5
+]
+"179
+[e E10387 . `uc
+ModoAutomatico 0
+ModoPassoPasso 1
+ModoCondominio 2
+]
+"18 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\sm_MenuConfiguration_MC50.c
+[e E10813 . `uc
+P_Menu 0
+E_Menu 1
+Direction_Menu 2
+TypeMotor_Menu 3
+P0_SMenu 4
+P1_SMenu 5
+P2_SMenu 6
+P4_SMenu 7
+P5_SMenu 8
+P6_SMenu 9
+E0_SMenu 10
+E1_SMenu 11
+S_Menu 12
+Del_Menu 13
+]
+"31
+[e E10586 . `uc
+HIST_NONE 0
+HIST_SHALLOW 1
+HIST_DEEP 2
+]
+"38
+[e E10563 . `uc
+ev_NULL 0
+ev_ParameterIsSelected 1
+ev_ParameterIsEdited 2
+ev_CancelEdition 3
+ev_ParameterIsSaved 4
+ev_showCounter 5
+ev_goto_MenuConfig 6
+ev_goto_StandBy 7
+ev_addRemotes 8
+ev_NextRemote 9
+ev_GateClosed 10
+ev_GateOpened 11
+ev_OpenGate 12
+ev_StopGate 13
+ev_CloseGate 14
+ev_ClosedGate 15
+ev_ErrorGate 16
+ev_MotorIsOpen 17
+ev_ErrorLearning 18
+ev_LearningComplete 19
+ev_SartLearning 20
+]
+"40
+[e E10796 . `uc
+st_MainMenu 0
+st_EditParameter 1
+st_SaveParameter 2
+st_Counter 3
+st_SelectRemote 4
+st_SaveRemotes 5
+st_LearningMode 6
+]
+"144
+[e E10381 . `uc
+Stopped 0
+InOpenFull 1
+InOpenWalk 2
+InClose 3
+]
+[e E10397 . `uc
+NO 0
+YES 1
+ST 2
+SECUR 3
+]
+[e E10372 . `uc
+NoCMD 0
+TypeFull 1
+TypeWalk 2
+TypeFullOpen 3
+TypeFullClose 4
+TypeProgrammingModeWalk 5
+TypeProgrammingModeFull 6
+]
+[e E10403 . `uc
+Clear 0
+Active 1
+EmAlarme 2
+]
+"217
+[e E10610 DispValue_enum `uc
+d0 0
+d1 1
+d2 2
+d3 3
+d4 4
+d5 5
+d6 6
+d7 7
+d8 8
+d9 9
+dA 10
+dB 11
+dC 12
+dd 13
+dE 14
+dF 15
+dP 16
+dH 17
+dL 18
+dU 19
+dr 20
+dt 21
+du 22
+dM 23
+dMinus 24
+dBar 25
+sA 26
+sB 27
+sC 28
+sD 29
+sE 30
+sF 31
+dBlank 32
+dy 33
+db 34
+dc 35
+dq 36
+dSize 37
+]
+"252
+[e E10922 . `uc
+pageMemoryP 0
+pageMemoryE 1
+pageMemoryCounters 2
+pageMemoryLearningVars 3
+]
+"832
+[e E10805 . `uc
+Automatic 0
+Manual 1
+]
+"1160
+[e E10392 . `uc
+Keeloq_RollingCode 0
+Keeloq_NoRollingCode 1
+DIP_12BIT 2
+]
+"1226
+[e E10650 . `uc
+Left 0
+Rigth 1
+]
+"12 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\sm_common_MC50.c
+[e E348 . `uc
+HIST_NONE 0
+HIST_SHALLOW 1
+HIST_DEEP 2
+]
+"11 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\eusartpackage.c
+[e E10101 functioncode_t `uc
+READ 0
+WRITE 1
+PROGRAMMING_ENABLE 2
+]
+"5 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\eusartparser.c
+[e E10101 functioncode_t `uc
+READ 0
+WRITE 1
+PROGRAMMING_ENABLE 2
+]
+"456
+[e E10497 . `uc
+pageMemoryP 0
+pageMemoryE 1
+pageMemoryCounters 2
+pageMemoryLearningVars 3
+]
+"461
+[e E10552 . `uc
+HIST_NONE 0
+HIST_SHALLOW 1
+HIST_DEEP 2
+]
+[e E10576 . `uc
+st_standBy 0
+st_MenuConfiguration 1
+st_MotorON 2
+]
+"7 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\__lldiv.c
+[v ___lldiv __lldiv `(ul  1 e 4 0 ]
+"7 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\fleq.c
+[v ___fleq __fleq `(b  1 e 0 0 ]
+"62 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\float.c
+[v ___ftpack __ftpack `(f  1 e 4 0 ]
+"86 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 4 0 ]
+"54 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 4 0 ]
+"62 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 4 0 ]
+"19 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 4 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\lbdiv.c
+[v ___lbdiv __lbdiv `(uc  1 e 1 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\lbmod.c
+[v ___lbmod __lbmod `(uc  1 e 1 0 ]
+"7 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\memcpy.c
+[v _memcpy memcpy `(*.39v  1 e 2 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 4 0 ]
+"11 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+"8 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+"15 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+"15 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"91 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\Umul64.c
+[v ___omul __omul `(uo  1 e 8 0 ]
+"38 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\controlCurrent_MC50.c
+[v _ReadADC ReadADC `(v  1 e 1 0 ]
+"59
+[v _sumEnergyADC sumEnergyADC `(ui  1 e 2 0 ]
+"103
+[v _refreshADCZeroOffset refreshADCZeroOffset `(v  1 e 1 0 ]
+"182
+[v _saveEnergyADCHist saveEnergyADCHist `(v  1 e 1 0 ]
+"199
+[v _sumHIST sumHIST `(ul  1 e 4 0 ]
+"233
+[v _refreshCurrent refreshCurrent `(v  1 e 1 0 ]
+"264
+[v _getCurrentComparator getCurrentComparator `(ul  1 e 4 0 ]
+"342
+[v _ControlCurrent ControlCurrent `(v  1 e 1 0 ]
+"27 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\controlMemory_MC50.c
+[v _validateRemoteSerialNumber validateRemoteSerialNumber `(E10539  1 e 1 0 ]
+"81
+[v _saveNewSerial saveNewSerial `(v  1 e 1 0 ]
+"95
+[v _RemoveSerial RemoveSerial `(v  1 e 1 0 ]
+"110
+[v _cmdMemoryIsEmpty cmdMemoryIsEmpty `(uc  1 e 1 0 ]
+"139
+[v _loadNVM_VarSystem loadNVM_VarSystem `(v  1 e 1 0 ]
+"175
+[v _SaveNVM_VarSystem SaveNVM_VarSystem `(v  1 e 1 0 ]
+"186
+[v _ResetDefaultMemory ResetDefaultMemory `(v  1 e 1 0 ]
+"293
+[v _ControlCounterMoves ControlCounterMoves `(v  1 e 1 0 ]
+"314
+[v _checkNVM_VarSystem checkNVM_VarSystem `(v  1 e 1 0 ]
+"46 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos/eusartpackage.h
+"29
+[u S4761 packagedata_t 2 `us 1 data16 2 0 `[2]uc 1 data8 2 0 ]
+"21 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\eusartpackage.c
+[s S4764 package_t 7 `E11192 1 functioncode 1 0 `uc 1 address 1 1 `S4761 1 data 2 2 `uc 1 startbyte 1 4 `uc 1 endbyte 1 5 `a 1 valid 1 6 ]
+[v _read_package read_package `(S4764  1 e 7 0 ]
+"50
+[v _write_package write_package `(v  1 e 1 0 ]
+"5 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\eusartparser.c
+[v _read_eusartparser read_eusartparser `(v  1 e 1 0 ]
+"241
+[v _write_eusartparser write_eusartparser `(v  1 e 1 0 ]
+"441
+[v _eusartparser eusartparser `(v  1 e 1 0 ]
+"41 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\inputs_MC50.c
+[v _rxi rxi `(v  1 e 1 0 ]
+"207
+[v _InitReceiver InitReceiver `(v  1 e 1 0 ]
+"217
+[v _getKeyPressed getKeyPressed `(c  1 e 1 0 ]
+"231
+[v _readRFButtons readRFButtons `(v  1 e 1 0 ]
+"330
+[v _GetOpenOrder GetOpenOrder `(E10539  1 e 1 0 ]
+"442
+[v _getSerialCmd getSerialCmd `(c  1 e 1 0 ]
+"459
+[v _getTypeRemote getTypeRemote `(E10559  1 e 1 0 ]
+"463
+[v _ClearFlag_rfCMD ClearFlag_rfCMD `(v  1 e 1 0 ]
+"471
+[v _readbutton readbutton `(v  1 e 1 0 ]
+"528
+[v _readInputs readInputs `(v  1 e 1 0 ]
+"674
+[v _ControlInputs ControlInputs `(v  1 e 1 0 ]
+"738
+[v _GetSecurityStateInOpening GetSecurityStateInOpening `(E10564  1 e 1 0 ]
+"776
+[v _GetSecurityStateInClosing GetSecurityStateInClosing `(E10564  1 e 1 0 ]
+"63 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\keeloqDecrypt_MC50.c
+[v _LoadManufCode LoadManufCode `(v  1 e 1 0 ]
+"87
+[v _NormalKeyGen NormalKeyGen `(v  1 e 1 0 ]
+"142
+[v _Decrypt Decrypt `(v  1 e 1 0 ]
+"206
+[v _DecCHK DecCHK `(a  1 e 1 0 ]
+"224
+[v _ReqResync ReqResync `(E10730  1 e 1 0 ]
+"236
+[v _HopCHK HopCHK `(E10730  1 e 1 0 ]
+"266
+[v _getHopCode getHopCode `(us  1 e 2 0 ]
+"299
+[v _keeloqDecryptPacket keeloqDecryptPacket `(E10539  1 e 1 0 ]
+"370
+[v _DecryptPacket_12BIT DecryptPacket_12BIT `(E10539  1 e 1 0 ]
+"390
+[v _keeloq_classic_decrypt_packet keeloq_classic_decrypt_packet `(v  1 s 1 keeloq_classic_decrypt_packet ]
+"401
+[v _verifyProgramingMode verifyProgramingMode `(E10539  1 e 1 0 ]
+"63 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\main_MC50.c
+[v _main main `(v  1 e 1 0 ]
+"190
+[v _controlTimeslots controlTimeslots `(v  1 e 1 0 ]
+"246
+[v _decrementTimeslot decrementTimeslot `(v  1 e 1 0 ]
+"254
+[v _ShowVersion ShowVersion `(v  1 e 1 0 ]
+"62 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/adcc.c
+[v _ADCC_Initialize ADCC_Initialize `(v  1 e 1 0 ]
+"131
+[v _ADCC_GetSingleConversion ADCC_GetSingleConversion `(i  1 e 2 0 ]
+"33 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/drivers/i2c_simple_master.c
+[v _wr1RegCompleteHandler wr1RegCompleteHandler `(E360  1 s 1 wr1RegCompleteHandler ]
+"50
+[v _i2c_writeNBytes i2c_writeNBytes `(v  1 e 1 0 ]
+"64
+[v _rd1RegCompleteHandler rd1RegCompleteHandler `(E360  1 s 1 rd1RegCompleteHandler ]
+"93
+[v _rd2RegCompleteHandler rd2RegCompleteHandler `(E360  1 s 1 rd2RegCompleteHandler ]
+"116
+[v _wr2RegCompleteHandler wr2RegCompleteHandler `(E360  1 s 1 wr2RegCompleteHandler ]
+"140
+[v _rdBlkRegCompleteHandler rdBlkRegCompleteHandler `(E360  1 s 1 rdBlkRegCompleteHandler ]
+"147
+[v _i2c_readDataBlock i2c_readDataBlock `(v  1 e 1 0 ]
+"88 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/eusart1.c
+[v _EUSART1_Initialize EUSART1_Initialize `(v  1 e 1 0 ]
+"137
+[v _EUSART1_is_rx_ready EUSART1_is_rx_ready `(a  1 e 1 0 ]
+"151
+[v _EUSART1_Read EUSART1_Read `(uc  1 e 1 0 ]
+"173
+[v _EUSART1_Write EUSART1_Write `(v  1 e 1 0 ]
+"197
+[v _EUSART1_Transmit_ISR EUSART1_Transmit_ISR `(v  1 e 1 0 ]
+"216
+[v _EUSART1_Receive_ISR EUSART1_Receive_ISR `(v  1 e 1 0 ]
+"240
+[v _EUSART1_RxDataHandler EUSART1_RxDataHandler `(v  1 e 1 0 ]
+"250
+[v _EUSART1_DefaultFramingErrorHandler EUSART1_DefaultFramingErrorHandler `(v  1 e 1 0 ]
+"252
+[v _EUSART1_DefaultOverrunErrorHandler EUSART1_DefaultOverrunErrorHandler `(v  1 e 1 0 ]
+"260
+[v _EUSART1_DefaultErrorHandler EUSART1_DefaultErrorHandler `(v  1 e 1 0 ]
+"264
+[v _EUSART1_SetFramingErrorHandler EUSART1_SetFramingErrorHandler `(v  1 e 1 0 ]
+"268
+[v _EUSART1_SetOverrunErrorHandler EUSART1_SetOverrunErrorHandler `(v  1 e 1 0 ]
+"272
+[v _EUSART1_SetErrorHandler EUSART1_SetErrorHandler `(v  1 e 1 0 ]
+"276
+[v _EUSART1_SetTxInterruptHandler EUSART1_SetTxInterruptHandler `(v  1 e 1 0 ]
+"280
+[v _EUSART1_SetRxInterruptHandler EUSART1_SetRxInterruptHandler `(v  1 e 1 0 ]
+"65 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/examples/i2c1_master_example.c
+[v _I2C1_Read1ByteRegister I2C1_Read1ByteRegister `(uc  1 e 1 0 ]
+"148
+[v _rd1RegCompleteHandler@i2c1_master_example$F500 rd1RegCompleteHandler `(E527  1 s 1 rd1RegCompleteHandler ]
+"155
+[v _rd2RegCompleteHandler@i2c1_master_example$F511 rd2RegCompleteHandler `(E527  1 s 1 rd2RegCompleteHandler ]
+"162
+[v _wr1RegCompleteHandler@i2c1_master_example$F517 wr1RegCompleteHandler `(E527  1 s 1 wr1RegCompleteHandler ]
+"169
+[v _wr2RegCompleteHandler@i2c1_master_example$F523 wr2RegCompleteHandler `(E527  1 s 1 wr2RegCompleteHandler ]
+"176
+[v _rdBlkRegCompleteHandler@i2c1_master_example$F535 rdBlkRegCompleteHandler `(E527  1 s 1 rdBlkRegCompleteHandler ]
+"167 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/i2c1_master.c
+[v _I2C1_Initialize I2C1_Initialize `(v  1 e 1 0 ]
+"176
+[v _I2C1_Open I2C1_Open `(E355  1 e 1 0 ]
+"209
+[v _I2C1_Close I2C1_Close `(E355  1 e 1 0 ]
+"224
+[v _I2C1_MasterOperation I2C1_MasterOperation `(E355  1 e 1 0 ]
+"246
+[v _I2C1_MasterRead I2C1_MasterRead `(E355  1 e 1 0 ]
+"251
+[v _I2C1_MasterWrite I2C1_MasterWrite `(E355  1 e 1 0 ]
+"263
+[v _I2C1_SetBuffer I2C1_SetBuffer `(v  1 e 1 0 ]
+"273
+[v _I2C1_SetDataCompleteCallback I2C1_SetDataCompleteCallback `(v  1 e 1 0 ]
+"283
+[v _I2C1_SetAddressNackCallback I2C1_SetAddressNackCallback `(v  1 e 1 0 ]
+"298
+[v _I2C1_SetCallback I2C1_SetCallback `(v  1 s 1 I2C1_SetCallback ]
+"312
+[v _I2C1_Poller I2C1_Poller `(v  1 s 1 I2C1_Poller ]
+"321
+[v _I2C1_MasterFsm I2C1_MasterFsm `T(v  1 s 1 I2C1_MasterFsm ]
+"333
+[v _I2C1_DO_IDLE I2C1_DO_IDLE `(E10442  1 s 1 I2C1_DO_IDLE ]
+"340
+[v _I2C1_DO_SEND_ADR_READ I2C1_DO_SEND_ADR_READ `(E10442  1 s 1 I2C1_DO_SEND_ADR_READ ]
+"347
+[v _I2C1_DO_SEND_ADR_WRITE I2C1_DO_SEND_ADR_WRITE `(E10442  1 s 1 I2C1_DO_SEND_ADR_WRITE ]
+"354
+[v _I2C1_DO_TX I2C1_DO_TX `(E10442  1 s 1 I2C1_DO_TX ]
+"378
+[v _I2C1_DO_RX I2C1_DO_RX `(E10442  1 s 1 I2C1_DO_RX ]
+"402
+[v _I2C1_DO_RCEN I2C1_DO_RCEN `(E10442  1 s 1 I2C1_DO_RCEN ]
+"409
+[v _I2C1_DO_TX_EMPTY I2C1_DO_TX_EMPTY `(E10442  1 s 1 I2C1_DO_TX_EMPTY ]
+"450
+[v _I2C1_DO_SEND_RESTART_READ I2C1_DO_SEND_RESTART_READ `(E10442  1 s 1 I2C1_DO_SEND_RESTART_READ ]
+"456
+[v _I2C1_DO_SEND_RESTART_WRITE I2C1_DO_SEND_RESTART_WRITE `(E10442  1 s 1 I2C1_DO_SEND_RESTART_WRITE ]
+"463
+[v _I2C1_DO_SEND_RESTART I2C1_DO_SEND_RESTART `(E10442  1 s 1 I2C1_DO_SEND_RESTART ]
+"469
+[v _I2C1_DO_SEND_STOP I2C1_DO_SEND_STOP `(E10442  1 s 1 I2C1_DO_SEND_STOP ]
+"475
+[v _I2C1_DO_RX_ACK I2C1_DO_RX_ACK `(E10442  1 s 1 I2C1_DO_RX_ACK ]
+"482
+[v _I2C1_DO_RX_NACK_STOP I2C1_DO_RX_NACK_STOP `(E10442  1 s 1 I2C1_DO_RX_NACK_STOP ]
+"488
+[v _I2C1_DO_RX_NACK_RESTART I2C1_DO_RX_NACK_RESTART `(E10442  1 s 1 I2C1_DO_RX_NACK_RESTART ]
+"494
+[v _I2C1_DO_RESET I2C1_DO_RESET `(E10442  1 s 1 I2C1_DO_RESET ]
+"500
+[v _I2C1_DO_ADDRESS_NACK I2C1_DO_ADDRESS_NACK `(E10442  1 s 1 I2C1_DO_ADDRESS_NACK ]
+"520
+[v _I2C1_CallbackReturnStop I2C1_CallbackReturnStop `(E360  1 e 1 0 ]
+"525
+[v _I2C1_CallbackReturnReset I2C1_CallbackReturnReset `(E360  1 e 1 0 ]
+"543
+[v _I2C1_MasterOpen I2C1_MasterOpen `T(a  1 s 1 I2C1_MasterOpen ]
+"557
+[v _I2C1_MasterClose I2C1_MasterClose `T(v  1 s 1 I2C1_MasterClose ]
+"563
+[v _I2C1_MasterGetRxData I2C1_MasterGetRxData `T(uc  1 s 1 I2C1_MasterGetRxData ]
+"568
+[v _I2C1_MasterSendTxData I2C1_MasterSendTxData `T(v  1 s 1 I2C1_MasterSendTxData ]
+"573
+[v _I2C1_MasterEnableRestart I2C1_MasterEnableRestart `T(v  1 s 1 I2C1_MasterEnableRestart ]
+"578
+[v _I2C1_MasterDisableRestart I2C1_MasterDisableRestart `T(v  1 s 1 I2C1_MasterDisableRestart ]
+"583
+[v _I2C1_MasterStartRx I2C1_MasterStartRx `T(v  1 s 1 I2C1_MasterStartRx ]
+"588
+[v _I2C1_MasterStart I2C1_MasterStart `T(v  1 s 1 I2C1_MasterStart ]
+"593
+[v _I2C1_MasterStop I2C1_MasterStop `T(v  1 s 1 I2C1_MasterStop ]
+"598
+[v _I2C1_MasterIsNack I2C1_MasterIsNack `T(a  1 s 1 I2C1_MasterIsNack ]
+"603
+[v _I2C1_MasterSendAck I2C1_MasterSendAck `T(v  1 s 1 I2C1_MasterSendAck ]
+"609
+[v _I2C1_MasterSendNack I2C1_MasterSendNack `T(v  1 s 1 I2C1_MasterSendNack ]
+"615
+[v _I2C1_MasterClearBusCollision I2C1_MasterClearBusCollision `T(v  1 s 1 I2C1_MasterClearBusCollision ]
+"625
+[v _I2C1_MasterEnableIrq I2C1_MasterEnableIrq `T(v  1 s 1 I2C1_MasterEnableIrq ]
+"635
+[v _I2C1_MasterDisableIrq I2C1_MasterDisableIrq `T(v  1 s 1 I2C1_MasterDisableIrq ]
+"640
+[v _I2C1_MasterClearIrq I2C1_MasterClearIrq `T(v  1 s 1 I2C1_MasterClearIrq ]
+"645
+[v _I2C1_MasterSetIrq I2C1_MasterSetIrq `T(v  1 s 1 I2C1_MasterSetIrq ]
+"650
+[v _I2C1_MasterWaitForEvent I2C1_MasterWaitForEvent `T(v  1 s 1 I2C1_MasterWaitForEvent ]
+"52 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/interrupt_manager.c
+[v _INTERRUPT_Initialize INTERRUPT_Initialize `(v  1 e 1 0 ]
+"58
+[v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `IIH(v  1 e 1 0 ]
+"50 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/mcc.c
+[v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
+"65
+[v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
+"79
+[v _PMD_Initialize PMD_Initialize `(v  1 e 1 0 ]
+"96
+[v _WWDT_Initialize WWDT_Initialize `(v  1 e 1 0 ]
+"104
+[v _WWDT_SoftEnable WWDT_SoftEnable `(v  1 e 1 0 ]
+"128
+[v _WWDT_TimerClear WWDT_TimerClear `(v  1 e 1 0 ]
+"55 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/pin_manager.c
+[v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
+"67 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/tmr0.c
+[v _TMR0_Initialize TMR0_Initialize `(v  1 e 1 0 ]
+"127
+[v _TMR0_ISR TMR0_ISR `(v  1 e 1 0 ]
+"143
+[v _TMR0_SetInterruptHandler TMR0_SetInterruptHandler `(v  1 e 1 0 ]
+"147
+[v _TMR0_DefaultInterruptHandler TMR0_DefaultInterruptHandler `(v  1 e 1 0 ]
+"66 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/tmr1.c
+[v _TMR1_Initialize TMR1_Initialize `(v  1 e 1 0 ]
+"129
+[v _TMR1_WriteTimer TMR1_WriteTimer `(v  1 e 1 0 ]
+"166
+[v _TMR1_ISR TMR1_ISR `(v  1 e 1 0 ]
+"192
+[v _TMR1_SetInterruptHandler TMR1_SetInterruptHandler `(v  1 e 1 0 ]
+"196
+[v _TMR1_DefaultInterruptHandler TMR1_DefaultInterruptHandler `(v  1 e 1 0 ]
+"79 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/tmr2.c
+[v _TMR2_Initialize TMR2_Initialize `(v  1 e 1 0 ]
+"123
+[v _TMR2_Start TMR2_Start `(v  1 e 1 0 ]
+"134
+[v _TMR2_Stop TMR2_Stop `(v  1 e 1 0 ]
+"145
+[v _TMR2_Counter8BitGet TMR2_Counter8BitGet `(uc  1 e 1 0 ]
+"159
+[v _TMR2_Counter8BitSet TMR2_Counter8BitSet `(v  1 e 1 0 ]
+"170
+[v _TMR2_Period8BitSet TMR2_Period8BitSet `(v  1 e 1 0 ]
+"180
+[v _TMR2_ISR TMR2_ISR `(v  1 e 1 0 ]
+"342
+[v _TMR2_SetInterruptHandler TMR2_SetInterruptHandler `(v  1 e 1 0 ]
+"346
+[v _TMR2_DefaultInterruptHandler TMR2_DefaultInterruptHandler `(v  1 e 1 0 ]
+"50 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\outputs_MC50.c
+[v _refreshSegment refreshSegment `(v  1 e 1 0 ]
+"93
+[v _Segments_Set Segments_Set `(v  1 e 1 0 ]
+"98
+[v _RGB_Set RGB_Set `(v  1 e 1 0 ]
+"104
+[v _SetSegmentValueMain SetSegmentValueMain `(v  1 e 1 0 ]
+"112
+[v _SetSegmentValue SetSegmentValue `(v  1 e 1 0 ]
+"124
+[v _SetSegmentValueLearn SetSegmentValueLearn `(v  1 e 1 0 ]
+"193
+[v _SetSegmentValueIntermitentMain SetSegmentValueIntermitentMain `(v  1 e 1 0 ]
+"201
+[v _SetSegmentValueIntermitent SetSegmentValueIntermitent `(v  1 e 1 0 ]
+"213
+[v _controlMotorForce controlMotorForce `(v  1 e 1 0 ]
+"405
+[v _GetMotorPower GetMotorPower `(uc  1 e 1 0 ]
+[v i2_GetMotorPower GetMotorPower `(uc  1 e 1 0 ]
+"463
+[v _ControlDecelarationFactor ControlDecelarationFactor `(v  1 e 1 0 ]
+"470
+[v _getStateOpenPosition getStateOpenPosition `(a  1 e 1 0 ]
+"527
+[v _controlVelocity controlVelocity `(v  1 e 1 0 ]
+"641
+[v _getTimeDecelaration getTimeDecelaration `(l  1 e 4 0 ]
+"658
+[v _VerifyElectricalBrake VerifyElectricalBrake `(E10381  1 e 1 0 ]
+[v i2_VerifyElectricalBrake VerifyElectricalBrake `(E10381  1 e 1 0 ]
+"703
+[v _ControlMotor ControlMotor `(v  1 e 1 0 ]
+"816
+[v _ControlLights ControlLights `(v  1 e 1 0 ]
+"1028
+[v _setRGB_ON setRGB_ON `(v  1 e 1 0 ]
+"1077
+[v _setFlashLigth_ON setFlashLigth_ON `(v  1 e 1 0 ]
+"12 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\sm_common_MC50.c
+[v _sm_init sm_init `(v  1 e 1 0 ]
+"23
+[v _sm_restart sm_restart `(v  1 e 1 0 ]
+"30
+[v _sm_get_current_state sm_get_current_state `(i  1 e 2 0 ]
+"34
+[v _sm_send_event sm_send_event `(v  1 e 1 0 ]
+"29 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\sm_ControlGate_MC50.c
+[v _OpenFullOrder OpenFullOrder `(v  1 e 1 0 ]
+"41
+[v _WaitPreFlash WaitPreFlash `(v  1 e 1 0 ]
+"63
+[v _CloseOrder CloseOrder `(v  1 e 1 0 ]
+"71
+[v _OpenWalkOrder OpenWalkOrder `(v  1 e 1 0 ]
+"96
+[v _StopOrder StopOrder `(v  1 e 1 0 ]
+"103
+[v _InitWalkAutoTime InitWalkAutoTime `(v  1 e 1 0 ]
+"109
+[v _InitFullAutoTime InitFullAutoTime `(v  1 e 1 0 ]
+"117
+[v _VerifyFollowMe VerifyFollowMe `(v  1 e 1 0 ]
+"128
+[v _sm_execute_ControlGate sm_execute_ControlGate `(v  1 e 1 0 ]
+"327
+[v _actionZone_Closed actionZone_Closed `(v  1 e 1 0 ]
+"374
+[v _actionZone_Opening actionZone_Opening `(v  1 e 1 0 ]
+"514
+[v _actionZone_Opened actionZone_Opened `(v  1 e 1 0 ]
+"649
+[v _actionZone_Closing actionZone_Closing `(v  1 e 1 0 ]
+"816
+[v _InitSoftStart InitSoftStart `(v  1 e 1 0 ]
+"849
+[v _InitSoftStop InitSoftStop `(v  1 e 1 0 ]
+"867
+[v _setPositionInvertionInClosing setPositionInvertionInClosing `(v  1 e 1 0 ]
+"894
+[v _setPositionInvertionInOpening setPositionInvertionInOpening `(v  1 e 1 0 ]
+"29 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\sm_ControlLearning_MC50.c
+[v _sm_execute_ControlLearning sm_execute_ControlLearning `(v  1 e 1 0 ]
+"411
+[v _calculateMean calculateMean `(ul  1 e 4 0 ]
+"424
+[v _generateErrorLearnig generateErrorLearnig `(v  1 e 1 0 ]
+"436
+[v _clearLearningValue clearLearningValue `(v  1 e 1 0 ]
+"26 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\sm_Main_MC50.c
+[v _sm_execute_main sm_execute_main `(v  1 e 1 0 ]
+"31 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\sm_MenuConfiguration_MC50.c
+[v _sm_execute_menuConfiguration sm_execute_menuConfiguration `(v  1 e 1 0 ]
+"433
+[v _load_New_Menu load_New_Menu `(v  1 e 1 0 ]
+"647
+[v _setValueToEdit setValueToEdit `(uc  1 e 1 0 ]
+"1089
+[v _controlSelectRemote controlSelectRemote `(v  1 e 1 0 ]
+"1198
+[v _controlSaveRemote controlSaveRemote `(v  1 e 1 0 ]
+"1219
+[v _controlLearnDigit controlLearnDigit `(v  1 e 1 0 ]
+"24 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos/eusartparser.h
+[v _programmer_enable programmer_enable `a  1 e 1 0 ]
+"3600 C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f46k40.h
+[v _RX1PPS RX1PPS `VEuc  1 e 1 @3765 ]
+"3792
+[v _SSP1CLKPPS SSP1CLKPPS `VEuc  1 e 1 @3767 ]
+"3858
+[v _SSP1DATPPS SSP1DATPPS `VEuc  1 e 1 @3768 ]
+[s S1758 . 1 `uc 1 INT0IE 1 0 :1:0 
+`uc 1 INT1IE 1 0 :1:1 
+`uc 1 INT2IE 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 IOCIE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+]
+"4401
+[u S1765 . 1 `S1758 1 . 1 0 ]
+[v _PIE0bits PIE0bits `VES1765  1 e 1 @3778 ]
+[s S37 . 1 `uc 1 SSP1IE 1 0 :1:0 
+`uc 1 BCL1IE 1 0 :1:1 
+`uc 1 SSP2IE 1 0 :1:2 
+`uc 1 BCL2IE 1 0 :1:3 
+`uc 1 TX1IE 1 0 :1:4 
+`uc 1 RC1IE 1 0 :1:5 
+`uc 1 TX2IE 1 0 :1:6 
+`uc 1 RC2IE 1 0 :1:7 
+]
+"4557
+[s S46 . 1 `uc 1 RXB0IE 1 0 :1:0 
+`uc 1 RXB1IE 1 0 :1:1 
+`uc 1 TXB0IE 1 0 :1:2 
+`uc 1 TXB1IE 1 0 :1:3 
+`uc 1 TXB2IE 1 0 :1:4 
+]
+[s S52 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 RXBNIE 1 0 :1:1 
+`uc 1 . 1 0 :2:2 
+`uc 1 TXBNIE 1 0 :1:4 
+]
+[u S57 . 1 `S37 1 . 1 0 `S46 1 . 1 0 `S52 1 . 1 0 ]
+[v _PIE3bits PIE3bits `VES57  1 e 1 @3781 ]
+[s S1843 . 1 `uc 1 TMR1IE 1 0 :1:0 
+`uc 1 TMR2IE 1 0 :1:1 
+`uc 1 TMR3IE 1 0 :1:2 
+`uc 1 TMR4IE 1 0 :1:3 
+`uc 1 TMR5IE 1 0 :1:4 
+`uc 1 TMR6IE 1 0 :1:5 
+]
+"4652
+[u S1850 . 1 `S1843 1 . 1 0 ]
+[v _PIE4bits PIE4bits `VES1850  1 e 1 @3782 ]
+[s S1775 . 1 `uc 1 INT0IF 1 0 :1:0 
+`uc 1 INT1IF 1 0 :1:1 
+`uc 1 INT2IF 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 IOCIF 1 0 :1:4 
+`uc 1 TMR0IF 1 0 :1:5 
+]
+"4807
+[u S1782 . 1 `S1775 1 . 1 0 ]
+[v _PIR0bits PIR0bits `VES1782  1 e 1 @3786 ]
+[s S1222 . 1 `uc 1 SSP1IF 1 0 :1:0 
+`uc 1 BCL1IF 1 0 :1:1 
+`uc 1 SSP2IF 1 0 :1:2 
+`uc 1 BCL2IF 1 0 :1:3 
+`uc 1 TX1IF 1 0 :1:4 
+`uc 1 RC1IF 1 0 :1:5 
+`uc 1 TX2IF 1 0 :1:6 
+`uc 1 RC2IF 1 0 :1:7 
+]
+"4956
+[s S1231 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 RXBNIF 1 0 :1:1 
+`uc 1 . 1 0 :2:2 
+`uc 1 TXBNIF 1 0 :1:4 
+]
+[u S1236 . 1 `S1222 1 . 1 0 `S1231 1 . 1 0 ]
+[v _PIR3bits PIR3bits `VES1236  1 e 1 @3789 ]
+[s S1860 . 1 `uc 1 TMR1IF 1 0 :1:0 
+`uc 1 TMR2IF 1 0 :1:1 
+`uc 1 TMR3IF 1 0 :1:2 
+`uc 1 TMR4IF 1 0 :1:3 
+`uc 1 TMR5IF 1 0 :1:4 
+`uc 1 TMR6IF 1 0 :1:5 
+]
+"5026
+[u S1867 . 1 `S1860 1 . 1 0 ]
+[v _PIR4bits PIR4bits `VES1867  1 e 1 @3790 ]
+"5166
+[v _WDTCON0 WDTCON0 `VEuc  1 e 1 @3794 ]
+[s S1972 . 1 `uc 1 SEN 1 0 :1:0 
+`uc 1 WDTPS 1 0 :5:1 
+]
+"5191
+[s S1975 . 1 `uc 1 SWDTEN 1 0 :1:0 
+]
+[s S1977 . 1 `uc 1 WDTSEN 1 0 :1:0 
+]
+[s S1979 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 WDTPS0 1 0 :1:1 
+`uc 1 WDTPS1 1 0 :1:2 
+`uc 1 WDTPS2 1 0 :1:3 
+`uc 1 WDTPS3 1 0 :1:4 
+`uc 1 WDTPS4 1 0 :1:5 
+]
+[u S1986 . 1 `S1972 1 . 1 0 `S1975 1 . 1 0 `S1977 1 . 1 0 `S1979 1 . 1 0 ]
+[v _WDTCON0bits WDTCON0bits `VES1986  1 e 1 @3794 ]
+"5241
+[v _WDTCON1 WDTCON1 `VEuc  1 e 1 @3795 ]
+"5744
+[v _OSCCON1 OSCCON1 `VEuc  1 e 1 @3800 ]
+"5884
+[v _OSCCON3 OSCCON3 `VEuc  1 e 1 @3802 ]
+"6036
+[v _OSCEN OSCEN `VEuc  1 e 1 @3804 ]
+"6087
+[v _OSCTUNE OSCTUNE `VEuc  1 e 1 @3805 ]
+"6145
+[v _OSCFRQ OSCFRQ `VEuc  1 e 1 @3806 ]
+"6252
+[v _PMD0 PMD0 `VEuc  1 e 1 @3809 ]
+"6329
+[v _PMD1 PMD1 `VEuc  1 e 1 @3810 ]
+"6393
+[v _PMD2 PMD2 `VEuc  1 e 1 @3811 ]
+"6438
+[v _PMD3 PMD3 `VEuc  1 e 1 @3812 ]
+"6476
+[v _PMD4 PMD4 `VEuc  1 e 1 @3813 ]
+"6529
+[v _PMD5 PMD5 `VEuc  1 e 1 @3814 ]
+"7385
+[v _RC3PPS RC3PPS `VEuc  1 e 1 @3834 ]
+"7429
+[v _RC4PPS RC4PPS `VEuc  1 e 1 @3835 ]
+"7561
+[v _RC7PPS RC7PPS `VEuc  1 e 1 @3838 ]
+"8275
+[v _INLVLA INLVLA `VEuc  1 e 1 @3853 ]
+"8337
+[v _SLRCONA SLRCONA `VEuc  1 e 1 @3854 ]
+"8399
+[v _ODCONA ODCONA `VEuc  1 e 1 @3855 ]
+"8461
+[v _WPUA WPUA `VEuc  1 e 1 @3856 ]
+"8523
+[v _ANSELA ANSELA `VEuc  1 e 1 @3857 ]
+"8771
+[v _INLVLB INLVLB `VEuc  1 e 1 @3861 ]
+"8833
+[v _SLRCONB SLRCONB `VEuc  1 e 1 @3862 ]
+"8895
+[v _ODCONB ODCONB `VEuc  1 e 1 @3863 ]
+"8957
+[v _WPUB WPUB `VEuc  1 e 1 @3864 ]
+"9019
+[v _ANSELB ANSELB `VEuc  1 e 1 @3865 ]
+"9267
+[v _INLVLC INLVLC `VEuc  1 e 1 @3869 ]
+"9329
+[v _SLRCONC SLRCONC `VEuc  1 e 1 @3870 ]
+"9391
+[v _ODCONC ODCONC `VEuc  1 e 1 @3871 ]
+"9453
+[v _WPUC WPUC `VEuc  1 e 1 @3872 ]
+"9515
+[v _ANSELC ANSELC `VEuc  1 e 1 @3873 ]
+"9577
+[v _INLVLD INLVLD `VEuc  1 e 1 @3874 ]
+"9639
+[v _SLRCOND SLRCOND `VEuc  1 e 1 @3875 ]
+"9701
+[v _ODCOND ODCOND `VEuc  1 e 1 @3876 ]
+"9763
+[v _WPUD WPUD `VEuc  1 e 1 @3877 ]
+"9825
+[v _ANSELD ANSELD `VEuc  1 e 1 @3878 ]
+"9950
+[v _INLVLE INLVLE `VEuc  1 e 1 @3882 ]
+"9988
+[v _SLRCONE SLRCONE `VEuc  1 e 1 @3883 ]
+"10020
+[v _ODCONE ODCONE `VEuc  1 e 1 @3884 ]
+"10052
+[v _WPUE WPUE `VEuc  1 e 1 @3885 ]
+"10090
+[v _ANSELE ANSELE `VEuc  1 e 1 @3886 ]
+"13330
+[v _ADACT ADACT `VEuc  1 e 1 @3926 ]
+"13382
+[v _ADCLK ADCLK `VEuc  1 e 1 @3927 ]
+"13440
+[v _ADREF ADREF `VEuc  1 e 1 @3928 ]
+"13481
+[v _ADCON1 ADCON1 `VEuc  1 e 1 @3929 ]
+"13520
+[v _ADCON2 ADCON2 `VEuc  1 e 1 @3930 ]
+"13597
+[v _ADCON3 ADCON3 `VEuc  1 e 1 @3931 ]
+"13668
+[v _ADACQ ADACQ `VEuc  1 e 1 @3932 ]
+"13738
+[v _ADCAP ADCAP `VEuc  1 e 1 @3933 ]
+"13790
+[v _ADPRE ADPRE `VEuc  1 e 1 @3934 ]
+"13860
+[v _ADPCH ADPCH `VEuc  1 e 1 @3935 ]
+"13918
+[v _ADCON0 ADCON0 `VEuc  1 e 1 @3936 ]
+[s S617 . 1 `uc 1 ADGO 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 ADFM 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 ADCS 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 ADCONT 1 0 :1:6 
+`uc 1 ADON 1 0 :1:7 
+]
+"13953
+[s S626 . 1 `uc 1 GO 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 ADFM0 1 0 :1:2 
+]
+[s S630 . 1 `uc 1 DONE 1 0 :1:0 
+]
+[s S632 . 1 `uc 1 GO_NOT_DONE 1 0 :1:0 
+]
+[s S634 . 1 `uc 1 GO_nDONE 1 0 :1:0 
+]
+[s S636 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 ADCAL 1 0 :1:7 
+]
+[u S639 . 1 `S617 1 . 1 0 `S626 1 . 1 0 `S630 1 . 1 0 `S632 1 . 1 0 `S634 1 . 1 0 `S636 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES639  1 e 1 @3936 ]
+"14020
+[v _ADPREVL ADPREVL `VEuc  1 e 1 @3937 ]
+"14090
+[v _ADPREVH ADPREVH `VEuc  1 e 1 @3938 ]
+"14167
+[v _ADRESL ADRESL `VEuc  1 e 1 @3939 ]
+"14237
+[v _ADRESH ADRESH `VEuc  1 e 1 @3940 ]
+"14299
+[v _ADSTAT ADSTAT `VEuc  1 e 1 @3941 ]
+"14364
+[v _ADRPT ADRPT `VEuc  1 e 1 @3942 ]
+"14434
+[v _ADCNT ADCNT `VEuc  1 e 1 @3943 ]
+"14511
+[v _ADSTPTL ADSTPTL `VEuc  1 e 1 @3944 ]
+"14581
+[v _ADSTPTH ADSTPTH `VEuc  1 e 1 @3945 ]
+"14658
+[v _ADLTHL ADLTHL `VEuc  1 e 1 @3946 ]
+"14728
+[v _ADLTHH ADLTHH `VEuc  1 e 1 @3947 ]
+"14805
+[v _ADUTHL ADUTHL `VEuc  1 e 1 @3948 ]
+"14875
+[v _ADUTHH ADUTHH `VEuc  1 e 1 @3949 ]
+"14952
+[v _ADERRL ADERRL `VEuc  1 e 1 @3950 ]
+"15022
+[v _ADERRH ADERRH `VEuc  1 e 1 @3951 ]
+"15099
+[v _ADACCL ADACCL `VEuc  1 e 1 @3952 ]
+"15169
+[v _ADACCH ADACCH `VEuc  1 e 1 @3953 ]
+"15246
+[v _ADFLTRL ADFLTRL `VEuc  1 e 1 @3954 ]
+"15316
+[v _ADFLTRH ADFLTRH `VEuc  1 e 1 @3955 ]
+"16388
+[v _LATA LATA `VEuc  1 e 1 @3971 ]
+[s S5016 . 1 `uc 1 LATA0 1 0 :1:0 
+`uc 1 LATA1 1 0 :1:1 
+`uc 1 LATA2 1 0 :1:2 
+`uc 1 LATA3 1 0 :1:3 
+`uc 1 LATA4 1 0 :1:4 
+`uc 1 LATA5 1 0 :1:5 
+`uc 1 LATA6 1 0 :1:6 
+`uc 1 LATA7 1 0 :1:7 
+]
+"16415
+[s S5025 . 1 `uc 1 LA0 1 0 :1:0 
+`uc 1 LA1 1 0 :1:1 
+`uc 1 LA2 1 0 :1:2 
+`uc 1 LA3 1 0 :1:3 
+`uc 1 LA4 1 0 :1:4 
+`uc 1 LA5 1 0 :1:5 
+`uc 1 LA6 1 0 :1:6 
+`uc 1 LA7 1 0 :1:7 
+]
+[u S5034 . 1 `S5016 1 . 1 0 `S5025 1 . 1 0 ]
+[v _LATAbits LATAbits `VES5034  1 e 1 @3971 ]
+"16500
+[v _LATB LATB `VEuc  1 e 1 @3972 ]
+"16612
+[v _LATC LATC `VEuc  1 e 1 @3973 ]
+[s S4929 . 1 `uc 1 LATC0 1 0 :1:0 
+`uc 1 LATC1 1 0 :1:1 
+`uc 1 LATC2 1 0 :1:2 
+`uc 1 LATC3 1 0 :1:3 
+`uc 1 LATC4 1 0 :1:4 
+`uc 1 LATC5 1 0 :1:5 
+`uc 1 LATC6 1 0 :1:6 
+`uc 1 LATC7 1 0 :1:7 
+]
+"16639
+[s S4938 . 1 `uc 1 LC0 1 0 :1:0 
+`uc 1 LC1 1 0 :1:1 
+`uc 1 LC2 1 0 :1:2 
+`uc 1 LC3 1 0 :1:3 
+`uc 1 LC4 1 0 :1:4 
+`uc 1 LC5 1 0 :1:5 
+`uc 1 LC6 1 0 :1:6 
+`uc 1 LC7 1 0 :1:7 
+]
+[u S4947 . 1 `S4929 1 . 1 0 `S4938 1 . 1 0 ]
+[v _LATCbits LATCbits `VES4947  1 e 1 @3973 ]
+"16724
+[v _LATD LATD `VEuc  1 e 1 @3974 ]
+[s S5140 . 1 `uc 1 LATD0 1 0 :1:0 
+`uc 1 LATD1 1 0 :1:1 
+`uc 1 LATD2 1 0 :1:2 
+`uc 1 LATD3 1 0 :1:3 
+`uc 1 LATD4 1 0 :1:4 
+`uc 1 LATD5 1 0 :1:5 
+`uc 1 LATD6 1 0 :1:6 
+`uc 1 LATD7 1 0 :1:7 
+]
+"16751
+[s S5149 . 1 `uc 1 LD0 1 0 :1:0 
+`uc 1 LD1 1 0 :1:1 
+`uc 1 LD2 1 0 :1:2 
+`uc 1 LD3 1 0 :1:3 
+`uc 1 LD4 1 0 :1:4 
+`uc 1 LD5 1 0 :1:5 
+`uc 1 LD6 1 0 :1:6 
+`uc 1 LD7 1 0 :1:7 
+]
+[u S5158 . 1 `S5140 1 . 1 0 `S5149 1 . 1 0 ]
+[v _LATDbits LATDbits `VES5158  1 e 1 @3974 ]
+"16836
+[v _LATE LATE `VEuc  1 e 1 @3975 ]
+[s S5316 . 1 `uc 1 LATE0 1 0 :1:0 
+`uc 1 LATE1 1 0 :1:1 
+`uc 1 LATE2 1 0 :1:2 
+]
+"16873
+[s S5320 . 1 `uc 1 LE0 1 0 :1:0 
+`uc 1 LE1 1 0 :1:1 
+`uc 1 LE2 1 0 :1:2 
+]
+[s S5324 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 LE3 1 0 :1:3 
+]
+[s S5327 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 LE4 1 0 :1:4 
+]
+[s S5330 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 LE5 1 0 :1:5 
+]
+[s S5333 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 LE6 1 0 :1:6 
+]
+[s S5336 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 LE7 1 0 :1:7 
+]
+[u S5339 . 1 `S5316 1 . 1 0 `S5320 1 . 1 0 `S5324 1 . 1 0 `S5327 1 . 1 0 `S5330 1 . 1 0 `S5333 1 . 1 0 `S5336 1 . 1 0 ]
+[v _LATEbits LATEbits `VES5339  1 e 1 @3975 ]
+"16933
+[v _TRISA TRISA `VEuc  1 e 1 @3976 ]
+"17055
+[v _TRISB TRISB `VEuc  1 e 1 @3977 ]
+"17177
+[v _TRISC TRISC `VEuc  1 e 1 @3978 ]
+"17299
+[v _TRISD TRISD `VEuc  1 e 1 @3979 ]
+"17421
+[v _TRISE TRISE `VEuc  1 e 1 @3980 ]
+[s S3479 . 1 `uc 1 RA0 1 0 :1:0 
+`uc 1 RA1 1 0 :1:1 
+`uc 1 RA2 1 0 :1:2 
+`uc 1 RA3 1 0 :1:3 
+`uc 1 RA4 1 0 :1:4 
+`uc 1 RA5 1 0 :1:5 
+`uc 1 RA6 1 0 :1:6 
+`uc 1 RA7 1 0 :1:7 
+]
+"17507
+[s S3488 . 1 `uc 1 ULPWUIN 1 0 :1:0 
+`uc 1 . 1 0 :4:1 
+`uc 1 LVDIN 1 0 :1:5 
+`uc 1 . 1 0 :1:6 
+`uc 1 RJPU 1 0 :1:7 
+]
+[u S3494 . 1 `S3479 1 . 1 0 `S3488 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES3494  1 e 1 @3981 ]
+"17567
+[v _PORTB PORTB `VEuc  1 e 1 @3982 ]
+[s S3513 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+"17588
+[s S3522 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 CCP2_PA2 1 0 :1:3 
+]
+[u S3525 . 1 `S3513 1 . 1 0 `S3522 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES3525  1 e 1 @3982 ]
+[s S4005 . 1 `uc 1 RE0 1 0 :1:0 
+`uc 1 RE1 1 0 :1:1 
+`uc 1 RE2 1 0 :1:2 
+`uc 1 RE3 1 0 :1:3 
+]
+"17872
+[s S4010 . 1 `uc 1 PD2 1 0 :1:0 
+`uc 1 PC2 1 0 :1:1 
+`uc 1 CCP10 1 0 :1:2 
+`uc 1 CCP9E 1 0 :1:3 
+]
+[s S4015 . 1 `uc 1 RDE 1 0 :1:0 
+`uc 1 WRE 1 0 :1:1 
+`uc 1 CS 1 0 :1:2 
+`uc 1 PC3E 1 0 :1:3 
+]
+[s S4020 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 PB2 1 0 :1:2 
+]
+[s S4023 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 CCP2E 1 0 :1:7 
+]
+[s S4026 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 CCP6E 1 0 :1:6 
+]
+[s S4029 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 CCP7E 1 0 :1:5 
+]
+[s S4032 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 CCP8E 1 0 :1:4 
+]
+[s S4035 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 PA2E 1 0 :1:7 
+]
+[s S4038 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 PB1E 1 0 :1:6 
+]
+[s S4041 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 PB3E 1 0 :1:4 
+]
+[s S4044 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 PC1E 1 0 :1:5 
+]
+[s S4047 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 RE4 1 0 :1:4 
+]
+[s S4050 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 RE5 1 0 :1:5 
+]
+[s S4053 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RE6 1 0 :1:6 
+]
+[s S4056 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 RE7 1 0 :1:7 
+]
+[u S4059 . 1 `S4005 1 . 1 0 `S4010 1 . 1 0 `S4015 1 . 1 0 `S4020 1 . 1 0 `S4023 1 . 1 0 `S4026 1 . 1 0 `S4029 1 . 1 0 `S4032 1 . 1 0 `S4035 1 . 1 0 `S4038 1 . 1 0 `S4041 1 . 1 0 `S4044 1 . 1 0 `S4047 1 . 1 0 `S4050 1 . 1 0 `S4053 1 . 1 0 `S4056 1 . 1 0 ]
+[v _PORTEbits PORTEbits `VES4059  1 e 1 @3985 ]
+"18002
+[v _SSP1BUF SSP1BUF `VEuc  1 e 1 @3986 ]
+"18022
+[v _SSP1ADD SSP1ADD `VEuc  1 e 1 @3987 ]
+"18212
+[v _SSP1STAT SSP1STAT `VEuc  1 e 1 @3989 ]
+"18666
+[v _SSP1CON1 SSP1CON1 `VEuc  1 e 1 @3990 ]
+[s S961 . 1 `uc 1 SSPM 1 0 :4:0 
+`uc 1 CKP 1 0 :1:4 
+`uc 1 SSPEN 1 0 :1:5 
+`uc 1 SSPOV 1 0 :1:6 
+`uc 1 WCOL 1 0 :1:7 
+]
+"18696
+[s S967 . 1 `uc 1 SSPM0 1 0 :1:0 
+`uc 1 SSPM1 1 0 :1:1 
+`uc 1 SSPM2 1 0 :1:2 
+`uc 1 SSPM3 1 0 :1:3 
+]
+[s S972 . 1 `uc 1 SSPM01 1 0 :1:0 
+`uc 1 SSPM11 1 0 :1:1 
+`uc 1 SSPM21 1 0 :1:2 
+`uc 1 SSPM31 1 0 :1:3 
+`uc 1 CKP1 1 0 :1:4 
+`uc 1 SSPEN1 1 0 :1:5 
+`uc 1 SSPOV1 1 0 :1:6 
+`uc 1 WCOL1 1 0 :1:7 
+]
+[u S981 . 1 `S961 1 . 1 0 `S967 1 . 1 0 `S972 1 . 1 0 ]
+[v _SSP1CON1bits SSP1CON1bits `VES981  1 e 1 @3990 ]
+"18786
+[v _SSP1CON2 SSP1CON2 `VEuc  1 e 1 @3991 ]
+[s S1145 . 1 `uc 1 SEN 1 0 :1:0 
+`uc 1 RSEN 1 0 :1:1 
+`uc 1 PEN 1 0 :1:2 
+`uc 1 RCEN 1 0 :1:3 
+`uc 1 ACKEN 1 0 :1:4 
+`uc 1 ACKDT 1 0 :1:5 
+`uc 1 ACKSTAT 1 0 :1:6 
+`uc 1 GCEN 1 0 :1:7 
+]
+"18833
+[s S1154 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 ADMSK 1 0 :5:1 
+]
+[s S1157 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 ADMSK1 1 0 :1:1 
+`uc 1 ADMSK2 1 0 :1:2 
+`uc 1 ADMSK3 1 0 :1:3 
+`uc 1 ADMSK4 1 0 :1:4 
+`uc 1 ADMSK5 1 0 :1:5 
+]
+[s S1164 . 1 `uc 1 SEN1 1 0 :1:0 
+`uc 1 ADMSK11 1 0 :1:1 
+`uc 1 ADMSK21 1 0 :1:2 
+`uc 1 ADMSK31 1 0 :1:3 
+`uc 1 ACKEN1 1 0 :1:4 
+`uc 1 ACKDT1 1 0 :1:5 
+`uc 1 ACKSTAT1 1 0 :1:6 
+`uc 1 GCEN1 1 0 :1:7 
+]
+[s S1173 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 RSEN1 1 0 :1:1 
+`uc 1 PEN1 1 0 :1:2 
+`uc 1 RCEN1 1 0 :1:3 
+`uc 1 ADMSK41 1 0 :1:4 
+`uc 1 ADMSK51 1 0 :1:5 
+]
+[u S1180 . 1 `S1145 1 . 1 0 `S1154 1 . 1 0 `S1157 1 . 1 0 `S1164 1 . 1 0 `S1173 1 . 1 0 ]
+[v _SSP1CON2bits SSP1CON2bits `VES1180  1 e 1 @3991 ]
+"19035
+[v _RC1REG RC1REG `VEuc  1 e 1 @3993 ]
+"19089
+[v _TX1REG TX1REG `VEuc  1 e 1 @3994 ]
+"19150
+[v _SP1BRGL SP1BRGL `VEuc  1 e 1 @3995 ]
+"19220
+[v _SP1BRGH SP1BRGH `VEuc  1 e 1 @3996 ]
+"19274
+[v _RC1STA RC1STA `VEuc  1 e 1 @3997 ]
+[s S225 . 1 `uc 1 RX9D 1 0 :1:0 
+`uc 1 OERR 1 0 :1:1 
+`uc 1 FERR 1 0 :1:2 
+`uc 1 ADDEN 1 0 :1:3 
+`uc 1 CREN 1 0 :1:4 
+`uc 1 SREN 1 0 :1:5 
+`uc 1 RX9 1 0 :1:6 
+`uc 1 SPEN 1 0 :1:7 
+]
+"19315
+[s S234 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RC8_9 1 0 :1:6 
+]
+[s S237 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RC9 1 0 :1:6 
+]
+[s S240 . 1 `uc 1 RCD8 1 0 :1:0 
+]
+[s S242 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 SRENA 1 0 :1:5 
+]
+[u S245 . 1 `S225 1 . 1 0 `S234 1 . 1 0 `S237 1 . 1 0 `S240 1 . 1 0 `S242 1 . 1 0 ]
+[v _RC1STAbits RC1STAbits `VES245  1 e 1 @3997 ]
+"19559
+[v _TX1STA TX1STA `VEuc  1 e 1 @3998 ]
+"20003
+[v _BAUD1CON BAUD1CON `VEuc  1 e 1 @3999 ]
+"23097
+[v _T2TMR T2TMR `VEuc  1 e 1 @4027 ]
+"23135
+[v _T2PR T2PR `VEuc  1 e 1 @4028 ]
+"23173
+[v _T2CON T2CON `VEuc  1 e 1 @4029 ]
+"23319
+[v _T2HLT T2HLT `VEuc  1 e 1 @4030 ]
+"23447
+[v _T2CLKCON T2CLKCON `VEuc  1 e 1 @4031 ]
+"23605
+[v _T2RST T2RST `VEuc  1 e 1 @4032 ]
+"25546
+[v _TMR1L TMR1L `VEuc  1 e 1 @4045 ]
+"25716
+[v _TMR1H TMR1H `VEuc  1 e 1 @4046 ]
+"25836
+[v _T1CON T1CON `VEuc  1 e 1 @4047 ]
+[s S2277 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 NOT_SYNC 1 0 :1:2 
+]
+"25875
+[s S2280 . 1 `uc 1 ON 1 0 :1:0 
+`uc 1 RD16 1 0 :1:1 
+`uc 1 nSYNC 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 CKPS 1 0 :2:4 
+]
+[s S2286 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 NOT_T1SYNC 1 0 :1:2 
+]
+[s S2289 . 1 `uc 1 TMR1ON 1 0 :1:0 
+`uc 1 T1RD16 1 0 :1:1 
+`uc 1 nT1SYNC 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 T1CKPS0 1 0 :1:4 
+`uc 1 T1CKPS1 1 0 :1:5 
+]
+[s S2296 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 CKPS0 1 0 :1:4 
+`uc 1 CKPS1 1 0 :1:5 
+]
+[s S2300 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 RD161 1 0 :1:1 
+]
+[u S2303 . 1 `S2277 1 . 1 0 `S2280 1 . 1 0 `S2286 1 . 1 0 `S2289 1 . 1 0 `S2296 1 . 1 0 `S2300 1 . 1 0 ]
+[v _T1CONbits T1CONbits `VES2303  1 e 1 @4047 ]
+"25950
+[v _T1GCON T1GCON `VEuc  1 e 1 @4048 ]
+"26182
+[v _T1GATE T1GATE `VEuc  1 e 1 @4049 ]
+"26324
+[v _T1CLK T1CLK `VEuc  1 e 1 @4050 ]
+"26466
+[v _TMR0L TMR0L `VEuc  1 e 1 @4051 ]
+"26604
+[v _TMR0H TMR0H `VEuc  1 e 1 @4052 ]
+"26858
+[v _T0CON0 T0CON0 `VEuc  1 e 1 @4053 ]
+"26923
+[v _T0CON1 T0CON1 `VEuc  1 e 1 @4054 ]
+[s S2006 . 1 `uc 1 NOT_BOR 1 0 :1:0 
+]
+"27082
+[s S2008 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 NOT_POR 1 0 :1:1 
+]
+[s S2011 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 NOT_RI 1 0 :1:2 
+]
+[s S2014 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 NOT_RMCLR 1 0 :1:3 
+]
+[s S2017 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 NOT_RWDT 1 0 :1:4 
+]
+[s S2020 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 NOT_WDTWV 1 0 :1:5 
+]
+[s S2023 . 1 `uc 1 nBOR 1 0 :1:0 
+`uc 1 nPOR 1 0 :1:1 
+`uc 1 nRI 1 0 :1:2 
+`uc 1 nRMCLR 1 0 :1:3 
+`uc 1 nRWDT 1 0 :1:4 
+`uc 1 nWDTWV 1 0 :1:5 
+`uc 1 STKUNF 1 0 :1:6 
+`uc 1 STKOVF 1 0 :1:7 
+]
+[s S2032 . 1 `uc 1 BOR 1 0 :1:0 
+`uc 1 POR 1 0 :1:1 
+`uc 1 RI 1 0 :1:2 
+`uc 1 RMCLR 1 0 :1:3 
+`uc 1 RWDT 1 0 :1:4 
+`uc 1 WDTWV 1 0 :1:5 
+]
+[u S2039 . 1 `S2006 1 . 1 0 `S2008 1 . 1 0 `S2011 1 . 1 0 `S2014 1 . 1 0 `S2017 1 . 1 0 `S2020 1 . 1 0 `S2023 1 . 1 0 `S2032 1 . 1 0 ]
+[v _PCON0bits PCON0bits `VES2039  1 e 1 @4055 ]
+[s S1721 . 1 `uc 1 INT0EDG 1 0 :1:0 
+`uc 1 INT1EDG 1 0 :1:1 
+`uc 1 INT2EDG 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 IPEN 1 0 :1:5 
+`uc 1 PEIE_GIEL 1 0 :1:6 
+`uc 1 GIE_GIEH 1 0 :1:7 
+]
+"27776
+[s S1729 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+[s S1733 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+[u S1737 . 1 `S1721 1 . 1 0 `S1729 1 . 1 0 `S1733 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES1737  1 e 1 @4082 ]
+"30128
+[v _GIE GIE `VEb  1 e 0 @32663 ]
+"30578
+[v _IOCBN3 IOCBN3 `VEb  1 e 0 @30875 ]
+"30602
+[v _IOCBP3 IOCBP3 `VEb  1 e 0 @30883 ]
+"33692
+[v _TMR0IE TMR0IE `VEb  1 e 0 @30229 ]
+"33695
+[v _TMR0IF TMR0IF `VEb  1 e 0 @30293 ]
+"20 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\controlCurrent_MC50.c
+[v _ADC_array ADC_array `[30]ui  1 e 60 0 ]
+"21
+[v _SumEnergyADCHist_array SumEnergyADCHist_array `VE[10]ui  1 e 20 0 ]
+"22
+[v _ADC_zero_array ADC_zero_array `VE[30]ui  1 e 60 0 ]
+"24
+[v _idxAdcAquisition idxAdcAquisition `VEuc  1 e 1 0 ]
+"25
+[v _idxSaveEnergyADCHist idxSaveEnergyADCHist `VEuc  1 e 1 0 ]
+"26
+[v _idxAdcZeroAquisition idxAdcZeroAquisition `VEuc  1 e 1 0 ]
+"27
+[v _numberOfErrorCurrent numberOfErrorCurrent `VEuc  1 e 1 0 ]
+"32
+[v _erroranterior erroranterior `VEui  1 e 2 0 ]
+"16 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\controlMemory_MC50.c
+[v _memoryTEMP memoryTEMP `[4]ul  1 e 16 0 ]
+"15 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\inputs_MC50.c
+[v _BufferRF BufferRF `[9]uc  1 e 9 0 ]
+"16
+[v _BufferRF_12BIT BufferRF_12BIT `[2]uc  1 e 2 0 ]
+"18
+[v _RFstate RFstate `uc  1 s 1 RFstate ]
+"19
+[v _RFcount RFcount `i  1 s 2 RFcount ]
+"20
+[v _Bptr Bptr `uc  1 s 1 Bptr ]
+"21
+[v _BitCount BitCount `uc  1 s 1 BitCount ]
+"23
+[v _RFFull RFFull `VEuc  1 e 1 0 ]
+"24
+[v _RFFull_12BIT RFFull_12BIT `VEuc  1 e 1 0 ]
+"25
+[v _RFBit RFBit `VEuc  1 e 1 0 ]
+[s S3677 . 6 `uc 1 FimdeCursoOpenAUX 1 0 `uc 1 FimdeCursoOpenOLD 1 1 `uc 1 FimdeCursoOpenTimer 1 2 `uc 1 FimdeCursoCloseAUX 1 3 `uc 1 FimdeCursoCloseOLD 1 4 `uc 1 FimdeCursoCloseTimer 1 5 ]
+"27
+[v _fimdecurso fimdecurso `VES3677  1 e 6 0 ]
+[s S3684 . 11 `uc 1 PhotoCellAUX 1 0 `uc 1 PhotoCellOLD 1 1 `uc 1 PhotoCellTimer 1 2 `uc 1 SecurityBarAUX 1 3 `uc 1 SecurityBarOLD 1 4 `uc 1 SecurityBarTimer 1 5 `uc 1 SecurityBarSTATE 1 6 `uc 1 SecurityBar8K2AUX 1 7 `uc 1 SecurityBar8K2OLD 1 8 `uc 1 SecurityBar8K2Timer 1 9 `uc 1 SecurityBar8K2STATE 1 10 ]
+"28
+[v _security security `VES3684  1 e 11 0 ]
+[s S3700 . 16 `ul 1 raw_data 4 0 `ul 1 serialnumber 4 4 `us 1 sync 2 8 `us 1 disc 2 10 `uc 1 fcode1 1 12 `uc 1 fcode2 1 13 `E10559 1 type 1 14 `uc 1 positionMem 1 15 ]
+"39
+[v _classic_data classic_data `S3700  1 e 16 0 ]
+"42 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\keeloqDecrypt_MC50.c
+[v _F2Chance F2Chance `a  1 e 1 0 ]
+"45
+[v _NextHop NextHop `us  1 s 2 NextHop ]
+"46
+[v _Hop Hop `us  1 s 2 Hop ]
+"47
+[v _EHop EHop `us  1 s 2 EHop ]
+"48
+[v _DKEY DKEY `[8]uc  1 e 8 0 ]
+[s S4202 . 6 `ul 1 serial 4 0 `us 1 sync 2 4 ]
+"49
+[v _listSyncValues listSyncValues `VE[25]S4202  1 e 150 0 ]
+"50
+[v _pointSync pointSync `VEus  1 e 2 0 ]
+[s S2398 . 72 `uc 1 ts_TimeSlot500ms 1 0 `uc 1 ts_TimeSlot50ms 1 1 `uc 1 ts_TimeSlot1ms 1 2 `uc 1 ts_TimeSlotMain 1 3 `uc 1 ts_TimeSlotEEPROM 1 4 `uc 1 ts_TimeSlotTRIAC 1 5 `i 1 ts_TRIACWait 2 6 `i 1 Debug_TS 2 8 `i 1 timeFreqDigit 2 10 `i 1 timeSinalizationDigit 2 12 `i 1 timeoutMenu 2 14 `i 1 timeOpenWalk 2 16 `i 1 timeWaitToClose 2 18 `i 1 TimeLastCommand 2 20 `i 1 timeSoftStart 2 22 `i 1 timeSoftStop 2 24 `i 1 TimeChargeCondesador 2 26 `i 1 timeFreqRGB 2 28 `i 1 timeFreqFlashligth 2 30 `l 1 TimeOnFlashLigth 4 32 `i 1 TimeWaitToNextState 2 36 `i 1 timeBetweenSaveCounters 2 38 `i 1 TimeElectricBrake 2 40 `i 1 TimeCurrentAlarm 2 42 `i 1 TimeStopedBeforeDecelaration 2 44 `i 1 TimeCurrentWaitForAlarm 2 46 `i 1 TimeInversionStart 2 48 `i 1 InvertionTimeClosingFromOpen 2 50 `i 1 TimeWaitToGetCurrent 2 52 `i 1 TimeLearningDecelaration 2 54 `i 1 TimeTransitionDecelaration 2 56 `i 1 timewaitBeforeSoftStart 2 58 `i 1 TimeShowVersion 2 60 `i 1 TimeStopADCZeroOffsetCalc 2 62 `i 1 TimeStopElectricBrake 2 64 `i 1 TimeReleCapacitor 2 66 `i 1 TimeWaitReleCapacitor 2 68 `i 1 timewaitFlashRGB 2 70 ]
+"44 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\main_MC50.c
+[v _ts_system ts_system `VES2398  1 e 72 0 ]
+[s S3172 . 64 `uc 1 decelarationOpen 1 0 `uc 1 decelarationClose 1 1 `uc 1 motorPower 1 2 `uc 1 motorSensitivity 1 3 `uc 1 walkTime 1 4 `uc 1 autoTimeFullClose 1 5 `uc 1 autoTimeWalkClose 1 6 `uc 1 photoCellIsON 1 7 `uc 1 photoCellInOpen 1 8 `uc 1 securityBandIsON 1 9 `uc 1 securityBandType 1 10 `uc 1 securityBandInOpen 1 11 `uc 1 operationMode 1 12 `uc 1 flashLightMode 1 13 `uc 1 programmingDistance 1 14 `uc 1 decelarationSensivity 1 15 `uc 1 homemPresente 1 16 `uc 1 logicDigital 1 17 `uc 1 softStart 1 18 `uc 1 softstop 1 19 `uc 1 ligthTime 1 20 `uc 1 folow_me 1 21 `uc 1 Stopboton 1 22 `uc 1 electricBrake 1 23 `uc 1 velocityDecelaration 1 24 `uc 1 flashRGBMode 1 25 `uc 1 reserved10 1 26 `uc 1 Direction_motor 1 27 `uc 1 TypeofMotor 1 28 `uc 1 reserved 1 29 `uc 1 reserved6 1 30 `uc 1 reserved7 1 31 `uc 1 positionRemotesFull 1 32 `uc 1 positionRemotesWalk 1 33 `ul 1 counterMoves 4 34 `uc 1 OnlyRollingCode 1 38 `uc 1 reserved12 1 39 `ul 1 learningCurrentDecelarationClose 4 40 `ul 1 learningCurrentDecelarationOpen 4 44 `ui 1 learningCurrentNormalClose 2 48 `ui 1 learningCurrentNormalOpen 2 50 `ul 1 learningTimeToOpen 4 52 `ul 1 learningTimeToClose 4 56 `uc 1 reserved31 1 60 `uc 1 reserved32 1 61 `uc 1 reserved33 1 62 `uc 1 reserved34 1 63 ]
+"45
+[v _var_sys_NVM var_sys_NVM `VES3172  1 e 64 0 ]
+[s S2801 . 81 `E10134 1 StateMotor 1 0 `E10150 1 photoCellIsObstructed 1 1 `E10150 1 SecurityBarIsObstructed 1 2 `E10150 1 FimCurso_CloseIsEnabled 1 3 `E10150 1 FimCurso_OpenIsEnabled 1 4 `i 1 decelerationOpenCurrent 2 5 `i 1 decelerationCloseCurrent 2 7 `uc 1 StartFromButton 1 9 `uc 1 WaitTimeCloseInitial 1 10 `E10134 1 LastState 1 11 `E10150 1 TriacON 1 12 `E10150 1 InStoping 1 13 `i 1 velocityFactor 2 14 `i 1 velocityFactorstop 2 16 `uc 1 AutoInversionActiveStop 1 18 `uc 1 SoftStopDecrementControl 1 19 `uc 1 SoftStartDecrementControl 1 20 `uc 1 Torquerelanty 1 21 `uc 1 Activatecounter 1 22 `uc 1 Counter_Learning 1 23 `ul 1 TimeMaxMotorIsON 4 24 `uc 1 Statedoorcontrol 1 28 `uc 1 preflashingcontrol 1 29 `l 1 PositionActual 4 30 `E10150 1 DigitSinalizedTemp 1 34 `uc 1 AutoCloseActive 1 35 `uc 1 upFaseRGB 1 36 `uc 1 upFaseFlashligth 1 37 `uc 1 LearningIsEnabled 1 38 `uc 1 AutoInversionActive 1 39 `uc 1 ControlReleCapacitorOpen 1 40 `uc 1 ControlReleCapacitorClose 1 41 `uc 1 programinAutomatic 1 42 `E10150 1 photoCellMakeErrorOpen 1 43 `E10150 1 photoCellMakeErrorClose 1 44 `E10150 1 SecurityBarMakeError 1 45 `ui 1 ActualCurrent 2 46 `ul 1 ActualHistCurrent 4 48 `ul 1 ActualComparatorCurrent 4 52 `i 1 velocityActual 2 56 `E10150 1 StateFollowIsOn 1 58 `E10125 1 ProgrammingDistanceIs 1 59 `ul 1 actualCounterMoves 4 60 `E10150 1 DistanceProgrammingActive 1 64 `E10150 1 CurrentAlarmIsOn 1 65 `E10156 1 WorkTimeMaxAlarmState 1 66 `uc 1 NumberOffErrors 1 67 `E10150 1 InvertionCurrentClosing 1 68 `E10150 1 InvertionCurrentOpening 1 69 `E10150 1 InvertionClosingFromOpen 1 70 `E10150 1 LearningDecelaration 1 71 `E10150 1 PositionIsLost 1 72 `uc 1 StateVersion 1 73 `uc 1 Timewalkisactived 1 74 `ui 1 ADCZeroOffset 2 75 `uc 1 Control50or60hz 1 77 `uc 1 frequenciamotor 1 78 `uc 1 showAP 1 79 `uc 1 passoAPassoAutoClose 1 80 ]
+"46
+[v _var_sys var_sys `VES2801  1 e 81 0 ]
+[s S4614 display_group_st 2 `uc 1 value_display1 1 0 `uc 1 value_display2 1 1 ]
+"47
+[s S4621 display_st 6 `S4614 1 display_grp 2 0 `E10901 1 lastDisplay 1 2 `i 1 intermitentFreq 2 3 `uc 1 upFase 1 5 ]
+[v _dispStruct dispStruct `VES4621  1 e 6 0 ]
+[s S3925 . 4 `uc 1 old 1 0 `uc 1 current 1 1 `uc 1 timer 1 2 `uc 1 processed 1 3 ]
+"48
+[v _button_struct button_struct `VES3925  1 e 4 0 ]
+[s S3823 . 11 `uc 1 currentType 1 0 `uc 1 currentKey 1 1 `ul 1 currentSerial 4 2 `ui 1 currentRolling 2 6 `uc 1 currentPosMem 1 8 `uc 1 timer 1 9 `uc 1 processed 1 10 ]
+"49
+[v _rfCMD rfCMD `VES3823  1 e 11 0 ]
+[s S4643 . 11 `i 1 current_state 2 0 `i 1 initial_state 2 2 `i 1 last_event 2 4 `E11106 1 history 1 6 `*.2v 1 parent_machine 2 7 `i 1 parent_state 2 9 ]
+"50
+[v _menuConfiguration_stateMachine menuConfiguration_stateMachine `S4643  1 e 11 0 ]
+"51
+[v _main_stateMachine main_stateMachine `S4643  1 e 11 0 ]
+"52
+[v _controlGate_stateMachine controlGate_stateMachine `S4643  1 e 11 0 ]
+"53
+[v _controlLearning_stateMachine controlLearning_stateMachine `S4643  1 e 11 0 ]
+"54
+[v _lastKey lastKey `uc  1 e 1 0 ]
+"62 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/eusart1.c
+[v _eusart1TxHead eusart1TxHead `VEuc  1 e 1 0 ]
+"63
+[v _eusart1TxTail eusart1TxTail `VEuc  1 e 1 0 ]
+"64
+[v _eusart1TxBuffer eusart1TxBuffer `VE[8]uc  1 e 8 0 ]
+"65
+[v _eusart1TxBufferRemaining eusart1TxBufferRemaining `VEuc  1 e 1 0 ]
+"67
+[v _eusart1RxHead eusart1RxHead `VEuc  1 e 1 0 ]
+"68
+[v _eusart1RxTail eusart1RxTail `VEuc  1 e 1 0 ]
+"69
+[v _eusart1RxBuffer eusart1RxBuffer `VE[8]uc  1 e 8 0 ]
+[s S24 . 1 `uc 1 perr 1 0 :1:0 
+`uc 1 ferr 1 0 :1:1 
+`uc 1 oerr 1 0 :1:2 
+`uc 1 reserved 1 0 :5:3 
+]
+"70
+[u S29 . 1 `S24 1 . 1 0 `uc 1 status 1 0 ]
+[v _eusart1RxStatusBuffer eusart1RxStatusBuffer `VE[8]S29  1 e 8 0 ]
+"71
+[v _eusart1RxCount eusart1RxCount `VEuc  1 e 1 0 ]
+"72
+[v _eusart1RxLastError eusart1RxLastError `VES29  1 e 1 0 ]
+"77
+[v _EUSART1_TxDefaultInterruptHandler EUSART1_TxDefaultInterruptHandler `*.37(v  1 e 2 0 ]
+"78
+[v _EUSART1_RxDefaultInterruptHandler EUSART1_RxDefaultInterruptHandler `*.37(v  1 e 2 0 ]
+"80
+[v _EUSART1_FramingErrorHandler EUSART1_FramingErrorHandler `*.37(v  1 e 2 0 ]
+"81
+[v _EUSART1_OverrunErrorHandler EUSART1_OverrunErrorHandler `*.37(v  1 e 2 0 ]
+"82
+[v _EUSART1_ErrorHandler EUSART1_ErrorHandler `*.37(v  1 e 2 0 ]
+"146 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/i2c1_master.c
+[v _i2c1_fsmStateTable i2c1_fsmStateTable `C[16]*.37(E10442  1 e 32 0 ]
+[s S935 . 36 `[6]*.37(E360 1 callbackTable 12 0 `[6]*.39v 1 callbackPayload 12 12 `us 1 time_out 2 24 `us 1 time_out_value 2 26 `uc 1 address 1 28 `*.39uc 1 data_ptr 2 29 `ui 1 data_length 2 31 `E10442 1 state 1 33 `E355 1 error 1 34 `uc 1 addressNackCheck 1 35 :1:0 
+`uc 1 busy 1 35 :1:1 
+`uc 1 inUse 1 35 :1:2 
+`uc 1 bufferFree 1 35 :1:3 
+]
+"165
+[v _I2C1_Status I2C1_Status `S935  1 e 36 0 ]
+"59 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/tmr0.c
+[v _timer0ReloadVal16bit timer0ReloadVal16bit `VEus  1 e 2 0 ]
+"65
+[v _TMR0_InterruptHandler TMR0_InterruptHandler `*.37(v  1 e 2 0 ]
+"59 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/tmr1.c
+[v _timer1ReloadVal timer1ReloadVal `VEus  1 e 2 0 ]
+"60
+[v _TMR1_InterruptHandler TMR1_InterruptHandler `*.37(v  1 e 2 0 ]
+"62 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/tmr2.c
+[v _Counterchoose Counterchoose `uc  1 e 1 0 ]
+"73
+[v _TMR2_InterruptHandler TMR2_InterruptHandler `*.37(v  1 e 2 0 ]
+[s S2930 PowerControlStruct 6 `E10150 1 decelarationActive 1 0 `uc 1 decelarationCyclesOn 1 1 `uc 1 decelarationCyclesOff 1 2 `uc 1 decelarationPower 1 3 `uc 1 actualCycle 1 4 `E10397 1 typeCycle 1 5 ]
+"23 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\outputs_MC50.c
+[v _powerControl_st powerControl_st `S2930  1 e 6 0 ]
+"24
+[v _zeroCrossingLength zeroCrossingLength `uc  1 e 1 0 ]
+"25
+[v _zeroCrossingWaitTime zeroCrossingWaitTime `[2]uc  1 e 2 0 ]
+"26
+[v _zeroCrossingWaitTimeIdx zeroCrossingWaitTimeIdx `uc  1 e 1 0 ]
+"27
+[v _zeroCrossing zeroCrossing `uc  1 e 1 0 ]
+"28
+[v _waitZeroPeak waitZeroPeak `uc  1 e 1 0 ]
+"29
+[v _StateTRIAC StateTRIAC `uc  1 e 1 0 ]
+[s S4913 . 2 `E10381 1 lastState 1 0 `E10397 1 ElectricBrakeIsActive 1 1 ]
+"33
+[v _brakeElectric_st brakeElectric_st `S4913  1 e 2 0 ]
+"35
+[v _difTime difTime `uc  1 e 1 0 ]
+"36
+[v _stateMotor stateMotor `E10381  1 e 1 0 ]
+"37
+[v _temppower temppower `uc  1 e 1 0 ]
+"38
+[v _fullmotorPower fullmotorPower `uc  1 e 1 0 ]
+"42
+[v _DispTable DispTable `VE[37]uc  1 e 37 0 ]
+"26 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\sm_ControlGate_MC50.c
+[v _Abertura_pedonal Abertura_pedonal `uc  1 e 1 0 ]
+"27
+[v _aux_i aux_i `uc  1 e 1 0 ]
+[s S2944 . 18 `l 1 timeClose 4 0 `l 1 timeOpen 4 4 `uc 1 timeDecelerationClose 1 8 `uc 1 timeDecelerationOpen 1 9 `ui 1 openCurrent 2 10 `ui 1 closeCurrent 2 12 `ui 1 openHistCurrent 2 14 `ui 1 closeHistCurrent 2 16 ]
+"23 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\sm_ControlLearning_MC50.c
+[v _learn_st learn_st `VES2944  1 e 18 0 ]
+"24
+[v _control_limit_switch control_limit_switch `uc  1 e 1 0 ]
+"24 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\sm_Main_MC50.c
+[v _temp temp `uc  1 e 1 0 ]
+"25
+[v _aux_in_auto_close aux_in_auto_close `uc  1 e 1 0 ]
+"18 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\sm_MenuConfiguration_MC50.c
+[s S6598 . 25 `[10]S4614 1 menuList 20 0 `E10813 1 lastMenu 1 20 `E10813 1 actualMenu 1 21 `uc 1 menuSize 1 22 `uc 1 parameterSelected 1 23 `uc 1 lastMainParameterSelected 1 24 ]
+[v _menu_st menu_st `S6598  1 e 25 0 ]
+[s S6605 . 6 `uc 1 position 1 0 `*.39uc 1 Value 2 1 `uc 1 tempValue 1 3 `uc 1 Max 1 4 `uc 1 Min 1 5 ]
+"26
+[v _edit_Param edit_Param `VES6605  1 e 6 0 ]
+"28
+[v _tempCounter tempCounter `ul  1 e 4 0 ]
+"29
+[v _auxCounter auxCounter `ui  1 e 2 0 ]
+"63 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\main_MC50.c
+[v _main main `(v  1 e 1 0 ]
+{
+[u S4761 packagedata_t 2 `us 1 data16 2 0 `[2]uc 1 data8 2 0 ]
+"140
+[s S4764 package_t 7 `E11192 1 functioncode 1 0 `uc 1 address 1 1 `S4761 1 data 2 2 `uc 1 startbyte 1 4 `uc 1 endbyte 1 5 `a 1 valid 1 6 ]
+[v main@package package `S4764  1 a 7 25 ]
+"188
+} 0
+"26 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\sm_Main_MC50.c
+[v _sm_execute_main sm_execute_main `(v  1 e 1 0 ]
+{
+[s S4643 . 11 `i 1 current_state 2 0 `i 1 initial_state 2 2 `i 1 last_event 2 4 `E11106 1 history 1 6 `*.2v 1 parent_machine 2 7 `i 1 parent_state 2 9 ]
+[v sm_execute_main@psm psm `*.39S4643  1 p 2 21 ]
+"320
+} 0
+"31 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\sm_MenuConfiguration_MC50.c
+[v _sm_execute_menuConfiguration sm_execute_menuConfiguration `(v  1 e 1 0 ]
+{
+[s S4643 . 11 `i 1 current_state 2 0 `i 1 initial_state 2 2 `i 1 last_event 2 4 `E11106 1 history 1 6 `*.2v 1 parent_machine 2 7 `i 1 parent_state 2 9 ]
+[v sm_execute_menuConfiguration@psm psm `*.39S4643  1 p 2 17 ]
+"431
+} 0
+"647
+[v _setValueToEdit setValueToEdit `(uc  1 e 1 0 ]
+{
+[v setValueToEdit@menuType menuType `E10813  1 a 1 wreg ]
+"648
+[v setValueToEdit@haveValueToEdit haveValueToEdit `uc  1 a 1 7 ]
+"647
+[v setValueToEdit@menuType menuType `E10813  1 a 1 wreg ]
+[v setValueToEdit@ParameterSelected ParameterSelected `uc  1 p 1 57 ]
+[v setValueToEdit@menuType menuType `E10813  1 a 1 6 ]
+"1087
+} 0
+"433
+[v _load_New_Menu load_New_Menu `(v  1 e 1 0 ]
+{
+[v load_New_Menu@Menu Menu `E10813  1 a 1 wreg ]
+"435
+[v load_New_Menu@i i `uc  1 a 1 34 ]
+"433
+[v load_New_Menu@Menu Menu `E10813  1 a 1 wreg ]
+[v load_New_Menu@Menu Menu `E10813  1 a 1 33 ]
+"645
+} 0
+"207 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\inputs_MC50.c
+[v _InitReceiver InitReceiver `(v  1 e 1 0 ]
+{
+"215
+} 0
+"1089 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\sm_MenuConfiguration_MC50.c
+[v _controlSelectRemote controlSelectRemote `(v  1 e 1 0 ]
+{
+"1160
+[v controlSelectRemote@typeRemote typeRemote `E10392  1 a 1 11 ]
+"1157
+[v controlSelectRemote@pos pos `uc  1 a 1 10 ]
+"1090
+[v controlSelectRemote@tempSerial tempSerial `ul  1 a 4 12 ]
+"1091
+[v controlSelectRemote@temp temp `uc  1 a 1 16 ]
+"1092
+[v controlSelectRemote@validSerial validSerial `uc  1 a 1 9 ]
+"1196
+} 0
+"81 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\controlMemory_MC50.c
+[v _saveNewSerial saveNewSerial `(v  1 e 1 0 ]
+{
+[v saveNewSerial@cmdType cmdType `uc  1 a 1 wreg ]
+[v saveNewSerial@cmdType cmdType `uc  1 a 1 wreg ]
+[v saveNewSerial@tempSerial tempSerial `ul  1 p 4 0 ]
+[v saveNewSerial@position position `uc  1 p 1 4 ]
+"83
+[v saveNewSerial@cmdType cmdType `uc  1 a 1 57 ]
+"93
+} 0
+"459 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\inputs_MC50.c
+[v _getTypeRemote getTypeRemote `(E10559  1 e 1 0 ]
+{
+"461
+} 0
+"442
+[v _getSerialCmd getSerialCmd `(c  1 e 1 0 ]
+{
+"443
+[v getSerialCmd@temp temp `c  1 a 1 27 ]
+"442
+[v getSerialCmd@serial serial `*.30ul  1 p 1 26 ]
+"457
+} 0
+"110 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\controlMemory_MC50.c
+[v _cmdMemoryIsEmpty cmdMemoryIsEmpty `(uc  1 e 1 0 ]
+{
+[v cmdMemoryIsEmpty@cmdType cmdType `uc  1 a 1 wreg ]
+"112
+[v cmdMemoryIsEmpty@tempSerial tempSerial `ul  1 a 4 49 ]
+"110
+[v cmdMemoryIsEmpty@cmdType cmdType `uc  1 a 1 wreg ]
+[v cmdMemoryIsEmpty@position position `uc  1 p 1 45 ]
+"112
+[v cmdMemoryIsEmpty@cmdType cmdType `uc  1 a 1 48 ]
+"132
+} 0
+"4 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\lbmod.c
+[v ___lbmod __lbmod `(uc  1 e 1 0 ]
+{
+[v ___lbmod@dividend dividend `uc  1 a 1 wreg ]
+"6
+[v ___lbmod@rem rem `uc  1 a 1 18 ]
+"7
+[v ___lbmod@counter counter `uc  1 a 1 17 ]
+"4
+[v ___lbmod@dividend dividend `uc  1 a 1 wreg ]
+[v ___lbmod@divisor divisor `uc  1 p 1 15 ]
+"9
+[v ___lbmod@dividend dividend `uc  1 a 1 16 ]
+"18
+} 0
+"7 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+{
+"10
+[v ___awdiv@quotient quotient `i  1 a 2 25 ]
+"11
+[v ___awdiv@sign sign `uc  1 a 1 24 ]
+[v ___awdiv@counter counter `uc  1 a 1 23 ]
+"7
+[v ___awdiv@dividend dividend `i  1 p 2 19 ]
+[v ___awdiv@divisor divisor `i  1 p 2 21 ]
+"41
+} 0
+"95 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\controlMemory_MC50.c
+[v _RemoveSerial RemoveSerial `(v  1 e 1 0 ]
+{
+[v RemoveSerial@cmdType cmdType `uc  1 a 1 wreg ]
+"97
+[v RemoveSerial@tempSerial tempSerial `ul  1 a 4 3 ]
+"95
+[v RemoveSerial@cmdType cmdType `uc  1 a 1 wreg ]
+[v RemoveSerial@position position `uc  1 p 1 57 ]
+"97
+[v RemoveSerial@cmdType cmdType `uc  1 a 1 2 ]
+"108
+} 0
+"1198 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\sm_MenuConfiguration_MC50.c
+[v _controlSaveRemote controlSaveRemote `(v  1 e 1 0 ]
+{
+"1217
+} 0
+"104 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\outputs_MC50.c
+[v _SetSegmentValueMain SetSegmentValueMain `(v  1 e 1 0 ]
+{
+[v SetSegmentValueMain@d1 d1 `uc  1 a 1 wreg ]
+[v SetSegmentValueMain@d1 d1 `uc  1 a 1 wreg ]
+[v SetSegmentValueMain@d2 d2 `uc  1 p 1 27 ]
+"106
+[v SetSegmentValueMain@d1 d1 `uc  1 a 1 28 ]
+"110
+} 0
+"463 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\inputs_MC50.c
+[v _ClearFlag_rfCMD ClearFlag_rfCMD `(v  1 e 1 0 ]
+{
+"465
+} 0
+"1219 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\sm_MenuConfiguration_MC50.c
+[v _controlLearnDigit controlLearnDigit `(v  1 e 1 0 ]
+{
+"1233
+} 0
+"124 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\outputs_MC50.c
+[v _SetSegmentValueLearn SetSegmentValueLearn `(v  1 e 1 0 ]
+{
+[v SetSegmentValueLearn@direction direction `E10602  1 a 1 wreg ]
+[v SetSegmentValueLearn@direction direction `E10602  1 a 1 wreg ]
+"126
+[v SetSegmentValueLearn@direction direction `E10602  1 a 1 17 ]
+"191
+} 0
+"7 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\__lldiv.c
+[v ___lldiv __lldiv `(ul  1 e 4 0 ]
+{
+"10
+[v ___lldiv@quotient quotient `ul  1 a 4 23 ]
+"11
+[v ___lldiv@counter counter `uc  1 a 1 27 ]
+"7
+[v ___lldiv@dividend dividend `ul  1 p 4 15 ]
+[v ___lldiv@divisor divisor `ul  1 p 4 19 ]
+"30
+} 0
+"128 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\sm_ControlGate_MC50.c
+[v _sm_execute_ControlGate sm_execute_ControlGate `(v  1 e 1 0 ]
+{
+"129
+[v sm_execute_ControlGate@typeOpenOrder typeOpenOrder `E10372  1 a 1 19 ]
+[s S4643 . 11 `i 1 current_state 2 0 `i 1 initial_state 2 2 `i 1 last_event 2 4 `E11106 1 history 1 6 `*.2v 1 parent_machine 2 7 `i 1 parent_state 2 9 ]
+"128
+[v sm_execute_ControlGate@psm psm `*.39S4643  1 p 2 15 ]
+"323
+} 0
+"29 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\sm_ControlLearning_MC50.c
+[v _sm_execute_ControlLearning sm_execute_ControlLearning `(v  1 e 1 0 ]
+{
+"31
+[v sm_execute_ControlLearning@typeOpenOrder typeOpenOrder `E10372  1 a 1 57 ]
+[s S4643 . 11 `i 1 current_state 2 0 `i 1 initial_state 2 2 `i 1 last_event 2 4 `E11106 1 history 1 6 `*.2v 1 parent_machine 2 7 `i 1 parent_state 2 9 ]
+"29
+[v sm_execute_ControlLearning@psm psm `*.39S4643  1 p 2 4 ]
+"409
+} 0
+"424
+[v _generateErrorLearnig generateErrorLearnig `(v  1 e 1 0 ]
+{
+"434
+} 0
+"12 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\sm_common_MC50.c
+[v _sm_init sm_init `(v  1 e 1 0 ]
+{
+[s S4643 . 11 `i 1 current_state 2 0 `i 1 initial_state 2 2 `i 1 last_event 2 4 `E11106 1 history 1 6 `*.2v 1 parent_machine 2 7 `i 1 parent_state 2 9 ]
+[v sm_init@psm psm `*.39S4643  1 p 2 17 ]
+[v sm_init@initial_state initial_state `i  1 p 2 19 ]
+[v sm_init@hist_mode hist_mode `E348  1 p 1 21 ]
+"21
+} 0
+"23
+[v _sm_restart sm_restart `(v  1 e 1 0 ]
+{
+[s S4643 . 11 `i 1 current_state 2 0 `i 1 initial_state 2 2 `i 1 last_event 2 4 `E11106 1 history 1 6 `*.2v 1 parent_machine 2 7 `i 1 parent_state 2 9 ]
+[v sm_restart@psm psm `*.39S4643  1 p 2 15 ]
+"28
+} 0
+"436 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\sm_ControlLearning_MC50.c
+[v _clearLearningValue clearLearningValue `(v  1 e 1 0 ]
+{
+"450
+} 0
+"411
+[v _calculateMean calculateMean `(ul  1 e 4 0 ]
+{
+[v calculateMean@meanValue meanValue `ul  1 p 4 15 ]
+[v calculateMean@newValue newValue `ul  1 p 4 19 ]
+"422
+} 0
+"374 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\sm_ControlGate_MC50.c
+[v _actionZone_Opening actionZone_Opening `(v  1 e 1 0 ]
+{
+"377
+[v actionZone_Opening@typeOpenOrder typeOpenOrder `E10372  1 a 1 14 ]
+"376
+[v actionZone_Opening@securityOpening securityOpening `E10397  1 a 1 13 ]
+"375
+[v actionZone_Opening@securityClosing securityClosing `E10397  1 a 1 12 ]
+"512
+} 0
+"894
+[v _setPositionInvertionInOpening setPositionInvertionInOpening `(v  1 e 1 0 ]
+{
+"913
+} 0
+"527 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\outputs_MC50.c
+[v _controlVelocity controlVelocity `(v  1 e 1 0 ]
+{
+"639
+} 0
+"470
+[v _getStateOpenPosition getStateOpenPosition `(a  1 e 1 0 ]
+{
+[v getStateOpenPosition@stateMotor stateMotor `E10381  1 a 1 wreg ]
+"472
+[v getStateOpenPosition@state state `a  1 a 1 0 ]
+"470
+[v getStateOpenPosition@stateMotor stateMotor `E10381  1 a 1 wreg ]
+"472
+[v getStateOpenPosition@stateMotor stateMotor `E10381  1 a 1 1 ]
+"508
+} 0
+"849 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\sm_ControlGate_MC50.c
+[v _InitSoftStop InitSoftStop `(v  1 e 1 0 ]
+{
+"864
+} 0
+"463 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\outputs_MC50.c
+[v _ControlDecelarationFactor ControlDecelarationFactor `(v  1 e 1 0 ]
+{
+"468
+} 0
+"514 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\sm_ControlGate_MC50.c
+[v _actionZone_Opened actionZone_Opened `(v  1 e 1 0 ]
+{
+"524
+[v actionZone_Opened@typeOpenOrder typeOpenOrder `E10372  1 a 1 32 ]
+"515
+[v actionZone_Opened@securityClosing securityClosing `E10397  1 a 1 31 ]
+"647
+} 0
+"117
+[v _VerifyFollowMe VerifyFollowMe `(v  1 e 1 0 ]
+{
+[v VerifyFollowMe@securityClose securityClose `E10397  1 a 1 wreg ]
+[v VerifyFollowMe@securityClose securityClose `E10397  1 a 1 wreg ]
+"120
+[v VerifyFollowMe@securityClose securityClose `E10397  1 a 1 15 ]
+"126
+} 0
+"63
+[v _CloseOrder CloseOrder `(v  1 e 1 0 ]
+{
+"69
+} 0
+"649
+[v _actionZone_Closing actionZone_Closing `(v  1 e 1 0 ]
+{
+"651
+[v actionZone_Closing@typeOpenOrder typeOpenOrder `E10372  1 a 1 50 ]
+"653
+[v actionZone_Closing@securityClosing securityClosing `E10397  1 a 1 49 ]
+"814
+} 0
+"867
+[v _setPositionInvertionInClosing setPositionInvertionInClosing `(v  1 e 1 0 ]
+{
+"892
+} 0
+"641 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\outputs_MC50.c
+[v _getTimeDecelaration getTimeDecelaration `(l  1 e 4 0 ]
+{
+[v getTimeDecelaration@state state `E10381  1 a 1 wreg ]
+[v getTimeDecelaration@state state `E10381  1 a 1 wreg ]
+"644
+[v getTimeDecelaration@state state `E10381  1 a 1 48 ]
+"656
+} 0
+"15 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+{
+"17
+[v ___lmul@product product `ul  1 a 4 36 ]
+"15
+[v ___lmul@multiplier multiplier `ul  1 p 4 28 ]
+[v ___lmul@multiplicand multiplicand `ul  1 p 4 32 ]
+"129
+} 0
+"96 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\sm_ControlGate_MC50.c
+[v _StopOrder StopOrder `(v  1 e 1 0 ]
+{
+"101
+} 0
+"776 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\inputs_MC50.c
+[v _GetSecurityStateInClosing GetSecurityStateInClosing `(E10564  1 e 1 0 ]
+{
+"814
+} 0
+"327 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\sm_ControlGate_MC50.c
+[v _actionZone_Closed actionZone_Closed `(v  1 e 1 0 ]
+{
+"334
+[v actionZone_Closed@typeOpenOrder typeOpenOrder `E10372  1 a 1 32 ]
+"336
+[v actionZone_Closed@securityOpening securityOpening `E10397  1 a 1 31 ]
+"372
+} 0
+"41
+[v _WaitPreFlash WaitPreFlash `(v  1 e 1 0 ]
+{
+"62
+} 0
+"29
+[v _OpenFullOrder OpenFullOrder `(v  1 e 1 0 ]
+{
+"40
+} 0
+"109
+[v _InitFullAutoTime InitFullAutoTime `(v  1 e 1 0 ]
+{
+"115
+} 0
+"71
+[v _OpenWalkOrder OpenWalkOrder `(v  1 e 1 0 ]
+{
+"72
+[v OpenWalkOrder@diffTime diffTime `i  1 a 2 25 ]
+"94
+} 0
+"34 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\sm_common_MC50.c
+[v _sm_send_event sm_send_event `(v  1 e 1 0 ]
+{
+[s S4643 . 11 `i 1 current_state 2 0 `i 1 initial_state 2 2 `i 1 last_event 2 4 `E11106 1 history 1 6 `*.2v 1 parent_machine 2 7 `i 1 parent_state 2 9 ]
+[v sm_send_event@psm psm `*.39S4643  1 p 2 17 ]
+[v sm_send_event@event event `i  1 p 2 19 ]
+"41
+} 0
+"30
+[v _sm_get_current_state sm_get_current_state `(i  1 e 2 0 ]
+{
+[s S4643 . 11 `i 1 current_state 2 0 `i 1 initial_state 2 2 `i 1 last_event 2 4 `E11106 1 history 1 6 `*.2v 1 parent_machine 2 7 `i 1 parent_state 2 9 ]
+[v sm_get_current_state@psm psm `*.2S4643  1 p 2 15 ]
+"32
+} 0
+"816 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\sm_ControlGate_MC50.c
+[v _InitSoftStart InitSoftStart `(v  1 e 1 0 ]
+{
+"847
+} 0
+"103
+[v _InitWalkAutoTime InitWalkAutoTime `(v  1 e 1 0 ]
+{
+"107
+} 0
+"738 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\inputs_MC50.c
+[v _GetSecurityStateInOpening GetSecurityStateInOpening `(E10564  1 e 1 0 ]
+{
+"774
+} 0
+"201 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\outputs_MC50.c
+[v _SetSegmentValueIntermitent SetSegmentValueIntermitent `(v  1 e 1 0 ]
+{
+[v SetSegmentValueIntermitent@d1 d1 `uc  1 a 1 wreg ]
+[v SetSegmentValueIntermitent@d1 d1 `uc  1 a 1 wreg ]
+[v SetSegmentValueIntermitent@d2 d2 `uc  1 p 1 15 ]
+[v SetSegmentValueIntermitent@time time `i  1 p 2 16 ]
+"204
+[v SetSegmentValueIntermitent@d1 d1 `uc  1 a 1 18 ]
+"211
+} 0
+"330 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\inputs_MC50.c
+[v _GetOpenOrder GetOpenOrder `(E10539  1 e 1 0 ]
+{
+"440
+} 0
+"4 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\lbdiv.c
+[v ___lbdiv __lbdiv `(uc  1 e 1 0 ]
+{
+[v ___lbdiv@dividend dividend `uc  1 a 1 wreg ]
+"6
+[v ___lbdiv@quotient quotient `uc  1 a 1 18 ]
+"7
+[v ___lbdiv@counter counter `uc  1 a 1 17 ]
+"4
+[v ___lbdiv@dividend dividend `uc  1 a 1 wreg ]
+[v ___lbdiv@divisor divisor `uc  1 p 1 15 ]
+"9
+[v ___lbdiv@dividend dividend `uc  1 a 1 16 ]
+"26
+} 0
+"193 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\outputs_MC50.c
+[v _SetSegmentValueIntermitentMain SetSegmentValueIntermitentMain `(v  1 e 1 0 ]
+{
+[v SetSegmentValueIntermitentMain@d1 d1 `uc  1 a 1 wreg ]
+[v SetSegmentValueIntermitentMain@d1 d1 `uc  1 a 1 wreg ]
+[v SetSegmentValueIntermitentMain@d2 d2 `uc  1 p 1 27 ]
+[v SetSegmentValueIntermitentMain@time time `i  1 p 2 28 ]
+"195
+[v SetSegmentValueIntermitentMain@d1 d1 `uc  1 a 1 30 ]
+"199
+} 0
+"471 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\inputs_MC50.c
+[v _readbutton readbutton `(v  1 e 1 0 ]
+{
+"474
+[v readbutton@key1 key1 `uc  1 s 1 key1 ]
+[v readbutton@key2 key2 `uc  1 s 1 key2 ]
+"525
+} 0
+"46 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos/eusartpackage.h
+"29
+[u S4761 packagedata_t 2 `us 1 data16 2 0 `[2]uc 1 data8 2 0 ]
+"21 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\eusartpackage.c
+[s S4764 package_t 7 `E11192 1 functioncode 1 0 `uc 1 address 1 1 `S4761 1 data 2 2 `uc 1 startbyte 1 4 `uc 1 endbyte 1 5 `a 1 valid 1 6 ]
+[v _read_package read_package `(S4764  1 e 7 0 ]
+{
+"22
+[v read_package@package package `S4764  1 a 7 23 ]
+"48
+} 0
+"151 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/eusart1.c
+[v _EUSART1_Read EUSART1_Read `(uc  1 e 1 0 ]
+{
+"153
+[v EUSART1_Read@readValue readValue `uc  1 a 1 15 ]
+"171
+} 0
+"231 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\inputs_MC50.c
+[v _readRFButtons readRFButtons `(v  1 e 1 0 ]
+{
+"232
+[v readRFButtons@key1 key1 `uc  1 s 1 key1 ]
+"233
+[v readRFButtons@serial serial `ul  1 s 4 serial ]
+"234
+[v readRFButtons@rollingCode rollingCode `us  1 s 2 rollingCode ]
+"235
+[v readRFButtons@keyType keyType `E10539  1 s 1 keyType ]
+"236
+[v readRFButtons@typeRemote typeRemote `E10559  1 s 1 typeRemote ]
+"328
+} 0
+"299 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\keeloqDecrypt_MC50.c
+[v _keeloqDecryptPacket keeloqDecryptPacket `(E10539  1 e 1 0 ]
+{
+"302
+[v keeloqDecryptPacket@commandType commandType `E10539  1 a 1 17 ]
+"301
+[v keeloqDecryptPacket@hop_error hop_error `E10730  1 a 1 16 ]
+"299
+[v keeloqDecryptPacket@data data `*.39uc  1 p 2 8 ]
+[s S3700 . 16 `ul 1 raw_data 4 0 `ul 1 serialnumber 4 4 `us 1 sync 2 8 `us 1 disc 2 10 `uc 1 fcode1 1 12 `uc 1 fcode2 1 13 `E10559 1 type 1 14 `uc 1 positionMem 1 15 ]
+[v keeloqDecryptPacket@classic_data classic_data `*.39S3700  1 p 2 10 ]
+"368
+} 0
+"401
+[v _verifyProgramingMode verifyProgramingMode `(E10539  1 e 1 0 ]
+{
+[s S3700 . 16 `ul 1 raw_data 4 0 `ul 1 serialnumber 4 4 `us 1 sync 2 8 `us 1 disc 2 10 `uc 1 fcode1 1 12 `uc 1 fcode2 1 13 `E10559 1 type 1 14 `uc 1 positionMem 1 15 ]
+[v verifyProgramingMode@classic_data classic_data `*.39S3700  1 p 2 15 ]
+"415
+} 0
+"390
+[v _keeloq_classic_decrypt_packet keeloq_classic_decrypt_packet `(v  1 s 1 keeloq_classic_decrypt_packet ]
+{
+[s S3700 . 16 `ul 1 raw_data 4 0 `ul 1 serialnumber 4 4 `us 1 sync 2 8 `us 1 disc 2 10 `uc 1 fcode1 1 12 `uc 1 fcode2 1 13 `E10559 1 type 1 14 `uc 1 positionMem 1 15 ]
+[v keeloq_classic_decrypt_packet@data data `*.39S3700  1 p 2 55 ]
+"399
+} 0
+"87
+[v _NormalKeyGen NormalKeyGen `(v  1 e 1 0 ]
+{
+"89
+[v NormalKeyGen@Buffer Buffer `[8]uc  1 a 8 47 ]
+"91
+[v NormalKeyGen@SKEYtemp SKEYtemp `[4]uc  1 a 4 43 ]
+"90
+[v NormalKeyGen@HOPtemp HOPtemp `[4]uc  1 a 4 39 ]
+"87
+[v NormalKeyGen@serial serial `*.39ul  1 p 2 37 ]
+"88
+[v NormalKeyGen@SEED SEED `[4]uc  1 s 4 SEED ]
+"117
+} 0
+"63
+[v _LoadManufCode LoadManufCode `(v  1 e 1 0 ]
+{
+"73
+} 0
+"142
+[v _Decrypt Decrypt `(v  1 e 1 0 ]
+{
+"147
+[v Decrypt@Buffer Buffer `[4]uc  1 a 4 33 ]
+"144
+[v Decrypt@aux aux `uc  1 a 1 32 ]
+"146
+[v Decrypt@p p `c  1 a 1 31 ]
+"143
+[v Decrypt@j j `uc  1 a 1 30 ]
+[v Decrypt@i i `uc  1 a 1 29 ]
+"144
+[v Decrypt@key key `uc  1 a 1 28 ]
+"142
+[v Decrypt@packet packet `*.39uc  1 p 2 26 ]
+"193
+} 0
+"236
+[v _HopCHK HopCHK `(E10730  1 e 1 0 ]
+{
+"237
+[v HopCHK@hopDiff hopDiff `s  1 a 2 37 ]
+[s S3700 . 16 `ul 1 raw_data 4 0 `ul 1 serialnumber 4 4 `us 1 sync 2 8 `us 1 disc 2 10 `uc 1 fcode1 1 12 `uc 1 fcode2 1 13 `E10559 1 type 1 14 `uc 1 positionMem 1 15 ]
+"236
+[v HopCHK@data data `*.39S3700  1 p 2 35 ]
+"264
+} 0
+"266
+[v _getHopCode getHopCode `(us  1 e 2 0 ]
+{
+"268
+[v getHopCode@tempHop tempHop `us  1 a 2 31 ]
+"267
+[v getHopCode@i i `uc  1 a 1 34 ]
+"269
+[v getHopCode@tempPos tempPos `c  1 a 1 33 ]
+[s S3700 . 16 `ul 1 raw_data 4 0 `ul 1 serialnumber 4 4 `us 1 sync 2 8 `us 1 disc 2 10 `uc 1 fcode1 1 12 `uc 1 fcode2 1 13 `E10559 1 type 1 14 `uc 1 positionMem 1 15 ]
+"266
+[v getHopCode@data data `*.39S3700  1 p 2 21 ]
+"297
+} 0
+"224
+[v _ReqResync ReqResync `(E10730  1 e 1 0 ]
+{
+[v ReqResync@CurrentHop CurrentHop `us  1 p 2 15 ]
+"229
+} 0
+"206
+[v _DecCHK DecCHK `(a  1 e 1 0 ]
+{
+[s S3700 . 16 `ul 1 raw_data 4 0 `ul 1 serialnumber 4 4 `us 1 sync 2 8 `us 1 disc 2 10 `uc 1 fcode1 1 12 `uc 1 fcode2 1 13 `E10559 1 type 1 14 `uc 1 positionMem 1 15 ]
+[v DecCHK@data data `*.39S3700  1 p 2 15 ]
+"212
+} 0
+"370
+[v _DecryptPacket_12BIT DecryptPacket_12BIT `(E10539  1 e 1 0 ]
+{
+"372
+[v DecryptPacket_12BIT@commandType commandType `E10539  1 a 1 12 ]
+"370
+[v DecryptPacket_12BIT@data data `*.39uc  1 p 2 8 ]
+[s S3700 . 16 `ul 1 raw_data 4 0 `ul 1 serialnumber 4 4 `us 1 sync 2 8 `us 1 disc 2 10 `uc 1 fcode1 1 12 `uc 1 fcode2 1 13 `E10559 1 type 1 14 `uc 1 positionMem 1 15 ]
+[v DecryptPacket_12BIT@classic_data classic_data `*.39S3700  1 p 2 10 ]
+"388
+} 0
+"27 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\controlMemory_MC50.c
+[v _validateRemoteSerialNumber validateRemoteSerialNumber `(E10539  1 e 1 0 ]
+{
+"30
+[v validateRemoteSerialNumber@mask mask `ul  1 a 4 52 ]
+"28
+[v validateRemoteSerialNumber@i i `uc  1 a 1 57 ]
+"29
+[v validateRemoteSerialNumber@j j `uc  1 a 1 56 ]
+"27
+[v validateRemoteSerialNumber@serial serial `ul  1 p 4 45 ]
+[v validateRemoteSerialNumber@VerifyOnlySerial VerifyOnlySerial `E10564  1 p 1 49 ]
+[v validateRemoteSerialNumber@position position `*.39uc  1 p 2 50 ]
+"79
+} 0
+"528 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\inputs_MC50.c
+[v _readInputs readInputs `(v  1 e 1 0 ]
+{
+"672
+} 0
+"139 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\controlMemory_MC50.c
+[v _loadNVM_VarSystem loadNVM_VarSystem `(v  1 e 1 0 ]
+{
+"169
+} 0
+"147 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/drivers/i2c_simple_master.c
+[v _i2c_readDataBlock i2c_readDataBlock `(v  1 e 1 0 ]
+{
+[v i2c_readDataBlock@address address `uc  1 a 1 wreg ]
+[s S429 . 4 `ui 1 len 2 0 `*.39uc 1 data 2 2 ]
+"149
+[v i2c_readDataBlock@d d `S429  1 a 4 41 ]
+"147
+[v i2c_readDataBlock@address address `uc  1 a 1 wreg ]
+[v i2c_readDataBlock@reg reg `us  1 p 2 33 ]
+[v i2c_readDataBlock@data data `*.39v  1 p 2 35 ]
+[v i2c_readDataBlock@len len `ui  1 p 2 37 ]
+"150
+[v i2c_readDataBlock@address address `uc  1 a 1 40 ]
+"160
+} 0
+"314 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\controlMemory_MC50.c
+[v _checkNVM_VarSystem checkNVM_VarSystem `(v  1 e 1 0 ]
+{
+"316
+[v checkNVM_VarSystem@saveParam saveParam `uc  1 a 1 57 ]
+"545
+} 0
+"186
+[v _ResetDefaultMemory ResetDefaultMemory `(v  1 e 1 0 ]
+{
+[v ResetDefaultMemory@type type `uc  1 a 1 wreg ]
+[v ResetDefaultMemory@type type `uc  1 a 1 wreg ]
+"190
+[v ResetDefaultMemory@type type `uc  1 a 1 57 ]
+"287
+} 0
+"65 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/examples/i2c1_master_example.c
+[v _I2C1_Read1ByteRegister I2C1_Read1ByteRegister `(uc  1 e 1 0 ]
+{
+[v I2C1_Read1ByteRegister@address address `uc  1 a 1 wreg ]
+"67
+[v I2C1_Read1ByteRegister@returnValue returnValue `uc  1 a 1 35 ]
+"65
+[v I2C1_Read1ByteRegister@address address `uc  1 a 1 wreg ]
+[v I2C1_Read1ByteRegister@reg reg `uc  1 p 1 33 ]
+"67
+[v I2C1_Read1ByteRegister@address address `uc  1 a 1 34 ]
+"77
+} 0
+"217 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\inputs_MC50.c
+[v _getKeyPressed getKeyPressed `(c  1 e 1 0 ]
+{
+"218
+[v getKeyPressed@temp temp `c  1 a 1 15 ]
+"224
+} 0
+"441 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\eusartparser.c
+[v _eusartparser eusartparser `(v  1 e 1 0 ]
+{
+[u S4761 packagedata_t 2 `us 1 data16 2 0 `[2]uc 1 data8 2 0 ]
+[s S4764 package_t 7 `E11192 1 functioncode 1 0 `uc 1 address 1 1 `S4761 1 data 2 2 `uc 1 startbyte 1 4 `uc 1 endbyte 1 5 `a 1 valid 1 6 ]
+[v eusartparser@package package `*.30S4764  1 p 1 57 ]
+"474
+} 0
+"241
+[v _write_eusartparser write_eusartparser `(v  1 e 1 0 ]
+{
+"243
+[v write_eusartparser@debug2 debug2 `VEi  1 a 2 32 ]
+"242
+[v write_eusartparser@debug debug `VEi  1 a 2 30 ]
+[u S4761 packagedata_t 2 `us 1 data16 2 0 `[2]uc 1 data8 2 0 ]
+"241
+[s S4764 package_t 7 `E11192 1 functioncode 1 0 `uc 1 address 1 1 `S4761 1 data 2 2 `uc 1 startbyte 1 4 `uc 1 endbyte 1 5 `a 1 valid 1 6 ]
+[v write_eusartparser@package package `S4764  1 p 7 15 ]
+"439
+} 0
+"5
+[v _read_eusartparser read_eusartparser `(v  1 e 1 0 ]
+{
+[u S4761 packagedata_t 2 `us 1 data16 2 0 `[2]uc 1 data8 2 0 ]
+[s S4764 package_t 7 `E11192 1 functioncode 1 0 `uc 1 address 1 1 `S4761 1 data 2 2 `uc 1 startbyte 1 4 `uc 1 endbyte 1 5 `a 1 valid 1 6 ]
+[v read_eusartparser@package package `*.30S4764  1 p 1 23 ]
+"239
+} 0
+"50 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\eusartpackage.c
+[v _write_package write_package `(v  1 e 1 0 ]
+{
+[u S4761 packagedata_t 2 `us 1 data16 2 0 `[2]uc 1 data8 2 0 ]
+[s S4764 package_t 7 `E11192 1 functioncode 1 0 `uc 1 address 1 1 `S4761 1 data 2 2 `uc 1 startbyte 1 4 `uc 1 endbyte 1 5 `a 1 valid 1 6 ]
+[v write_package@package package `CS4764  1 p 7 16 ]
+"64
+} 0
+"173 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/eusart1.c
+[v _EUSART1_Write EUSART1_Write `(v  1 e 1 0 ]
+{
+[v EUSART1_Write@txData txData `uc  1 a 1 wreg ]
+[v EUSART1_Write@txData txData `uc  1 a 1 wreg ]
+[v EUSART1_Write@txData txData `uc  1 a 1 15 ]
+"194
+} 0
+"128 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/mcc.c
+[v _WWDT_TimerClear WWDT_TimerClear `(v  1 e 1 0 ]
+{
+"134
+[v WWDT_TimerClear@state state `a  1 a 1 15 ]
+"139
+} 0
+"104
+[v _WWDT_SoftEnable WWDT_SoftEnable `(v  1 e 1 0 ]
+{
+"108
+} 0
+"254 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\main_MC50.c
+[v _ShowVersion ShowVersion `(v  1 e 1 0 ]
+{
+"285
+} 0
+"112 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\outputs_MC50.c
+[v _SetSegmentValue SetSegmentValue `(v  1 e 1 0 ]
+{
+[v SetSegmentValue@d1 d1 `uc  1 a 1 wreg ]
+[v SetSegmentValue@d1 d1 `uc  1 a 1 wreg ]
+[v SetSegmentValue@d2 d2 `uc  1 p 1 27 ]
+"117
+[v SetSegmentValue@d1 d1 `uc  1 a 1 28 ]
+"122
+} 0
+"50 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/mcc.c
+[v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
+{
+"63
+} 0
+"96
+[v _WWDT_Initialize WWDT_Initialize `(v  1 e 1 0 ]
+{
+"102
+} 0
+"79 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/tmr2.c
+[v _TMR2_Initialize TMR2_Initialize `(v  1 e 1 0 ]
+{
+"109
+} 0
+"342
+[v _TMR2_SetInterruptHandler TMR2_SetInterruptHandler `(v  1 e 1 0 ]
+{
+[v TMR2_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 15 ]
+"344
+} 0
+"66 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/tmr1.c
+[v _TMR1_Initialize TMR1_Initialize `(v  1 e 1 0 ]
+{
+"99
+} 0
+"192
+[v _TMR1_SetInterruptHandler TMR1_SetInterruptHandler `(v  1 e 1 0 ]
+{
+[v TMR1_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 15 ]
+"194
+} 0
+"67 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/tmr0.c
+[v _TMR0_Initialize TMR0_Initialize `(v  1 e 1 0 ]
+{
+"91
+} 0
+"143
+[v _TMR0_SetInterruptHandler TMR0_SetInterruptHandler `(v  1 e 1 0 ]
+{
+[v TMR0_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 15 ]
+"145
+} 0
+"79 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/mcc.c
+[v _PMD_Initialize PMD_Initialize `(v  1 e 1 0 ]
+{
+"93
+} 0
+"55 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/pin_manager.c
+[v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
+{
+"133
+} 0
+"65 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/mcc.c
+[v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
+{
+"77
+} 0
+"52 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/interrupt_manager.c
+[v _INTERRUPT_Initialize INTERRUPT_Initialize `(v  1 e 1 0 ]
+{
+"56
+} 0
+"167 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/i2c1_master.c
+[v _I2C1_Initialize I2C1_Initialize `(v  1 e 1 0 ]
+{
+"174
+} 0
+"88 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/eusart1.c
+[v _EUSART1_Initialize EUSART1_Initialize `(v  1 e 1 0 ]
+{
+"130
+} 0
+"276
+[v _EUSART1_SetTxInterruptHandler EUSART1_SetTxInterruptHandler `(v  1 e 1 0 ]
+{
+[v EUSART1_SetTxInterruptHandler@interruptHandler interruptHandler `*.37(v  1 p 2 15 ]
+"278
+} 0
+"280
+[v _EUSART1_SetRxInterruptHandler EUSART1_SetRxInterruptHandler `(v  1 e 1 0 ]
+{
+[v EUSART1_SetRxInterruptHandler@interruptHandler interruptHandler `*.37(v  1 p 2 15 ]
+"282
+} 0
+"268
+[v _EUSART1_SetOverrunErrorHandler EUSART1_SetOverrunErrorHandler `(v  1 e 1 0 ]
+{
+[v EUSART1_SetOverrunErrorHandler@interruptHandler interruptHandler `*.37(v  1 p 2 15 ]
+"270
+} 0
+"264
+[v _EUSART1_SetFramingErrorHandler EUSART1_SetFramingErrorHandler `(v  1 e 1 0 ]
+{
+[v EUSART1_SetFramingErrorHandler@interruptHandler interruptHandler `*.37(v  1 p 2 15 ]
+"266
+} 0
+"272
+[v _EUSART1_SetErrorHandler EUSART1_SetErrorHandler `(v  1 e 1 0 ]
+{
+[v EUSART1_SetErrorHandler@interruptHandler interruptHandler `*.37(v  1 p 2 15 ]
+"274
+} 0
+"62 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/adcc.c
+[v _ADCC_Initialize ADCC_Initialize `(v  1 e 1 0 ]
+{
+"105
+} 0
+"137 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/eusart1.c
+[v _EUSART1_is_rx_ready EUSART1_is_rx_ready `(a  1 e 1 0 ]
+{
+"140
+} 0
+"703 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\outputs_MC50.c
+[v _ControlMotor ControlMotor `(v  1 e 1 0 ]
+{
+"721
+[v ControlMotor@stateMotor stateMotor `E10381  1 a 1 23 ]
+"814
+} 0
+"658
+[v _VerifyElectricalBrake VerifyElectricalBrake `(E10381  1 e 1 0 ]
+{
+[v VerifyElectricalBrake@actualState actualState `E10381  1 a 1 wreg ]
+"660
+[v VerifyElectricalBrake@tempState tempState `E10381  1 a 1 15 ]
+"658
+[v VerifyElectricalBrake@actualState actualState `E10381  1 a 1 wreg ]
+"661
+[v VerifyElectricalBrake@actualState actualState `E10381  1 a 1 16 ]
+"701
+} 0
+"816
+[v _ControlLights ControlLights `(v  1 e 1 0 ]
+{
+"1026
+} 0
+"1028
+[v _setRGB_ON setRGB_ON `(v  1 e 1 0 ]
+{
+[v setRGB_ON@RGBLigth RGBLigth `E10611  1 a 1 wreg ]
+[v setRGB_ON@RGBLigth RGBLigth `E10611  1 a 1 wreg ]
+[v setRGB_ON@Freq Freq `i  1 p 2 16 ]
+"1031
+[v setRGB_ON@RGBLigth RGBLigth `E10611  1 a 1 20 ]
+"1075
+} 0
+"98
+[v _RGB_Set RGB_Set `(v  1 e 1 0 ]
+{
+[v RGB_Set@value value `uc  1 a 1 wreg ]
+[v RGB_Set@value value `uc  1 a 1 wreg ]
+"100
+[v RGB_Set@value value `uc  1 a 1 15 ]
+"103
+} 0
+"1077
+[v _setFlashLigth_ON setFlashLigth_ON `(v  1 e 1 0 ]
+{
+[v setFlashLigth_ON@Freq Freq `i  1 p 2 15 ]
+"1093
+} 0
+"674 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\inputs_MC50.c
+[v _ControlInputs ControlInputs `(v  1 e 1 0 ]
+{
+"736
+} 0
+"342 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\controlCurrent_MC50.c
+[v _ControlCurrent ControlCurrent `(v  1 e 1 0 ]
+{
+"441
+} 0
+"233
+[v _refreshCurrent refreshCurrent `(v  1 e 1 0 ]
+{
+"251
+} 0
+"199
+[v _sumHIST sumHIST `(ul  1 e 4 0 ]
+{
+"202
+[v sumHIST@sumH sumH `ul  1 a 4 27 ]
+"204
+[v sumHIST@min min `ui  1 a 2 25 ]
+"203
+[v sumHIST@max max `ui  1 a 2 23 ]
+"201
+[v sumHIST@i i `uc  1 a 1 31 ]
+"227
+} 0
+"59
+[v _sumEnergyADC sumEnergyADC `(ui  1 e 2 0 ]
+{
+"64
+[v sumEnergyADC@auxValue auxValue `ui  1 a 2 21 ]
+"63
+[v sumEnergyADC@sumE sumE `ui  1 a 2 19 ]
+"61
+[v sumEnergyADC@i i `uc  1 a 1 23 ]
+"97
+} 0
+"182
+[v _saveEnergyADCHist saveEnergyADCHist `(v  1 e 1 0 ]
+{
+[v saveEnergyADCHist@valueToSave valueToSave `ui  1 p 2 15 ]
+"191
+} 0
+"103
+[v _refreshADCZeroOffset refreshADCZeroOffset `(v  1 e 1 0 ]
+{
+"106
+[v refreshADCZeroOffset@media media `ui  1 a 2 23 ]
+"105
+[v refreshADCZeroOffset@i i `uc  1 a 1 22 ]
+"175
+} 0
+"7 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+{
+"10
+[v ___lwdiv@quotient quotient `ui  1 a 2 19 ]
+"11
+[v ___lwdiv@counter counter `uc  1 a 1 21 ]
+"7
+[v ___lwdiv@dividend dividend `ui  1 p 2 15 ]
+[v ___lwdiv@divisor divisor `ui  1 p 2 17 ]
+"30
+} 0
+"264 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\controlCurrent_MC50.c
+[v _getCurrentComparator getCurrentComparator `(ul  1 e 4 0 ]
+{
+"301
+[v getCurrentComparator@x x `uc  1 a 1 33 ]
+"266
+[v getCurrentComparator@tempOffset tempOffset `ui  1 a 2 31 ]
+"333
+} 0
+"15 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+{
+"17
+[v ___wmul@product product `ui  1 a 2 19 ]
+"15
+[v ___wmul@multiplier multiplier `ui  1 p 2 15 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 17 ]
+"53
+} 0
+"405 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\outputs_MC50.c
+[v _GetMotorPower GetMotorPower `(uc  1 e 1 0 ]
+{
+"408
+[v GetMotorPower@defineatraso defineatraso `uc  1 a 1 18 ]
+"460
+} 0
+"293 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\controlMemory_MC50.c
+[v _ControlCounterMoves ControlCounterMoves `(v  1 e 1 0 ]
+{
+"306
+} 0
+"175
+[v _SaveNVM_VarSystem SaveNVM_VarSystem `(v  1 e 1 0 ]
+{
+[v SaveNVM_VarSystem@page page `uc  1 a 1 wreg ]
+"177
+[v SaveNVM_VarSystem@tempAdd tempAdd `ui  1 a 2 1 ]
+"178
+[v SaveNVM_VarSystem@point point `*.30uc  1 a 1 3 ]
+"175
+[v SaveNVM_VarSystem@page page `uc  1 a 1 wreg ]
+"177
+[v SaveNVM_VarSystem@page page `uc  1 a 1 0 ]
+"181
+} 0
+"50 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/drivers/i2c_simple_master.c
+[v _i2c_writeNBytes i2c_writeNBytes `(v  1 e 1 0 ]
+{
+[v i2c_writeNBytes@address address `uc  1 a 1 wreg ]
+"52
+[v i2c_writeNBytes@dat dat `[17]uc  1 a 17 39 ]
+"50
+[v i2c_writeNBytes@address address `uc  1 a 1 wreg ]
+[v i2c_writeNBytes@reg reg `us  1 p 2 33 ]
+[v i2c_writeNBytes@data data `*.30v  1 p 1 35 ]
+[v i2c_writeNBytes@len len `ui  1 p 2 36 ]
+"53
+[v i2c_writeNBytes@address address `uc  1 a 1 56 ]
+"61
+} 0
+"4 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\memcpy.c
+[v _memcpy memcpy `(*.39v  1 e 2 0 ]
+{
+"8
+[v memcpy@s s `*.39Cuc  1 a 2 24 ]
+"7
+[v memcpy@d d `*.39uc  1 a 2 22 ]
+"9
+[v memcpy@tmp tmp `uc  1 a 1 21 ]
+"4
+[v memcpy@d1 d1 `*.39v  1 p 2 15 ]
+[v memcpy@s1 s1 `*.39Cv  1 p 2 17 ]
+[v memcpy@n n `ui  1 p 2 19 ]
+"18
+} 0
+"283 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/i2c1_master.c
+[v _I2C1_SetAddressNackCallback I2C1_SetAddressNackCallback `(v  1 e 1 0 ]
+{
+[v I2C1_SetAddressNackCallback@cb cb `*.37(E360  1 p 2 20 ]
+[v I2C1_SetAddressNackCallback@ptr ptr `*.2v  1 p 2 22 ]
+"286
+} 0
+"176
+[v _I2C1_Open I2C1_Open `(E355  1 e 1 0 ]
+{
+[v I2C1_Open@address address `uc  1 a 1 wreg ]
+"178
+[v I2C1_Open@returnValue returnValue `E355  1 a 1 16 ]
+"176
+[v I2C1_Open@address address `uc  1 a 1 wreg ]
+"178
+[v I2C1_Open@address address `uc  1 a 1 15 ]
+"207
+} 0
+"543
+[v _I2C1_MasterOpen I2C1_MasterOpen `T(a  1 s 1 I2C1_MasterOpen ]
+{
+"555
+} 0
+"251
+[v _I2C1_MasterWrite I2C1_MasterWrite `(E355  1 e 1 0 ]
+{
+"254
+} 0
+"224
+[v _I2C1_MasterOperation I2C1_MasterOperation `(E355  1 e 1 0 ]
+{
+[v I2C1_MasterOperation@read read `a  1 a 1 wreg ]
+"226
+[v I2C1_MasterOperation@returnValue returnValue `E355  1 a 1 32 ]
+"224
+[v I2C1_MasterOperation@read read `a  1 a 1 wreg ]
+"226
+[v I2C1_MasterOperation@read read `a  1 a 1 31 ]
+"244
+} 0
+"312
+[v _I2C1_Poller I2C1_Poller `(v  1 s 1 I2C1_Poller ]
+{
+"319
+} 0
+"650
+[v _I2C1_MasterWaitForEvent I2C1_MasterWaitForEvent `T(v  1 s 1 I2C1_MasterWaitForEvent ]
+{
+"659
+} 0
+"321
+[v _I2C1_MasterFsm I2C1_MasterFsm `T(v  1 s 1 I2C1_MasterFsm ]
+{
+"330
+} 0
+"500
+[v _I2C1_DO_ADDRESS_NACK I2C1_DO_ADDRESS_NACK `(E10442  1 s 1 I2C1_DO_ADDRESS_NACK ]
+{
+"512
+} 0
+"494
+[v _I2C1_DO_RESET I2C1_DO_RESET `(E10442  1 s 1 I2C1_DO_RESET ]
+{
+"499
+} 0
+"488
+[v _I2C1_DO_RX_NACK_RESTART I2C1_DO_RX_NACK_RESTART `(E10442  1 s 1 I2C1_DO_RX_NACK_RESTART ]
+{
+"492
+} 0
+"482
+[v _I2C1_DO_RX_NACK_STOP I2C1_DO_RX_NACK_STOP `(E10442  1 s 1 I2C1_DO_RX_NACK_STOP ]
+{
+"486
+} 0
+"475
+[v _I2C1_DO_RX_ACK I2C1_DO_RX_ACK `(E10442  1 s 1 I2C1_DO_RX_ACK ]
+{
+"479
+} 0
+"469
+[v _I2C1_DO_SEND_STOP I2C1_DO_SEND_STOP `(E10442  1 s 1 I2C1_DO_SEND_STOP ]
+{
+"473
+} 0
+"463
+[v _I2C1_DO_SEND_RESTART I2C1_DO_SEND_RESTART `(E10442  1 s 1 I2C1_DO_SEND_RESTART ]
+{
+"467
+} 0
+"456
+[v _I2C1_DO_SEND_RESTART_WRITE I2C1_DO_SEND_RESTART_WRITE `(E10442  1 s 1 I2C1_DO_SEND_RESTART_WRITE ]
+{
+"460
+} 0
+"450
+[v _I2C1_DO_SEND_RESTART_READ I2C1_DO_SEND_RESTART_READ `(E10442  1 s 1 I2C1_DO_SEND_RESTART_READ ]
+{
+"454
+} 0
+"402
+[v _I2C1_DO_RCEN I2C1_DO_RCEN `(E10442  1 s 1 I2C1_DO_RCEN ]
+{
+"407
+} 0
+"378
+[v _I2C1_DO_RX I2C1_DO_RX `(E10442  1 s 1 I2C1_DO_RX ]
+{
+"400
+} 0
+"354
+[v _I2C1_DO_TX I2C1_DO_TX `(E10442  1 s 1 I2C1_DO_TX ]
+{
+"376
+} 0
+"347
+[v _I2C1_DO_SEND_ADR_WRITE I2C1_DO_SEND_ADR_WRITE `(E10442  1 s 1 I2C1_DO_SEND_ADR_WRITE ]
+{
+"352
+} 0
+"340
+[v _I2C1_DO_SEND_ADR_READ I2C1_DO_SEND_ADR_READ `(E10442  1 s 1 I2C1_DO_SEND_ADR_READ ]
+{
+"345
+} 0
+"333
+[v _I2C1_DO_IDLE I2C1_DO_IDLE `(E10442  1 s 1 I2C1_DO_IDLE ]
+{
+"338
+} 0
+"409
+[v _I2C1_DO_TX_EMPTY I2C1_DO_TX_EMPTY `(E10442  1 s 1 I2C1_DO_TX_EMPTY ]
+{
+"424
+} 0
+"645
+[v _I2C1_MasterSetIrq I2C1_MasterSetIrq `T(v  1 s 1 I2C1_MasterSetIrq ]
+{
+"648
+} 0
+"598
+[v _I2C1_MasterIsNack I2C1_MasterIsNack `T(a  1 s 1 I2C1_MasterIsNack ]
+{
+"601
+} 0
+"568
+[v _I2C1_MasterSendTxData I2C1_MasterSendTxData `T(v  1 s 1 I2C1_MasterSendTxData ]
+{
+[v I2C1_MasterSendTxData@data data `uc  1 a 1 wreg ]
+[v I2C1_MasterSendTxData@data data `uc  1 a 1 wreg ]
+"570
+[v I2C1_MasterSendTxData@data data `uc  1 a 1 15 ]
+"571
+} 0
+"603
+[v _I2C1_MasterSendAck I2C1_MasterSendAck `T(v  1 s 1 I2C1_MasterSendAck ]
+{
+"607
+} 0
+"563
+[v _I2C1_MasterGetRxData I2C1_MasterGetRxData `T(uc  1 s 1 I2C1_MasterGetRxData ]
+{
+"566
+} 0
+"609
+[v _I2C1_MasterSendNack I2C1_MasterSendNack `T(v  1 s 1 I2C1_MasterSendNack ]
+{
+"613
+} 0
+"583
+[v _I2C1_MasterStartRx I2C1_MasterStartRx `T(v  1 s 1 I2C1_MasterStartRx ]
+{
+"586
+} 0
+"525
+[v _I2C1_CallbackReturnReset I2C1_CallbackReturnReset `(E360  1 e 1 0 ]
+{
+[v I2C1_CallbackReturnReset@funPtr funPtr `*.39v  1 p 2 24 ]
+"528
+} 0
+"520
+[v _I2C1_CallbackReturnStop I2C1_CallbackReturnStop `(E360  1 e 1 0 ]
+{
+"523
+} 0
+"176 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/examples/i2c1_master_example.c
+[v _rdBlkRegCompleteHandler@i2c1_master_example$F535 rdBlkRegCompleteHandler `(E527  1 s 1 rdBlkRegCompleteHandler ]
+{
+[v rdBlkRegCompleteHandler@i2c1_master_example$F535@ptr ptr `*.39v  1 p 2 24 ]
+"181
+} 0
+"162
+[v _wr1RegCompleteHandler@i2c1_master_example$F517 wr1RegCompleteHandler `(E527  1 s 1 wr1RegCompleteHandler ]
+{
+[v wr1RegCompleteHandler@i2c1_master_example$F517@ptr ptr `*.39v  1 p 2 24 ]
+"167
+} 0
+"155
+[v _rd2RegCompleteHandler@i2c1_master_example$F511 rd2RegCompleteHandler `(E527  1 s 1 rd2RegCompleteHandler ]
+{
+[v rd2RegCompleteHandler@i2c1_master_example$F511@ptr ptr `*.39v  1 p 2 24 ]
+"160
+} 0
+"148
+[v _rd1RegCompleteHandler@i2c1_master_example$F500 rd1RegCompleteHandler `(E527  1 s 1 rd1RegCompleteHandler ]
+{
+[v rd1RegCompleteHandler@i2c1_master_example$F500@ptr ptr `*.39v  1 p 2 24 ]
+"153
+} 0
+"140 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/drivers/i2c_simple_master.c
+[v _rdBlkRegCompleteHandler rdBlkRegCompleteHandler `(E360  1 s 1 rdBlkRegCompleteHandler ]
+{
+[v rdBlkRegCompleteHandler@p p `*.39v  1 p 2 24 ]
+"145
+} 0
+"116
+[v _wr2RegCompleteHandler wr2RegCompleteHandler `(E360  1 s 1 wr2RegCompleteHandler ]
+{
+[v wr2RegCompleteHandler@p p `*.39v  1 p 2 24 ]
+"121
+} 0
+"93
+[v _rd2RegCompleteHandler rd2RegCompleteHandler `(E360  1 s 1 rd2RegCompleteHandler ]
+{
+[v rd2RegCompleteHandler@p p `*.39v  1 p 2 24 ]
+"98
+} 0
+"64
+[v _rd1RegCompleteHandler rd1RegCompleteHandler `(E360  1 s 1 rd1RegCompleteHandler ]
+{
+[v rd1RegCompleteHandler@p p `*.39v  1 p 2 24 ]
+"69
+} 0
+"33
+[v _wr1RegCompleteHandler wr1RegCompleteHandler `(E360  1 s 1 wr1RegCompleteHandler ]
+{
+[v wr1RegCompleteHandler@p p `*.39v  1 p 2 24 ]
+"38
+} 0
+"169 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/examples/i2c1_master_example.c
+[v _wr2RegCompleteHandler@i2c1_master_example$F523 wr2RegCompleteHandler `(E527  1 s 1 wr2RegCompleteHandler ]
+{
+[v wr2RegCompleteHandler@i2c1_master_example$F523@ptr ptr `*.39v  1 p 2 24 ]
+"174
+} 0
+"273 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/i2c1_master.c
+[v _I2C1_SetDataCompleteCallback I2C1_SetDataCompleteCallback `(v  1 e 1 0 ]
+{
+[v I2C1_SetDataCompleteCallback@cb cb `*.37(E360  1 p 2 20 ]
+[v I2C1_SetDataCompleteCallback@ptr ptr `*.39v  1 p 2 22 ]
+"276
+} 0
+"298
+[v _I2C1_SetCallback I2C1_SetCallback `(v  1 s 1 I2C1_SetCallback ]
+{
+[v I2C1_SetCallback@idx idx `E10460  1 a 1 wreg ]
+[v I2C1_SetCallback@idx idx `E10460  1 a 1 wreg ]
+[v I2C1_SetCallback@cb cb `*.37(E360  1 p 2 15 ]
+[v I2C1_SetCallback@ptr ptr `*.39v  1 p 2 17 ]
+"300
+[v I2C1_SetCallback@idx idx `E10460  1 a 1 19 ]
+"310
+} 0
+"263
+[v _I2C1_SetBuffer I2C1_SetBuffer `(v  1 e 1 0 ]
+{
+[v I2C1_SetBuffer@buffer buffer `*.39v  1 p 2 15 ]
+[v I2C1_SetBuffer@bufferSize bufferSize `ui  1 p 2 17 ]
+"271
+} 0
+"593
+[v _I2C1_MasterStop I2C1_MasterStop `T(v  1 s 1 I2C1_MasterStop ]
+{
+"596
+} 0
+"573
+[v _I2C1_MasterEnableRestart I2C1_MasterEnableRestart `T(v  1 s 1 I2C1_MasterEnableRestart ]
+{
+"576
+} 0
+"588
+[v _I2C1_MasterStart I2C1_MasterStart `T(v  1 s 1 I2C1_MasterStart ]
+{
+"591
+} 0
+"209
+[v _I2C1_Close I2C1_Close `(E355  1 e 1 0 ]
+{
+"211
+[v I2C1_Close@returnValue returnValue `E355  1 a 1 15 ]
+"222
+} 0
+"635
+[v _I2C1_MasterDisableIrq I2C1_MasterDisableIrq `T(v  1 s 1 I2C1_MasterDisableIrq ]
+{
+"638
+} 0
+"557
+[v _I2C1_MasterClose I2C1_MasterClose `T(v  1 s 1 I2C1_MasterClose ]
+{
+"561
+} 0
+"640
+[v _I2C1_MasterClearIrq I2C1_MasterClearIrq `T(v  1 s 1 I2C1_MasterClearIrq ]
+{
+"643
+} 0
+"58 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/interrupt_manager.c
+[v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `IIH(v  1 e 1 0 ]
+{
+"92
+} 0
+"180 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/tmr2.c
+[v _TMR2_ISR TMR2_ISR `(v  1 e 1 0 ]
+{
+"339
+} 0
+"50 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\outputs_MC50.c
+[v _refreshSegment refreshSegment `(v  1 e 1 0 ]
+{
+"91
+} 0
+"93
+[v _Segments_Set Segments_Set `(v  1 e 1 0 ]
+{
+[v Segments_Set@value value `uc  1 a 1 wreg ]
+[v Segments_Set@value value `uc  1 a 1 wreg ]
+"95
+[v Segments_Set@value value `uc  1 a 1 0 ]
+"97
+} 0
+"190 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\main_MC50.c
+[v _controlTimeslots controlTimeslots `(v  1 e 1 0 ]
+{
+"244
+} 0
+"246
+[v _decrementTimeslot decrementTimeslot `(v  1 e 1 0 ]
+{
+[v decrementTimeslot@ts ts `*.39i  1 p 2 0 ]
+"252
+} 0
+"346 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/tmr2.c
+[v _TMR2_DefaultInterruptHandler TMR2_DefaultInterruptHandler `(v  1 e 1 0 ]
+{
+"349
+} 0
+"38 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\controlCurrent_MC50.c
+[v _ReadADC ReadADC `(v  1 e 1 0 ]
+{
+"53
+} 0
+"131 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/adcc.c
+[v _ADCC_GetSingleConversion ADCC_GetSingleConversion `(i  1 e 2 0 ]
+{
+[v ADCC_GetSingleConversion@channel channel `E10053  1 a 1 wreg ]
+[v ADCC_GetSingleConversion@channel channel `E10053  1 a 1 wreg ]
+"134
+[v ADCC_GetSingleConversion@channel channel `E10053  1 a 1 0 ]
+"153
+} 0
+"166 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/tmr1.c
+[v _TMR1_ISR TMR1_ISR `(v  1 e 1 0 ]
+{
+"189
+} 0
+"213 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\outputs_MC50.c
+[v _controlMotorForce controlMotorForce `(v  1 e 1 0 ]
+{
+"405
+} 0
+"658
+[v i2_VerifyElectricalBrake VerifyElectricalBrake `(E10381  1 e 1 0 ]
+{
+[v i2VerifyElectricalBrake@actualState actualState `E10381  1 a 1 wreg ]
+"660
+[v i2VerifyElectricalBrake@tempState tempState `E10381  1 a 1 0 ]
+"658
+[v i2VerifyElectricalBrake@actualState actualState `E10381  1 a 1 wreg ]
+"661
+[v i2VerifyElectricalBrake@actualState actualState `E10381  1 a 1 1 ]
+"701
+} 0
+"405
+[v i2_GetMotorPower GetMotorPower `(uc  1 e 1 0 ]
+{
+"408
+[v i2GetMotorPower@defineatraso defineatraso `uc  1 a 1 3 ]
+"460
+} 0
+"129 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/tmr1.c
+[v _TMR1_WriteTimer TMR1_WriteTimer `(v  1 e 1 0 ]
+{
+[v TMR1_WriteTimer@timerVal timerVal `us  1 p 2 0 ]
+"149
+} 0
+"196
+[v _TMR1_DefaultInterruptHandler TMR1_DefaultInterruptHandler `(v  1 e 1 0 ]
+{
+"199
+} 0
+"127 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/tmr0.c
+[v _TMR0_ISR TMR0_ISR `(v  1 e 1 0 ]
+{
+"140
+} 0
+"41 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\inputs_MC50.c
+[v _rxi rxi `(v  1 e 1 0 ]
+{
+"205
+} 0
+"147 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/tmr0.c
+[v _TMR0_DefaultInterruptHandler TMR0_DefaultInterruptHandler `(v  1 e 1 0 ]
+{
+"150
+} 0
+"197 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\mcc_generated_files/eusart1.c
+[v _EUSART1_Transmit_ISR EUSART1_Transmit_ISR `(v  1 e 1 0 ]
+{
+"214
+} 0
+"216
+[v _EUSART1_Receive_ISR EUSART1_Receive_ISR `(v  1 e 1 0 ]
+{
+"238
+} 0
+"252
+[v _EUSART1_DefaultOverrunErrorHandler EUSART1_DefaultOverrunErrorHandler `(v  1 e 1 0 ]
+{
+"258
+} 0
+"250
+[v _EUSART1_DefaultFramingErrorHandler EUSART1_DefaultFramingErrorHandler `(v  1 e 1 0 ]
+{
+} 0
+"260
+[v _EUSART1_DefaultErrorHandler EUSART1_DefaultErrorHandler `(v  1 e 1 0 ]
+{
+"262
+} 0
+"240
+[v _EUSART1_RxDataHandler EUSART1_RxDataHandler `(v  1 e 1 0 ]
+{
+"248
+} 0
