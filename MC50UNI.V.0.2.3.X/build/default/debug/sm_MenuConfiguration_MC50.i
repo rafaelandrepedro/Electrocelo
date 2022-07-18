@@ -17820,6 +17820,7 @@ void EUSART1_SetRxInterruptHandler(void (* interruptHandler)(void));
         EMPTY_POS=7,
         SAVE_COMMAND=8,
         ERASE_COMMAND=9,
+        READ_SERIAL=10
     };
 
 
@@ -17877,6 +17878,7 @@ typedef enum {
 TypeCMD validateRemoteSerialNumber(unsigned long serial, StateEnum VerifyOnlySerial, char* position);
 void saveNewSerial(char cmdType,unsigned long tempSerial, char position);
 void RemoveSerial(char cmdType, char position);
+void ReadSerial(char cmdType, unsigned long* tempSerial, char position);
 char cmdMemoryIsEmpty(char cmdType, char position);
 void SaveNVM_VarSystem(unsigned char page);
 void ResetDefaultMemory(unsigned char type);

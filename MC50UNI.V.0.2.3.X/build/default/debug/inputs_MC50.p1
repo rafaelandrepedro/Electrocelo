@@ -2139,31 +2139,31 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "232
 [; ;inputs_MC50.c: 232:     static unsigned char key1 = 0;
-[v F11031 `uc ~T0 @X0 1 s key1 ]
-[i F11031
+[v F11035 `uc ~T0 @X0 1 s key1 ]
+[i F11035
 -> -> 0 `i `uc
 ]
 "233
 [; ;inputs_MC50.c: 233:     static uint32_t serial = 0;
-[v F11032 `ul ~T0 @X0 1 s serial ]
-[i F11032
+[v F11036 `ul ~T0 @X0 1 s serial ]
+[i F11036
 -> -> -> 0 `i `l `ul
 ]
 "234
 [; ;inputs_MC50.c: 234:     static uint16_t rollingCode= 0;
-[v F11033 `us ~T0 @X0 1 s rollingCode ]
-[i F11033
+[v F11037 `us ~T0 @X0 1 s rollingCode ]
+[i F11037
 -> -> 0 `i `us
 ]
 "235
 [; ;inputs_MC50.c: 235:     static TypeCMD keyType = 0;
-[v F11034 `E10539 ~T0 @X0 1 s keyType ]
-[i F11034
+[v F11038 `E10539 ~T0 @X0 1 s keyType ]
+[i F11038
 -> -> 0 `i `E10539
 ]
 "236
 [; ;inputs_MC50.c: 236:     static TypeRemote_st typeRemote;
-[v F11035 `E10559 ~T0 @X0 1 s typeRemote ]
+[v F11039 `E10559 ~T0 @X0 1 s typeRemote ]
 "241
 [; ;inputs_MC50.c: 241:     if(RFFull)
 [e $ ! != -> _RFFull `i -> 0 `i 1549  ]
@@ -2178,7 +2178,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "246
 [; ;inputs_MC50.c: 246:             keyType = keeloqDecryptPacket(BufferRF,&classic_data);
-[e = F11034 ( _keeloqDecryptPacket (2 , -> &U _BufferRF `*uc &U _classic_data ]
+[e = F11038 ( _keeloqDecryptPacket (2 , -> &U _BufferRF `*uc &U _classic_data ]
 "247
 [; ;inputs_MC50.c: 247:          }
 }
@@ -2191,30 +2191,30 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "250
 [; ;inputs_MC50.c: 250:             keyType = DecryptPacket_12BIT(BufferRF,&classic_data);
-[e = F11034 ( _DecryptPacket_12BIT (2 , -> &U _BufferRF `*uc &U _classic_data ]
+[e = F11038 ( _DecryptPacket_12BIT (2 , -> &U _BufferRF `*uc &U _classic_data ]
 "251
 [; ;inputs_MC50.c: 251:          }
 }
 [e :U 1551 ]
 "254
 [; ;inputs_MC50.c: 254:         key1 = classic_data.fcode1;
-[e = F11031 . _classic_data 4 ]
+[e = F11035 . _classic_data 4 ]
 "255
 [; ;inputs_MC50.c: 255:         serial = classic_data.serialnumber;
-[e = F11032 . _classic_data 1 ]
+[e = F11036 . _classic_data 1 ]
 "256
 [; ;inputs_MC50.c: 256:         rollingCode = classic_data.sync;
-[e = F11033 . _classic_data 2 ]
+[e = F11037 . _classic_data 2 ]
 "257
 [; ;inputs_MC50.c: 257:         typeRemote = classic_data.type;
-[e = F11035 . _classic_data 6 ]
+[e = F11039 . _classic_data 6 ]
 "270
 [; ;inputs_MC50.c: 270:         if (var_sys.LearningIsEnabled == YES){
 [e $ ! == -> . _var_sys 28 `i -> . `E10564 1 `i 1552  ]
 {
 "272
 [; ;inputs_MC50.c: 272:              if (keyType==NoCMD || rfCMD.currentKey!=key1 || rfCMD.currentSerial!=serial || keyType!=rfCMD.currentType)
-[e $ ! || || || == -> F11034 `ui -> . `E10539 0 `ui != -> . _rfCMD 1 `i -> F11031 `i != . _rfCMD 2 F11032 != -> F11034 `ui -> . _rfCMD 0 `ui 1553  ]
+[e $ ! || || || == -> F11038 `ui -> . `E10539 0 `ui != -> . _rfCMD 1 `i -> F11035 `i != . _rfCMD 2 F11036 != -> F11038 `ui -> . _rfCMD 0 `ui 1553  ]
 "273
 [; ;inputs_MC50.c: 273:                 rfCMD.processed=0;
 [e = . _rfCMD 6 -> -> 0 `i `uc ]
@@ -2229,7 +2229,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "277
 [; ;inputs_MC50.c: 277:         else if (keyType==NoCMD ||( keyType!=rfCMD.currentType && ts_system.TimeLastCommand<=0 && rfCMD.currentRolling!=rollingCode ) || rfCMD.currentKey!=key1 || rfCMD.currentSerial!=serial)
 [e :U 1552 ]
-[e $ ! || || || == -> F11034 `ui -> . `E10539 0 `ui && && != -> F11034 `ui -> . _rfCMD 0 `ui <= . _ts_system 13 -> 0 `i != . _rfCMD 3 -> F11033 `ui != -> . _rfCMD 1 `i -> F11031 `i != . _rfCMD 2 F11032 1555  ]
+[e $ ! || || || == -> F11038 `ui -> . `E10539 0 `ui && && != -> F11038 `ui -> . _rfCMD 0 `ui <= . _ts_system 13 -> 0 `i != . _rfCMD 3 -> F11037 `ui != -> . _rfCMD 1 `i -> F11035 `i != . _rfCMD 2 F11036 1555  ]
 "278
 [; ;inputs_MC50.c: 278:         {
 {
@@ -2246,7 +2246,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "282
 [; ;inputs_MC50.c: 282:         else if(ts_system.TimeLastCommand<=0 && typeRemote==DIP_12BIT)
 [e :U 1555 ]
-[e $ ! && <= . _ts_system 13 -> 0 `i == -> F11035 `ui -> . `E10559 2 `ui 1557  ]
+[e $ ! && <= . _ts_system 13 -> 0 `i == -> F11039 `ui -> . `E10559 2 `ui 1557  ]
 "283
 [; ;inputs_MC50.c: 283:         {
 {
@@ -2267,19 +2267,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . _ts_system 13 / -> 500 `i -> 50 `i ]
 "291
 [; ;inputs_MC50.c: 291:         rfCMD.currentType=keyType;
-[e = . _rfCMD 0 -> F11034 `uc ]
+[e = . _rfCMD 0 -> F11038 `uc ]
 "292
 [; ;inputs_MC50.c: 292:         if
-[e $ ! || || || == -> . _rfCMD 0 `i -> . `E10539 0 `i != -> . _rfCMD 1 `i -> F11031 `i != . _rfCMD 2 F11032 != . _rfCMD 3 -> F11033 `ui 1558  ]
+[e $ ! || || || == -> . _rfCMD 0 `i -> . `E10539 0 `i != -> . _rfCMD 1 `i -> F11035 `i != . _rfCMD 2 F11036 != . _rfCMD 3 -> F11037 `ui 1558  ]
 "299
 [; ;inputs_MC50.c: 299:         {
 {
 "300
 [; ;inputs_MC50.c: 300:             rfCMD.currentKey=key1;
-[e = . _rfCMD 1 F11031 ]
+[e = . _rfCMD 1 F11035 ]
 "301
 [; ;inputs_MC50.c: 301:             rfCMD.currentSerial=serial;
-[e = . _rfCMD 2 F11032 ]
+[e = . _rfCMD 2 F11036 ]
 "302
 [; ;inputs_MC50.c: 302:             rfCMD.currentPosMem=classic_data.positionMem;
 [e = . _rfCMD 4 . _classic_data 7 ]
@@ -2292,7 +2292,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 1558 ]
 "305
 [; ;inputs_MC50.c: 305:         rfCMD.currentRolling=rollingCode;
-[e = . _rfCMD 3 -> F11033 `ui ]
+[e = . _rfCMD 3 -> F11037 `ui ]
 "307
 [; ;inputs_MC50.c: 307:     }
 }
@@ -2752,17 +2752,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "474
 [; ;inputs_MC50.c: 474:  static unsigned char key1=0, key2=0;
-[v F11043 `uc ~T0 @X0 1 s key1 ]
-[i F11043
+[v F11047 `uc ~T0 @X0 1 s key1 ]
+[i F11047
 -> -> 0 `i `uc
 ]
-[v F11044 `uc ~T0 @X0 1 s key2 ]
-[i F11044
+[v F11048 `uc ~T0 @X0 1 s key2 ]
+[i F11048
 -> -> 0 `i `uc
 ]
 "479
 [; ;inputs_MC50.c: 479:  key2 = ( PORTB & 0x37 );
-[e = F11044 -> & -> _PORTB `i -> 55 `i `uc ]
+[e = F11048 -> & -> _PORTB `i -> 55 `i `uc ]
 "480
 [; ;inputs_MC50.c: 480:     __asm("NOP");
 [; <" NOP ;# ">
@@ -2774,16 +2774,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" NOP ;# ">
 "483
 [; ;inputs_MC50.c: 483:  key1 = ( PORTB & 0x37 );
-[e = F11043 -> & -> _PORTB `i -> 55 `i `uc ]
+[e = F11047 -> & -> _PORTB `i -> 55 `i `uc ]
 "485
 [; ;inputs_MC50.c: 485:  if ( key2 == key1 )
-[e $ ! == -> F11044 `i -> F11043 `i 1594  ]
+[e $ ! == -> F11048 `i -> F11047 `i 1594  ]
 "486
 [; ;inputs_MC50.c: 486:  {
 {
 "487
 [; ;inputs_MC50.c: 487:         button_struct.current = key1;
-[e = . _button_struct 1 F11043 ]
+[e = . _button_struct 1 F11047 ]
 "488
 [; ;inputs_MC50.c: 488:  }
 }

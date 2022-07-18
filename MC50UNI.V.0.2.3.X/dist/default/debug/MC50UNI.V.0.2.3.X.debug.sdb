@@ -216,20 +216,20 @@ TypeFullClose 4
 TypeProgrammingModeWalk 5
 TypeProgrammingModeFull 6
 ]
-"143
+"155
 [e E10921 . `uc
 SC 0
 SE 1
 br 2
 ]
-"150
+"162
 [e E10915 . `uc
 pageMemoryP 0
 pageMemoryE 1
 pageMemoryCounters 2
 pageMemoryLearningVars 3
 ]
-"168
+"180
 [e E10548 . `uc
 Stopped 0
 InOpenFull 1
@@ -393,7 +393,7 @@ disp2_e 1
 numberDisplays 2
 ]
 "50
-[e E11106 . `uc
+[e E11110 . `uc
 HIST_NONE 0
 HIST_SHALLOW 1
 HIST_DEEP 2
@@ -440,7 +440,7 @@ dq 36
 dSize 37
 ]
 "117
-[e E11130 . `uc
+[e E11134 . `uc
 st_MainMenu 0
 st_EditParameter 1
 st_SaveParameter 2
@@ -450,13 +450,13 @@ st_SaveRemotes 5
 st_LearningMode 6
 ]
 "118
-[e E11229 . `uc
+[e E11234 . `uc
 st_standBy 0
 st_MenuConfiguration 1
 st_MotorON 2
 ]
 "119
-[e E11237 . `uc
+[e E11242 . `uc
 st_Idle 0
 st_Closed 1
 st_Opening 2
@@ -465,7 +465,7 @@ st_Opened 4
 st_Learning 5
 ]
 "120
-[e E11273 . `uc
+[e E11278 . `uc
 st_InitLearning 0
 st_WaitForClosed 1
 st_WaitLearnigOpen 2
@@ -474,7 +474,7 @@ st_WaitForOpened 4
 st_WaitForEndLearn 5
 ]
 "140
-[e E11192 functioncode_t `uc
+[e E11196 functioncode_t `uc
 READ 0
 WRITE 1
 PROGRAMMING_ENABLE 2
@@ -485,6 +485,7 @@ OCCUPIED_POS 6
 EMPTY_POS 7
 SAVE_COMMAND 8
 ERASE_COMMAND 9
+READ_SERIAL 10
 ]
 "23 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\outputs_MC50.c
 [e E10397 . `uc
@@ -564,7 +565,7 @@ HIST_NONE 0
 HIST_SHALLOW 1
 HIST_DEEP 2
 ]
-[e E10939 . `uc
+[e E10944 . `uc
 st_standBy 0
 st_MenuConfiguration 1
 st_MotorON 2
@@ -699,12 +700,12 @@ st_Opened 4
 st_Learning 5
 ]
 "133
-[e E10973 . `uc
+[e E10978 . `uc
 st_standBy 0
 st_MenuConfiguration 1
 st_MotorON 2
 ]
-[e E10981 . `uc
+[e E10986 . `uc
 st_MainMenu 0
 st_EditParameter 1
 st_SaveParameter 2
@@ -836,7 +837,7 @@ st_Opened 4
 st_Learning 5
 ]
 "362
-[e E10980 . `uc
+[e E10981 . `uc
 pageMemoryP 0
 pageMemoryE 1
 pageMemoryCounters 2
@@ -853,7 +854,7 @@ st_SaveRemotes 5
 st_LearningMode 6
 ]
 "431
-[e E11023 . `uc
+[e E11028 . `uc
 st_standBy 0
 st_MenuConfiguration 1
 st_MotorON 2
@@ -889,13 +890,13 @@ ev_LearningComplete 19
 ev_SartLearning 20
 ]
 "37
-[e E10913 . `uc
+[e E10918 . `uc
 st_standBy 0
 st_MenuConfiguration 1
 st_MotorON 2
 ]
 "88
-[e E10938 . `uc
+[e E10943 . `uc
 P_Menu 0
 E_Menu 1
 Direction_Menu 2
@@ -980,7 +981,7 @@ Active 1
 EmAlarme 2
 ]
 "176
-[e E10980 . `uc
+[e E10985 . `uc
 st_Idle 0
 st_Closed 1
 st_Opening 2
@@ -1120,7 +1121,7 @@ dq 36
 dSize 37
 ]
 "254
-[e E10929 . `uc
+[e E10930 . `uc
 pageMemoryP 0
 pageMemoryE 1
 pageMemoryCounters 2
@@ -1160,6 +1161,7 @@ OCCUPIED_POS 6
 EMPTY_POS 7
 SAVE_COMMAND 8
 ERASE_COMMAND 9
+READ_SERIAL 10
 ]
 "12 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\eusartparser.c
 [e E10101 functioncode_t `uc
@@ -1173,33 +1175,34 @@ OCCUPIED_POS 6
 EMPTY_POS 7
 SAVE_COMMAND 8
 ERASE_COMMAND 9
+READ_SERIAL 10
 ]
 "483
-[e E10504 . `uc
+[e E10505 . `uc
 pageMemoryP 0
 pageMemoryE 1
 pageMemoryCounters 2
 pageMemoryLearningVars 3
 ]
 "488
-[e E10559 . `uc
+[e E10564 . `uc
 HIST_NONE 0
 HIST_SHALLOW 1
 HIST_DEEP 2
 ]
-[e E10583 . `uc
+[e E10588 . `uc
 st_standBy 0
 st_MenuConfiguration 1
 st_MotorON 2
 ]
 "561
-[e E10153 . `uc
+[e E10154 . `uc
 NO 0
 YES 1
 ST 2
 SECUR 3
 ]
-[e E10128 . `uc
+[e E10129 . `uc
 NoCMD 0
 TypeFull 1
 TypeWalk 2
@@ -1269,25 +1272,27 @@ TypeProgrammingModeFull 6
 "95
 [v _RemoveSerial RemoveSerial `(v  1 e 1 0 ]
 "110
+[v _ReadSerial ReadSerial `(v  1 e 1 0 ]
+"122
 [v _cmdMemoryIsEmpty cmdMemoryIsEmpty `(uc  1 e 1 0 ]
-"139
+"151
 [v _loadNVM_VarSystem loadNVM_VarSystem `(v  1 e 1 0 ]
-"175
+"187
 [v _SaveNVM_VarSystem SaveNVM_VarSystem `(v  1 e 1 0 ]
-"186
+"198
 [v _ResetDefaultMemory ResetDefaultMemory `(v  1 e 1 0 ]
-"293
+"305
 [v _ControlCounterMoves ControlCounterMoves `(v  1 e 1 0 ]
-"314
+"326
 [v _checkNVM_VarSystem checkNVM_VarSystem `(v  1 e 1 0 ]
 "11 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\eusartpackage.c
 [v _init_package init_package `(v  1 e 1 0 ]
-"53 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X/eusartpackage.h
+"54 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X/eusartpackage.h
 "29
-[u S4768 packagedata_t 2 `us 1 data16 2 0 `[2]uc 1 data8 2 0 ]
+[u S4773 packagedata_t 2 `us 1 data16 2 0 `[2]uc 1 data8 2 0 ]
 "21 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\eusartpackage.c
-[s S4771 package_t 7 `E11192 1 functioncode 1 0 `uc 1 address 1 1 `S4768 1 data 2 2 `uc 1 startbyte 1 4 `uc 1 endbyte 1 5 `a 1 valid 1 6 ]
-[v _read_package read_package `(S4771  1 e 7 0 ]
+[s S4776 package_t 7 `E11196 1 functioncode 1 0 `uc 1 address 1 1 `S4773 1 data 2 2 `uc 1 startbyte 1 4 `uc 1 endbyte 1 5 `a 1 valid 1 6 ]
+[v _read_package read_package `(S4776  1 e 7 0 ]
 "50
 [v _write_package write_package `(v  1 e 1 0 ]
 "12 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\eusartparser.c
@@ -1942,7 +1947,7 @@ TypeProgrammingModeFull 6
 [v _ADFLTRH ADFLTRH `VEuc  1 e 1 @3955 ]
 "16388
 [v _LATA LATA `VEuc  1 e 1 @3971 ]
-[s S5023 . 1 `uc 1 LATA0 1 0 :1:0 
+[s S5028 . 1 `uc 1 LATA0 1 0 :1:0 
 `uc 1 LATA1 1 0 :1:1 
 `uc 1 LATA2 1 0 :1:2 
 `uc 1 LATA3 1 0 :1:3 
@@ -1952,7 +1957,7 @@ TypeProgrammingModeFull 6
 `uc 1 LATA7 1 0 :1:7 
 ]
 "16415
-[s S5032 . 1 `uc 1 LA0 1 0 :1:0 
+[s S5037 . 1 `uc 1 LA0 1 0 :1:0 
 `uc 1 LA1 1 0 :1:1 
 `uc 1 LA2 1 0 :1:2 
 `uc 1 LA3 1 0 :1:3 
@@ -1961,13 +1966,13 @@ TypeProgrammingModeFull 6
 `uc 1 LA6 1 0 :1:6 
 `uc 1 LA7 1 0 :1:7 
 ]
-[u S5041 . 1 `S5023 1 . 1 0 `S5032 1 . 1 0 ]
-[v _LATAbits LATAbits `VES5041  1 e 1 @3971 ]
+[u S5046 . 1 `S5028 1 . 1 0 `S5037 1 . 1 0 ]
+[v _LATAbits LATAbits `VES5046  1 e 1 @3971 ]
 "16500
 [v _LATB LATB `VEuc  1 e 1 @3972 ]
 "16612
 [v _LATC LATC `VEuc  1 e 1 @3973 ]
-[s S4936 . 1 `uc 1 LATC0 1 0 :1:0 
+[s S4941 . 1 `uc 1 LATC0 1 0 :1:0 
 `uc 1 LATC1 1 0 :1:1 
 `uc 1 LATC2 1 0 :1:2 
 `uc 1 LATC3 1 0 :1:3 
@@ -1977,7 +1982,7 @@ TypeProgrammingModeFull 6
 `uc 1 LATC7 1 0 :1:7 
 ]
 "16639
-[s S4945 . 1 `uc 1 LC0 1 0 :1:0 
+[s S4950 . 1 `uc 1 LC0 1 0 :1:0 
 `uc 1 LC1 1 0 :1:1 
 `uc 1 LC2 1 0 :1:2 
 `uc 1 LC3 1 0 :1:3 
@@ -1986,11 +1991,11 @@ TypeProgrammingModeFull 6
 `uc 1 LC6 1 0 :1:6 
 `uc 1 LC7 1 0 :1:7 
 ]
-[u S4954 . 1 `S4936 1 . 1 0 `S4945 1 . 1 0 ]
-[v _LATCbits LATCbits `VES4954  1 e 1 @3973 ]
+[u S4959 . 1 `S4941 1 . 1 0 `S4950 1 . 1 0 ]
+[v _LATCbits LATCbits `VES4959  1 e 1 @3973 ]
 "16724
 [v _LATD LATD `VEuc  1 e 1 @3974 ]
-[s S5147 . 1 `uc 1 LATD0 1 0 :1:0 
+[s S5152 . 1 `uc 1 LATD0 1 0 :1:0 
 `uc 1 LATD1 1 0 :1:1 
 `uc 1 LATD2 1 0 :1:2 
 `uc 1 LATD3 1 0 :1:3 
@@ -2000,7 +2005,7 @@ TypeProgrammingModeFull 6
 `uc 1 LATD7 1 0 :1:7 
 ]
 "16751
-[s S5156 . 1 `uc 1 LD0 1 0 :1:0 
+[s S5161 . 1 `uc 1 LD0 1 0 :1:0 
 `uc 1 LD1 1 0 :1:1 
 `uc 1 LD2 1 0 :1:2 
 `uc 1 LD3 1 0 :1:3 
@@ -2009,36 +2014,36 @@ TypeProgrammingModeFull 6
 `uc 1 LD6 1 0 :1:6 
 `uc 1 LD7 1 0 :1:7 
 ]
-[u S5165 . 1 `S5147 1 . 1 0 `S5156 1 . 1 0 ]
-[v _LATDbits LATDbits `VES5165  1 e 1 @3974 ]
+[u S5170 . 1 `S5152 1 . 1 0 `S5161 1 . 1 0 ]
+[v _LATDbits LATDbits `VES5170  1 e 1 @3974 ]
 "16836
 [v _LATE LATE `VEuc  1 e 1 @3975 ]
-[s S5323 . 1 `uc 1 LATE0 1 0 :1:0 
+[s S5328 . 1 `uc 1 LATE0 1 0 :1:0 
 `uc 1 LATE1 1 0 :1:1 
 `uc 1 LATE2 1 0 :1:2 
 ]
 "16873
-[s S5327 . 1 `uc 1 LE0 1 0 :1:0 
+[s S5332 . 1 `uc 1 LE0 1 0 :1:0 
 `uc 1 LE1 1 0 :1:1 
 `uc 1 LE2 1 0 :1:2 
 ]
-[s S5331 . 1 `uc 1 . 1 0 :3:0 
+[s S5336 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 LE3 1 0 :1:3 
 ]
-[s S5334 . 1 `uc 1 . 1 0 :4:0 
+[s S5339 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 LE4 1 0 :1:4 
 ]
-[s S5337 . 1 `uc 1 . 1 0 :5:0 
+[s S5342 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 LE5 1 0 :1:5 
 ]
-[s S5340 . 1 `uc 1 . 1 0 :6:0 
+[s S5345 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 LE6 1 0 :1:6 
 ]
-[s S5343 . 1 `uc 1 . 1 0 :7:0 
+[s S5348 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 LE7 1 0 :1:7 
 ]
-[u S5346 . 1 `S5323 1 . 1 0 `S5327 1 . 1 0 `S5331 1 . 1 0 `S5334 1 . 1 0 `S5337 1 . 1 0 `S5340 1 . 1 0 `S5343 1 . 1 0 ]
-[v _LATEbits LATEbits `VES5346  1 e 1 @3975 ]
+[u S5351 . 1 `S5328 1 . 1 0 `S5332 1 . 1 0 `S5336 1 . 1 0 `S5339 1 . 1 0 `S5342 1 . 1 0 `S5345 1 . 1 0 `S5348 1 . 1 0 ]
+[v _LATEbits LATEbits `VES5351  1 e 1 @3975 ]
 "16933
 [v _TRISA TRISA `VEuc  1 e 1 @3976 ]
 "17055
@@ -2084,63 +2089,63 @@ TypeProgrammingModeFull 6
 ]
 [u S3525 . 1 `S3513 1 . 1 0 `S3522 1 . 1 0 ]
 [v _PORTBbits PORTBbits `VES3525  1 e 1 @3982 ]
-[s S4005 . 1 `uc 1 RE0 1 0 :1:0 
+[s S4009 . 1 `uc 1 RE0 1 0 :1:0 
 `uc 1 RE1 1 0 :1:1 
 `uc 1 RE2 1 0 :1:2 
 `uc 1 RE3 1 0 :1:3 
 ]
 "17872
-[s S4010 . 1 `uc 1 PD2 1 0 :1:0 
+[s S4014 . 1 `uc 1 PD2 1 0 :1:0 
 `uc 1 PC2 1 0 :1:1 
 `uc 1 CCP10 1 0 :1:2 
 `uc 1 CCP9E 1 0 :1:3 
 ]
-[s S4015 . 1 `uc 1 RDE 1 0 :1:0 
+[s S4019 . 1 `uc 1 RDE 1 0 :1:0 
 `uc 1 WRE 1 0 :1:1 
 `uc 1 CS 1 0 :1:2 
 `uc 1 PC3E 1 0 :1:3 
 ]
-[s S4020 . 1 `uc 1 . 1 0 :2:0 
+[s S4024 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PB2 1 0 :1:2 
 ]
-[s S4023 . 1 `uc 1 . 1 0 :7:0 
+[s S4027 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 CCP2E 1 0 :1:7 
 ]
-[s S4026 . 1 `uc 1 . 1 0 :6:0 
+[s S4030 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 CCP6E 1 0 :1:6 
 ]
-[s S4029 . 1 `uc 1 . 1 0 :5:0 
+[s S4033 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 CCP7E 1 0 :1:5 
 ]
-[s S4032 . 1 `uc 1 . 1 0 :4:0 
+[s S4036 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 CCP8E 1 0 :1:4 
 ]
-[s S4035 . 1 `uc 1 . 1 0 :7:0 
+[s S4039 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 PA2E 1 0 :1:7 
 ]
-[s S4038 . 1 `uc 1 . 1 0 :6:0 
+[s S4042 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 PB1E 1 0 :1:6 
 ]
-[s S4041 . 1 `uc 1 . 1 0 :4:0 
+[s S4045 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 PB3E 1 0 :1:4 
 ]
-[s S4044 . 1 `uc 1 . 1 0 :5:0 
+[s S4048 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 PC1E 1 0 :1:5 
 ]
-[s S4047 . 1 `uc 1 . 1 0 :4:0 
+[s S4051 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 RE4 1 0 :1:4 
 ]
-[s S4050 . 1 `uc 1 . 1 0 :5:0 
+[s S4054 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 RE5 1 0 :1:5 
 ]
-[s S4053 . 1 `uc 1 . 1 0 :6:0 
+[s S4057 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RE6 1 0 :1:6 
 ]
-[s S4056 . 1 `uc 1 . 1 0 :7:0 
+[s S4060 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 RE7 1 0 :1:7 
 ]
-[u S4059 . 1 `S4005 1 . 1 0 `S4010 1 . 1 0 `S4015 1 . 1 0 `S4020 1 . 1 0 `S4023 1 . 1 0 `S4026 1 . 1 0 `S4029 1 . 1 0 `S4032 1 . 1 0 `S4035 1 . 1 0 `S4038 1 . 1 0 `S4041 1 . 1 0 `S4044 1 . 1 0 `S4047 1 . 1 0 `S4050 1 . 1 0 `S4053 1 . 1 0 `S4056 1 . 1 0 ]
-[v _PORTEbits PORTEbits `VES4059  1 e 1 @3985 ]
+[u S4063 . 1 `S4009 1 . 1 0 `S4014 1 . 1 0 `S4019 1 . 1 0 `S4024 1 . 1 0 `S4027 1 . 1 0 `S4030 1 . 1 0 `S4033 1 . 1 0 `S4036 1 . 1 0 `S4039 1 . 1 0 `S4042 1 . 1 0 `S4045 1 . 1 0 `S4048 1 . 1 0 `S4051 1 . 1 0 `S4054 1 . 1 0 `S4057 1 . 1 0 `S4060 1 . 1 0 ]
+[v _PORTEbits PORTEbits `VES4063  1 e 1 @3985 ]
 "18002
 [v _SSP1BUF SSP1BUF `VEuc  1 e 1 @3986 ]
 "18022
@@ -2411,15 +2416,15 @@ TypeProgrammingModeFull 6
 [v _RFFull_12BIT RFFull_12BIT `VEuc  1 e 1 0 ]
 "25
 [v _RFBit RFBit `VEuc  1 e 1 0 ]
-[s S3677 . 6 `uc 1 FimdeCursoOpenAUX 1 0 `uc 1 FimdeCursoOpenOLD 1 1 `uc 1 FimdeCursoOpenTimer 1 2 `uc 1 FimdeCursoCloseAUX 1 3 `uc 1 FimdeCursoCloseOLD 1 4 `uc 1 FimdeCursoCloseTimer 1 5 ]
+[s S3681 . 6 `uc 1 FimdeCursoOpenAUX 1 0 `uc 1 FimdeCursoOpenOLD 1 1 `uc 1 FimdeCursoOpenTimer 1 2 `uc 1 FimdeCursoCloseAUX 1 3 `uc 1 FimdeCursoCloseOLD 1 4 `uc 1 FimdeCursoCloseTimer 1 5 ]
 "27
-[v _fimdecurso fimdecurso `VES3677  1 e 6 0 ]
-[s S3684 . 11 `uc 1 PhotoCellAUX 1 0 `uc 1 PhotoCellOLD 1 1 `uc 1 PhotoCellTimer 1 2 `uc 1 SecurityBarAUX 1 3 `uc 1 SecurityBarOLD 1 4 `uc 1 SecurityBarTimer 1 5 `uc 1 SecurityBarSTATE 1 6 `uc 1 SecurityBar8K2AUX 1 7 `uc 1 SecurityBar8K2OLD 1 8 `uc 1 SecurityBar8K2Timer 1 9 `uc 1 SecurityBar8K2STATE 1 10 ]
+[v _fimdecurso fimdecurso `VES3681  1 e 6 0 ]
+[s S3688 . 11 `uc 1 PhotoCellAUX 1 0 `uc 1 PhotoCellOLD 1 1 `uc 1 PhotoCellTimer 1 2 `uc 1 SecurityBarAUX 1 3 `uc 1 SecurityBarOLD 1 4 `uc 1 SecurityBarTimer 1 5 `uc 1 SecurityBarSTATE 1 6 `uc 1 SecurityBar8K2AUX 1 7 `uc 1 SecurityBar8K2OLD 1 8 `uc 1 SecurityBar8K2Timer 1 9 `uc 1 SecurityBar8K2STATE 1 10 ]
 "28
-[v _security security `VES3684  1 e 11 0 ]
-[s S3700 . 16 `ul 1 raw_data 4 0 `ul 1 serialnumber 4 4 `us 1 sync 2 8 `us 1 disc 2 10 `uc 1 fcode1 1 12 `uc 1 fcode2 1 13 `E10559 1 type 1 14 `uc 1 positionMem 1 15 ]
+[v _security security `VES3688  1 e 11 0 ]
+[s S3704 . 16 `ul 1 raw_data 4 0 `ul 1 serialnumber 4 4 `us 1 sync 2 8 `us 1 disc 2 10 `uc 1 fcode1 1 12 `uc 1 fcode2 1 13 `E10559 1 type 1 14 `uc 1 positionMem 1 15 ]
 "39
-[v _classic_data classic_data `S3700  1 e 16 0 ]
+[v _classic_data classic_data `S3704  1 e 16 0 ]
 "42 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\keeloqDecrypt_MC50.c
 [v _F2Chance F2Chance `a  1 e 1 0 ]
 "45
@@ -2430,9 +2435,9 @@ TypeProgrammingModeFull 6
 [v _EHop EHop `us  1 s 2 EHop ]
 "48
 [v _DKEY DKEY `[8]uc  1 e 8 0 ]
-[s S4202 . 6 `ul 1 serial 4 0 `us 1 sync 2 4 ]
+[s S4206 . 6 `ul 1 serial 4 0 `us 1 sync 2 4 ]
 "49
-[v _listSyncValues listSyncValues `VE[25]S4202  1 e 150 0 ]
+[v _listSyncValues listSyncValues `VE[25]S4206  1 e 150 0 ]
 "50
 [v _pointSync pointSync `VEus  1 e 2 0 ]
 [s S2398 . 72 `uc 1 ts_TimeSlot500ms 1 0 `uc 1 ts_TimeSlot50ms 1 1 `uc 1 ts_TimeSlot1ms 1 2 `uc 1 ts_TimeSlotMain 1 3 `uc 1 ts_TimeSlotEEPROM 1 4 `uc 1 ts_TimeSlotTRIAC 1 5 `i 1 ts_TRIACWait 2 6 `i 1 Debug_TS 2 8 `i 1 timeFreqDigit 2 10 `i 1 timeSinalizationDigit 2 12 `i 1 timeoutMenu 2 14 `i 1 timeOpenWalk 2 16 `i 1 timeWaitToClose 2 18 `i 1 TimeLastCommand 2 20 `i 1 timeSoftStart 2 22 `i 1 timeSoftStop 2 24 `i 1 TimeChargeCondesador 2 26 `i 1 timeFreqRGB 2 28 `i 1 timeFreqFlashligth 2 30 `l 1 TimeOnFlashLigth 4 32 `i 1 TimeWaitToNextState 2 36 `i 1 timeBetweenSaveCounters 2 38 `i 1 TimeElectricBrake 2 40 `i 1 TimeCurrentAlarm 2 42 `i 1 TimeStopedBeforeDecelaration 2 44 `i 1 TimeCurrentWaitForAlarm 2 46 `i 1 TimeInversionStart 2 48 `i 1 InvertionTimeClosingFromOpen 2 50 `i 1 TimeWaitToGetCurrent 2 52 `i 1 TimeLearningDecelaration 2 54 `i 1 TimeTransitionDecelaration 2 56 `i 1 timewaitBeforeSoftStart 2 58 `i 1 TimeShowVersion 2 60 `i 1 TimeStopADCZeroOffsetCalc 2 62 `i 1 TimeStopElectricBrake 2 64 `i 1 TimeReleCapacitor 2 66 `i 1 TimeWaitReleCapacitor 2 68 `i 1 timewaitFlashRGB 2 70 ]
@@ -2444,25 +2449,25 @@ TypeProgrammingModeFull 6
 [s S2801 . 81 `E10134 1 StateMotor 1 0 `E10150 1 photoCellIsObstructed 1 1 `E10150 1 SecurityBarIsObstructed 1 2 `E10150 1 FimCurso_CloseIsEnabled 1 3 `E10150 1 FimCurso_OpenIsEnabled 1 4 `i 1 decelerationOpenCurrent 2 5 `i 1 decelerationCloseCurrent 2 7 `uc 1 StartFromButton 1 9 `uc 1 WaitTimeCloseInitial 1 10 `E10134 1 LastState 1 11 `E10150 1 TriacON 1 12 `E10150 1 InStoping 1 13 `i 1 velocityFactor 2 14 `i 1 velocityFactorstop 2 16 `uc 1 AutoInversionActiveStop 1 18 `uc 1 SoftStopDecrementControl 1 19 `uc 1 SoftStartDecrementControl 1 20 `uc 1 Torquerelanty 1 21 `uc 1 Activatecounter 1 22 `uc 1 Counter_Learning 1 23 `ul 1 TimeMaxMotorIsON 4 24 `uc 1 Statedoorcontrol 1 28 `uc 1 preflashingcontrol 1 29 `l 1 PositionActual 4 30 `E10150 1 DigitSinalizedTemp 1 34 `uc 1 AutoCloseActive 1 35 `uc 1 upFaseRGB 1 36 `uc 1 upFaseFlashligth 1 37 `uc 1 LearningIsEnabled 1 38 `uc 1 AutoInversionActive 1 39 `uc 1 ControlReleCapacitorOpen 1 40 `uc 1 ControlReleCapacitorClose 1 41 `uc 1 programinAutomatic 1 42 `E10150 1 photoCellMakeErrorOpen 1 43 `E10150 1 photoCellMakeErrorClose 1 44 `E10150 1 SecurityBarMakeError 1 45 `ui 1 ActualCurrent 2 46 `ul 1 ActualHistCurrent 4 48 `ul 1 ActualComparatorCurrent 4 52 `i 1 velocityActual 2 56 `E10150 1 StateFollowIsOn 1 58 `E10125 1 ProgrammingDistanceIs 1 59 `ul 1 actualCounterMoves 4 60 `E10150 1 DistanceProgrammingActive 1 64 `E10150 1 CurrentAlarmIsOn 1 65 `E10156 1 WorkTimeMaxAlarmState 1 66 `uc 1 NumberOffErrors 1 67 `E10150 1 InvertionCurrentClosing 1 68 `E10150 1 InvertionCurrentOpening 1 69 `E10150 1 InvertionClosingFromOpen 1 70 `E10150 1 LearningDecelaration 1 71 `E10150 1 PositionIsLost 1 72 `uc 1 StateVersion 1 73 `uc 1 Timewalkisactived 1 74 `ui 1 ADCZeroOffset 2 75 `uc 1 Control50or60hz 1 77 `uc 1 frequenciamotor 1 78 `uc 1 showAP 1 79 `uc 1 passoAPassoAutoClose 1 80 ]
 "46
 [v _var_sys var_sys `VES2801  1 e 81 0 ]
-[s S4614 display_group_st 2 `uc 1 value_display1 1 0 `uc 1 value_display2 1 1 ]
+[s S4618 display_group_st 2 `uc 1 value_display1 1 0 `uc 1 value_display2 1 1 ]
 "47
-[s S4621 display_st 6 `S4614 1 display_grp 2 0 `E10901 1 lastDisplay 1 2 `i 1 intermitentFreq 2 3 `uc 1 upFase 1 5 ]
-[v _dispStruct dispStruct `VES4621  1 e 6 0 ]
-[s S3925 . 4 `uc 1 old 1 0 `uc 1 current 1 1 `uc 1 timer 1 2 `uc 1 processed 1 3 ]
+[s S4625 display_st 6 `S4618 1 display_grp 2 0 `E10901 1 lastDisplay 1 2 `i 1 intermitentFreq 2 3 `uc 1 upFase 1 5 ]
+[v _dispStruct dispStruct `VES4625  1 e 6 0 ]
+[s S3929 . 4 `uc 1 old 1 0 `uc 1 current 1 1 `uc 1 timer 1 2 `uc 1 processed 1 3 ]
 "48
-[v _button_struct button_struct `VES3925  1 e 4 0 ]
-[s S3823 . 11 `uc 1 currentType 1 0 `uc 1 currentKey 1 1 `ul 1 currentSerial 4 2 `ui 1 currentRolling 2 6 `uc 1 currentPosMem 1 8 `uc 1 timer 1 9 `uc 1 processed 1 10 ]
+[v _button_struct button_struct `VES3929  1 e 4 0 ]
+[s S3827 . 11 `uc 1 currentType 1 0 `uc 1 currentKey 1 1 `ul 1 currentSerial 4 2 `ui 1 currentRolling 2 6 `uc 1 currentPosMem 1 8 `uc 1 timer 1 9 `uc 1 processed 1 10 ]
 "49
-[v _rfCMD rfCMD `VES3823  1 e 11 0 ]
-[s S4643 . 11 `i 1 current_state 2 0 `i 1 initial_state 2 2 `i 1 last_event 2 4 `E11106 1 history 1 6 `*.2v 1 parent_machine 2 7 `i 1 parent_state 2 9 ]
+[v _rfCMD rfCMD `VES3827  1 e 11 0 ]
+[s S4647 . 11 `i 1 current_state 2 0 `i 1 initial_state 2 2 `i 1 last_event 2 4 `E11110 1 history 1 6 `*.2v 1 parent_machine 2 7 `i 1 parent_state 2 9 ]
 "50
-[v _menuConfiguration_stateMachine menuConfiguration_stateMachine `S4643  1 e 11 0 ]
+[v _menuConfiguration_stateMachine menuConfiguration_stateMachine `S4647  1 e 11 0 ]
 "51
-[v _main_stateMachine main_stateMachine `S4643  1 e 11 0 ]
+[v _main_stateMachine main_stateMachine `S4647  1 e 11 0 ]
 "52
-[v _controlGate_stateMachine controlGate_stateMachine `S4643  1 e 11 0 ]
+[v _controlGate_stateMachine controlGate_stateMachine `S4647  1 e 11 0 ]
 "53
-[v _controlLearning_stateMachine controlLearning_stateMachine `S4643  1 e 11 0 ]
+[v _controlLearning_stateMachine controlLearning_stateMachine `S4647  1 e 11 0 ]
 "54
 [v _lastKey lastKey `uc  1 e 1 0 ]
 "62 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\mcc_generated_files/eusart1.c
@@ -2537,9 +2542,9 @@ TypeProgrammingModeFull 6
 [v _waitZeroPeak waitZeroPeak `uc  1 e 1 0 ]
 "29
 [v _StateTRIAC StateTRIAC `uc  1 e 1 0 ]
-[s S4920 . 2 `E10381 1 lastState 1 0 `E10397 1 ElectricBrakeIsActive 1 1 ]
+[s S4925 . 2 `E10381 1 lastState 1 0 `E10397 1 ElectricBrakeIsActive 1 1 ]
 "33
-[v _brakeElectric_st brakeElectric_st `S4920  1 e 2 0 ]
+[v _brakeElectric_st brakeElectric_st `S4925  1 e 2 0 ]
 "35
 [v _difTime difTime `uc  1 e 1 0 ]
 "36
@@ -2564,11 +2569,11 @@ TypeProgrammingModeFull 6
 "25
 [v _aux_in_auto_close aux_in_auto_close `uc  1 e 1 0 ]
 "18 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\sm_MenuConfiguration_MC50.c
-[s S6605 . 25 `[10]S4614 1 menuList 20 0 `E10813 1 lastMenu 1 20 `E10813 1 actualMenu 1 21 `uc 1 menuSize 1 22 `uc 1 parameterSelected 1 23 `uc 1 lastMainParameterSelected 1 24 ]
-[v _menu_st menu_st `S6605  1 e 25 0 ]
-[s S6612 . 6 `uc 1 position 1 0 `*.39uc 1 Value 2 1 `uc 1 tempValue 1 3 `uc 1 Max 1 4 `uc 1 Min 1 5 ]
+[s S6610 . 25 `[10]S4618 1 menuList 20 0 `E10813 1 lastMenu 1 20 `E10813 1 actualMenu 1 21 `uc 1 menuSize 1 22 `uc 1 parameterSelected 1 23 `uc 1 lastMainParameterSelected 1 24 ]
+[v _menu_st menu_st `S6610  1 e 25 0 ]
+[s S6617 . 6 `uc 1 position 1 0 `*.39uc 1 Value 2 1 `uc 1 tempValue 1 3 `uc 1 Max 1 4 `uc 1 Min 1 5 ]
 "26
-[v _edit_Param edit_Param `VES6612  1 e 6 0 ]
+[v _edit_Param edit_Param `VES6617  1 e 6 0 ]
 "28
 [v _firstselectflag firstselectflag `a  1 s 1 firstselectflag ]
 "30
@@ -2578,24 +2583,24 @@ TypeProgrammingModeFull 6
 "63 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\main_MC50.c
 [v _main main `(v  1 e 1 0 ]
 {
-[u S4768 packagedata_t 2 `us 1 data16 2 0 `[2]uc 1 data8 2 0 ]
+[u S4773 packagedata_t 2 `us 1 data16 2 0 `[2]uc 1 data8 2 0 ]
 "140
-[s S4771 package_t 7 `E11192 1 functioncode 1 0 `uc 1 address 1 1 `S4768 1 data 2 2 `uc 1 startbyte 1 4 `uc 1 endbyte 1 5 `a 1 valid 1 6 ]
-[v main@package package `S4771  1 a 7 27 ]
+[s S4776 package_t 7 `E11196 1 functioncode 1 0 `uc 1 address 1 1 `S4773 1 data 2 2 `uc 1 startbyte 1 4 `uc 1 endbyte 1 5 `a 1 valid 1 6 ]
+[v main@package package `S4776  1 a 7 28 ]
 "188
 } 0
 "26 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\sm_Main_MC50.c
 [v _sm_execute_main sm_execute_main `(v  1 e 1 0 ]
 {
-[s S4643 . 11 `i 1 current_state 2 0 `i 1 initial_state 2 2 `i 1 last_event 2 4 `E11106 1 history 1 6 `*.2v 1 parent_machine 2 7 `i 1 parent_state 2 9 ]
-[v sm_execute_main@psm psm `*.39S4643  1 p 2 21 ]
+[s S4647 . 11 `i 1 current_state 2 0 `i 1 initial_state 2 2 `i 1 last_event 2 4 `E11110 1 history 1 6 `*.2v 1 parent_machine 2 7 `i 1 parent_state 2 9 ]
+[v sm_execute_main@psm psm `*.39S4647  1 p 2 21 ]
 "320
 } 0
 "33 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\sm_MenuConfiguration_MC50.c
 [v _sm_execute_menuConfiguration sm_execute_menuConfiguration `(v  1 e 1 0 ]
 {
-[s S4643 . 11 `i 1 current_state 2 0 `i 1 initial_state 2 2 `i 1 last_event 2 4 `E11106 1 history 1 6 `*.2v 1 parent_machine 2 7 `i 1 parent_state 2 9 ]
-[v sm_execute_menuConfiguration@psm psm `*.39S4643  1 p 2 17 ]
+[s S4647 . 11 `i 1 current_state 2 0 `i 1 initial_state 2 2 `i 1 last_event 2 4 `E11110 1 history 1 6 `*.2v 1 parent_machine 2 7 `i 1 parent_state 2 9 ]
+[v sm_execute_menuConfiguration@psm psm `*.39S4647  1 p 2 17 ]
 "432
 } 0
 "648
@@ -2739,9 +2744,9 @@ TypeProgrammingModeFull 6
 {
 "129
 [v sm_execute_ControlGate@typeOpenOrder typeOpenOrder `E10372  1 a 1 19 ]
-[s S4643 . 11 `i 1 current_state 2 0 `i 1 initial_state 2 2 `i 1 last_event 2 4 `E11106 1 history 1 6 `*.2v 1 parent_machine 2 7 `i 1 parent_state 2 9 ]
+[s S4647 . 11 `i 1 current_state 2 0 `i 1 initial_state 2 2 `i 1 last_event 2 4 `E11110 1 history 1 6 `*.2v 1 parent_machine 2 7 `i 1 parent_state 2 9 ]
 "128
-[v sm_execute_ControlGate@psm psm `*.39S4643  1 p 2 15 ]
+[v sm_execute_ControlGate@psm psm `*.39S4647  1 p 2 15 ]
 "323
 } 0
 "29 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\sm_ControlLearning_MC50.c
@@ -2749,9 +2754,9 @@ TypeProgrammingModeFull 6
 {
 "31
 [v sm_execute_ControlLearning@typeOpenOrder typeOpenOrder `E10372  1 a 1 57 ]
-[s S4643 . 11 `i 1 current_state 2 0 `i 1 initial_state 2 2 `i 1 last_event 2 4 `E11106 1 history 1 6 `*.2v 1 parent_machine 2 7 `i 1 parent_state 2 9 ]
+[s S4647 . 11 `i 1 current_state 2 0 `i 1 initial_state 2 2 `i 1 last_event 2 4 `E11110 1 history 1 6 `*.2v 1 parent_machine 2 7 `i 1 parent_state 2 9 ]
 "29
-[v sm_execute_ControlLearning@psm psm `*.39S4643  1 p 2 4 ]
+[v sm_execute_ControlLearning@psm psm `*.39S4647  1 p 2 4 ]
 "409
 } 0
 "424
@@ -2762,8 +2767,8 @@ TypeProgrammingModeFull 6
 "12 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\sm_common_MC50.c
 [v _sm_init sm_init `(v  1 e 1 0 ]
 {
-[s S4643 . 11 `i 1 current_state 2 0 `i 1 initial_state 2 2 `i 1 last_event 2 4 `E11106 1 history 1 6 `*.2v 1 parent_machine 2 7 `i 1 parent_state 2 9 ]
-[v sm_init@psm psm `*.39S4643  1 p 2 17 ]
+[s S4647 . 11 `i 1 current_state 2 0 `i 1 initial_state 2 2 `i 1 last_event 2 4 `E11110 1 history 1 6 `*.2v 1 parent_machine 2 7 `i 1 parent_state 2 9 ]
+[v sm_init@psm psm `*.39S4647  1 p 2 17 ]
 [v sm_init@initial_state initial_state `i  1 p 2 19 ]
 [v sm_init@hist_mode hist_mode `E348  1 p 1 21 ]
 "21
@@ -2771,8 +2776,8 @@ TypeProgrammingModeFull 6
 "23
 [v _sm_restart sm_restart `(v  1 e 1 0 ]
 {
-[s S4643 . 11 `i 1 current_state 2 0 `i 1 initial_state 2 2 `i 1 last_event 2 4 `E11106 1 history 1 6 `*.2v 1 parent_machine 2 7 `i 1 parent_state 2 9 ]
-[v sm_restart@psm psm `*.39S4643  1 p 2 15 ]
+[s S4647 . 11 `i 1 current_state 2 0 `i 1 initial_state 2 2 `i 1 last_event 2 4 `E11110 1 history 1 6 `*.2v 1 parent_machine 2 7 `i 1 parent_state 2 9 ]
+[v sm_restart@psm psm `*.39S4647  1 p 2 15 ]
 "28
 } 0
 "436 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\sm_ControlLearning_MC50.c
@@ -2930,16 +2935,16 @@ TypeProgrammingModeFull 6
 "34 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\sm_common_MC50.c
 [v _sm_send_event sm_send_event `(v  1 e 1 0 ]
 {
-[s S4643 . 11 `i 1 current_state 2 0 `i 1 initial_state 2 2 `i 1 last_event 2 4 `E11106 1 history 1 6 `*.2v 1 parent_machine 2 7 `i 1 parent_state 2 9 ]
-[v sm_send_event@psm psm `*.39S4643  1 p 2 17 ]
+[s S4647 . 11 `i 1 current_state 2 0 `i 1 initial_state 2 2 `i 1 last_event 2 4 `E11110 1 history 1 6 `*.2v 1 parent_machine 2 7 `i 1 parent_state 2 9 ]
+[v sm_send_event@psm psm `*.39S4647  1 p 2 17 ]
 [v sm_send_event@event event `i  1 p 2 19 ]
 "41
 } 0
 "30
 [v _sm_get_current_state sm_get_current_state `(i  1 e 2 0 ]
 {
-[s S4643 . 11 `i 1 current_state 2 0 `i 1 initial_state 2 2 `i 1 last_event 2 4 `E11106 1 history 1 6 `*.2v 1 parent_machine 2 7 `i 1 parent_state 2 9 ]
-[v sm_get_current_state@psm psm `*.2S4643  1 p 2 15 ]
+[s S4647 . 11 `i 1 current_state 2 0 `i 1 initial_state 2 2 `i 1 last_event 2 4 `E11110 1 history 1 6 `*.2v 1 parent_machine 2 7 `i 1 parent_state 2 9 ]
+[v sm_get_current_state@psm psm `*.2S4647  1 p 2 15 ]
 "32
 } 0
 "816 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\sm_ControlGate_MC50.c
@@ -3007,15 +3012,15 @@ TypeProgrammingModeFull 6
 [v readbutton@key2 key2 `uc  1 s 1 key2 ]
 "525
 } 0
-"53 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X/eusartpackage.h
+"54 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X/eusartpackage.h
 "29
-[u S4768 packagedata_t 2 `us 1 data16 2 0 `[2]uc 1 data8 2 0 ]
+[u S4773 packagedata_t 2 `us 1 data16 2 0 `[2]uc 1 data8 2 0 ]
 "21 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\eusartpackage.c
-[s S4771 package_t 7 `E11192 1 functioncode 1 0 `uc 1 address 1 1 `S4768 1 data 2 2 `uc 1 startbyte 1 4 `uc 1 endbyte 1 5 `a 1 valid 1 6 ]
-[v _read_package read_package `(S4771  1 e 7 0 ]
+[s S4776 package_t 7 `E11196 1 functioncode 1 0 `uc 1 address 1 1 `S4773 1 data 2 2 `uc 1 startbyte 1 4 `uc 1 endbyte 1 5 `a 1 valid 1 6 ]
+[v _read_package read_package `(S4776  1 e 7 0 ]
 {
 "22
-[v read_package@package package `S4771  1 a 7 23 ]
+[v read_package@package package `S4776  1 a 7 23 ]
 "48
 } 0
 "151 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\mcc_generated_files/eusart1.c
@@ -3049,22 +3054,22 @@ TypeProgrammingModeFull 6
 [v keeloqDecryptPacket@hop_error hop_error `E10730  1 a 1 16 ]
 "299
 [v keeloqDecryptPacket@data data `*.39uc  1 p 2 8 ]
-[s S3700 . 16 `ul 1 raw_data 4 0 `ul 1 serialnumber 4 4 `us 1 sync 2 8 `us 1 disc 2 10 `uc 1 fcode1 1 12 `uc 1 fcode2 1 13 `E10559 1 type 1 14 `uc 1 positionMem 1 15 ]
-[v keeloqDecryptPacket@classic_data classic_data `*.39S3700  1 p 2 10 ]
+[s S3704 . 16 `ul 1 raw_data 4 0 `ul 1 serialnumber 4 4 `us 1 sync 2 8 `us 1 disc 2 10 `uc 1 fcode1 1 12 `uc 1 fcode2 1 13 `E10559 1 type 1 14 `uc 1 positionMem 1 15 ]
+[v keeloqDecryptPacket@classic_data classic_data `*.39S3704  1 p 2 10 ]
 "368
 } 0
 "401
 [v _verifyProgramingMode verifyProgramingMode `(E10539  1 e 1 0 ]
 {
-[s S3700 . 16 `ul 1 raw_data 4 0 `ul 1 serialnumber 4 4 `us 1 sync 2 8 `us 1 disc 2 10 `uc 1 fcode1 1 12 `uc 1 fcode2 1 13 `E10559 1 type 1 14 `uc 1 positionMem 1 15 ]
-[v verifyProgramingMode@classic_data classic_data `*.39S3700  1 p 2 15 ]
+[s S3704 . 16 `ul 1 raw_data 4 0 `ul 1 serialnumber 4 4 `us 1 sync 2 8 `us 1 disc 2 10 `uc 1 fcode1 1 12 `uc 1 fcode2 1 13 `E10559 1 type 1 14 `uc 1 positionMem 1 15 ]
+[v verifyProgramingMode@classic_data classic_data `*.39S3704  1 p 2 15 ]
 "415
 } 0
 "390
 [v _keeloq_classic_decrypt_packet keeloq_classic_decrypt_packet `(v  1 s 1 keeloq_classic_decrypt_packet ]
 {
-[s S3700 . 16 `ul 1 raw_data 4 0 `ul 1 serialnumber 4 4 `us 1 sync 2 8 `us 1 disc 2 10 `uc 1 fcode1 1 12 `uc 1 fcode2 1 13 `E10559 1 type 1 14 `uc 1 positionMem 1 15 ]
-[v keeloq_classic_decrypt_packet@data data `*.39S3700  1 p 2 55 ]
+[s S3704 . 16 `ul 1 raw_data 4 0 `ul 1 serialnumber 4 4 `us 1 sync 2 8 `us 1 disc 2 10 `uc 1 fcode1 1 12 `uc 1 fcode2 1 13 `E10559 1 type 1 14 `uc 1 positionMem 1 15 ]
+[v keeloq_classic_decrypt_packet@data data `*.39S3704  1 p 2 55 ]
 "399
 } 0
 "87
@@ -3110,9 +3115,9 @@ TypeProgrammingModeFull 6
 {
 "237
 [v HopCHK@hopDiff hopDiff `s  1 a 2 37 ]
-[s S3700 . 16 `ul 1 raw_data 4 0 `ul 1 serialnumber 4 4 `us 1 sync 2 8 `us 1 disc 2 10 `uc 1 fcode1 1 12 `uc 1 fcode2 1 13 `E10559 1 type 1 14 `uc 1 positionMem 1 15 ]
+[s S3704 . 16 `ul 1 raw_data 4 0 `ul 1 serialnumber 4 4 `us 1 sync 2 8 `us 1 disc 2 10 `uc 1 fcode1 1 12 `uc 1 fcode2 1 13 `E10559 1 type 1 14 `uc 1 positionMem 1 15 ]
 "236
-[v HopCHK@data data `*.39S3700  1 p 2 35 ]
+[v HopCHK@data data `*.39S3704  1 p 2 35 ]
 "264
 } 0
 "266
@@ -3124,9 +3129,9 @@ TypeProgrammingModeFull 6
 [v getHopCode@i i `uc  1 a 1 34 ]
 "269
 [v getHopCode@tempPos tempPos `c  1 a 1 33 ]
-[s S3700 . 16 `ul 1 raw_data 4 0 `ul 1 serialnumber 4 4 `us 1 sync 2 8 `us 1 disc 2 10 `uc 1 fcode1 1 12 `uc 1 fcode2 1 13 `E10559 1 type 1 14 `uc 1 positionMem 1 15 ]
+[s S3704 . 16 `ul 1 raw_data 4 0 `ul 1 serialnumber 4 4 `us 1 sync 2 8 `us 1 disc 2 10 `uc 1 fcode1 1 12 `uc 1 fcode2 1 13 `E10559 1 type 1 14 `uc 1 positionMem 1 15 ]
 "266
-[v getHopCode@data data `*.39S3700  1 p 2 21 ]
+[v getHopCode@data data `*.39S3704  1 p 2 21 ]
 "297
 } 0
 "224
@@ -3138,8 +3143,8 @@ TypeProgrammingModeFull 6
 "206
 [v _DecCHK DecCHK `(a  1 e 1 0 ]
 {
-[s S3700 . 16 `ul 1 raw_data 4 0 `ul 1 serialnumber 4 4 `us 1 sync 2 8 `us 1 disc 2 10 `uc 1 fcode1 1 12 `uc 1 fcode2 1 13 `E10559 1 type 1 14 `uc 1 positionMem 1 15 ]
-[v DecCHK@data data `*.39S3700  1 p 2 15 ]
+[s S3704 . 16 `ul 1 raw_data 4 0 `ul 1 serialnumber 4 4 `us 1 sync 2 8 `us 1 disc 2 10 `uc 1 fcode1 1 12 `uc 1 fcode2 1 13 `E10559 1 type 1 14 `uc 1 positionMem 1 15 ]
+[v DecCHK@data data `*.39S3704  1 p 2 15 ]
 "212
 } 0
 "370
@@ -3149,8 +3154,8 @@ TypeProgrammingModeFull 6
 [v DecryptPacket_12BIT@commandType commandType `E10539  1 a 1 12 ]
 "370
 [v DecryptPacket_12BIT@data data `*.39uc  1 p 2 8 ]
-[s S3700 . 16 `ul 1 raw_data 4 0 `ul 1 serialnumber 4 4 `us 1 sync 2 8 `us 1 disc 2 10 `uc 1 fcode1 1 12 `uc 1 fcode2 1 13 `E10559 1 type 1 14 `uc 1 positionMem 1 15 ]
-[v DecryptPacket_12BIT@classic_data classic_data `*.39S3700  1 p 2 10 ]
+[s S3704 . 16 `ul 1 raw_data 4 0 `ul 1 serialnumber 4 4 `us 1 sync 2 8 `us 1 disc 2 10 `uc 1 fcode1 1 12 `uc 1 fcode2 1 13 `E10559 1 type 1 14 `uc 1 positionMem 1 15 ]
+[v DecryptPacket_12BIT@classic_data classic_data `*.39S3704  1 p 2 10 ]
 "388
 } 0
 "528 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\inputs_MC50.c
@@ -3158,26 +3163,26 @@ TypeProgrammingModeFull 6
 {
 "672
 } 0
-"139 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\controlMemory_MC50.c
+"151 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\controlMemory_MC50.c
 [v _loadNVM_VarSystem loadNVM_VarSystem `(v  1 e 1 0 ]
 {
-"169
+"181
 } 0
-"314
+"326
 [v _checkNVM_VarSystem checkNVM_VarSystem `(v  1 e 1 0 ]
 {
-"316
+"328
 [v checkNVM_VarSystem@saveParam saveParam `uc  1 a 1 57 ]
-"545
+"557
 } 0
-"186
+"198
 [v _ResetDefaultMemory ResetDefaultMemory `(v  1 e 1 0 ]
 {
 [v ResetDefaultMemory@type type `uc  1 a 1 wreg ]
 [v ResetDefaultMemory@type type `uc  1 a 1 wreg ]
-"190
+"202
 [v ResetDefaultMemory@type type `uc  1 a 1 57 ]
-"287
+"299
 } 0
 "65 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\mcc_generated_files/examples/i2c1_master_example.c
 [v _I2C1_Read1ByteRegister I2C1_Read1ByteRegister `(uc  1 e 1 0 ]
@@ -3203,32 +3208,34 @@ TypeProgrammingModeFull 6
 [v _eusartparser eusartparser `(v  1 e 1 0 ]
 {
 "562
-[v eusartparser@i_7275 i `uc  1 a 1 25 ]
+[v eusartparser@i_7283 i `uc  1 a 1 21 ]
+"605
+[v eusartparser@i_7285 i `uc  1 a 1 23 ]
 "586
-[v eusartparser@i_7276 i `uc  1 a 1 26 ]
+[v eusartparser@i_7284 i `uc  1 a 1 22 ]
 "542
-[v eusartparser@i_7274 i `uc  1 a 1 24 ]
+[v eusartparser@i_7282 i `uc  1 a 1 20 ]
 "530
-[v eusartparser@i_7273 i `uc  1 a 1 23 ]
+[v eusartparser@i_7281 i `uc  1 a 1 19 ]
 "521
-[v eusartparser@i_7272 i `uc  1 a 1 21 ]
+[v eusartparser@i_7280 i `uc  1 a 1 17 ]
 "511
-[v eusartparser@i i `uc  1 a 1 20 ]
+[v eusartparser@i i `uc  1 a 1 16 ]
 "463
-[v eusartparser@serial serial `ul  1 a 4 15 ]
+[v eusartparser@serial serial `ul  1 a 4 24 ]
 "460
-[v eusartparser@relcounter relcounter `uc  1 a 1 22 ]
+[v eusartparser@relcounter relcounter `uc  1 a 1 18 ]
 "464
-[v eusartparser@pos pos `uc  1 a 1 19 ]
-[u S4768 packagedata_t 2 `us 1 data16 2 0 `[2]uc 1 data8 2 0 ]
+[v eusartparser@pos pos `uc  1 a 1 15 ]
+[u S4773 packagedata_t 2 `us 1 data16 2 0 `[2]uc 1 data8 2 0 ]
 "458
-[s S4771 package_t 7 `E11192 1 functioncode 1 0 `uc 1 address 1 1 `S4768 1 data 2 2 `uc 1 startbyte 1 4 `uc 1 endbyte 1 5 `a 1 valid 1 6 ]
-[v eusartparser@package package `*.30S4771  1 p 1 8 ]
+[s S4776 package_t 7 `E11196 1 functioncode 1 0 `uc 1 address 1 1 `S4773 1 data 2 2 `uc 1 startbyte 1 4 `uc 1 endbyte 1 5 `a 1 valid 1 6 ]
+[v eusartparser@package package `*.30S4776  1 p 1 8 ]
 "461
 [v eusartparser@save_f save_f `a  1 s 1 save_f ]
 "462
 [v eusartparser@buffer buffer `us  1 s 2 buffer ]
-"611
+"634
 } 0
 "248
 [v _write_eusartparser write_eusartparser `(v  1 e 1 0 ]
@@ -3237,10 +3244,10 @@ TypeProgrammingModeFull 6
 [v write_eusartparser@debug2 debug2 `VEi  1 a 2 32 ]
 "249
 [v write_eusartparser@debug debug `VEi  1 a 2 30 ]
-[u S4768 packagedata_t 2 `us 1 data16 2 0 `[2]uc 1 data8 2 0 ]
+[u S4773 packagedata_t 2 `us 1 data16 2 0 `[2]uc 1 data8 2 0 ]
 "248
-[s S4771 package_t 7 `E11192 1 functioncode 1 0 `uc 1 address 1 1 `S4768 1 data 2 2 `uc 1 startbyte 1 4 `uc 1 endbyte 1 5 `a 1 valid 1 6 ]
-[v write_eusartparser@package package `S4771  1 p 7 15 ]
+[s S4776 package_t 7 `E11196 1 functioncode 1 0 `uc 1 address 1 1 `S4773 1 data 2 2 `uc 1 startbyte 1 4 `uc 1 endbyte 1 5 `a 1 valid 1 6 ]
+[v write_eusartparser@package package `S4776  1 p 7 15 ]
 "446
 } 0
 "27 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\controlMemory_MC50.c
@@ -3272,17 +3279,17 @@ TypeProgrammingModeFull 6
 "12 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\eusartparser.c
 [v _read_eusartparser read_eusartparser `(v  1 e 1 0 ]
 {
-[u S4768 packagedata_t 2 `us 1 data16 2 0 `[2]uc 1 data8 2 0 ]
-[s S4771 package_t 7 `E11192 1 functioncode 1 0 `uc 1 address 1 1 `S4768 1 data 2 2 `uc 1 startbyte 1 4 `uc 1 endbyte 1 5 `a 1 valid 1 6 ]
-[v read_eusartparser@package package `*.30S4771  1 p 1 23 ]
+[u S4773 packagedata_t 2 `us 1 data16 2 0 `[2]uc 1 data8 2 0 ]
+[s S4776 package_t 7 `E11196 1 functioncode 1 0 `uc 1 address 1 1 `S4773 1 data 2 2 `uc 1 startbyte 1 4 `uc 1 endbyte 1 5 `a 1 valid 1 6 ]
+[v read_eusartparser@package package `*.30S4776  1 p 1 23 ]
 "246
 } 0
 "50 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\eusartpackage.c
 [v _write_package write_package `(v  1 e 1 0 ]
 {
-[u S4768 packagedata_t 2 `us 1 data16 2 0 `[2]uc 1 data8 2 0 ]
-[s S4771 package_t 7 `E11192 1 functioncode 1 0 `uc 1 address 1 1 `S4768 1 data 2 2 `uc 1 startbyte 1 4 `uc 1 endbyte 1 5 `a 1 valid 1 6 ]
-[v write_package@package package `CS4771  1 p 7 16 ]
+[u S4773 packagedata_t 2 `us 1 data16 2 0 `[2]uc 1 data8 2 0 ]
+[s S4776 package_t 7 `E11196 1 functioncode 1 0 `uc 1 address 1 1 `S4773 1 data 2 2 `uc 1 startbyte 1 4 `uc 1 endbyte 1 5 `a 1 valid 1 6 ]
+[v write_package@package package `CS4776  1 p 7 16 ]
 "64
 } 0
 "173 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\mcc_generated_files/eusart1.c
@@ -3296,32 +3303,56 @@ TypeProgrammingModeFull 6
 "448 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\eusartparser.c
 [v _confirmpackage confirmpackage `(v  1 e 1 0 ]
 {
-[u S4768 packagedata_t 2 `us 1 data16 2 0 `[2]uc 1 data8 2 0 ]
-[s S4771 package_t 7 `E11192 1 functioncode 1 0 `uc 1 address 1 1 `S4768 1 data 2 2 `uc 1 startbyte 1 4 `uc 1 endbyte 1 5 `a 1 valid 1 6 ]
-[v confirmpackage@package package `*.30S4771  1 p 1 16 ]
+[u S4773 packagedata_t 2 `us 1 data16 2 0 `[2]uc 1 data8 2 0 ]
+[s S4776 package_t 7 `E11196 1 functioncode 1 0 `uc 1 address 1 1 `S4773 1 data 2 2 `uc 1 startbyte 1 4 `uc 1 endbyte 1 5 `a 1 valid 1 6 ]
+[v confirmpackage@package package `*.30S4776  1 p 1 16 ]
 [v confirmpackage@confirm confirm `a  1 p 1 17 ]
 "456
 } 0
 "11 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\eusartpackage.c
 [v _init_package init_package `(v  1 e 1 0 ]
 {
-[u S4768 packagedata_t 2 `us 1 data16 2 0 `[2]uc 1 data8 2 0 ]
-[s S4771 package_t 7 `E11192 1 functioncode 1 0 `uc 1 address 1 1 `S4768 1 data 2 2 `uc 1 startbyte 1 4 `uc 1 endbyte 1 5 `a 1 valid 1 6 ]
-[v init_package@package package `*.30S4771  1 p 1 15 ]
+[u S4773 packagedata_t 2 `us 1 data16 2 0 `[2]uc 1 data8 2 0 ]
+[s S4776 package_t 7 `E11196 1 functioncode 1 0 `uc 1 address 1 1 `S4773 1 data 2 2 `uc 1 startbyte 1 4 `uc 1 endbyte 1 5 `a 1 valid 1 6 ]
+[v init_package@package package `*.30S4776  1 p 1 15 ]
 "15
 } 0
-"110 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\controlMemory_MC50.c
+"122 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\controlMemory_MC50.c
 [v _cmdMemoryIsEmpty cmdMemoryIsEmpty `(uc  1 e 1 0 ]
 {
 [v cmdMemoryIsEmpty@cmdType cmdType `uc  1 a 1 wreg ]
-"112
+"124
 [v cmdMemoryIsEmpty@tempSerial tempSerial `ul  1 a 4 49 ]
-"110
+"122
 [v cmdMemoryIsEmpty@cmdType cmdType `uc  1 a 1 wreg ]
 [v cmdMemoryIsEmpty@position position `uc  1 p 1 45 ]
-"112
+"124
 [v cmdMemoryIsEmpty@cmdType cmdType `uc  1 a 1 48 ]
-"132
+"144
+} 0
+"95
+[v _RemoveSerial RemoveSerial `(v  1 e 1 0 ]
+{
+[v RemoveSerial@cmdType cmdType `uc  1 a 1 wreg ]
+"97
+[v RemoveSerial@tempSerial tempSerial `ul  1 a 4 3 ]
+"95
+[v RemoveSerial@cmdType cmdType `uc  1 a 1 wreg ]
+[v RemoveSerial@position position `uc  1 p 1 57 ]
+"97
+[v RemoveSerial@cmdType cmdType `uc  1 a 1 2 ]
+"108
+} 0
+"110
+[v _ReadSerial ReadSerial `(v  1 e 1 0 ]
+{
+[v ReadSerial@cmdType cmdType `uc  1 a 1 wreg ]
+[v ReadSerial@cmdType cmdType `uc  1 a 1 wreg ]
+[v ReadSerial@tempSerial tempSerial `*.30ul  1 p 1 45 ]
+[v ReadSerial@position position `uc  1 p 1 46 ]
+"112
+[v ReadSerial@cmdType cmdType `uc  1 a 1 49 ]
+"120
 } 0
 "147 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\mcc_generated_files/drivers/i2c_simple_master.c
 [v _i2c_readDataBlock i2c_readDataBlock `(v  1 e 1 0 ]
@@ -3338,19 +3369,6 @@ TypeProgrammingModeFull 6
 "150
 [v i2c_readDataBlock@address address `uc  1 a 1 40 ]
 "160
-} 0
-"95 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\controlMemory_MC50.c
-[v _RemoveSerial RemoveSerial `(v  1 e 1 0 ]
-{
-[v RemoveSerial@cmdType cmdType `uc  1 a 1 wreg ]
-"97
-[v RemoveSerial@tempSerial tempSerial `ul  1 a 4 3 ]
-"95
-[v RemoveSerial@cmdType cmdType `uc  1 a 1 wreg ]
-[v RemoveSerial@position position `uc  1 p 1 57 ]
-"97
-[v RemoveSerial@cmdType cmdType `uc  1 a 1 2 ]
-"108
 } 0
 "128 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\mcc_generated_files/mcc.c
 [v _WWDT_TimerClear WWDT_TimerClear `(v  1 e 1 0 ]
@@ -3633,24 +3651,24 @@ TypeProgrammingModeFull 6
 [v GetMotorPower@defineatraso defineatraso `uc  1 a 1 18 ]
 "460
 } 0
-"293 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\controlMemory_MC50.c
+"305 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\controlMemory_MC50.c
 [v _ControlCounterMoves ControlCounterMoves `(v  1 e 1 0 ]
 {
-"306
+"318
 } 0
-"175
+"187
 [v _SaveNVM_VarSystem SaveNVM_VarSystem `(v  1 e 1 0 ]
 {
 [v SaveNVM_VarSystem@page page `uc  1 a 1 wreg ]
-"177
+"189
 [v SaveNVM_VarSystem@tempAdd tempAdd `ui  1 a 2 1 ]
-"178
+"190
 [v SaveNVM_VarSystem@point point `*.30uc  1 a 1 3 ]
-"175
+"187
 [v SaveNVM_VarSystem@page page `uc  1 a 1 wreg ]
-"177
+"189
 [v SaveNVM_VarSystem@page page `uc  1 a 1 0 ]
-"181
+"193
 } 0
 "50 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\mcc_generated_files/drivers/i2c_simple_master.c
 [v _i2c_writeNBytes i2c_writeNBytes `(v  1 e 1 0 ]

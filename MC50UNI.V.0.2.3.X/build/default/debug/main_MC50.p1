@@ -43,11 +43,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S1501 . currentType currentKey currentSerial currentRolling currentPosMem timer processed ]
 "50 main_MC50.c
 [; ;main_MC50.c: 50: sm_t menuConfiguration_stateMachine;
-[c E11106 0 1 2 .. ]
-[n E11106 . HIST_NONE HIST_SHALLOW HIST_DEEP  ]
+[c E11110 0 1 2 .. ]
+[n E11110 . HIST_NONE HIST_SHALLOW HIST_DEEP  ]
 "73 ./sm_common.h
 [; ;./sm_common.h: 73: typedef struct {
-[s S1504 `i 1 `i 1 `i 1 `E11106 1 `*v 1 `i 1 ]
+[s S1504 `i 1 `i 1 `i 1 `E11110 1 `*v 1 `i 1 ]
 [n S1504 . current_state initial_state last_event history parent_machine parent_state ]
 [p mainexit ]
 "70 main_MC50.c
@@ -88,8 +88,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "135 ./inputs.h
 [; ;./inputs.h: 135: void InitReceiver();
 [v _InitReceiver `(v ~T0 @X0 0 e? ]
-"116 ./controlMemory.h
-[; ;./controlMemory.h: 116: void loadNVM_VarSystem(void);
+"117 ./controlMemory.h
+[; ;./controlMemory.h: 117: void loadNVM_VarSystem(void);
 [v _loadNVM_VarSystem `(v ~T0 @X0 0 ef ]
 "156 ./mcc_generated_files/mcc.h
 [; ;./mcc_generated_files/mcc.h: 156: void WWDT_TimerClear(void);
@@ -102,40 +102,40 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _readInputs `(v ~T0 @X0 0 ef ]
 "97 ./sm_common.h
 [; ;./sm_common.h: 97: void sm_init(sm_t *psm, int initial_state, sm_history_t hist_mode);
-[v _sm_init `(v ~T0 @X0 0 ef3`*S1504`i`E11106 ]
+[v _sm_init `(v ~T0 @X0 0 ef3`*S1504`i`E11110 ]
 "117 main_MC50.c
 [; ;main_MC50.c: 117:     sm_init(&menuConfiguration_stateMachine,st_MainMenu,HIST_NONE);
-[c E11130 0 1 2 3 4 5 6 .. ]
-[n E11130 . st_MainMenu st_EditParameter st_SaveParameter st_Counter st_SelectRemote st_SaveRemotes st_LearningMode  ]
+[c E11134 0 1 2 3 4 5 6 .. ]
+[n E11134 . st_MainMenu st_EditParameter st_SaveParameter st_Counter st_SelectRemote st_SaveRemotes st_LearningMode  ]
 "118
 [; ;main_MC50.c: 118:     sm_init(&main_stateMachine,st_standBy,HIST_NONE);
-[c E11229 0 1 2 .. ]
-[n E11229 . st_standBy st_MenuConfiguration st_MotorON  ]
+[c E11234 0 1 2 .. ]
+[n E11234 . st_standBy st_MenuConfiguration st_MotorON  ]
 "119
 [; ;main_MC50.c: 119:     sm_init(&controlGate_stateMachine,st_Idle,HIST_NONE);
-[c E11237 0 1 2 3 4 5 .. ]
-[n E11237 . st_Idle st_Closed st_Opening st_Closing st_Opened st_Learning  ]
+[c E11242 0 1 2 3 4 5 .. ]
+[n E11242 . st_Idle st_Closed st_Opening st_Closing st_Opened st_Learning  ]
 "120
 [; ;main_MC50.c: 120:     sm_init(&controlLearning_stateMachine,st_InitLearning,HIST_NONE);
-[c E11273 0 1 2 3 4 5 .. ]
-[n E11273 . st_InitLearning st_WaitForClosed st_WaitLearnigOpen st_WaitLearnigClose st_WaitForOpened st_WaitForEndLearn  ]
+[c E11278 0 1 2 3 4 5 .. ]
+[n E11278 . st_InitLearning st_WaitForClosed st_WaitLearnigOpen st_WaitLearnigClose st_WaitForOpened st_WaitForEndLearn  ]
 "140
 [; ;main_MC50.c: 140:         struct package_t package;
-[c E11192 0 1 2 3 4 5 6 7 8 9 .. ]
-[n E11192 functioncode_t READ WRITE PROGRAMMING_ENABLE CONFIRM NUM_COMMANDS NUM_EMPTY_COMMANDS OCCUPIED_POS EMPTY_POS SAVE_COMMAND ERASE_COMMAND  ]
+[c E11196 0 1 2 3 4 5 6 7 8 9 10 .. ]
+[n E11196 functioncode_t READ WRITE PROGRAMMING_ENABLE CONFIRM NUM_COMMANDS NUM_EMPTY_COMMANDS OCCUPIED_POS EMPTY_POS SAVE_COMMAND ERASE_COMMAND READ_SERIAL  ]
 "29 ./eusartpackage.h
 [; ;./eusartpackage.h: 29:     union packagedata_t{
 [u S1507 `us 1 `uc -> 2 `i ]
 [n S1507 packagedata_t data16 data8 ]
-"53
-[; ;./eusartpackage.h: 53:     struct package_t{
-[s S1508 `E11192 1 `uc 1 `S1507 1 `uc 1 `uc 1 `a 1 ]
+"54
+[; ;./eusartpackage.h: 54:     struct package_t{
+[s S1508 `E11196 1 `uc 1 `S1507 1 `uc 1 `uc 1 `a 1 ]
 [n S1508 package_t functioncode address data startbyte endbyte valid ]
 "213 ./mcc_generated_files/eusart1.h
 [; ;./mcc_generated_files/eusart1.h: 213: _Bool EUSART1_is_rx_ready(void);
 [v _EUSART1_is_rx_ready `(a ~T0 @X0 0 ef ]
-"79 ./eusartpackage.h
-[; ;./eusartpackage.h: 79:     struct package_t read_package();
+"80 ./eusartpackage.h
+[; ;./eusartpackage.h: 80:     struct package_t read_package();
 [v _read_package `(S1508 ~T0 @X0 0 e? ]
 "32 ./eusartparser.h
 [; ;./eusartparser.h: 32:     void eusartparser(struct package_t* package);
@@ -167,8 +167,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "227
 [; ;./outputs.h: 227:     void ControlLights(void);
 [v _ControlLights `(v ~T0 @X0 0 ef ]
-"117 ./controlMemory.h
-[; ;./controlMemory.h: 117: void ControlCounterMoves(void);
+"118 ./controlMemory.h
+[; ;./controlMemory.h: 118: void ControlCounterMoves(void);
 [v _ControlCounterMoves `(v ~T0 @X0 0 ef ]
 "26 ./sm_Main.h
 [; ;./sm_Main.h: 26: void sm_execute_main( sm_t *psm );
@@ -1697,16 +1697,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 1513 ]
 "117
 [; ;main_MC50.c: 117:     sm_init(&menuConfiguration_stateMachine,st_MainMenu,HIST_NONE);
-[e ( _sm_init (3 , , &U _menuConfiguration_stateMachine . `E11130 0 . `E11106 0 ]
+[e ( _sm_init (3 , , &U _menuConfiguration_stateMachine . `E11134 0 . `E11110 0 ]
 "118
 [; ;main_MC50.c: 118:     sm_init(&main_stateMachine,st_standBy,HIST_NONE);
-[e ( _sm_init (3 , , &U _main_stateMachine . `E11229 0 . `E11106 0 ]
+[e ( _sm_init (3 , , &U _main_stateMachine . `E11234 0 . `E11110 0 ]
 "119
 [; ;main_MC50.c: 119:     sm_init(&controlGate_stateMachine,st_Idle,HIST_NONE);
-[e ( _sm_init (3 , , &U _controlGate_stateMachine . `E11237 0 . `E11106 0 ]
+[e ( _sm_init (3 , , &U _controlGate_stateMachine . `E11242 0 . `E11110 0 ]
 "120
 [; ;main_MC50.c: 120:     sm_init(&controlLearning_stateMachine,st_InitLearning,HIST_NONE);
-[e ( _sm_init (3 , , &U _controlLearning_stateMachine . `E11273 0 . `E11106 0 ]
+[e ( _sm_init (3 , , &U _controlLearning_stateMachine . `E11278 0 . `E11110 0 ]
 "122
 [; ;main_MC50.c: 122:     ts_system.Debug_TS=(1000/50);
 [e = . _ts_system 7 / -> 1000 `i -> 50 `i ]

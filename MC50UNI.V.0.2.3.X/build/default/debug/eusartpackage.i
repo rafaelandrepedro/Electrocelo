@@ -17004,6 +17004,7 @@ void EUSART1_SetRxInterruptHandler(void (* interruptHandler)(void));
         EMPTY_POS=7,
         SAVE_COMMAND=8,
         ERASE_COMMAND=9,
+        READ_SERIAL=10
     };
 
 

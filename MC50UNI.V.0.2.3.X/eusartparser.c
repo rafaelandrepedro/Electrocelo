@@ -601,6 +601,29 @@
                         break;
                     }
                 break;
+            case (uint8_t)10://READ SERIAL   
+                for(uint8_t i=0;;i++)
+                    if(cmdMemoryIsEmpty(0,i)==FALSE&&package->address==0){
+                        ReadSerial(0, &serial, i);
+                        package->data.data16=(uint16_t)serial;
+                        write_package(*package);
+                        package->data.data16=(uint16_t)(serial>>16);
+                        write_package(*package);
+                        confirmpackage(package, TRUE);
+                        write_package(*package);
+                        save_f=FALSE;
+                        break;
+                    }
+                    else if(cmdMemoryIsEmpty(0,i)==FALSE){
+                        package->address--;
+                    }
+                    else if(i==var_sys_NVM.positionRemotesFull){
+                        confirmpackage(package, FALSE);
+                        write_package(*package);
+                        save_f=FALSE;
+                        break;
+                    }
+                break;
                 
             default:
                 package->functioncode=0x03;

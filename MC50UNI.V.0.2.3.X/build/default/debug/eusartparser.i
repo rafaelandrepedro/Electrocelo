@@ -17006,6 +17006,7 @@ void EUSART1_SetRxInterruptHandler(void (* interruptHandler)(void));
         EMPTY_POS=7,
         SAVE_COMMAND=8,
         ERASE_COMMAND=9,
+        READ_SERIAL=10
     };
 
 
@@ -17590,6 +17591,7 @@ typedef enum {
 TypeCMD validateRemoteSerialNumber(unsigned long serial, StateEnum VerifyOnlySerial, char* position);
 void saveNewSerial(char cmdType,unsigned long tempSerial, char position);
 void RemoveSerial(char cmdType, char position);
+void ReadSerial(char cmdType, unsigned long* tempSerial, char position);
 char cmdMemoryIsEmpty(char cmdType, char position);
 void SaveNVM_VarSystem(unsigned char page);
 void ResetDefaultMemory(unsigned char type);
@@ -18280,6 +18282,29 @@ void sm_execute_main( sm_t *psm );
                 for(uint8_t i=0;;i++)
                     if(cmdMemoryIsEmpty(0,i)==0&&package->address==0){
                         RemoveSerial(0, i);
+                        confirmpackage(package, 1);
+                        write_package(*package);
+                        save_f=0;
+                        break;
+                    }
+                    else if(cmdMemoryIsEmpty(0,i)==0){
+                        package->address--;
+                    }
+                    else if(i==var_sys_NVM.positionRemotesFull){
+                        confirmpackage(package, 0);
+                        write_package(*package);
+                        save_f=0;
+                        break;
+                    }
+                break;
+            case (uint8_t)10:
+                for(uint8_t i=0;;i++)
+                    if(cmdMemoryIsEmpty(0,i)==0&&package->address==0){
+                        ReadSerial(0, &serial, i);
+                        package->data.data16=(uint16_t)serial;
+                        write_package(*package);
+                        package->data.data16=(uint16_t)(serial>>16);
+                        write_package(*package);
                         confirmpackage(package, 1);
                         write_package(*package);
                         save_f=0;

@@ -1535,7 +1535,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "88
 [; ;keeloqDecrypt_MC50.c: 88:     static uint8_t SEED[4];
-[v F11022 `uc ~T0 @X0 -> 4 `i s SEED ]
+[v F11026 `uc ~T0 @X0 -> 4 `i s SEED ]
 "89
 [; ;keeloqDecrypt_MC50.c: 89:     uint8_t Buffer[8];
 [v _Buffer `uc ~T0 @X0 -> 8 `i a ]
@@ -1553,13 +1553,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _memcpy (3 , , -> &U _HOPtemp `*v -> &U _Buffer `*Cv -> -> 4 `i `ui ]
 "97
 [; ;keeloqDecrypt_MC50.c: 97:     memcpy(SEED, &Buffer[4], 4);
-[e ( _memcpy (3 , , -> &U F11022 `*v -> &U *U + &U _Buffer * -> -> -> 4 `i `ui `ux -> -> # *U &U _Buffer `ui `ux `*Cv -> -> 4 `i `ui ]
+[e ( _memcpy (3 , , -> &U F11026 `*v -> &U *U + &U _Buffer * -> -> -> 4 `i `ui `ux -> -> # *U &U _Buffer `ui `ux `*Cv -> -> 4 `i `ui ]
 "98
 [; ;keeloqDecrypt_MC50.c: 98:     SEED[3] &= 0x0f;
-[e =& *U + &U F11022 * -> -> -> 3 `i `ui `ux -> -> # *U &U F11022 `ui `ux -> -> 15 `i `uc ]
+[e =& *U + &U F11026 * -> -> -> 3 `i `ui `ux -> -> # *U &U F11026 `ui `ux -> -> 15 `i `uc ]
 "101
 [; ;keeloqDecrypt_MC50.c: 101:     memcpy(Buffer, SEED, 4);
-[e ( _memcpy (3 , , -> &U _Buffer `*v -> &U F11022 `*Cv -> -> 4 `i `ui ]
+[e ( _memcpy (3 , , -> &U _Buffer `*v -> &U F11026 `*Cv -> -> 4 `i `ui ]
 "102
 [; ;keeloqDecrypt_MC50.c: 102:     Buffer[3] |= 0x20;
 [e =| *U + &U _Buffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _Buffer `ui `ux -> -> 32 `i `uc ]
@@ -1574,7 +1574,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _memcpy (3 , , -> &U _SKEYtemp `*v -> &U _Buffer `*Cv -> -> 4 `i `ui ]
 "108
 [; ;keeloqDecrypt_MC50.c: 108:     memcpy(Buffer, SEED, 4);
-[e ( _memcpy (3 , , -> &U _Buffer `*v -> &U F11022 `*Cv -> -> 4 `i `ui ]
+[e ( _memcpy (3 , , -> &U _Buffer `*v -> &U F11026 `*Cv -> -> 4 `i `ui ]
 "109
 [; ;keeloqDecrypt_MC50.c: 109:     Buffer[3] |= 0x60;
 [e =| *U + &U _Buffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _Buffer `ui `ux -> -> 96 `i `uc ]

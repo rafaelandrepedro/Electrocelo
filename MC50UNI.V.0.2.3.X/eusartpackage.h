@@ -45,6 +45,7 @@ extern "C" {
         EMPTY_POS=7,
         SAVE_COMMAND=8,
         ERASE_COMMAND=9,
+        READ_SERIAL=10
     };
     
     /*

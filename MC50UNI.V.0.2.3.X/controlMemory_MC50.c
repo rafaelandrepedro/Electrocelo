@@ -107,6 +107,18 @@ void RemoveSerial(char cmdType, char position)
     }
 }
 
+void ReadSerial(char cmdType, unsigned long* tempSerial, char position)
+{
+    if(cmdType==0)
+    {
+       i2c_readDataBlock(MEMORY_ADDRESS, (uint16_t)(STARTADD_FULL + (position * 4)), (char*)tempSerial, CMD_SIZE);
+    }
+    else
+    {
+       i2c_readDataBlock(MEMORY_ADDRESS, (uint16_t)(STARTADD_WALK + (position * 4)), (char*)tempSerial, CMD_SIZE);
+    }
+}
+
 char cmdMemoryIsEmpty(char cmdType, char position)
 {
     unsigned long tempSerial=0;

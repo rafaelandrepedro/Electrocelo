@@ -1,14 +1,14 @@
 Version 4.0 HI-TECH Software Intermediate Code
 "12 eusartparser.c
 [; ;eusartparser.c: 12:     void read_eusartparser(struct package_t* package){
-[c E10101 0 1 2 3 4 5 6 7 8 9 .. ]
-[n E10101 functioncode_t READ WRITE PROGRAMMING_ENABLE CONFIRM NUM_COMMANDS NUM_EMPTY_COMMANDS OCCUPIED_POS EMPTY_POS SAVE_COMMAND ERASE_COMMAND  ]
+[c E10101 0 1 2 3 4 5 6 7 8 9 10 .. ]
+[n E10101 functioncode_t READ WRITE PROGRAMMING_ENABLE CONFIRM NUM_COMMANDS NUM_EMPTY_COMMANDS OCCUPIED_POS EMPTY_POS SAVE_COMMAND ERASE_COMMAND READ_SERIAL  ]
 "29 ./eusartpackage.h
 [; ;./eusartpackage.h: 29:     union packagedata_t{
 [u S1491 `us 1 `uc -> 2 `i ]
 [n S1491 packagedata_t data16 data8 ]
-"53
-[; ;./eusartpackage.h: 53:     struct package_t{
+"54
+[; ;./eusartpackage.h: 54:     struct package_t{
 [s S1492 `E10101 1 `uc 1 `S1491 1 `uc 1 `uc 1 `a 1 ]
 [n S1492 package_t functioncode address data startbyte endbyte valid ]
 "107 ./main.h
@@ -18,52 +18,55 @@ Version 4.0 HI-TECH Software Intermediate Code
 "22 ./eusartparser.h
 [; ;./eusartparser.h: 22:     extern volatile varSystem_NVM var_sys_NVM;
 [v _var_sys_NVM `VS1493 ~T0 @X0 0 e ]
-"84 ./eusartpackage.h
-[; ;./eusartpackage.h: 84:     void write_package(const struct package_t package);
+"85 ./eusartpackage.h
+[; ;./eusartpackage.h: 85:     void write_package(const struct package_t package);
 [v _write_package `(v ~T0 @X0 0 ef1`CS1492 ]
-"69
-[; ;./eusartpackage.h: 69:     void init_package(struct package_t* package);
+"70
+[; ;./eusartpackage.h: 70:     void init_package(struct package_t* package);
 [v _init_package `(v ~T0 @X0 0 ef1`*S1492 ]
-"114 ./controlMemory.h
-[; ;./controlMemory.h: 114: void SaveNVM_VarSystem(unsigned char page);
+"115 ./controlMemory.h
+[; ;./controlMemory.h: 115: void SaveNVM_VarSystem(unsigned char page);
 [v _SaveNVM_VarSystem `(v ~T0 @X0 0 ef1`uc ]
 "483 eusartparser.c
 [; ;eusartparser.c: 483:                     SaveNVM_VarSystem(pageMemoryE);
-[c E10504 0 1 2 3 .. ]
-[n E10504 . pageMemoryP pageMemoryE pageMemoryCounters pageMemoryLearningVars  ]
+[c E10505 0 1 2 3 .. ]
+[n E10505 . pageMemoryP pageMemoryE pageMemoryCounters pageMemoryLearningVars  ]
 "488
 [; ;eusartparser.c: 488:                     if((sm_state_Main_t)main_stateMachine.current_state==st_standBy)
-[c E10559 0 1 2 .. ]
-[n E10559 . HIST_NONE HIST_SHALLOW HIST_DEEP  ]
+[c E10564 0 1 2 .. ]
+[n E10564 . HIST_NONE HIST_SHALLOW HIST_DEEP  ]
 "73 ./sm_common.h
 [; ;./sm_common.h: 73: typedef struct {
-[s S1504 `i 1 `i 1 `i 1 `E10559 1 `*v 1 `i 1 ]
+[s S1504 `i 1 `i 1 `i 1 `E10564 1 `*v 1 `i 1 ]
 [n S1504 . current_state initial_state last_event history parent_machine parent_state ]
 "23 ./eusartparser.h
 [; ;./eusartparser.h: 23:     extern sm_t main_stateMachine;
 [v _main_stateMachine `S1504 ~T0 @X0 0 e ]
 "488 eusartparser.c
 [; ;eusartparser.c: 488:                     if((sm_state_Main_t)main_stateMachine.current_state==st_standBy)
-[c E10583 0 1 2 .. ]
-[n E10583 . st_standBy st_MenuConfiguration st_MotorON  ]
-"113 ./controlMemory.h
-[; ;./controlMemory.h: 113: char cmdMemoryIsEmpty(char cmdType, char position);
+[c E10588 0 1 2 .. ]
+[n E10588 . st_standBy st_MenuConfiguration st_MotorON  ]
+"114 ./controlMemory.h
+[; ;./controlMemory.h: 114: char cmdMemoryIsEmpty(char cmdType, char position);
 [v _cmdMemoryIsEmpty `(uc ~T0 @X0 0 ef2`uc`uc ]
 "561 eusartparser.c
 [; ;eusartparser.c: 561:                     if(validateRemoteSerialNumber(serial, NO, &pos)==NoCMD){
-[c E10153 0 1 2 3 .. ]
-[n E10153 . NO YES ST SECUR  ]
-[c E10128 0 1 2 3 4 5 6 .. ]
-[n E10128 . NoCMD TypeFull TypeWalk TypeFullOpen TypeFullClose TypeProgrammingModeWalk TypeProgrammingModeFull  ]
+[c E10154 0 1 2 3 .. ]
+[n E10154 . NO YES ST SECUR  ]
+[c E10129 0 1 2 3 4 5 6 .. ]
+[n E10129 . NoCMD TypeFull TypeWalk TypeFullOpen TypeFullClose TypeProgrammingModeWalk TypeProgrammingModeFull  ]
 "110 ./controlMemory.h
 [; ;./controlMemory.h: 110: TypeCMD validateRemoteSerialNumber(unsigned long serial, StateEnum VerifyOnlySerial, char* position);
-[v _validateRemoteSerialNumber `(E10128 ~T0 @X0 0 ef3`ul`E10153`*uc ]
+[v _validateRemoteSerialNumber `(E10129 ~T0 @X0 0 ef3`ul`E10154`*uc ]
 "111
 [; ;./controlMemory.h: 111: void saveNewSerial(char cmdType,unsigned long tempSerial, char position);
 [v _saveNewSerial `(v ~T0 @X0 0 ef3`uc`ul`uc ]
 "112
 [; ;./controlMemory.h: 112: void RemoveSerial(char cmdType, char position);
 [v _RemoveSerial `(v ~T0 @X0 0 ef2`uc`uc ]
+"113
+[; ;./controlMemory.h: 113: void ReadSerial(char cmdType, unsigned long* tempSerial, char position);
+[v _ReadSerial `(v ~T0 @X0 0 ef3`uc`*ul`uc ]
 "55 C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f46k40.h
 [; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f46k40.h: 55: __asm("RX2PPS equ 0E8Dh");
 [; <" RX2PPS equ 0E8Dh ;# ">
@@ -2542,14 +2545,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _relcounter `uc ~T0 @X0 1 a ]
 "461
 [; ;eusartparser.c: 461:         static _Bool save_f=0;
-[v F10616 `a ~T0 @X0 1 s save_f ]
-[i F10616
+[v F10621 `a ~T0 @X0 1 s save_f ]
+[i F10621
 -> -> 0 `i `a
 ]
 "462
 [; ;eusartparser.c: 462:         static uint16_t buffer=0x0000;
-[v F10617 `us ~T0 @X0 1 s buffer ]
-[i F10617
+[v F10622 `us ~T0 @X0 1 s buffer ]
+[i F10622
 -> -> 0 `i `us
 ]
 "463
@@ -2609,10 +2612,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "483
 [; ;eusartparser.c: 483:                     SaveNVM_VarSystem(pageMemoryE);
-[e ( _SaveNVM_VarSystem (1 -> . `E10504 1 `uc ]
+[e ( _SaveNVM_VarSystem (1 -> . `E10505 1 `uc ]
 "484
 [; ;eusartparser.c: 484:                     SaveNVM_VarSystem(pageMemoryP);
-[e ( _SaveNVM_VarSystem (1 -> . `E10504 0 `uc ]
+[e ( _SaveNVM_VarSystem (1 -> . `E10505 0 `uc ]
 "485
 [; ;eusartparser.c: 485:                     programmer_enable=0;
 [e = _programmer_enable -> -> 0 `i `a ]
@@ -2626,7 +2629,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "488
 [; ;eusartparser.c: 488:                     if((sm_state_Main_t)main_stateMachine.current_state==st_standBy)
-[e $ ! == -> -> . _main_stateMachine 0 `E10583 `ui -> . `E10583 0 `ui 1607  ]
+[e $ ! == -> -> . _main_stateMachine 0 `E10588 `ui -> . `E10588 0 `ui 1607  ]
 "489
 [; ;eusartparser.c: 489:                         programmer_enable=1;
 [e = _programmer_enable -> -> 1 `i `a ]
@@ -2864,11 +2867,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 1634 ]
 "553
 [; ;eusartparser.c: 553:                 if(save_f==0){
-[e $ ! == -> F10616 `i -> 0 `i 1635  ]
+[e $ ! == -> F10621 `i -> 0 `i 1635  ]
 {
 "554
 [; ;eusartparser.c: 554:                     buffer=package->data.data16;
-[e = F10617 . . *U _package 2 0 ]
+[e = F10622 . . *U _package 2 0 ]
 "555
 [; ;eusartparser.c: 555:                     confirmpackage(package, 1);
 [e ( _confirmpackage (2 , _package -> -> 1 `i `a ]
@@ -2877,7 +2880,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _write_package (1 *U _package ]
 "557
 [; ;eusartparser.c: 557:                     save_f=1;
-[e = F10616 -> -> 1 `i `a ]
+[e = F10621 -> -> 1 `i `a ]
 "558
 [; ;eusartparser.c: 558:                 }
 }
@@ -2888,10 +2891,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "560
 [; ;eusartparser.c: 560:                     serial=((uint32_t)buffer<<16)+(uint32_t)package->data.data16;
-[e = _serial + << -> F10617 `ul -> 16 `i -> . . *U _package 2 0 `ul ]
+[e = _serial + << -> F10622 `ul -> 16 `i -> . . *U _package 2 0 `ul ]
 "561
 [; ;eusartparser.c: 561:                     if(validateRemoteSerialNumber(serial, NO, &pos)==NoCMD){
-[e $ ! == -> ( _validateRemoteSerialNumber (3 , , _serial . `E10153 0 &U _pos `ui -> . `E10128 0 `ui 1637  ]
+[e $ ! == -> ( _validateRemoteSerialNumber (3 , , _serial . `E10154 0 &U _pos `ui -> . `E10129 0 `ui 1637  ]
 {
 "562
 [; ;eusartparser.c: 562:                         for(uint8_t i=0;;i++)
@@ -2975,7 +2978,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 1646 ]
 "582
 [; ;eusartparser.c: 582:                     save_f=0;
-[e = F10616 -> -> 0 `i `a ]
+[e = F10621 -> -> 0 `i `a ]
 "583
 [; ;eusartparser.c: 583:                 }
 }
@@ -3007,7 +3010,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _write_package (1 *U _package ]
 "591
 [; ;eusartparser.c: 591:                         save_f=0;
-[e = F10616 -> -> 0 `i `a ]
+[e = F10621 -> -> 0 `i `a ]
 "592
 [; ;eusartparser.c: 592:                         break;
 [e $U 1649  ]
@@ -3040,7 +3043,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _write_package (1 *U _package ]
 "600
 [; ;eusartparser.c: 600:                         save_f=0;
-[e = F10616 -> -> 0 `i `a ]
+[e = F10621 -> -> 0 `i `a ]
 "601
 [; ;eusartparser.c: 601:                         break;
 [e $U 1649  ]
@@ -3057,23 +3060,109 @@ Version 4.0 HI-TECH Software Intermediate Code
 "603
 [; ;eusartparser.c: 603:                 break;
 [e $U 1598  ]
-"605
-[; ;eusartparser.c: 605:             default:
+"604
+[; ;eusartparser.c: 604:             case (uint8_t)10:
 [e :U 1656 ]
+"605
+[; ;eusartparser.c: 605:                 for(uint8_t i=0;;i++)
+{
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[e :U 1657 ]
 "606
-[; ;eusartparser.c: 606:                 package->functioncode=0x03;
-[e = . *U _package 0 -> -> 3 `i `E10101 ]
+[; ;eusartparser.c: 606:                     if(cmdMemoryIsEmpty(0,i)==0&&package->address==0){
+[e $ ! && == -> ( _cmdMemoryIsEmpty (2 , -> -> 0 `i `uc -> _i `uc `i -> 0 `i == -> . *U _package 1 `i -> 0 `i 1660  ]
+{
 "607
-[; ;eusartparser.c: 607:                 package->address=0x00;
-[e = . *U _package 1 -> -> 0 `i `uc ]
+[; ;eusartparser.c: 607:                         ReadSerial(0, &serial, i);
+[e ( _ReadSerial (3 , , -> -> 0 `i `uc &U _serial -> _i `uc ]
 "608
-[; ;eusartparser.c: 608:                 package->data.data16=0x0000;
-[e = . . *U _package 2 0 -> -> 0 `i `us ]
+[; ;eusartparser.c: 608:                         package->data.data16=(uint16_t)serial;
+[e = . . *U _package 2 0 -> _serial `us ]
 "609
-[; ;eusartparser.c: 609:                 write_package(*package);
+[; ;eusartparser.c: 609:                         write_package(*package);
 [e ( _write_package (1 *U _package ]
 "610
-[; ;eusartparser.c: 610:         }
+[; ;eusartparser.c: 610:                         package->data.data16=(uint16_t)(serial>>16);
+[e = . . *U _package 2 0 -> >> _serial -> 16 `i `us ]
+"611
+[; ;eusartparser.c: 611:                         write_package(*package);
+[e ( _write_package (1 *U _package ]
+"612
+[; ;eusartparser.c: 612:                         confirmpackage(package, 1);
+[e ( _confirmpackage (2 , _package -> -> 1 `i `a ]
+"613
+[; ;eusartparser.c: 613:                         write_package(*package);
+[e ( _write_package (1 *U _package ]
+"614
+[; ;eusartparser.c: 614:                         save_f=0;
+[e = F10621 -> -> 0 `i `a ]
+"615
+[; ;eusartparser.c: 615:                         break;
+[e $U 1658  ]
+"616
+[; ;eusartparser.c: 616:                     }
+}
+[e $U 1661  ]
+"617
+[; ;eusartparser.c: 617:                     else if(cmdMemoryIsEmpty(0,i)==0){
+[e :U 1660 ]
+[e $ ! == -> ( _cmdMemoryIsEmpty (2 , -> -> 0 `i `uc -> _i `uc `i -> 0 `i 1662  ]
+{
+"618
+[; ;eusartparser.c: 618:                         package->address--;
+[e -- . *U _package 1 -> -> 1 `i `uc ]
+"619
+[; ;eusartparser.c: 619:                     }
+}
+[e $U 1663  ]
+"620
+[; ;eusartparser.c: 620:                     else if(i==var_sys_NVM.positionRemotesFull){
+[e :U 1662 ]
+[e $ ! == -> _i `i -> . _var_sys_NVM 32 `i 1664  ]
+{
+"621
+[; ;eusartparser.c: 621:                         confirmpackage(package, 0);
+[e ( _confirmpackage (2 , _package -> -> 0 `i `a ]
+"622
+[; ;eusartparser.c: 622:                         write_package(*package);
+[e ( _write_package (1 *U _package ]
+"623
+[; ;eusartparser.c: 623:                         save_f=0;
+[e = F10621 -> -> 0 `i `a ]
+"624
+[; ;eusartparser.c: 624:                         break;
+[e $U 1658  ]
+"625
+[; ;eusartparser.c: 625:                     }
+}
+[e :U 1664 ]
+[e :U 1663 ]
+[e :U 1661 ]
+[e ++ _i -> -> 1 `i `uc ]
+[e $U 1657  ]
+[e :U 1658 ]
+}
+"626
+[; ;eusartparser.c: 626:                 break;
+[e $U 1598  ]
+"628
+[; ;eusartparser.c: 628:             default:
+[e :U 1665 ]
+"629
+[; ;eusartparser.c: 629:                 package->functioncode=0x03;
+[e = . *U _package 0 -> -> 3 `i `E10101 ]
+"630
+[; ;eusartparser.c: 630:                 package->address=0x00;
+[e = . *U _package 1 -> -> 0 `i `uc ]
+"631
+[; ;eusartparser.c: 631:                 package->data.data16=0x0000;
+[e = . . *U _package 2 0 -> -> 0 `i `us ]
+"632
+[; ;eusartparser.c: 632:                 write_package(*package);
+[e ( _write_package (1 *U _package ]
+"633
+[; ;eusartparser.c: 633:         }
 }
 [e $U 1598  ]
 [e :U 1599 ]
@@ -3087,9 +3176,10 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> -> -> 7 `i `uc `ui 1628
  , $ -> -> -> 8 `i `uc `ui 1634
  , $ -> -> -> 9 `i `uc `ui 1647
- 1656 ]
+ , $ -> -> -> 10 `i `uc `ui 1656
+ 1665 ]
 [e :U 1598 ]
-"611
-[; ;eusartparser.c: 611:     }
+"634
+[; ;eusartparser.c: 634:     }
 [e :UE 1597 ]
 }
