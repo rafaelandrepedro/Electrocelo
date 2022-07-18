@@ -465,17 +465,21 @@
         
         switch(package->functioncode){
             case (uint8_t)0://READ
-                if(programmer_enable)
-                    read_eusartparser(package);
+                read_eusartparser(package);
                 confirmpackage(package, TRUE);
                 write_package(*package);
                 break;
                 
             case (uint8_t)1://WRITE
-                if(programmer_enable)
+                if(programmer_enable){
                     write_eusartparser(*package);
-                confirmpackage(package, TRUE);
-                write_package(*package);
+                    confirmpackage(package, TRUE);
+                    write_package(*package);
+                }
+                else{
+                    confirmpackage(package, FALSE);
+                    write_package(*package);
+                }
                 break;
                 
             case (uint8_t)2://PROGRAMMING_ENABLE
@@ -506,16 +510,17 @@
                 write_package(*package);
                 break;
             case (uint8_t)4://NUM_COMMANDS
-                package->address=0x00;
-                package->data.data16=var_sys_NVM.positionRemotesFull;
-                for(uint8_t i=0;i<var_sys_NVM.positionRemotesFull;i++)
-                if(cmdMemoryIsEmpty(0,i)==TRUE)
-                    package->data.data16--;
-                write_package(*package);
-                confirmpackage(package, TRUE);
-                write_package(*package);
+                    package->address=0x00;
+                    package->data.data16=var_sys_NVM.positionRemotesFull;
+                    for(uint8_t i=0;i<var_sys_NVM.positionRemotesFull;i++)
+                    if(cmdMemoryIsEmpty(0,i)==TRUE)
+                        package->data.data16--;
+                    write_package(*package);
+                    confirmpackage(package, TRUE);
+                    write_package(*package);
                 break;
             case (uint8_t)5://NUM_EMPTY_COMMANDS
+                
                 package->address=0x00;
                 package->data.data16=0;
                 for(uint8_t i=0;i<var_sys_NVM.positionRemotesFull;i++)
@@ -550,56 +555,68 @@
                 write_package(*package);
                 break;
             case (uint8_t)8://SAVE_COMMAND
-                if(save_f==FALSE){
-                    buffer=package->data.data16;
-                    confirmpackage(package, TRUE);
-                    write_package(*package);
-                    save_f=TRUE;
-                }
-                else{
-                    serial=((uint32_t)buffer<<16)+(uint32_t)package->data.data16;
-                    if(validateRemoteSerialNumber(serial, NO, &pos)==NoCMD){
-                        for(uint8_t i=0;;i++)
-                            if(cmdMemoryIsEmpty(0,i)==TRUE&&package->address==0){
-                                saveNewSerial(0,serial,i);
-                                confirmpackage(package, TRUE);
-                                write_package(*package);
-                                break;
-                            }
-                            else if(cmdMemoryIsEmpty(0,i)==TRUE){
-                                package->address--;
-                            }
-                            else if(i==var_sys_NVM.positionRemotesFull){
-                                confirmpackage(package, FALSE);
-                                write_package(*package);
-                                break;
-                            }
+                if(programmer_enable){
+                    if(save_f==FALSE){
+                        buffer=package->data.data16;
+                        confirmpackage(package, TRUE);
+                        write_package(*package);
+                        save_f=TRUE;
                     }
                     else{
-                        confirmpackage(package, FALSE);
-                        write_package(*package);
+                        serial=((uint32_t)buffer<<16)+(uint32_t)package->data.data16;
+                        if(validateRemoteSerialNumber(serial, NO, &pos)==NoCMD){
+                            for(uint8_t i=0;;i++)
+                                if(cmdMemoryIsEmpty(0,i)==TRUE&&package->address==0){
+                                    saveNewSerial(0,serial,i);
+                                    confirmpackage(package, TRUE);
+                                    write_package(*package);
+                                    break;
+                                }
+                                else if(cmdMemoryIsEmpty(0,i)==TRUE){
+                                    package->address--;
+                                }
+                                else if(i==var_sys_NVM.positionRemotesFull){
+                                    confirmpackage(package, FALSE);
+                                    write_package(*package);
+                                    break;
+                                }
+                        }
+                        else{
+                            confirmpackage(package, FALSE);
+                            write_package(*package);
+                        }
+                        save_f=FALSE;
                     }
-                    save_f=FALSE;
+                }
+                else{
+                    confirmpackage(package, FALSE);
+                    write_package(*package);
                 }
                 break;
             case (uint8_t)9://ERASE_COMMAND
-                for(uint8_t i=0;;i++)
-                    if(cmdMemoryIsEmpty(0,i)==FALSE&&package->address==0){
-                        RemoveSerial(0, i);
-                        confirmpackage(package, TRUE);
-                        write_package(*package);
-                        save_f=FALSE;
-                        break;
-                    }
-                    else if(cmdMemoryIsEmpty(0,i)==FALSE){
-                        package->address--;
-                    }
-                    else if(i==var_sys_NVM.positionRemotesFull){
-                        confirmpackage(package, FALSE);
-                        write_package(*package);
-                        save_f=FALSE;
-                        break;
-                    }
+                if(programmer_enable){
+                    for(uint8_t i=0;;i++)
+                        if(cmdMemoryIsEmpty(0,i)==FALSE&&package->address==0){
+                            RemoveSerial(0, i);
+                            confirmpackage(package, TRUE);
+                            write_package(*package);
+                            save_f=FALSE;
+                            break;
+                        }
+                        else if(cmdMemoryIsEmpty(0,i)==FALSE){
+                            package->address--;
+                        }
+                        else if(i==var_sys_NVM.positionRemotesFull){
+                            confirmpackage(package, FALSE);
+                            write_package(*package);
+                            save_f=FALSE;
+                            break;
+                        }
+                }
+                else{
+                    confirmpackage(package, FALSE);
+                    write_package(*package);
+                }
                 break;
             case (uint8_t)10://READ SERIAL   
                 for(uint8_t i=0;;i++)
@@ -611,7 +628,6 @@
                         write_package(*package);
                         confirmpackage(package, TRUE);
                         write_package(*package);
-                        save_f=FALSE;
                         break;
                     }
                     else if(cmdMemoryIsEmpty(0,i)==FALSE){
@@ -620,15 +636,12 @@
                     else if(i==var_sys_NVM.positionRemotesFull){
                         confirmpackage(package, FALSE);
                         write_package(*package);
-                        save_f=FALSE;
                         break;
                     }
                 break;
                 
             default:
-                package->functioncode=0x03;
-                package->address=0x00;
-                package->data.data16=0x0000;
+                confirmpackage(package, FALSE);
                 write_package(*package);
         }       
     }

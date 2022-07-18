@@ -1177,14 +1177,14 @@ SAVE_COMMAND 8
 ERASE_COMMAND 9
 READ_SERIAL 10
 ]
-"483
+"487
 [e E10505 . `uc
 pageMemoryP 0
 pageMemoryE 1
 pageMemoryCounters 2
 pageMemoryLearningVars 3
 ]
-"488
+"492
 [e E10564 . `uc
 HIST_NONE 0
 HIST_SHALLOW 1
@@ -1195,7 +1195,7 @@ st_standBy 0
 st_MenuConfiguration 1
 st_MotorON 2
 ]
-"561
+"567
 [e E10154 . `uc
 NO 0
 YES 1
@@ -3207,19 +3207,19 @@ TypeProgrammingModeFull 6
 "458 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\eusartparser.c
 [v _eusartparser eusartparser `(v  1 e 1 0 ]
 {
-"562
+"568
 [v eusartparser@i_7283 i `uc  1 a 1 21 ]
-"605
-[v eusartparser@i_7285 i `uc  1 a 1 23 ]
-"586
+"598
 [v eusartparser@i_7284 i `uc  1 a 1 22 ]
-"542
+"622
+[v eusartparser@i_7285 i `uc  1 a 1 23 ]
+"547
 [v eusartparser@i_7282 i `uc  1 a 1 20 ]
-"530
+"535
 [v eusartparser@i_7281 i `uc  1 a 1 19 ]
-"521
+"526
 [v eusartparser@i_7280 i `uc  1 a 1 17 ]
-"511
+"515
 [v eusartparser@i i `uc  1 a 1 16 ]
 "463
 [v eusartparser@serial serial `ul  1 a 4 24 ]
@@ -3235,7 +3235,7 @@ TypeProgrammingModeFull 6
 [v eusartparser@save_f save_f `a  1 s 1 save_f ]
 "462
 [v eusartparser@buffer buffer `us  1 s 2 buffer ]
-"634
+"647
 } 0
 "248
 [v _write_eusartparser write_eusartparser `(v  1 e 1 0 ]

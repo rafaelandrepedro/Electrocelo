@@ -18161,17 +18161,21 @@ void sm_execute_main( sm_t *psm );
 
         switch(package->functioncode){
             case (uint8_t)0:
-                if(programmer_enable)
-                    read_eusartparser(package);
+                read_eusartparser(package);
                 confirmpackage(package, 1);
                 write_package(*package);
                 break;
 
             case (uint8_t)1:
-                if(programmer_enable)
+                if(programmer_enable){
                     write_eusartparser(*package);
-                confirmpackage(package, 1);
-                write_package(*package);
+                    confirmpackage(package, 1);
+                    write_package(*package);
+                }
+                else{
+                    confirmpackage(package, 0);
+                    write_package(*package);
+                }
                 break;
 
             case (uint8_t)2:
@@ -18202,16 +18206,17 @@ void sm_execute_main( sm_t *psm );
                 write_package(*package);
                 break;
             case (uint8_t)4:
-                package->address=0x00;
-                package->data.data16=var_sys_NVM.positionRemotesFull;
-                for(uint8_t i=0;i<var_sys_NVM.positionRemotesFull;i++)
-                if(cmdMemoryIsEmpty(0,i)==1)
-                    package->data.data16--;
-                write_package(*package);
-                confirmpackage(package, 1);
-                write_package(*package);
+                    package->address=0x00;
+                    package->data.data16=var_sys_NVM.positionRemotesFull;
+                    for(uint8_t i=0;i<var_sys_NVM.positionRemotesFull;i++)
+                    if(cmdMemoryIsEmpty(0,i)==1)
+                        package->data.data16--;
+                    write_package(*package);
+                    confirmpackage(package, 1);
+                    write_package(*package);
                 break;
             case (uint8_t)5:
+
                 package->address=0x00;
                 package->data.data16=0;
                 for(uint8_t i=0;i<var_sys_NVM.positionRemotesFull;i++)
@@ -18246,56 +18251,68 @@ void sm_execute_main( sm_t *psm );
                 write_package(*package);
                 break;
             case (uint8_t)8:
-                if(save_f==0){
-                    buffer=package->data.data16;
-                    confirmpackage(package, 1);
-                    write_package(*package);
-                    save_f=1;
-                }
-                else{
-                    serial=((uint32_t)buffer<<16)+(uint32_t)package->data.data16;
-                    if(validateRemoteSerialNumber(serial, NO, &pos)==NoCMD){
-                        for(uint8_t i=0;;i++)
-                            if(cmdMemoryIsEmpty(0,i)==1&&package->address==0){
-                                saveNewSerial(0,serial,i);
-                                confirmpackage(package, 1);
-                                write_package(*package);
-                                break;
-                            }
-                            else if(cmdMemoryIsEmpty(0,i)==1){
-                                package->address--;
-                            }
-                            else if(i==var_sys_NVM.positionRemotesFull){
-                                confirmpackage(package, 0);
-                                write_package(*package);
-                                break;
-                            }
+                if(programmer_enable){
+                    if(save_f==0){
+                        buffer=package->data.data16;
+                        confirmpackage(package, 1);
+                        write_package(*package);
+                        save_f=1;
                     }
                     else{
-                        confirmpackage(package, 0);
-                        write_package(*package);
+                        serial=((uint32_t)buffer<<16)+(uint32_t)package->data.data16;
+                        if(validateRemoteSerialNumber(serial, NO, &pos)==NoCMD){
+                            for(uint8_t i=0;;i++)
+                                if(cmdMemoryIsEmpty(0,i)==1&&package->address==0){
+                                    saveNewSerial(0,serial,i);
+                                    confirmpackage(package, 1);
+                                    write_package(*package);
+                                    break;
+                                }
+                                else if(cmdMemoryIsEmpty(0,i)==1){
+                                    package->address--;
+                                }
+                                else if(i==var_sys_NVM.positionRemotesFull){
+                                    confirmpackage(package, 0);
+                                    write_package(*package);
+                                    break;
+                                }
+                        }
+                        else{
+                            confirmpackage(package, 0);
+                            write_package(*package);
+                        }
+                        save_f=0;
                     }
-                    save_f=0;
+                }
+                else{
+                    confirmpackage(package, 0);
+                    write_package(*package);
                 }
                 break;
             case (uint8_t)9:
-                for(uint8_t i=0;;i++)
-                    if(cmdMemoryIsEmpty(0,i)==0&&package->address==0){
-                        RemoveSerial(0, i);
-                        confirmpackage(package, 1);
-                        write_package(*package);
-                        save_f=0;
-                        break;
-                    }
-                    else if(cmdMemoryIsEmpty(0,i)==0){
-                        package->address--;
-                    }
-                    else if(i==var_sys_NVM.positionRemotesFull){
-                        confirmpackage(package, 0);
-                        write_package(*package);
-                        save_f=0;
-                        break;
-                    }
+                if(programmer_enable){
+                    for(uint8_t i=0;;i++)
+                        if(cmdMemoryIsEmpty(0,i)==0&&package->address==0){
+                            RemoveSerial(0, i);
+                            confirmpackage(package, 1);
+                            write_package(*package);
+                            save_f=0;
+                            break;
+                        }
+                        else if(cmdMemoryIsEmpty(0,i)==0){
+                            package->address--;
+                        }
+                        else if(i==var_sys_NVM.positionRemotesFull){
+                            confirmpackage(package, 0);
+                            write_package(*package);
+                            save_f=0;
+                            break;
+                        }
+                }
+                else{
+                    confirmpackage(package, 0);
+                    write_package(*package);
+                }
                 break;
             case (uint8_t)10:
                 for(uint8_t i=0;;i++)
@@ -18307,7 +18324,6 @@ void sm_execute_main( sm_t *psm );
                         write_package(*package);
                         confirmpackage(package, 1);
                         write_package(*package);
-                        save_f=0;
                         break;
                     }
                     else if(cmdMemoryIsEmpty(0,i)==0){
@@ -18316,15 +18332,12 @@ void sm_execute_main( sm_t *psm );
                     else if(i==var_sys_NVM.positionRemotesFull){
                         confirmpackage(package, 0);
                         write_package(*package);
-                        save_f=0;
                         break;
                     }
                 break;
 
             default:
-                package->functioncode=0x03;
-                package->address=0x00;
-                package->data.data16=0x0000;
+                confirmpackage(package, 0);
                 write_package(*package);
         }
     }
