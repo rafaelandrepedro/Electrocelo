@@ -5007,8 +5007,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;sm_MenuConfiguration_MC50.c: 1172:             saveNewSerial(menu_st.parameterSelected,tempSerial,edit_Param.tempValue);
 [e ( _saveNewSerial (3 , , . _menu_st 4 _tempSerial -> . _edit_Param 2 `uc ]
 "1173
-[; ;sm_MenuConfiguration_MC50.c: 1173:             if(edit_Param.tempValue==var_sys_NVM.positionRemotesFull)
-[e $ ! == -> . _edit_Param 2 `i -> . _var_sys_NVM 32 `i 1747  ]
+[; ;sm_MenuConfiguration_MC50.c: 1173:             if(edit_Param.tempValue==var_sys_NVM.positionRemotesFull&&var_sys_NVM.positionRemotesFull<99)
+[e $ ! && == -> . _edit_Param 2 `i -> . _var_sys_NVM 32 `i < -> . _var_sys_NVM 32 `i -> 99 `i 1747  ]
 "1174
 [; ;sm_MenuConfiguration_MC50.c: 1174:                 var_sys_NVM.positionRemotesFull++;
 [e ++ . _var_sys_NVM 32 -> -> 1 `i `Vuc ]

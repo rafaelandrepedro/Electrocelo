@@ -19168,7 +19168,7 @@ void controlSelectRemote(void) {
         if(validSerial==0&&(typeRemote==Keeloq_RollingCode || (var_sys_NVM.OnlyRollingCode==NO)))
         {
             saveNewSerial(menu_st.parameterSelected,tempSerial,edit_Param.tempValue);
-            if(edit_Param.tempValue==var_sys_NVM.positionRemotesFull)
+            if(edit_Param.tempValue==var_sys_NVM.positionRemotesFull&&var_sys_NVM.positionRemotesFull<99)
                 var_sys_NVM.positionRemotesFull++;
             sm_send_event(&menuConfiguration_stateMachine, ev_addRemotes);
             var_sys.DistanceProgrammingActive=NO;

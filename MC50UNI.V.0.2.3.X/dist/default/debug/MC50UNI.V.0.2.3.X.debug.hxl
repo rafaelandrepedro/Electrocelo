@@ -11,17 +11,17 @@
  Intel Hex-file ranges:
   0h - 5h		(dist/default/debug\MC50UNI.V.0.2.3.X.debug.hex)
   8h - 9Fh		(dist/default/debug\MC50UNI.V.0.2.3.X.debug.hex)
-  F00h - 8E82h		(dist/default/debug\MC50UNI.V.0.2.3.X.debug.hex)
-  8E84h - 928Ah		(dist/default/debug\MC50UNI.V.0.2.3.X.debug.hex)
-  928Ch - 92C3h		(dist/default/debug\MC50UNI.V.0.2.3.X.debug.hex)
+  F00h - 8E8Ah		(dist/default/debug\MC50UNI.V.0.2.3.X.debug.hex)
+  8E8Ch - 9292h		(dist/default/debug\MC50UNI.V.0.2.3.X.debug.hex)
+  9294h - 92CBh		(dist/default/debug\MC50UNI.V.0.2.3.X.debug.hex)
   200000h - 20000Fh		(dist/default/debug\MC50UNI.V.0.2.3.X.debug.hex)
   300000h - 30000Bh		(dist/default/debug\MC50UNI.V.0.2.3.X.debug.hex)
  Unused ranges:
   6h - 7h
   A0h - EFFh
-  8E83h - 8E83h
-  928Bh - 928Bh
-  92C4h - 1FFFFFh
+  8E8Bh - 8E8Bh
+  9293h - 9293h
+  92CCh - 1FFFFFh
   200010h - 2FFFFFh
 
 ### Hex Memory Map ###
@@ -2082,7 +2082,7 @@
 00008E50 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00008E60 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00008E70 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00008E80 | H1 H1 H1 -- H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00008E80 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- H1 H1 H1 H1
 00008E90 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00008EA0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00008EB0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
@@ -2146,11 +2146,11 @@
 00009250 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00009260 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00009270 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00009280 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- H1 H1 H1 H1
-00009290 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00009280 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00009290 | H1 H1 H1 -- H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 000092A0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 000092B0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-000092C0 | H1 H1 H1 H1 -- -- -- -- -- -- -- -- -- -- -- --
+000092C0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- --
 ----------------------------------------------------------
 00200000 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 ----------------------------------------------------------
