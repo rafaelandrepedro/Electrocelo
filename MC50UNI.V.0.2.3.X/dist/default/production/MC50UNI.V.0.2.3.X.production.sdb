@@ -1004,13 +1004,13 @@ E1_SMenu 11
 S_Menu 12
 Del_Menu 13
 ]
-"31
+"33
 [e E10586 . `uc
 HIST_NONE 0
 HIST_SHALLOW 1
 HIST_DEEP 2
 ]
-"38
+"40
 [e E10563 . `uc
 ev_NULL 0
 ev_ParameterIsSelected 1
@@ -1034,7 +1034,7 @@ ev_ErrorLearning 18
 ev_LearningComplete 19
 ev_SartLearning 20
 ]
-"40
+"42
 [e E10796 . `uc
 st_MainMenu 0
 st_EditParameter 1
@@ -1044,7 +1044,7 @@ st_SelectRemote 4
 st_SaveRemotes 5
 st_LearningMode 6
 ]
-"144
+"146
 [e E10381 . `uc
 Stopped 0
 InOpenFull 1
@@ -1071,7 +1071,7 @@ Clear 0
 Active 1
 EmAlarme 2
 ]
-"217
+"219
 [e E10610 DispValue_enum `uc
 d0 0
 d1 1
@@ -1112,25 +1112,25 @@ dc 35
 dq 36
 dSize 37
 ]
-"252
+"254
 [e E10922 . `uc
 pageMemoryP 0
 pageMemoryE 1
 pageMemoryCounters 2
 pageMemoryLearningVars 3
 ]
-"832
+"833
 [e E10805 . `uc
 Automatic 0
 Manual 1
 ]
-"1160
+"1161
 [e E10392 . `uc
 Keeloq_RollingCode 0
 Keeloq_NoRollingCode 1
 DIP_12BIT 2
 ]
-"1226
+"1227
 [e E10650 . `uc
 Left 0
 Rigth 1
@@ -1615,17 +1615,17 @@ st_MotorON 2
 [v _clearLearningValue clearLearningValue `(v  1 e 1 0 ]
 "26 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\sm_Main_MC50.c
 [v _sm_execute_main sm_execute_main `(v  1 e 1 0 ]
-"31 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\sm_MenuConfiguration_MC50.c
+"33 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\sm_MenuConfiguration_MC50.c
 [v _sm_execute_menuConfiguration sm_execute_menuConfiguration `(v  1 e 1 0 ]
-"433
+"434
 [v _load_New_Menu load_New_Menu `(v  1 e 1 0 ]
-"647
+"648
 [v _setValueToEdit setValueToEdit `(uc  1 e 1 0 ]
-"1089
+"1090
 [v _controlSelectRemote controlSelectRemote `(v  1 e 1 0 ]
-"1198
+"1199
 [v _controlSaveRemote controlSaveRemote `(v  1 e 1 0 ]
-"1219
+"1220
 [v _controlLearnDigit controlLearnDigit `(v  1 e 1 0 ]
 "24 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X/eusartparser.h
 [v _programmer_enable programmer_enable `a  1 e 1 0 ]
@@ -2529,8 +2529,10 @@ st_MotorON 2
 "26
 [v _edit_Param edit_Param `VES6605  1 e 6 0 ]
 "28
+[v _firstselectflag firstselectflag `a  1 s 1 firstselectflag ]
+"30
 [v _tempCounter tempCounter `ul  1 e 4 0 ]
-"29
+"31
 [v _auxCounter auxCounter `ui  1 e 2 0 ]
 "63 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\main_MC50.c
 [v _main main `(v  1 e 1 0 ]
@@ -2548,55 +2550,55 @@ st_MotorON 2
 [v sm_execute_main@psm psm `*.39S4643  1 p 2 21 ]
 "320
 } 0
-"31 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\sm_MenuConfiguration_MC50.c
+"33 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\sm_MenuConfiguration_MC50.c
 [v _sm_execute_menuConfiguration sm_execute_menuConfiguration `(v  1 e 1 0 ]
 {
 [s S4643 . 11 `i 1 current_state 2 0 `i 1 initial_state 2 2 `i 1 last_event 2 4 `E11106 1 history 1 6 `*.2v 1 parent_machine 2 7 `i 1 parent_state 2 9 ]
 [v sm_execute_menuConfiguration@psm psm `*.39S4643  1 p 2 17 ]
-"431
+"432
 } 0
-"647
+"648
 [v _setValueToEdit setValueToEdit `(uc  1 e 1 0 ]
 {
 [v setValueToEdit@menuType menuType `E10813  1 a 1 wreg ]
-"648
+"649
 [v setValueToEdit@haveValueToEdit haveValueToEdit `uc  1 a 1 7 ]
-"647
+"648
 [v setValueToEdit@menuType menuType `E10813  1 a 1 wreg ]
 [v setValueToEdit@ParameterSelected ParameterSelected `uc  1 p 1 57 ]
 [v setValueToEdit@menuType menuType `E10813  1 a 1 6 ]
-"1087
+"1088
 } 0
-"433
+"434
 [v _load_New_Menu load_New_Menu `(v  1 e 1 0 ]
 {
 [v load_New_Menu@Menu Menu `E10813  1 a 1 wreg ]
-"435
+"436
 [v load_New_Menu@i i `uc  1 a 1 34 ]
-"433
+"434
 [v load_New_Menu@Menu Menu `E10813  1 a 1 wreg ]
 [v load_New_Menu@Menu Menu `E10813  1 a 1 33 ]
-"645
+"646
 } 0
 "207 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\inputs_MC50.c
 [v _InitReceiver InitReceiver `(v  1 e 1 0 ]
 {
 "215
 } 0
-"1089 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\sm_MenuConfiguration_MC50.c
+"1090 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\sm_MenuConfiguration_MC50.c
 [v _controlSelectRemote controlSelectRemote `(v  1 e 1 0 ]
 {
-"1160
+"1161
 [v controlSelectRemote@typeRemote typeRemote `E10392  1 a 1 11 ]
-"1157
+"1158
 [v controlSelectRemote@pos pos `uc  1 a 1 10 ]
-"1090
-[v controlSelectRemote@tempSerial tempSerial `ul  1 a 4 12 ]
 "1091
-[v controlSelectRemote@temp temp `uc  1 a 1 16 ]
+[v controlSelectRemote@tempSerial tempSerial `ul  1 a 4 12 ]
 "1092
+[v controlSelectRemote@temp temp `uc  1 a 1 16 ]
+"1093
 [v controlSelectRemote@validSerial validSerial `uc  1 a 1 9 ]
-"1196
+"1197
 } 0
 "81 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\controlMemory_MC50.c
 [v _saveNewSerial saveNewSerial `(v  1 e 1 0 ]
@@ -2636,6 +2638,24 @@ st_MotorON 2
 [v cmdMemoryIsEmpty@cmdType cmdType `uc  1 a 1 48 ]
 "132
 } 0
+"95
+[v _RemoveSerial RemoveSerial `(v  1 e 1 0 ]
+{
+[v RemoveSerial@cmdType cmdType `uc  1 a 1 wreg ]
+"97
+[v RemoveSerial@tempSerial tempSerial `ul  1 a 4 3 ]
+"95
+[v RemoveSerial@cmdType cmdType `uc  1 a 1 wreg ]
+[v RemoveSerial@position position `uc  1 p 1 57 ]
+"97
+[v RemoveSerial@cmdType cmdType `uc  1 a 1 2 ]
+"108
+} 0
+"1199 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\sm_MenuConfiguration_MC50.c
+[v _controlSaveRemote controlSaveRemote `(v  1 e 1 0 ]
+{
+"1218
+} 0
 "4 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\lbmod.c
 [v ___lbmod __lbmod `(uc  1 e 1 0 ]
 {
@@ -2664,24 +2684,6 @@ st_MotorON 2
 [v ___awdiv@divisor divisor `i  1 p 2 21 ]
 "41
 } 0
-"95 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\controlMemory_MC50.c
-[v _RemoveSerial RemoveSerial `(v  1 e 1 0 ]
-{
-[v RemoveSerial@cmdType cmdType `uc  1 a 1 wreg ]
-"97
-[v RemoveSerial@tempSerial tempSerial `ul  1 a 4 3 ]
-"95
-[v RemoveSerial@cmdType cmdType `uc  1 a 1 wreg ]
-[v RemoveSerial@position position `uc  1 p 1 57 ]
-"97
-[v RemoveSerial@cmdType cmdType `uc  1 a 1 2 ]
-"108
-} 0
-"1198 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\sm_MenuConfiguration_MC50.c
-[v _controlSaveRemote controlSaveRemote `(v  1 e 1 0 ]
-{
-"1217
-} 0
 "104 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\outputs_MC50.c
 [v _SetSegmentValueMain SetSegmentValueMain `(v  1 e 1 0 ]
 {
@@ -2697,10 +2699,10 @@ st_MotorON 2
 {
 "465
 } 0
-"1219 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\sm_MenuConfiguration_MC50.c
+"1220 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\sm_MenuConfiguration_MC50.c
 [v _controlLearnDigit controlLearnDigit `(v  1 e 1 0 ]
 {
-"1233
+"1234
 } 0
 "124 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\outputs_MC50.c
 [v _SetSegmentValueLearn SetSegmentValueLearn `(v  1 e 1 0 ]

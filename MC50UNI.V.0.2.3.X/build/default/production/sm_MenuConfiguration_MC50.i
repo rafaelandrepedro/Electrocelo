@@ -18023,6 +18023,8 @@ extern volatile varSystem_NVM var_sys_NVM;
 extern volatile varSystem var_sys;
 volatile edit_Parameter_st edit_Param;
 
+static _Bool firstselectflag=1;
+
 unsigned long tempCounter=998877;
 unsigned int auxCounter=1000;
 
@@ -18321,16 +18323,11 @@ void sm_execute_menuConfiguration( sm_t *psm ) {
                 load_New_Menu(menu_st.actualMenu);
                 sm_send_event(&menuConfiguration_stateMachine, ev_CancelEdition);
                 button_struct.processed=1;
-
             }
         }
         break;
         case st_SaveParameter:
         {
-
-
-
-
             if (ts_system.timeSinalizationDigit<=0)
             {
                 ts_system.timeoutMenu=((1000/50)*5) ;
@@ -18402,6 +18399,10 @@ void sm_execute_menuConfiguration( sm_t *psm ) {
         break;
         case st_SelectRemote:
         {
+            if(firstselectflag==1){
+                edit_Param.tempValue=0;
+                firstselectflag=0;
+            }
             controlSelectRemote();
         }
         break;
@@ -19163,7 +19164,7 @@ void controlSelectRemote(void) {
             var_sys.DistanceProgrammingActive=NO;
             var_sys.ProgrammingDistanceIs=NoCMD;
             ts_system.timeSinalizationDigit=(1000/50)*2;
-            SetSegmentValueIntermitentMain(edit_Param.tempValue/10, edit_Param.tempValue-((edit_Param.tempValue/10)*10),( 200/50));
+            SetSegmentValueIntermitentMain((edit_Param.tempValue-edit_Param.tempValue%10)/10, edit_Param.tempValue%10,( 200/50));
             if(edit_Param.Max==edit_Param.tempValue || edit_Param.Max==0 )
             {
 
@@ -19188,7 +19189,7 @@ void controlSelectRemote(void) {
     {
         ts_system.timeoutMenu=((1000/50)*5) ;
         RemoveSerial(menu_st.parameterSelected,edit_Param.tempValue);
-        SetSegmentValueIntermitentMain(edit_Param.tempValue/10, edit_Param.tempValue-((edit_Param.tempValue/10)*10),(1000/50));
+        SetSegmentValueIntermitentMain((edit_Param.tempValue-edit_Param.tempValue%10)/10, edit_Param.tempValue%10,(1000/50));
 
     }
 }
@@ -19200,7 +19201,7 @@ void controlSaveRemote(void){
          {
              ts_system.timeoutMenu=10*(1000/50);
              sm_send_event(&menuConfiguration_stateMachine, ev_NextRemote);
-             SetSegmentValueIntermitentMain(edit_Param.tempValue/10, edit_Param.tempValue-((edit_Param.tempValue/10)*10),(1000/50));
+             SetSegmentValueIntermitentMain((edit_Param.tempValue-edit_Param.tempValue%10)/10, edit_Param.tempValue%10,(1000/50));
          }
          else
          {

@@ -19059,24 +19059,32 @@ char setValueToEdit(menuLists_en menuType, char ParameterSelected ){
 
         case S_Menu:
         {
+            static unsigned char value=0;
             switch (ParameterSelected)
             {
                 case 0:
                 {
-                    edit_Param.Value=(unsigned char*)&var_sys_NVM.positionRemotesFull;
+      edit_Param.Value=&value;
+                    for(unsigned char posindex=0; posindex <= *(unsigned char*)&var_sys_NVM.positionRemotesFull; posindex++)
+                    {
+                        value=posindex;
+                        if(cmdMemoryIsEmpty(menu_st.parameterSelected, posindex))
+                            break;
+                    }
+                    edit_Param.Max=*(unsigned char*)&var_sys_NVM.positionRemotesFull;
                 }
                 break;
                 case 1:
                 {
                     edit_Param.Value=(unsigned char*)&var_sys_NVM.positionRemotesWalk;
+      edit_Param.Max=*(unsigned char*)&var_sys_NVM.positionRemotesWalk;
                 }
                 break;
             }
-            edit_Param.Max=edit_Param.Value[0];
             edit_Param.position=0;
             edit_Param.Min=0;
             haveValueToEdit=1;
-            edit_Param.tempValue= edit_Param.Value[0];
+            edit_Param.tempValue=*edit_Param.Value;
             InitReceiver();
         }
         break;
