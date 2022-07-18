@@ -102,8 +102,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _SaveNVM_VarSystem `(v ~T0 @X0 0 ef1`uc ]
 "254 sm_MenuConfiguration_MC50.c
 [; ;sm_MenuConfiguration_MC50.c: 254:                 SaveNVM_VarSystem(pageMemoryCounters);
-[c E10930 0 1 2 3 .. ]
-[n E10930 . pageMemoryP pageMemoryE pageMemoryCounters pageMemoryLearningVars  ]
+[c E10937 0 1 2 3 .. ]
+[n E10937 . pageMemoryP pageMemoryE pageMemoryCounters pageMemoryLearningVars  ]
 "116 ./controlMemory.h
 [; ;./controlMemory.h: 116: void ResetDefaultMemory(unsigned char type);
 [v _ResetDefaultMemory `(v ~T0 @X0 0 ef1`uc ]
@@ -2246,7 +2246,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . _var_sys_NVM 35 -> . `E10397 0 `uc ]
 "254
 [; ;sm_MenuConfiguration_MC50.c: 254:                 SaveNVM_VarSystem(pageMemoryCounters);
-[e ( _SaveNVM_VarSystem (1 -> . `E10930 2 `uc ]
+[e ( _SaveNVM_VarSystem (1 -> . `E10937 2 `uc ]
 "255
 [; ;sm_MenuConfiguration_MC50.c: 255:                 sm_send_event(&main_stateMachine, ev_goto_StandBy);
 [e ( _sm_send_event (2 , &U _main_stateMachine . `E10563 7 ]
@@ -2528,7 +2528,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "346
 [; ;sm_MenuConfiguration_MC50.c: 346:                     SaveNVM_VarSystem(pageMemoryE);
-[e ( _SaveNVM_VarSystem (1 -> . `E10930 1 `uc ]
+[e ( _SaveNVM_VarSystem (1 -> . `E10937 1 `uc ]
 "347
 [; ;sm_MenuConfiguration_MC50.c: 347:                 }
 }
@@ -2554,10 +2554,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 1598 ]
 "355
 [; ;sm_MenuConfiguration_MC50.c: 355:                       SaveNVM_VarSystem(pageMemoryE);
-[e ( _SaveNVM_VarSystem (1 -> . `E10930 1 `uc ]
+[e ( _SaveNVM_VarSystem (1 -> . `E10937 1 `uc ]
 "356
 [; ;sm_MenuConfiguration_MC50.c: 356:                       SaveNVM_VarSystem(pageMemoryP);
-[e ( _SaveNVM_VarSystem (1 -> . `E10930 0 `uc ]
+[e ( _SaveNVM_VarSystem (1 -> . `E10937 0 `uc ]
 "359
 [; ;sm_MenuConfiguration_MC50.c: 359:                 }
 }
@@ -2760,7 +2760,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _SetSegmentValueMain (2 , -> . `E10610 24 `uc -> . `E10610 24 `uc ]
 "424
 [; ;sm_MenuConfiguration_MC50.c: 424:                 SaveNVM_VarSystem(pageMemoryCounters);
-[e ( _SaveNVM_VarSystem (1 -> . `E10930 2 `uc ]
+[e ( _SaveNVM_VarSystem (1 -> . `E10937 2 `uc ]
 "425
 [; ;sm_MenuConfiguration_MC50.c: 425:                 ClearFlag_rfCMD();
 [e ( _ClearFlag_rfCMD ..  ]
@@ -3855,7 +3855,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "807
 [; ;sm_MenuConfiguration_MC50.c: 807:                     haveValueToEdit=1;
 [e = _haveValueToEdit -> -> 1 `i `uc ]
-[v F11050 `*uc ~T0 @X0 1 t ]
+[v F11057 `*uc ~T0 @X0 1 t ]
 "808
 [; ;sm_MenuConfiguration_MC50.c: 808:                     edit_Param.Value = 0;
 [e = . _edit_Param 1 -> -> 0 `i `V*uc ]
@@ -3947,7 +3947,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . _var_sys 32 -> . `E10805 0 `uc ]
 "834
 [; ;sm_MenuConfiguration_MC50.c: 834:                  SaveNVM_VarSystem(pageMemoryE);
-[e ( _SaveNVM_VarSystem (1 -> . `E10930 1 `uc ]
+[e ( _SaveNVM_VarSystem (1 -> . `E10937 1 `uc ]
 "837
 [; ;sm_MenuConfiguration_MC50.c: 837:                 }
 }
@@ -3974,7 +3974,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . _var_sys 32 -> . `E10805 1 `uc ]
 "845
 [; ;sm_MenuConfiguration_MC50.c: 845:                  SaveNVM_VarSystem(pageMemoryE);
-[e ( _SaveNVM_VarSystem (1 -> . `E10930 1 `uc ]
+[e ( _SaveNVM_VarSystem (1 -> . `E10937 1 `uc ]
 "848
 [; ;sm_MenuConfiguration_MC50.c: 848:                 }
 }
@@ -4635,8 +4635,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "1064
 [; ;sm_MenuConfiguration_MC50.c: 1064:             static unsigned char value=0;
-[v F11078 `uc ~T0 @X0 1 s value ]
-[i F11078
+[v F11085 `uc ~T0 @X0 1 s value ]
+[i F11085
 -> -> 0 `i `uc
 ]
 "1065
@@ -4653,7 +4653,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "1069
 [; ;sm_MenuConfiguration_MC50.c: 1069:       edit_Param.Value=&value;
-[e = . _edit_Param 1 &U F11078 ]
+[e = . _edit_Param 1 &U F11085 ]
 "1070
 [; ;sm_MenuConfiguration_MC50.c: 1070:                     for(unsigned char posindex=0; posindex <= *(unsigned char*)&var_sys_NVM.positionRemotesFull; posindex++)
 {
@@ -4666,7 +4666,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "1072
 [; ;sm_MenuConfiguration_MC50.c: 1072:                         value=posindex;
-[e = F11078 _posindex ]
+[e = F11085 _posindex ]
 "1073
 [; ;sm_MenuConfiguration_MC50.c: 1073:                         if(cmdMemoryIsEmpty(menu_st.parameterSelected, posindex))
 [e $ ! != -> ( _cmdMemoryIsEmpty (2 , . _menu_st 4 -> _posindex `uc `i -> 0 `i 1725  ]
@@ -5055,7 +5055,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = *U + . _edit_Param 1 * -> -> 0 `i `x -> -> # *U . _edit_Param 1 `i `x . _edit_Param 2 ]
 "1194
 [; ;sm_MenuConfiguration_MC50.c: 1194:                 SaveNVM_VarSystem(pageMemoryCounters);
-[e ( _SaveNVM_VarSystem (1 -> . `E10930 2 `uc ]
+[e ( _SaveNVM_VarSystem (1 -> . `E10937 2 `uc ]
 "1195
 [; ;sm_MenuConfiguration_MC50.c: 1195:             }
 }

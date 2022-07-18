@@ -17000,13 +17000,20 @@ void EUSART1_SetRxInterruptHandler(void (* interruptHandler)(void));
         WRITE=1,
         PROGRAMMING_ENABLE=2,
         CONFIRM=3,
-        NUM_COMMANDS=4,
-        NUM_EMPTY_COMMANDS=5,
-        OCCUPIED_POS=6,
-        EMPTY_POS=7,
-        SAVE_COMMAND=8,
-        ERASE_COMMAND=9,
-        READ_SERIAL=10
+        NUM_COMMANDS_F=4,
+        NUM_EMPTY_COMMANDS_F=5,
+        OCCUPIED_POS_F=6,
+        EMPTY_POS_F=7,
+        SAVE_COMMAND_F=8,
+        ERASE_COMMAND_F=9,
+        READ_SERIAL_F=10,
+        NUM_COMMANDS_W=4,
+        NUM_EMPTY_COMMANDS_W=5,
+        OCCUPIED_POS_W=6,
+        EMPTY_POS_W=7,
+        SAVE_COMMAND_W=8,
+        ERASE_COMMAND_W=9,
+        READ_SERIAL_W=10
     };
 
 
@@ -18327,6 +18334,136 @@ void sm_execute_main( sm_t *psm );
                         break;
                     }
                     else if(cmdMemoryIsEmpty(0,i)==0){
+                        package->address--;
+                    }
+                    else if(i==var_sys_NVM.positionRemotesFull){
+                        confirmpackage(package, 0);
+                        write_package(*package);
+                        break;
+                    }
+                break;
+            case (uint8_t)11:
+                    package->address=0x00;
+                    package->data.data16=var_sys_NVM.positionRemotesFull;
+                    for(uint8_t i=0;i<var_sys_NVM.positionRemotesFull;i++)
+                    if(cmdMemoryIsEmpty(1,i)==1)
+                        package->data.data16--;
+                    write_package(*package);
+                    confirmpackage(package, 1);
+                    write_package(*package);
+                break;
+            case (uint8_t)12:
+
+                package->address=0x00;
+                package->data.data16=0;
+                for(uint8_t i=0;i<var_sys_NVM.positionRemotesFull;i++)
+                if(cmdMemoryIsEmpty(1,i)==1)
+                    package->data.data16++;
+                write_package(*package);
+                confirmpackage(package, 1);
+                write_package(*package);
+                break;
+            case (uint8_t)13:
+                relcounter=0;
+                for(uint8_t i=0;i<var_sys_NVM.positionRemotesFull;i++)
+                    if(cmdMemoryIsEmpty(1,i)==0){
+                        package->data.data16=(uint16_t)i;
+                        package->address=relcounter;
+                        relcounter++;
+                        write_package(*package);
+                    }
+                confirmpackage(package, 1);
+                write_package(*package);
+                break;
+            case (uint8_t)14:
+                relcounter=0;
+                for(uint8_t i=0;i<var_sys_NVM.positionRemotesFull;i++)
+                    if(cmdMemoryIsEmpty(1,i)==1){
+                        package->data.data16=(uint16_t)i;
+                        package->address=relcounter;
+                        relcounter++;
+                        write_package(*package);
+                    }
+                confirmpackage(package, 1);
+                write_package(*package);
+                break;
+            case (uint8_t)15:
+                if(programmer_enable){
+                    if(save_f==0){
+                        buffer=package->data.data16;
+                        confirmpackage(package, 1);
+                        write_package(*package);
+                        save_f=1;
+                    }
+                    else{
+                        serial=((uint32_t)buffer<<16)+(uint32_t)package->data.data16;
+                        if(validateRemoteSerialNumber(serial, NO, &pos)==NoCMD){
+                            for(uint8_t i=0;;i++)
+                                if(cmdMemoryIsEmpty(1,i)==1&&package->address==0){
+                                    saveNewSerial(1,serial,i);
+                                    confirmpackage(package, 1);
+                                    write_package(*package);
+                                    break;
+                                }
+                                else if(cmdMemoryIsEmpty(1,i)==1){
+                                    package->address--;
+                                }
+                                else if(i==var_sys_NVM.positionRemotesFull){
+                                    confirmpackage(package, 0);
+                                    write_package(*package);
+                                    break;
+                                }
+                        }
+                        else{
+                            confirmpackage(package, 0);
+                            write_package(*package);
+                        }
+                        save_f=0;
+                    }
+                }
+                else{
+                    confirmpackage(package, 0);
+                    write_package(*package);
+                }
+                break;
+            case (uint8_t)16:
+                if(programmer_enable){
+                    for(uint8_t i=0;;i++)
+                        if(cmdMemoryIsEmpty(1,i)==0&&package->address==0){
+                            RemoveSerial(1, i);
+                            confirmpackage(package, 1);
+                            write_package(*package);
+                            save_f=0;
+                            break;
+                        }
+                        else if(cmdMemoryIsEmpty(1,i)==0){
+                            package->address--;
+                        }
+                        else if(i==var_sys_NVM.positionRemotesFull){
+                            confirmpackage(package, 0);
+                            write_package(*package);
+                            save_f=0;
+                            break;
+                        }
+                }
+                else{
+                    confirmpackage(package, 0);
+                    write_package(*package);
+                }
+                break;
+            case (uint8_t)17:
+                for(uint8_t i=0;;i++)
+                    if(cmdMemoryIsEmpty(1,i)==0&&package->address==0){
+                        ReadSerial(1, &serial, i);
+                        package->data.data16=(uint16_t)serial;
+                        write_package(*package);
+                        package->data.data16=(uint16_t)(serial>>16);
+                        write_package(*package);
+                        confirmpackage(package, 1);
+                        write_package(*package);
+                        break;
+                    }
+                    else if(cmdMemoryIsEmpty(1,i)==0){
                         package->address--;
                     }
                     else if(i==var_sys_NVM.positionRemotesFull){

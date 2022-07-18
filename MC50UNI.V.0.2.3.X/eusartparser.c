@@ -639,6 +639,136 @@
                         break;
                     }
                 break;
+            case (uint8_t)11://NUM_COMMANDS
+                    package->address=0x00;
+                    package->data.data16=var_sys_NVM.positionRemotesFull;
+                    for(uint8_t i=0;i<var_sys_NVM.positionRemotesFull;i++)
+                    if(cmdMemoryIsEmpty(1,i)==TRUE)
+                        package->data.data16--;
+                    write_package(*package);
+                    confirmpackage(package, TRUE);
+                    write_package(*package);
+                break;
+            case (uint8_t)12://NUM_EMPTY_COMMANDS
+                
+                package->address=0x00;
+                package->data.data16=0;
+                for(uint8_t i=0;i<var_sys_NVM.positionRemotesFull;i++)
+                if(cmdMemoryIsEmpty(1,i)==TRUE)
+                    package->data.data16++;
+                write_package(*package);
+                confirmpackage(package, TRUE);
+                write_package(*package);
+                break;
+            case (uint8_t)13://OCCUPIED_POS
+                relcounter=0;
+                for(uint8_t i=0;i<var_sys_NVM.positionRemotesFull;i++)
+                    if(cmdMemoryIsEmpty(1,i)==FALSE){
+                        package->data.data16=(uint16_t)i;
+                        package->address=relcounter;
+                        relcounter++;
+                        write_package(*package);
+                    }
+                confirmpackage(package, TRUE);
+                write_package(*package);
+                break;
+            case (uint8_t)14://EMPTY_POS
+                relcounter=0;
+                for(uint8_t i=0;i<var_sys_NVM.positionRemotesFull;i++)
+                    if(cmdMemoryIsEmpty(1,i)==TRUE){
+                        package->data.data16=(uint16_t)i;
+                        package->address=relcounter;
+                        relcounter++;
+                        write_package(*package);
+                    }
+                confirmpackage(package, TRUE);
+                write_package(*package);
+                break;
+            case (uint8_t)15://SAVE_COMMAND
+                if(programmer_enable){
+                    if(save_f==FALSE){
+                        buffer=package->data.data16;
+                        confirmpackage(package, TRUE);
+                        write_package(*package);
+                        save_f=TRUE;
+                    }
+                    else{
+                        serial=((uint32_t)buffer<<16)+(uint32_t)package->data.data16;
+                        if(validateRemoteSerialNumber(serial, NO, &pos)==NoCMD){
+                            for(uint8_t i=0;;i++)
+                                if(cmdMemoryIsEmpty(1,i)==TRUE&&package->address==0){
+                                    saveNewSerial(1,serial,i);
+                                    confirmpackage(package, TRUE);
+                                    write_package(*package);
+                                    break;
+                                }
+                                else if(cmdMemoryIsEmpty(1,i)==TRUE){
+                                    package->address--;
+                                }
+                                else if(i==var_sys_NVM.positionRemotesFull){
+                                    confirmpackage(package, FALSE);
+                                    write_package(*package);
+                                    break;
+                                }
+                        }
+                        else{
+                            confirmpackage(package, FALSE);
+                            write_package(*package);
+                        }
+                        save_f=FALSE;
+                    }
+                }
+                else{
+                    confirmpackage(package, FALSE);
+                    write_package(*package);
+                }
+                break;
+            case (uint8_t)16://ERASE_COMMAND
+                if(programmer_enable){
+                    for(uint8_t i=0;;i++)
+                        if(cmdMemoryIsEmpty(1,i)==FALSE&&package->address==0){
+                            RemoveSerial(1, i);
+                            confirmpackage(package, TRUE);
+                            write_package(*package);
+                            save_f=FALSE;
+                            break;
+                        }
+                        else if(cmdMemoryIsEmpty(1,i)==FALSE){
+                            package->address--;
+                        }
+                        else if(i==var_sys_NVM.positionRemotesFull){
+                            confirmpackage(package, FALSE);
+                            write_package(*package);
+                            save_f=FALSE;
+                            break;
+                        }
+                }
+                else{
+                    confirmpackage(package, FALSE);
+                    write_package(*package);
+                }
+                break;
+            case (uint8_t)17://READ SERIAL   
+                for(uint8_t i=0;;i++)
+                    if(cmdMemoryIsEmpty(1,i)==FALSE&&package->address==0){
+                        ReadSerial(1, &serial, i);
+                        package->data.data16=(uint16_t)serial;
+                        write_package(*package);
+                        package->data.data16=(uint16_t)(serial>>16);
+                        write_package(*package);
+                        confirmpackage(package, TRUE);
+                        write_package(*package);
+                        break;
+                    }
+                    else if(cmdMemoryIsEmpty(1,i)==FALSE){
+                        package->address--;
+                    }
+                    else if(i==var_sys_NVM.positionRemotesFull){
+                        confirmpackage(package, FALSE);
+                        write_package(*package);
+                        break;
+                    }
+                break;
                 
             default:
                 confirmpackage(package, FALSE);
