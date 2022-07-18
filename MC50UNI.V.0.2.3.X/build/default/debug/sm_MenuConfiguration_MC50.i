@@ -19077,11 +19077,11 @@ char setValueToEdit(menuLists_en menuType, char ParameterSelected ){
                 case 1:
                 {
                     edit_Param.Value=(unsigned char*)&var_sys_NVM.positionRemotesWalk;
-      edit_Param.Max=*(unsigned char*)&var_sys_NVM.positionRemotesWalk;
+                    edit_Param.Max=*(unsigned char*)&var_sys_NVM.positionRemotesWalk;
                 }
                 break;
             }
-            edit_Param.position=0;
+            edit_Param.position=*edit_Param.Value;
             edit_Param.Min=0;
             haveValueToEdit=1;
             edit_Param.tempValue=*edit_Param.Value;
@@ -19168,6 +19168,8 @@ void controlSelectRemote(void) {
         if(validSerial==0&&(typeRemote==Keeloq_RollingCode || (var_sys_NVM.OnlyRollingCode==NO)))
         {
             saveNewSerial(menu_st.parameterSelected,tempSerial,edit_Param.tempValue);
+            if(edit_Param.tempValue==var_sys_NVM.positionRemotesFull)
+                var_sys_NVM.positionRemotesFull++;
             sm_send_event(&menuConfiguration_stateMachine, ev_addRemotes);
             var_sys.DistanceProgrammingActive=NO;
             var_sys.ProgrammingDistanceIs=NoCMD;

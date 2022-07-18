@@ -1130,7 +1130,7 @@ Keeloq_RollingCode 0
 Keeloq_NoRollingCode 1
 DIP_12BIT 2
 ]
-"1235
+"1237
 [e E10650 . `uc
 Left 0
 Rigth 1
@@ -1623,9 +1623,9 @@ st_MotorON 2
 [v _setValueToEdit setValueToEdit `(uc  1 e 1 0 ]
 "1098
 [v _controlSelectRemote controlSelectRemote `(v  1 e 1 0 ]
-"1207
+"1209
 [v _controlSaveRemote controlSaveRemote `(v  1 e 1 0 ]
-"1228
+"1230
 [v _controlLearnDigit controlLearnDigit `(v  1 e 1 0 ]
 "24 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X/eusartparser.h
 [v _programmer_enable programmer_enable `a  1 e 1 0 ]
@@ -2603,7 +2603,7 @@ st_MotorON 2
 [v controlSelectRemote@temp temp `uc  1 a 1 16 ]
 "1101
 [v controlSelectRemote@validSerial validSerial `uc  1 a 1 9 ]
-"1205
+"1207
 } 0
 "81 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\controlMemory_MC50.c
 [v _saveNewSerial saveNewSerial `(v  1 e 1 0 ]
@@ -2656,10 +2656,10 @@ st_MotorON 2
 [v RemoveSerial@cmdType cmdType `uc  1 a 1 2 ]
 "108
 } 0
-"1207 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\sm_MenuConfiguration_MC50.c
+"1209 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\sm_MenuConfiguration_MC50.c
 [v _controlSaveRemote controlSaveRemote `(v  1 e 1 0 ]
 {
-"1226
+"1228
 } 0
 "4 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\lbmod.c
 [v ___lbmod __lbmod `(uc  1 e 1 0 ]
@@ -2704,10 +2704,10 @@ st_MotorON 2
 {
 "465
 } 0
-"1228 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\sm_MenuConfiguration_MC50.c
+"1230 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\sm_MenuConfiguration_MC50.c
 [v _controlLearnDigit controlLearnDigit `(v  1 e 1 0 ]
 {
-"1242
+"1244
 } 0
 "124 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\outputs_MC50.c
 [v _SetSegmentValueLearn SetSegmentValueLearn `(v  1 e 1 0 ]
