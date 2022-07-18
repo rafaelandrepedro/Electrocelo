@@ -1174,14 +1174,14 @@ EMPTY_POS 7
 SAVE_COMMAND 8
 ERASE_COMMAND 9
 ]
-"475
+"483
 [e E10504 . `uc
 pageMemoryP 0
 pageMemoryE 1
 pageMemoryCounters 2
 pageMemoryLearningVars 3
 ]
-"480
+"488
 [e E10559 . `uc
 HIST_NONE 0
 HIST_SHALLOW 1
@@ -1191,6 +1191,22 @@ HIST_DEEP 2
 st_standBy 0
 st_MenuConfiguration 1
 st_MotorON 2
+]
+"561
+[e E10153 . `uc
+NO 0
+YES 1
+ST 2
+SECUR 3
+]
+[e E10128 . `uc
+NoCMD 0
+TypeFull 1
+TypeWalk 2
+TypeFullOpen 3
+TypeFullClose 4
+TypeProgrammingModeWalk 5
+TypeProgrammingModeFull 6
 ]
 "7 C:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\__lldiv.c
 [v ___lldiv __lldiv `(ul  1 e 4 0 ]
@@ -2565,7 +2581,7 @@ st_MotorON 2
 [u S4768 packagedata_t 2 `us 1 data16 2 0 `[2]uc 1 data8 2 0 ]
 "140
 [s S4771 package_t 7 `E11192 1 functioncode 1 0 `uc 1 address 1 1 `S4768 1 data 2 2 `uc 1 startbyte 1 4 `uc 1 endbyte 1 5 `a 1 valid 1 6 ]
-[v main@package package `S4771  1 a 7 25 ]
+[v main@package package `S4771  1 a 7 27 ]
 "188
 } 0
 "26 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\sm_Main_MC50.c
@@ -2630,17 +2646,6 @@ st_MotorON 2
 [v controlSelectRemote@validSerial validSerial `uc  1 a 1 9 ]
 "1207
 } 0
-"81 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\controlMemory_MC50.c
-[v _saveNewSerial saveNewSerial `(v  1 e 1 0 ]
-{
-[v saveNewSerial@cmdType cmdType `uc  1 a 1 wreg ]
-[v saveNewSerial@cmdType cmdType `uc  1 a 1 wreg ]
-[v saveNewSerial@tempSerial tempSerial `ul  1 p 4 0 ]
-[v saveNewSerial@position position `uc  1 p 1 4 ]
-"83
-[v saveNewSerial@cmdType cmdType `uc  1 a 1 57 ]
-"93
-} 0
 "459 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\inputs_MC50.c
 [v _getTypeRemote getTypeRemote `(E10559  1 e 1 0 ]
 {
@@ -2654,19 +2659,6 @@ st_MotorON 2
 "442
 [v getSerialCmd@serial serial `*.30ul  1 p 1 26 ]
 "457
-} 0
-"95 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\controlMemory_MC50.c
-[v _RemoveSerial RemoveSerial `(v  1 e 1 0 ]
-{
-[v RemoveSerial@cmdType cmdType `uc  1 a 1 wreg ]
-"97
-[v RemoveSerial@tempSerial tempSerial `ul  1 a 4 3 ]
-"95
-[v RemoveSerial@cmdType cmdType `uc  1 a 1 wreg ]
-[v RemoveSerial@position position `uc  1 p 1 57 ]
-"97
-[v RemoveSerial@cmdType cmdType `uc  1 a 1 2 ]
-"108
 } 0
 "1209 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\sm_MenuConfiguration_MC50.c
 [v _controlSaveRemote controlSaveRemote `(v  1 e 1 0 ]
@@ -3161,21 +3153,6 @@ st_MotorON 2
 [v DecryptPacket_12BIT@classic_data classic_data `*.39S3700  1 p 2 10 ]
 "388
 } 0
-"27 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\controlMemory_MC50.c
-[v _validateRemoteSerialNumber validateRemoteSerialNumber `(E10539  1 e 1 0 ]
-{
-"30
-[v validateRemoteSerialNumber@mask mask `ul  1 a 4 52 ]
-"28
-[v validateRemoteSerialNumber@i i `uc  1 a 1 57 ]
-"29
-[v validateRemoteSerialNumber@j j `uc  1 a 1 56 ]
-"27
-[v validateRemoteSerialNumber@serial serial `ul  1 p 4 45 ]
-[v validateRemoteSerialNumber@VerifyOnlySerial VerifyOnlySerial `E10564  1 p 1 49 ]
-[v validateRemoteSerialNumber@position position `*.39uc  1 p 2 50 ]
-"79
-} 0
 "528 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\inputs_MC50.c
 [v _readInputs readInputs `(v  1 e 1 0 ]
 {
@@ -3225,21 +3202,33 @@ st_MotorON 2
 "458 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\eusartparser.c
 [v _eusartparser eusartparser `(v  1 e 1 0 ]
 {
-"524
-[v eusartparser@i_7254 i `uc  1 a 1 10 ]
-"514
-[v eusartparser@i_7253 i `uc  1 a 1 9 ]
-"507
-[v eusartparser@i_7252 i `uc  1 a 1 7 ]
-"499
-[v eusartparser@i i `uc  1 a 1 6 ]
+"562
+[v eusartparser@i_7275 i `uc  1 a 1 25 ]
+"586
+[v eusartparser@i_7276 i `uc  1 a 1 26 ]
+"542
+[v eusartparser@i_7274 i `uc  1 a 1 24 ]
+"530
+[v eusartparser@i_7273 i `uc  1 a 1 23 ]
+"521
+[v eusartparser@i_7272 i `uc  1 a 1 21 ]
+"511
+[v eusartparser@i i `uc  1 a 1 20 ]
+"463
+[v eusartparser@serial serial `ul  1 a 4 15 ]
 "460
-[v eusartparser@relcounter relcounter `uc  1 a 1 8 ]
+[v eusartparser@relcounter relcounter `uc  1 a 1 22 ]
+"464
+[v eusartparser@pos pos `uc  1 a 1 19 ]
 [u S4768 packagedata_t 2 `us 1 data16 2 0 `[2]uc 1 data8 2 0 ]
 "458
 [s S4771 package_t 7 `E11192 1 functioncode 1 0 `uc 1 address 1 1 `S4768 1 data 2 2 `uc 1 startbyte 1 4 `uc 1 endbyte 1 5 `a 1 valid 1 6 ]
-[v eusartparser@package package `*.30S4771  1 p 1 57 ]
-"539
+[v eusartparser@package package `*.30S4771  1 p 1 8 ]
+"461
+[v eusartparser@save_f save_f `a  1 s 1 save_f ]
+"462
+[v eusartparser@buffer buffer `us  1 s 2 buffer ]
+"611
 } 0
 "248
 [v _write_eusartparser write_eusartparser `(v  1 e 1 0 ]
@@ -3254,7 +3243,33 @@ st_MotorON 2
 [v write_eusartparser@package package `S4771  1 p 7 15 ]
 "446
 } 0
-"12
+"27 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\controlMemory_MC50.c
+[v _validateRemoteSerialNumber validateRemoteSerialNumber `(E10539  1 e 1 0 ]
+{
+"30
+[v validateRemoteSerialNumber@mask mask `ul  1 a 4 52 ]
+"28
+[v validateRemoteSerialNumber@i i `uc  1 a 1 57 ]
+"29
+[v validateRemoteSerialNumber@j j `uc  1 a 1 56 ]
+"27
+[v validateRemoteSerialNumber@serial serial `ul  1 p 4 45 ]
+[v validateRemoteSerialNumber@VerifyOnlySerial VerifyOnlySerial `E10564  1 p 1 49 ]
+[v validateRemoteSerialNumber@position position `*.39uc  1 p 2 50 ]
+"79
+} 0
+"81
+[v _saveNewSerial saveNewSerial `(v  1 e 1 0 ]
+{
+[v saveNewSerial@cmdType cmdType `uc  1 a 1 wreg ]
+[v saveNewSerial@cmdType cmdType `uc  1 a 1 wreg ]
+[v saveNewSerial@tempSerial tempSerial `ul  1 p 4 0 ]
+[v saveNewSerial@position position `uc  1 p 1 4 ]
+"83
+[v saveNewSerial@cmdType cmdType `uc  1 a 1 57 ]
+"93
+} 0
+"12 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\eusartparser.c
 [v _read_eusartparser read_eusartparser `(v  1 e 1 0 ]
 {
 [u S4768 packagedata_t 2 `us 1 data16 2 0 `[2]uc 1 data8 2 0 ]
@@ -3323,6 +3338,19 @@ st_MotorON 2
 "150
 [v i2c_readDataBlock@address address `uc  1 a 1 40 ]
 "160
+} 0
+"95 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\controlMemory_MC50.c
+[v _RemoveSerial RemoveSerial `(v  1 e 1 0 ]
+{
+[v RemoveSerial@cmdType cmdType `uc  1 a 1 wreg ]
+"97
+[v RemoveSerial@tempSerial tempSerial `ul  1 a 4 3 ]
+"95
+[v RemoveSerial@cmdType cmdType `uc  1 a 1 wreg ]
+[v RemoveSerial@position position `uc  1 p 1 57 ]
+"97
+[v RemoveSerial@cmdType cmdType `uc  1 a 1 2 ]
+"108
 } 0
 "128 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\mcc_generated_files/mcc.c
 [v _WWDT_TimerClear WWDT_TimerClear `(v  1 e 1 0 ]

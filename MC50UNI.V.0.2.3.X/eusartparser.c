@@ -458,16 +458,24 @@
     void eusartparser(struct package_t* package){
         struct package_t a;
         uint8_t relcounter;
+        static bool save_f=FALSE;
+        static uint16_t buffer=0x0000;
+        uint32_t serial;
+        char pos;
+        
         switch(package->functioncode){
             case (uint8_t)0://READ
                 if(programmer_enable)
-                    package->functioncode=0x03;
                     read_eusartparser(package);
+                confirmpackage(package, TRUE);
+                write_package(*package);
                 break;
                 
             case (uint8_t)1://WRITE
                 if(programmer_enable)
                     write_eusartparser(*package);
+                confirmpackage(package, TRUE);
+                write_package(*package);
                 break;
                 
             case (uint8_t)2://PROGRAMMING_ENABLE
@@ -482,11 +490,15 @@
                     else{
                         package->data.data16=(uint16_t)2;
                         write_package(*package);
+                        confirmpackage(package, TRUE);
+                        write_package(*package);
                         break;
                     }
                 }
                 
                 package->data.data16=(uint16_t)programmer_enable;
+                write_package(*package);
+                confirmpackage(package, TRUE);
                 write_package(*package);
                 break;
             case (uint8_t)3://CONFIRM
@@ -500,6 +512,8 @@
                 if(cmdMemoryIsEmpty(0,i)==TRUE)
                     package->data.data16--;
                 write_package(*package);
+                confirmpackage(package, TRUE);
+                write_package(*package);
                 break;
             case (uint8_t)5://NUM_EMPTY_COMMANDS
                 package->address=0x00;
@@ -508,9 +522,11 @@
                 if(cmdMemoryIsEmpty(0,i)==TRUE)
                     package->data.data16++;
                 write_package(*package);
+                confirmpackage(package, TRUE);
+                write_package(*package);
                 break;
             case (uint8_t)6://OCCUPIED_POS
-                relcounter=1;
+                relcounter=0;
                 for(uint8_t i=0;i<var_sys_NVM.positionRemotesFull;i++)
                     if(cmdMemoryIsEmpty(0,i)==FALSE){
                         package->data.data16=(uint16_t)i;
@@ -518,15 +534,71 @@
                         relcounter++;
                         write_package(*package);
                     }
+                confirmpackage(package, TRUE);
+                write_package(*package);
                 break;
             case (uint8_t)7://EMPTY_POS
-                relcounter=1;
+                relcounter=0;
                 for(uint8_t i=0;i<var_sys_NVM.positionRemotesFull;i++)
                     if(cmdMemoryIsEmpty(0,i)==TRUE){
                         package->data.data16=(uint16_t)i;
                         package->address=relcounter;
                         relcounter++;
                         write_package(*package);
+                    }
+                confirmpackage(package, TRUE);
+                write_package(*package);
+                break;
+            case (uint8_t)8://SAVE_COMMAND
+                if(save_f==FALSE){
+                    buffer=package->data.data16;
+                    confirmpackage(package, TRUE);
+                    write_package(*package);
+                    save_f=TRUE;
+                }
+                else{
+                    serial=((uint32_t)buffer<<16)+(uint32_t)package->data.data16;
+                    if(validateRemoteSerialNumber(serial, NO, &pos)==NoCMD){
+                        for(uint8_t i=0;;i++)
+                            if(cmdMemoryIsEmpty(0,i)==TRUE&&package->address==0){
+                                saveNewSerial(0,serial,i);
+                                confirmpackage(package, TRUE);
+                                write_package(*package);
+                                break;
+                            }
+                            else if(cmdMemoryIsEmpty(0,i)==TRUE){
+                                package->address--;
+                            }
+                            else if(i==var_sys_NVM.positionRemotesFull){
+                                confirmpackage(package, FALSE);
+                                write_package(*package);
+                                break;
+                            }
+                    }
+                    else{
+                        confirmpackage(package, FALSE);
+                        write_package(*package);
+                    }
+                    save_f=FALSE;
+                }
+                break;
+            case (uint8_t)9://ERASE_COMMAND
+                for(uint8_t i=0;;i++)
+                    if(cmdMemoryIsEmpty(0,i)==FALSE&&package->address==0){
+                        RemoveSerial(0, i);
+                        confirmpackage(package, TRUE);
+                        write_package(*package);
+                        save_f=FALSE;
+                        break;
+                    }
+                    else if(cmdMemoryIsEmpty(0,i)==FALSE){
+                        package->address--;
+                    }
+                    else if(i==var_sys_NVM.positionRemotesFull){
+                        confirmpackage(package, FALSE);
+                        write_package(*package);
+                        save_f=FALSE;
+                        break;
                     }
                 break;
                 
