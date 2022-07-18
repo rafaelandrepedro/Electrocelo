@@ -239,6 +239,22 @@
                 package->data.data16=*(((uint16_t*)&(var_sys_NVM.learningTimeToClose))+0);
                 write_package(*package);
                 break;
+                
+                //read only
+                
+            case 0x34:
+                package->data.data8[1]=(uint8_t)controlGate_stateMachine.current_state;
+                package->data.data8[0]=(uint8_t)controlLearning_stateMachine.current_state;
+                write_package(*package);
+                break;
+                
+            case 0x35:
+                package->data.data8[1]=(uint8_t)main_stateMachine.current_state;
+                package->data.data8[0]=(uint8_t)menuConfiguration_stateMachine.current_state;
+                write_package(*package);
+                break;
+                
+                
             default:
                 //address not avaliable
                 break;
