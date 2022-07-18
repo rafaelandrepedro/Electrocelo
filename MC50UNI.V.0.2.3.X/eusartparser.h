@@ -1,6 +1,6 @@
 /* 
  * File:   eusartparser.h
- * Author: rafaelpetter
+ * Author: rafael pedro
  *
  * Created on July 14, 2022, 11:16 AM
  */
@@ -26,6 +26,8 @@ extern "C" {
     void read_eusartparser(struct package_t* package);
     
     void write_eusartparser(struct package_t package);
+    
+    void confirmpackage(struct package_t* package, bool confirm);
     
     void eusartparser(struct package_t* package);
 

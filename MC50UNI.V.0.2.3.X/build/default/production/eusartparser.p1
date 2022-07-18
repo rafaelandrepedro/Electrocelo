@@ -1,14 +1,14 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"5 eusartparser.c
-[; ;eusartparser.c: 5:     void read_eusartparser(struct package_t* package){
-[c E10101 0 1 2 .. ]
-[n E10101 functioncode_t READ WRITE PROGRAMMING_ENABLE  ]
+"12 eusartparser.c
+[; ;eusartparser.c: 12:     void read_eusartparser(struct package_t* package){
+[c E10101 0 1 2 3 4 5 6 7 8 9 .. ]
+[n E10101 functioncode_t READ WRITE PROGRAMMING_ENABLE CONFIRM NUM_COMMANDS NUM_EMPTY_COMMANDS OCCUPIED_POS EMPTY_POS SAVE_COMMAND ERASE_COMMAND  ]
 "29 ./eusartpackage.h
 [; ;./eusartpackage.h: 29:     union packagedata_t{
 [u S1491 `us 1 `uc -> 2 `i ]
 [n S1491 packagedata_t data16 data8 ]
-"46
-[; ;./eusartpackage.h: 46:     struct package_t{
+"53
+[; ;./eusartpackage.h: 53:     struct package_t{
 [s S1492 `E10101 1 `uc 1 `S1491 1 `uc 1 `uc 1 `a 1 ]
 [n S1492 package_t functioncode address data startbyte endbyte valid ]
 "107 ./main.h
@@ -18,31 +18,31 @@ Version 4.0 HI-TECH Software Intermediate Code
 "22 ./eusartparser.h
 [; ;./eusartparser.h: 22:     extern volatile varSystem_NVM var_sys_NVM;
 [v _var_sys_NVM `VS1493 ~T0 @X0 0 e ]
-"77 ./eusartpackage.h
-[; ;./eusartpackage.h: 77:     void write_package(const struct package_t package);
+"84 ./eusartpackage.h
+[; ;./eusartpackage.h: 84:     void write_package(const struct package_t package);
 [v _write_package `(v ~T0 @X0 0 ef1`CS1492 ]
 "114 ./controlMemory.h
 [; ;./controlMemory.h: 114: void SaveNVM_VarSystem(unsigned char page);
 [v _SaveNVM_VarSystem `(v ~T0 @X0 0 ef1`uc ]
-"456 eusartparser.c
-[; ;eusartparser.c: 456:                     SaveNVM_VarSystem(pageMemoryE);
-[c E10497 0 1 2 3 .. ]
-[n E10497 . pageMemoryP pageMemoryE pageMemoryCounters pageMemoryLearningVars  ]
-"461
-[; ;eusartparser.c: 461:                     if((sm_state_Main_t)main_stateMachine.current_state==st_standBy)
-[c E10552 0 1 2 .. ]
-[n E10552 . HIST_NONE HIST_SHALLOW HIST_DEEP  ]
+"463 eusartparser.c
+[; ;eusartparser.c: 463:                     SaveNVM_VarSystem(pageMemoryE);
+[c E10504 0 1 2 3 .. ]
+[n E10504 . pageMemoryP pageMemoryE pageMemoryCounters pageMemoryLearningVars  ]
+"468
+[; ;eusartparser.c: 468:                     if((sm_state_Main_t)main_stateMachine.current_state==st_standBy)
+[c E10559 0 1 2 .. ]
+[n E10559 . HIST_NONE HIST_SHALLOW HIST_DEEP  ]
 "73 ./sm_common.h
 [; ;./sm_common.h: 73: typedef struct {
-[s S1504 `i 1 `i 1 `i 1 `E10552 1 `*v 1 `i 1 ]
+[s S1504 `i 1 `i 1 `i 1 `E10559 1 `*v 1 `i 1 ]
 [n S1504 . current_state initial_state last_event history parent_machine parent_state ]
 "23 ./eusartparser.h
 [; ;./eusartparser.h: 23:     extern sm_t main_stateMachine;
 [v _main_stateMachine `S1504 ~T0 @X0 0 e ]
-"461 eusartparser.c
-[; ;eusartparser.c: 461:                     if((sm_state_Main_t)main_stateMachine.current_state==st_standBy)
-[c E10576 0 1 2 .. ]
-[n E10576 . st_standBy st_MenuConfiguration st_MotorON  ]
+"468 eusartparser.c
+[; ;eusartparser.c: 468:                     if((sm_state_Main_t)main_stateMachine.current_state==st_standBy)
+[c E10583 0 1 2 .. ]
+[n E10583 . st_standBy st_MenuConfiguration st_MotorON  ]
 "55 C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f46k40.h
 [; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f46k40.h: 55: __asm("RX2PPS equ 0E8Dh");
 [; <" RX2PPS equ 0E8Dh ;# ">
@@ -1435,44 +1435,29 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _programmer_enable
 -> -> 0 `i `a
 ]
-"5 eusartparser.c
-[; ;eusartparser.c: 5:     void read_eusartparser(struct package_t* package){
+"12 eusartparser.c
+[; ;eusartparser.c: 12:     void read_eusartparser(struct package_t* package){
 [v _read_eusartparser `(v ~T0 @X0 1 ef1`*S1492 ]
 {
 [e :U _read_eusartparser ]
 [v _package `*S1492 ~T0 @X0 1 r1 ]
 [f ]
-"6
-[; ;eusartparser.c: 6:         switch(package->address){
+"13
+[; ;eusartparser.c: 13:         switch(package->address){
 [e $U 1507  ]
 {
-"7
-[; ;eusartparser.c: 7:             case 0x00:
-[e :U 1508 ]
-"8
-[; ;eusartparser.c: 8:             case 0x10:
-[e :U 1509 ]
-"11
-[; ;eusartparser.c: 11:                 package->data.data8[1]=var_sys_NVM.decelarationClose;
-[e = *U + &U . . *U _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 1 ]
-"12
-[; ;eusartparser.c: 12:                 package->data.data8[0]=var_sys_NVM.decelarationOpen;
-[e = *U + &U . . *U _package 2 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 0 ]
-"13
-[; ;eusartparser.c: 13:                 write_package(*package);
-[e ( _write_package (1 *U _package ]
 "14
-[; ;eusartparser.c: 14:                 break;
-[e $U 1506  ]
+[; ;eusartparser.c: 14:             case 0x00:
+[e :U 1508 ]
 "15
-[; ;eusartparser.c: 15:             case 0x11:
-[e :U 1510 ]
+[; ;eusartparser.c: 15:             case 0x10:
+[e :U 1509 ]
 "18
-[; ;eusartparser.c: 18:                 package->data.data8[1]=var_sys_NVM.motorSensitivity;
-[e = *U + &U . . *U _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 3 ]
+[; ;eusartparser.c: 18:                 package->data.data8[1]=var_sys_NVM.decelarationClose;
+[e = *U + &U . . *U _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 1 ]
 "19
-[; ;eusartparser.c: 19:                 package->data.data8[0]=var_sys_NVM.motorPower;
-[e = *U + &U . . *U _package 2 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 2 ]
+[; ;eusartparser.c: 19:                 package->data.data8[0]=var_sys_NVM.decelarationOpen;
+[e = *U + &U . . *U _package 2 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 0 ]
 "20
 [; ;eusartparser.c: 20:                 write_package(*package);
 [e ( _write_package (1 *U _package ]
@@ -1480,14 +1465,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;eusartparser.c: 21:                 break;
 [e $U 1506  ]
 "22
-[; ;eusartparser.c: 22:             case 0x12:
-[e :U 1511 ]
+[; ;eusartparser.c: 22:             case 0x11:
+[e :U 1510 ]
 "25
-[; ;eusartparser.c: 25:                 package->data.data8[1]=var_sys_NVM.walkTime;
-[e = *U + &U . . *U _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 4 ]
+[; ;eusartparser.c: 25:                 package->data.data8[1]=var_sys_NVM.motorSensitivity;
+[e = *U + &U . . *U _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 3 ]
 "26
-[; ;eusartparser.c: 26:                 package->data.data8[0]=0x00;
-[e = *U + &U . . *U _package 2 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux -> -> 0 `i `uc ]
+[; ;eusartparser.c: 26:                 package->data.data8[0]=var_sys_NVM.motorPower;
+[e = *U + &U . . *U _package 2 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 2 ]
 "27
 [; ;eusartparser.c: 27:                 write_package(*package);
 [e ( _write_package (1 *U _package ]
@@ -1495,50 +1480,50 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;eusartparser.c: 28:                 break;
 [e $U 1506  ]
 "29
-[; ;eusartparser.c: 29:             case 0x02:
-[e :U 1512 ]
-"30
-[; ;eusartparser.c: 30:             case 0x13:
-[e :U 1513 ]
+[; ;eusartparser.c: 29:             case 0x12:
+[e :U 1511 ]
+"32
+[; ;eusartparser.c: 32:                 package->data.data8[1]=var_sys_NVM.walkTime;
+[e = *U + &U . . *U _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 4 ]
 "33
-[; ;eusartparser.c: 33:                 package->data.data8[1]=var_sys_NVM.autoTimeWalkClose;
-[e = *U + &U . . *U _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 6 ]
+[; ;eusartparser.c: 33:                 package->data.data8[0]=0x00;
+[e = *U + &U . . *U _package 2 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux -> -> 0 `i `uc ]
 "34
-[; ;eusartparser.c: 34:                 package->data.data8[0]=var_sys_NVM.autoTimeFullClose;
-[e = *U + &U . . *U _package 2 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 5 ]
+[; ;eusartparser.c: 34:                 write_package(*package);
+[e ( _write_package (1 *U _package ]
 "35
-[; ;eusartparser.c: 35:                 write_package(*package);
-[e ( _write_package (1 *U _package ]
+[; ;eusartparser.c: 35:                 break;
+[e $U 1506  ]
 "36
-[; ;eusartparser.c: 36:                 break;
-[e $U 1506  ]
+[; ;eusartparser.c: 36:             case 0x02:
+[e :U 1512 ]
 "37
-[; ;eusartparser.c: 37:             case 0x05:
-[e :U 1514 ]
-"38
-[; ;eusartparser.c: 38:             case 0x14:
-[e :U 1515 ]
+[; ;eusartparser.c: 37:             case 0x13:
+[e :U 1513 ]
+"40
+[; ;eusartparser.c: 40:                 package->data.data8[1]=var_sys_NVM.autoTimeWalkClose;
+[e = *U + &U . . *U _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 6 ]
 "41
-[; ;eusartparser.c: 41:                 package->data.data8[1]=var_sys_NVM.photoCellInOpen;
-[e = *U + &U . . *U _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 8 ]
+[; ;eusartparser.c: 41:                 package->data.data8[0]=var_sys_NVM.autoTimeFullClose;
+[e = *U + &U . . *U _package 2 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 5 ]
 "42
-[; ;eusartparser.c: 42:                 package->data.data8[0]=var_sys_NVM.photoCellIsON;
-[e = *U + &U . . *U _package 2 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 7 ]
-"43
-[; ;eusartparser.c: 43:                 write_package(*package);
+[; ;eusartparser.c: 42:                 write_package(*package);
 [e ( _write_package (1 *U _package ]
-"44
-[; ;eusartparser.c: 44:                 break;
+"43
+[; ;eusartparser.c: 43:                 break;
 [e $U 1506  ]
+"44
+[; ;eusartparser.c: 44:             case 0x05:
+[e :U 1514 ]
 "45
-[; ;eusartparser.c: 45:             case 0x15:
-[e :U 1516 ]
+[; ;eusartparser.c: 45:             case 0x14:
+[e :U 1515 ]
 "48
-[; ;eusartparser.c: 48:                 package->data.data8[1]=var_sys_NVM.securityBandType;
-[e = *U + &U . . *U _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 10 ]
+[; ;eusartparser.c: 48:                 package->data.data8[1]=var_sys_NVM.photoCellInOpen;
+[e = *U + &U . . *U _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 8 ]
 "49
-[; ;eusartparser.c: 49:                 package->data.data8[0]=var_sys_NVM.securityBandIsON;
-[e = *U + &U . . *U _package 2 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 9 ]
+[; ;eusartparser.c: 49:                 package->data.data8[0]=var_sys_NVM.photoCellIsON;
+[e = *U + &U . . *U _package 2 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 7 ]
 "50
 [; ;eusartparser.c: 50:                 write_package(*package);
 [e ( _write_package (1 *U _package ]
@@ -1546,14 +1531,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;eusartparser.c: 51:                 break;
 [e $U 1506  ]
 "52
-[; ;eusartparser.c: 52:             case 0x16:
-[e :U 1517 ]
+[; ;eusartparser.c: 52:             case 0x15:
+[e :U 1516 ]
 "55
-[; ;eusartparser.c: 55:                 package->data.data8[1]=var_sys_NVM.securityBandInOpen;
-[e = *U + &U . . *U _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 11 ]
+[; ;eusartparser.c: 55:                 package->data.data8[1]=var_sys_NVM.securityBandType;
+[e = *U + &U . . *U _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 10 ]
 "56
-[; ;eusartparser.c: 56:                 package->data.data8[0]=0x00;
-[e = *U + &U . . *U _package 2 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux -> -> 0 `i `uc ]
+[; ;eusartparser.c: 56:                 package->data.data8[0]=var_sys_NVM.securityBandIsON;
+[e = *U + &U . . *U _package 2 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 9 ]
 "57
 [; ;eusartparser.c: 57:                 write_package(*package);
 [e ( _write_package (1 *U _package ]
@@ -1561,11 +1546,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;eusartparser.c: 58:                 break;
 [e $U 1506  ]
 "59
-[; ;eusartparser.c: 59:             case 0x17:
-[e :U 1518 ]
+[; ;eusartparser.c: 59:             case 0x16:
+[e :U 1517 ]
 "62
-[; ;eusartparser.c: 62:                 package->data.data8[1]=var_sys_NVM.operationMode;
-[e = *U + &U . . *U _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 12 ]
+[; ;eusartparser.c: 62:                 package->data.data8[1]=var_sys_NVM.securityBandInOpen;
+[e = *U + &U . . *U _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 11 ]
 "63
 [; ;eusartparser.c: 63:                 package->data.data8[0]=0x00;
 [e = *U + &U . . *U _package 2 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux -> -> 0 `i `uc ]
@@ -1576,11 +1561,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;eusartparser.c: 65:                 break;
 [e $U 1506  ]
 "66
-[; ;eusartparser.c: 66:             case 0x18:
-[e :U 1519 ]
+[; ;eusartparser.c: 66:             case 0x17:
+[e :U 1518 ]
 "69
-[; ;eusartparser.c: 69:                 package->data.data8[1]=var_sys_NVM.flashLightMode;
-[e = *U + &U . . *U _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 13 ]
+[; ;eusartparser.c: 69:                 package->data.data8[1]=var_sys_NVM.operationMode;
+[e = *U + &U . . *U _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 12 ]
 "70
 [; ;eusartparser.c: 70:                 package->data.data8[0]=0x00;
 [e = *U + &U . . *U _package 2 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux -> -> 0 `i `uc ]
@@ -1591,11 +1576,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;eusartparser.c: 72:                 break;
 [e $U 1506  ]
 "73
-[; ;eusartparser.c: 73:             case 0x19:
-[e :U 1520 ]
+[; ;eusartparser.c: 73:             case 0x18:
+[e :U 1519 ]
 "76
-[; ;eusartparser.c: 76:                 package->data.data8[1]=var_sys_NVM.programmingDistance;
-[e = *U + &U . . *U _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 14 ]
+[; ;eusartparser.c: 76:                 package->data.data8[1]=var_sys_NVM.flashLightMode;
+[e = *U + &U . . *U _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 13 ]
 "77
 [; ;eusartparser.c: 77:                 package->data.data8[0]=0x00;
 [e = *U + &U . . *U _package 2 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux -> -> 0 `i `uc ]
@@ -1606,11 +1591,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;eusartparser.c: 79:                 break;
 [e $U 1506  ]
 "80
-[; ;eusartparser.c: 80:             case 0x1A:
-[e :U 1521 ]
+[; ;eusartparser.c: 80:             case 0x19:
+[e :U 1520 ]
 "83
-[; ;eusartparser.c: 83:                 package->data.data8[1]=var_sys_NVM.decelarationSensivity;
-[e = *U + &U . . *U _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 15 ]
+[; ;eusartparser.c: 83:                 package->data.data8[1]=var_sys_NVM.programmingDistance;
+[e = *U + &U . . *U _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 14 ]
 "84
 [; ;eusartparser.c: 84:                 package->data.data8[0]=0x00;
 [e = *U + &U . . *U _package 2 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux -> -> 0 `i `uc ]
@@ -1620,48 +1605,48 @@ Version 4.0 HI-TECH Software Intermediate Code
 "86
 [; ;eusartparser.c: 86:                 break;
 [e $U 1506  ]
-"88
-[; ;eusartparser.c: 88:             case 0x1B:
-[e :U 1522 ]
+"87
+[; ;eusartparser.c: 87:             case 0x1A:
+[e :U 1521 ]
+"90
+[; ;eusartparser.c: 90:                 package->data.data8[1]=var_sys_NVM.decelarationSensivity;
+[e = *U + &U . . *U _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 15 ]
 "91
-[; ;eusartparser.c: 91:                 package->data.data8[1]=var_sys_NVM.homemPresente;
-[e = *U + &U . . *U _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 16 ]
-"92
-[; ;eusartparser.c: 92:                 package->data.data8[0]=0x00;
+[; ;eusartparser.c: 91:                 package->data.data8[0]=0x00;
 [e = *U + &U . . *U _package 2 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux -> -> 0 `i `uc ]
-"93
-[; ;eusartparser.c: 93:                 write_package(*package);
+"92
+[; ;eusartparser.c: 92:                 write_package(*package);
 [e ( _write_package (1 *U _package ]
-"94
-[; ;eusartparser.c: 94:                 break;
+"93
+[; ;eusartparser.c: 93:                 break;
 [e $U 1506  ]
 "95
-[; ;eusartparser.c: 95:             case 0x07:
-[e :U 1523 ]
-"96
-[; ;eusartparser.c: 96:             case 0x1C:
-[e :U 1524 ]
+[; ;eusartparser.c: 95:             case 0x1B:
+[e :U 1522 ]
+"98
+[; ;eusartparser.c: 98:                 package->data.data8[1]=var_sys_NVM.homemPresente;
+[e = *U + &U . . *U _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 16 ]
 "99
-[; ;eusartparser.c: 99:                 package->data.data8[1]=var_sys_NVM.logicDigital;
-[e = *U + &U . . *U _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 17 ]
-"100
-[; ;eusartparser.c: 100:                 package->data.data8[0]=0x00;
+[; ;eusartparser.c: 99:                 package->data.data8[0]=0x00;
 [e = *U + &U . . *U _package 2 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux -> -> 0 `i `uc ]
-"101
-[; ;eusartparser.c: 101:                 write_package(*package);
+"100
+[; ;eusartparser.c: 100:                 write_package(*package);
 [e ( _write_package (1 *U _package ]
-"102
-[; ;eusartparser.c: 102:                 break;
+"101
+[; ;eusartparser.c: 101:                 break;
 [e $U 1506  ]
+"102
+[; ;eusartparser.c: 102:             case 0x07:
+[e :U 1523 ]
 "103
-[; ;eusartparser.c: 103:             case 0x1D:
-[e :U 1525 ]
+[; ;eusartparser.c: 103:             case 0x1C:
+[e :U 1524 ]
 "106
-[; ;eusartparser.c: 106:                 package->data.data8[1]=var_sys_NVM.softstop;
-[e = *U + &U . . *U _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 19 ]
+[; ;eusartparser.c: 106:                 package->data.data8[1]=var_sys_NVM.logicDigital;
+[e = *U + &U . . *U _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 17 ]
 "107
-[; ;eusartparser.c: 107:                 package->data.data8[0]=var_sys_NVM.softStart;
-[e = *U + &U . . *U _package 2 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 18 ]
+[; ;eusartparser.c: 107:                 package->data.data8[0]=0x00;
+[e = *U + &U . . *U _package 2 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux -> -> 0 `i `uc ]
 "108
 [; ;eusartparser.c: 108:                 write_package(*package);
 [e ( _write_package (1 *U _package ]
@@ -1669,47 +1654,47 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;eusartparser.c: 109:                 break;
 [e $U 1506  ]
 "110
-[; ;eusartparser.c: 110:             case 0x03:
-[e :U 1526 ]
-"111
-[; ;eusartparser.c: 111:             case 0x1E:
-[e :U 1527 ]
+[; ;eusartparser.c: 110:             case 0x1D:
+[e :U 1525 ]
+"113
+[; ;eusartparser.c: 113:                 package->data.data8[1]=var_sys_NVM.softstop;
+[e = *U + &U . . *U _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 19 ]
 "114
-[; ;eusartparser.c: 114:                 package->data.data8[1]=var_sys_NVM.ligthTime;
-[e = *U + &U . . *U _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 20 ]
+[; ;eusartparser.c: 114:                 package->data.data8[0]=var_sys_NVM.softStart;
+[e = *U + &U . . *U _package 2 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 18 ]
 "115
-[; ;eusartparser.c: 115:                 package->data.data8[0]=0x00;
-[e = *U + &U . . *U _package 2 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux -> -> 0 `i `uc ]
+[; ;eusartparser.c: 115:                 write_package(*package);
+[e ( _write_package (1 *U _package ]
 "116
-[; ;eusartparser.c: 116:                 write_package(*package);
-[e ( _write_package (1 *U _package ]
+[; ;eusartparser.c: 116:                 break;
+[e $U 1506  ]
 "117
-[; ;eusartparser.c: 117:                 break;
-[e $U 1506  ]
+[; ;eusartparser.c: 117:             case 0x03:
+[e :U 1526 ]
 "118
-[; ;eusartparser.c: 118:             case 0x0A:
-[e :U 1528 ]
-"119
-[; ;eusartparser.c: 119:             case 0x1F:
-[e :U 1529 ]
+[; ;eusartparser.c: 118:             case 0x1E:
+[e :U 1527 ]
+"121
+[; ;eusartparser.c: 121:                 package->data.data8[1]=var_sys_NVM.ligthTime;
+[e = *U + &U . . *U _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 20 ]
 "122
-[; ;eusartparser.c: 122:                 package->data.data8[1]=var_sys_NVM.folow_me;
-[e = *U + &U . . *U _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 21 ]
-"123
-[; ;eusartparser.c: 123:                 package->data.data8[0]=0x00;
+[; ;eusartparser.c: 122:                 package->data.data8[0]=0x00;
 [e = *U + &U . . *U _package 2 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux -> -> 0 `i `uc ]
-"124
-[; ;eusartparser.c: 124:                 write_package(*package);
+"123
+[; ;eusartparser.c: 123:                 write_package(*package);
 [e ( _write_package (1 *U _package ]
-"125
-[; ;eusartparser.c: 125:                 break;
+"124
+[; ;eusartparser.c: 124:                 break;
 [e $U 1506  ]
+"125
+[; ;eusartparser.c: 125:             case 0x0A:
+[e :U 1528 ]
 "126
-[; ;eusartparser.c: 126:             case 0x20:
-[e :U 1530 ]
+[; ;eusartparser.c: 126:             case 0x1F:
+[e :U 1529 ]
 "129
-[; ;eusartparser.c: 129:                 package->data.data8[1]=var_sys_NVM.Stopboton;
-[e = *U + &U . . *U _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 22 ]
+[; ;eusartparser.c: 129:                 package->data.data8[1]=var_sys_NVM.folow_me;
+[e = *U + &U . . *U _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 21 ]
 "130
 [; ;eusartparser.c: 130:                 package->data.data8[0]=0x00;
 [e = *U + &U . . *U _package 2 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux -> -> 0 `i `uc ]
@@ -1720,11 +1705,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;eusartparser.c: 132:                 break;
 [e $U 1506  ]
 "133
-[; ;eusartparser.c: 133:             case 0x21:
-[e :U 1531 ]
+[; ;eusartparser.c: 133:             case 0x20:
+[e :U 1530 ]
 "136
-[; ;eusartparser.c: 136:                 package->data.data8[1]=var_sys_NVM.electricBrake;
-[e = *U + &U . . *U _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 23 ]
+[; ;eusartparser.c: 136:                 package->data.data8[1]=var_sys_NVM.Stopboton;
+[e = *U + &U . . *U _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 22 ]
 "137
 [; ;eusartparser.c: 137:                 package->data.data8[0]=0x00;
 [e = *U + &U . . *U _package 2 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux -> -> 0 `i `uc ]
@@ -1735,11 +1720,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;eusartparser.c: 139:                 break;
 [e $U 1506  ]
 "140
-[; ;eusartparser.c: 140:             case 0x22:
-[e :U 1532 ]
+[; ;eusartparser.c: 140:             case 0x21:
+[e :U 1531 ]
 "143
-[; ;eusartparser.c: 143:                 package->data.data8[1]=var_sys_NVM.velocityDecelaration;
-[e = *U + &U . . *U _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 24 ]
+[; ;eusartparser.c: 143:                 package->data.data8[1]=var_sys_NVM.electricBrake;
+[e = *U + &U . . *U _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 23 ]
 "144
 [; ;eusartparser.c: 144:                 package->data.data8[0]=0x00;
 [e = *U + &U . . *U _package 2 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux -> -> 0 `i `uc ]
@@ -1750,29 +1735,29 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;eusartparser.c: 146:                 break;
 [e $U 1506  ]
 "147
-[; ;eusartparser.c: 147:             case 0x08:
-[e :U 1533 ]
-"148
-[; ;eusartparser.c: 148:             case 0x23:
-[e :U 1534 ]
+[; ;eusartparser.c: 147:             case 0x22:
+[e :U 1532 ]
+"150
+[; ;eusartparser.c: 150:                 package->data.data8[1]=var_sys_NVM.velocityDecelaration;
+[e = *U + &U . . *U _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 24 ]
 "151
-[; ;eusartparser.c: 151:                 package->data.data8[1]=var_sys_NVM.flashRGBMode;
-[e = *U + &U . . *U _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 25 ]
-"152
-[; ;eusartparser.c: 152:                 package->data.data8[0]=0x00;
+[; ;eusartparser.c: 151:                 package->data.data8[0]=0x00;
 [e = *U + &U . . *U _package 2 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux -> -> 0 `i `uc ]
-"153
-[; ;eusartparser.c: 153:                 write_package(*package);
+"152
+[; ;eusartparser.c: 152:                 write_package(*package);
 [e ( _write_package (1 *U _package ]
-"154
-[; ;eusartparser.c: 154:                 break;
+"153
+[; ;eusartparser.c: 153:                 break;
 [e $U 1506  ]
+"154
+[; ;eusartparser.c: 154:             case 0x08:
+[e :U 1533 ]
 "155
-[; ;eusartparser.c: 155:             case 0x24:
-[e :U 1535 ]
+[; ;eusartparser.c: 155:             case 0x23:
+[e :U 1534 ]
 "158
-[; ;eusartparser.c: 158:                 package->data.data8[1]=var_sys_NVM.Direction_motor;
-[e = *U + &U . . *U _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 27 ]
+[; ;eusartparser.c: 158:                 package->data.data8[1]=var_sys_NVM.flashRGBMode;
+[e = *U + &U . . *U _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 25 ]
 "159
 [; ;eusartparser.c: 159:                 package->data.data8[0]=0x00;
 [e = *U + &U . . *U _package 2 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux -> -> 0 `i `uc ]
@@ -1783,11 +1768,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;eusartparser.c: 161:                 break;
 [e $U 1506  ]
 "162
-[; ;eusartparser.c: 162:             case 0x25:
-[e :U 1536 ]
+[; ;eusartparser.c: 162:             case 0x24:
+[e :U 1535 ]
 "165
-[; ;eusartparser.c: 165:                 package->data.data8[1]=var_sys_NVM.TypeofMotor;
-[e = *U + &U . . *U _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 28 ]
+[; ;eusartparser.c: 165:                 package->data.data8[1]=var_sys_NVM.Direction_motor;
+[e = *U + &U . . *U _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 27 ]
 "166
 [; ;eusartparser.c: 166:                 package->data.data8[0]=0x00;
 [e = *U + &U . . *U _package 2 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux -> -> 0 `i `uc ]
@@ -1798,14 +1783,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;eusartparser.c: 168:                 break;
 [e $U 1506  ]
 "169
-[; ;eusartparser.c: 169:             case 0x26:
-[e :U 1537 ]
+[; ;eusartparser.c: 169:             case 0x25:
+[e :U 1536 ]
 "172
-[; ;eusartparser.c: 172:                 package->data.data8[1]=var_sys_NVM.positionRemotesWalk;
-[e = *U + &U . . *U _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 33 ]
+[; ;eusartparser.c: 172:                 package->data.data8[1]=var_sys_NVM.TypeofMotor;
+[e = *U + &U . . *U _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 28 ]
 "173
-[; ;eusartparser.c: 173:                 package->data.data8[0]=var_sys_NVM.positionRemotesFull;
-[e = *U + &U . . *U _package 2 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 32 ]
+[; ;eusartparser.c: 173:                 package->data.data8[0]=0x00;
+[e = *U + &U . . *U _package 2 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux -> -> 0 `i `uc ]
 "174
 [; ;eusartparser.c: 174:                 write_package(*package);
 [e ( _write_package (1 *U _package ]
@@ -1813,32 +1798,32 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;eusartparser.c: 175:                 break;
 [e $U 1506  ]
 "176
-[; ;eusartparser.c: 176:             case 0x27:
-[e :U 1538 ]
+[; ;eusartparser.c: 176:             case 0x26:
+[e :U 1537 ]
 "179
-[; ;eusartparser.c: 179:                 package->data.data16=*(((uint16_t*)&(var_sys_NVM.counterMoves))+1);
-[e = . . *U _package 2 0 *U + -> &U . _var_sys_NVM 34 `*us * -> -> 1 `i `x -> -> # *U -> &U . _var_sys_NVM 34 `*us `i `x ]
+[; ;eusartparser.c: 179:                 package->data.data8[1]=var_sys_NVM.positionRemotesWalk;
+[e = *U + &U . . *U _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 33 ]
 "180
-[; ;eusartparser.c: 180:                 write_package(*package);
-[e ( _write_package (1 *U _package ]
+[; ;eusartparser.c: 180:                 package->data.data8[0]=var_sys_NVM.positionRemotesFull;
+[e = *U + &U . . *U _package 2 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 32 ]
 "181
-[; ;eusartparser.c: 181:                 package->data.data16=*(((uint16_t*)&(var_sys_NVM.counterMoves))+0);
-[e = . . *U _package 2 0 *U + -> &U . _var_sys_NVM 34 `*us * -> -> 0 `i `x -> -> # *U -> &U . _var_sys_NVM 34 `*us `i `x ]
-"182
-[; ;eusartparser.c: 182:                 write_package(*package);
+[; ;eusartparser.c: 181:                 write_package(*package);
 [e ( _write_package (1 *U _package ]
-"183
-[; ;eusartparser.c: 183:                 break;
+"182
+[; ;eusartparser.c: 182:                 break;
 [e $U 1506  ]
-"184
-[; ;eusartparser.c: 184:             case 0x29:
-[e :U 1539 ]
+"183
+[; ;eusartparser.c: 183:             case 0x27:
+[e :U 1538 ]
+"186
+[; ;eusartparser.c: 186:                 package->data.data16=*(((uint16_t*)&(var_sys_NVM.counterMoves))+1);
+[e = . . *U _package 2 0 *U + -> &U . _var_sys_NVM 34 `*us * -> -> 1 `i `x -> -> # *U -> &U . _var_sys_NVM 34 `*us `i `x ]
 "187
-[; ;eusartparser.c: 187:                 package->data.data8[1]=var_sys_NVM.OnlyRollingCode;
-[e = *U + &U . . *U _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 35 ]
+[; ;eusartparser.c: 187:                 write_package(*package);
+[e ( _write_package (1 *U _package ]
 "188
-[; ;eusartparser.c: 188:                 package->data.data8[0]=0x00;
-[e = *U + &U . . *U _package 2 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux -> -> 0 `i `uc ]
+[; ;eusartparser.c: 188:                 package->data.data16=*(((uint16_t*)&(var_sys_NVM.counterMoves))+0);
+[e = . . *U _package 2 0 *U + -> &U . _var_sys_NVM 34 `*us * -> -> 0 `i `x -> -> # *U -> &U . _var_sys_NVM 34 `*us `i `x ]
 "189
 [; ;eusartparser.c: 189:                 write_package(*package);
 [e ( _write_package (1 *U _package ]
@@ -1846,109 +1831,124 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;eusartparser.c: 190:                 break;
 [e $U 1506  ]
 "191
-[; ;eusartparser.c: 191:             case 0x2A:
-[e :U 1540 ]
+[; ;eusartparser.c: 191:             case 0x29:
+[e :U 1539 ]
 "194
-[; ;eusartparser.c: 194:                 package->data.data16=*(((uint16_t*)&(var_sys_NVM.learningCurrentDecelarationClose))+1);
-[e = . . *U _package 2 0 *U + -> &U . _var_sys_NVM 37 `*us * -> -> 1 `i `x -> -> # *U -> &U . _var_sys_NVM 37 `*us `i `x ]
+[; ;eusartparser.c: 194:                 package->data.data8[1]=var_sys_NVM.OnlyRollingCode;
+[e = *U + &U . . *U _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux . _var_sys_NVM 35 ]
 "195
-[; ;eusartparser.c: 195:                 write_package(*package);
-[e ( _write_package (1 *U _package ]
+[; ;eusartparser.c: 195:                 package->data.data8[0]=0x00;
+[e = *U + &U . . *U _package 2 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . *U _package 2 1 `ui `ux -> -> 0 `i `uc ]
 "196
-[; ;eusartparser.c: 196:                 package->data.data16=*(((uint16_t*)&(var_sys_NVM.learningCurrentDecelarationClose))+0);
-[e = . . *U _package 2 0 *U + -> &U . _var_sys_NVM 37 `*us * -> -> 0 `i `x -> -> # *U -> &U . _var_sys_NVM 37 `*us `i `x ]
+[; ;eusartparser.c: 196:                 write_package(*package);
+[e ( _write_package (1 *U _package ]
 "197
-[; ;eusartparser.c: 197:                 write_package(*package);
-[e ( _write_package (1 *U _package ]
+[; ;eusartparser.c: 197:                 break;
+[e $U 1506  ]
 "198
-[; ;eusartparser.c: 198:                 break;
-[e $U 1506  ]
-"199
-[; ;eusartparser.c: 199:             case 0x2C:
-[e :U 1541 ]
+[; ;eusartparser.c: 198:             case 0x2A:
+[e :U 1540 ]
+"201
+[; ;eusartparser.c: 201:                 package->data.data16=*(((uint16_t*)&(var_sys_NVM.learningCurrentDecelarationClose))+1);
+[e = . . *U _package 2 0 *U + -> &U . _var_sys_NVM 37 `*us * -> -> 1 `i `x -> -> # *U -> &U . _var_sys_NVM 37 `*us `i `x ]
 "202
-[; ;eusartparser.c: 202:                 package->data.data16=*(((uint16_t*)&(var_sys_NVM.learningCurrentDecelarationOpen))+1);
-[e = . . *U _package 2 0 *U + -> &U . _var_sys_NVM 38 `*us * -> -> 1 `i `x -> -> # *U -> &U . _var_sys_NVM 38 `*us `i `x ]
+[; ;eusartparser.c: 202:                 write_package(*package);
+[e ( _write_package (1 *U _package ]
 "203
-[; ;eusartparser.c: 203:                 write_package(*package);
-[e ( _write_package (1 *U _package ]
+[; ;eusartparser.c: 203:                 package->data.data16=*(((uint16_t*)&(var_sys_NVM.learningCurrentDecelarationClose))+0);
+[e = . . *U _package 2 0 *U + -> &U . _var_sys_NVM 37 `*us * -> -> 0 `i `x -> -> # *U -> &U . _var_sys_NVM 37 `*us `i `x ]
 "204
-[; ;eusartparser.c: 204:                 package->data.data16=*(((uint16_t*)&(var_sys_NVM.learningCurrentDecelarationOpen))+0);
-[e = . . *U _package 2 0 *U + -> &U . _var_sys_NVM 38 `*us * -> -> 0 `i `x -> -> # *U -> &U . _var_sys_NVM 38 `*us `i `x ]
+[; ;eusartparser.c: 204:                 write_package(*package);
+[e ( _write_package (1 *U _package ]
 "205
-[; ;eusartparser.c: 205:                 write_package(*package);
-[e ( _write_package (1 *U _package ]
+[; ;eusartparser.c: 205:                 break;
+[e $U 1506  ]
 "206
-[; ;eusartparser.c: 206:                 break;
-[e $U 1506  ]
-"207
-[; ;eusartparser.c: 207:             case 0x2E:
-[e :U 1542 ]
+[; ;eusartparser.c: 206:             case 0x2C:
+[e :U 1541 ]
+"209
+[; ;eusartparser.c: 209:                 package->data.data16=*(((uint16_t*)&(var_sys_NVM.learningCurrentDecelarationOpen))+1);
+[e = . . *U _package 2 0 *U + -> &U . _var_sys_NVM 38 `*us * -> -> 1 `i `x -> -> # *U -> &U . _var_sys_NVM 38 `*us `i `x ]
 "210
-[; ;eusartparser.c: 210:                 package->data.data16=var_sys_NVM.learningCurrentNormalClose;
-[e = . . *U _package 2 0 -> . _var_sys_NVM 39 `us ]
+[; ;eusartparser.c: 210:                 write_package(*package);
+[e ( _write_package (1 *U _package ]
 "211
-[; ;eusartparser.c: 211:                 write_package(*package);
-[e ( _write_package (1 *U _package ]
+[; ;eusartparser.c: 211:                 package->data.data16=*(((uint16_t*)&(var_sys_NVM.learningCurrentDecelarationOpen))+0);
+[e = . . *U _package 2 0 *U + -> &U . _var_sys_NVM 38 `*us * -> -> 0 `i `x -> -> # *U -> &U . _var_sys_NVM 38 `*us `i `x ]
 "212
-[; ;eusartparser.c: 212:                 break;
-[e $U 1506  ]
+[; ;eusartparser.c: 212:                 write_package(*package);
+[e ( _write_package (1 *U _package ]
 "213
-[; ;eusartparser.c: 213:             case 0x2F:
-[e :U 1543 ]
-"216
-[; ;eusartparser.c: 216:                 package->data.data16=var_sys_NVM.learningCurrentNormalOpen;
-[e = . . *U _package 2 0 -> . _var_sys_NVM 40 `us ]
+[; ;eusartparser.c: 213:                 break;
+[e $U 1506  ]
+"214
+[; ;eusartparser.c: 214:             case 0x2E:
+[e :U 1542 ]
 "217
-[; ;eusartparser.c: 217:                 write_package(*package);
-[e ( _write_package (1 *U _package ]
+[; ;eusartparser.c: 217:                 package->data.data16=var_sys_NVM.learningCurrentNormalClose;
+[e = . . *U _package 2 0 -> . _var_sys_NVM 39 `us ]
 "218
-[; ;eusartparser.c: 218:                 break;
-[e $U 1506  ]
+[; ;eusartparser.c: 218:                 write_package(*package);
+[e ( _write_package (1 *U _package ]
 "219
-[; ;eusartparser.c: 219:             case 0x30:
-[e :U 1544 ]
-"222
-[; ;eusartparser.c: 222:                 package->data.data16=*(((uint16_t*)&(var_sys_NVM.learningTimeToOpen))+1);
-[e = . . *U _package 2 0 *U + -> &U . _var_sys_NVM 41 `*us * -> -> 1 `i `x -> -> # *U -> &U . _var_sys_NVM 41 `*us `i `x ]
+[; ;eusartparser.c: 219:                 break;
+[e $U 1506  ]
+"220
+[; ;eusartparser.c: 220:             case 0x2F:
+[e :U 1543 ]
 "223
-[; ;eusartparser.c: 223:                 write_package(*package);
-[e ( _write_package (1 *U _package ]
+[; ;eusartparser.c: 223:                 package->data.data16=var_sys_NVM.learningCurrentNormalOpen;
+[e = . . *U _package 2 0 -> . _var_sys_NVM 40 `us ]
 "224
-[; ;eusartparser.c: 224:                 package->data.data16=*(((uint16_t*)&(var_sys_NVM.learningTimeToOpen))+0);
-[e = . . *U _package 2 0 *U + -> &U . _var_sys_NVM 41 `*us * -> -> 0 `i `x -> -> # *U -> &U . _var_sys_NVM 41 `*us `i `x ]
+[; ;eusartparser.c: 224:                 write_package(*package);
+[e ( _write_package (1 *U _package ]
 "225
-[; ;eusartparser.c: 225:                 write_package(*package);
-[e ( _write_package (1 *U _package ]
+[; ;eusartparser.c: 225:                 break;
+[e $U 1506  ]
 "226
-[; ;eusartparser.c: 226:                 break;
-[e $U 1506  ]
-"227
-[; ;eusartparser.c: 227:             case 0x32:
-[e :U 1545 ]
+[; ;eusartparser.c: 226:             case 0x30:
+[e :U 1544 ]
+"229
+[; ;eusartparser.c: 229:                 package->data.data16=*(((uint16_t*)&(var_sys_NVM.learningTimeToOpen))+1);
+[e = . . *U _package 2 0 *U + -> &U . _var_sys_NVM 41 `*us * -> -> 1 `i `x -> -> # *U -> &U . _var_sys_NVM 41 `*us `i `x ]
 "230
-[; ;eusartparser.c: 230:                 package->data.data16=*(((uint16_t*)&(var_sys_NVM.learningTimeToClose))+1);
-[e = . . *U _package 2 0 *U + -> &U . _var_sys_NVM 42 `*us * -> -> 1 `i `x -> -> # *U -> &U . _var_sys_NVM 42 `*us `i `x ]
+[; ;eusartparser.c: 230:                 write_package(*package);
+[e ( _write_package (1 *U _package ]
 "231
-[; ;eusartparser.c: 231:                 write_package(*package);
-[e ( _write_package (1 *U _package ]
+[; ;eusartparser.c: 231:                 package->data.data16=*(((uint16_t*)&(var_sys_NVM.learningTimeToOpen))+0);
+[e = . . *U _package 2 0 *U + -> &U . _var_sys_NVM 41 `*us * -> -> 0 `i `x -> -> # *U -> &U . _var_sys_NVM 41 `*us `i `x ]
 "232
-[; ;eusartparser.c: 232:                 package->data.data16=*(((uint16_t*)&(var_sys_NVM.learningTimeToClose))+0);
-[e = . . *U _package 2 0 *U + -> &U . _var_sys_NVM 42 `*us * -> -> 0 `i `x -> -> # *U -> &U . _var_sys_NVM 42 `*us `i `x ]
-"233
-[; ;eusartparser.c: 233:                 write_package(*package);
+[; ;eusartparser.c: 232:                 write_package(*package);
 [e ( _write_package (1 *U _package ]
+"233
+[; ;eusartparser.c: 233:                 break;
+[e $U 1506  ]
 "234
-[; ;eusartparser.c: 234:                 break;
-[e $U 1506  ]
-"235
-[; ;eusartparser.c: 235:             default:
-[e :U 1546 ]
+[; ;eusartparser.c: 234:             case 0x32:
+[e :U 1545 ]
 "237
-[; ;eusartparser.c: 237:                 break;
-[e $U 1506  ]
+[; ;eusartparser.c: 237:                 package->data.data16=*(((uint16_t*)&(var_sys_NVM.learningTimeToClose))+1);
+[e = . . *U _package 2 0 *U + -> &U . _var_sys_NVM 42 `*us * -> -> 1 `i `x -> -> # *U -> &U . _var_sys_NVM 42 `*us `i `x ]
 "238
-[; ;eusartparser.c: 238:         }
+[; ;eusartparser.c: 238:                 write_package(*package);
+[e ( _write_package (1 *U _package ]
+"239
+[; ;eusartparser.c: 239:                 package->data.data16=*(((uint16_t*)&(var_sys_NVM.learningTimeToClose))+0);
+[e = . . *U _package 2 0 *U + -> &U . _var_sys_NVM 42 `*us * -> -> 0 `i `x -> -> # *U -> &U . _var_sys_NVM 42 `*us `i `x ]
+"240
+[; ;eusartparser.c: 240:                 write_package(*package);
+[e ( _write_package (1 *U _package ]
+"241
+[; ;eusartparser.c: 241:                 break;
+[e $U 1506  ]
+"242
+[; ;eusartparser.c: 242:             default:
+[e :U 1546 ]
+"244
+[; ;eusartparser.c: 244:                 break;
+[e $U 1506  ]
+"245
+[; ;eusartparser.c: 245:         }
 }
 [e $U 1506  ]
 [e :U 1507 ]
@@ -1992,433 +1992,433 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 50 `i 1545
  1546 ]
 [e :U 1506 ]
-"239
-[; ;eusartparser.c: 239:     }
+"246
+[; ;eusartparser.c: 246:     }
 [e :UE 1505 ]
 }
-"241
-[; ;eusartparser.c: 241:     void write_eusartparser(struct package_t package){
+"248
+[; ;eusartparser.c: 248:     void write_eusartparser(struct package_t package){
 [v _write_eusartparser `(v ~T0 @X0 1 ef1`S1492 ]
 {
 [e :U _write_eusartparser ]
 [v _package `S1492 ~T0 @X0 1 r1 ]
 [f ]
-"242
-[; ;eusartparser.c: 242:         volatile int debug=(uint8_t)package.address;
+"249
+[; ;eusartparser.c: 249:         volatile int debug=(uint8_t)package.address;
 [v _debug `Vi ~T0 @X0 1 a ]
 [e = _debug -> . _package 1 `i ]
-"243
-[; ;eusartparser.c: 243:         volatile int debug2=0x10;
+"250
+[; ;eusartparser.c: 250:         volatile int debug2=0x10;
 [v _debug2 `Vi ~T0 @X0 1 a ]
 [e = _debug2 -> 16 `i ]
-"244
-[; ;eusartparser.c: 244:         switch((uint8_t)package.address){
+"251
+[; ;eusartparser.c: 251:         switch((uint8_t)package.address){
 [e $U 1549  ]
 {
-"245
-[; ;eusartparser.c: 245:             case 0x00:
-[e :U 1550 ]
-"246
-[; ;eusartparser.c: 246:             case 0x10:
-[e :U 1551 ]
-"249
-[; ;eusartparser.c: 249:                 var_sys_NVM.decelarationOpen=package.data.data8[0];
-[e = . _var_sys_NVM 0 *U + &U . . _package 2 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
-"250
-[; ;eusartparser.c: 250:                 var_sys_NVM.decelarationClose=package.data.data8[1];
-[e = . _var_sys_NVM 1 *U + &U . . _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
-"251
-[; ;eusartparser.c: 251:                 break;
-[e $U 1548  ]
 "252
-[; ;eusartparser.c: 252:             case 0x11:
-[e :U 1552 ]
-"255
-[; ;eusartparser.c: 255:                 var_sys_NVM.motorPower=package.data.data8[0];
-[e = . _var_sys_NVM 2 *U + &U . . _package 2 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
+[; ;eusartparser.c: 252:             case 0x00:
+[e :U 1550 ]
+"253
+[; ;eusartparser.c: 253:             case 0x10:
+[e :U 1551 ]
 "256
-[; ;eusartparser.c: 256:                 var_sys_NVM.motorSensitivity=package.data.data8[1];
-[e = . _var_sys_NVM 3 *U + &U . . _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
+[; ;eusartparser.c: 256:                 var_sys_NVM.decelarationOpen=package.data.data8[0];
+[e = . _var_sys_NVM 0 *U + &U . . _package 2 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
 "257
-[; ;eusartparser.c: 257:                 break;
-[e $U 1548  ]
+[; ;eusartparser.c: 257:                 var_sys_NVM.decelarationClose=package.data.data8[1];
+[e = . _var_sys_NVM 1 *U + &U . . _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
 "258
-[; ;eusartparser.c: 258:             case 0x12:
-[e :U 1553 ]
-"261
-[; ;eusartparser.c: 261:                 var_sys_NVM.walkTime=package.data.data8[1];
-[e = . _var_sys_NVM 4 *U + &U . . _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
-"262
-[; ;eusartparser.c: 262:                 break;
+[; ;eusartparser.c: 258:                 break;
 [e $U 1548  ]
+"259
+[; ;eusartparser.c: 259:             case 0x11:
+[e :U 1552 ]
+"262
+[; ;eusartparser.c: 262:                 var_sys_NVM.motorPower=package.data.data8[0];
+[e = . _var_sys_NVM 2 *U + &U . . _package 2 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
 "263
-[; ;eusartparser.c: 263:             case 0x02:
-[e :U 1554 ]
+[; ;eusartparser.c: 263:                 var_sys_NVM.motorSensitivity=package.data.data8[1];
+[e = . _var_sys_NVM 3 *U + &U . . _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
 "264
-[; ;eusartparser.c: 264:             case 0x13:
-[e :U 1555 ]
-"267
-[; ;eusartparser.c: 267:                 var_sys_NVM.autoTimeFullClose=package.data.data8[0];
-[e = . _var_sys_NVM 5 *U + &U . . _package 2 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
+[; ;eusartparser.c: 264:                 break;
+[e $U 1548  ]
+"265
+[; ;eusartparser.c: 265:             case 0x12:
+[e :U 1553 ]
 "268
-[; ;eusartparser.c: 268:                 var_sys_NVM.autoTimeWalkClose=package.data.data8[1];
-[e = . _var_sys_NVM 6 *U + &U . . _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
+[; ;eusartparser.c: 268:                 var_sys_NVM.walkTime=package.data.data8[1];
+[e = . _var_sys_NVM 4 *U + &U . . _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
 "269
 [; ;eusartparser.c: 269:                 break;
 [e $U 1548  ]
 "270
-[; ;eusartparser.c: 270:             case 0x05:
-[e :U 1556 ]
+[; ;eusartparser.c: 270:             case 0x02:
+[e :U 1554 ]
 "271
-[; ;eusartparser.c: 271:             case 0x14:
-[e :U 1557 ]
+[; ;eusartparser.c: 271:             case 0x13:
+[e :U 1555 ]
 "274
-[; ;eusartparser.c: 274:                 var_sys_NVM.photoCellIsON=package.data.data8[0];
-[e = . _var_sys_NVM 7 *U + &U . . _package 2 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
+[; ;eusartparser.c: 274:                 var_sys_NVM.autoTimeFullClose=package.data.data8[0];
+[e = . _var_sys_NVM 5 *U + &U . . _package 2 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
 "275
-[; ;eusartparser.c: 275:                 var_sys_NVM.photoCellInOpen=package.data.data8[1];
-[e = . _var_sys_NVM 8 *U + &U . . _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
+[; ;eusartparser.c: 275:                 var_sys_NVM.autoTimeWalkClose=package.data.data8[1];
+[e = . _var_sys_NVM 6 *U + &U . . _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
 "276
 [; ;eusartparser.c: 276:                 break;
 [e $U 1548  ]
 "277
-[; ;eusartparser.c: 277:             case 0x15:
-[e :U 1558 ]
-"280
-[; ;eusartparser.c: 280:                 var_sys_NVM.securityBandIsON=package.data.data8[0];
-[e = . _var_sys_NVM 9 *U + &U . . _package 2 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
+[; ;eusartparser.c: 277:             case 0x05:
+[e :U 1556 ]
+"278
+[; ;eusartparser.c: 278:             case 0x14:
+[e :U 1557 ]
 "281
-[; ;eusartparser.c: 281:                 var_sys_NVM.securityBandType=package.data.data8[1];
-[e = . _var_sys_NVM 10 *U + &U . . _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
+[; ;eusartparser.c: 281:                 var_sys_NVM.photoCellIsON=package.data.data8[0];
+[e = . _var_sys_NVM 7 *U + &U . . _package 2 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
 "282
-[; ;eusartparser.c: 282:                 break;
-[e $U 1548  ]
+[; ;eusartparser.c: 282:                 var_sys_NVM.photoCellInOpen=package.data.data8[1];
+[e = . _var_sys_NVM 8 *U + &U . . _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
 "283
-[; ;eusartparser.c: 283:             case 0x16:
-[e :U 1559 ]
-"286
-[; ;eusartparser.c: 286:                 var_sys_NVM.securityBandInOpen=package.data.data8[1];
-[e = . _var_sys_NVM 11 *U + &U . . _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
+[; ;eusartparser.c: 283:                 break;
+[e $U 1548  ]
+"284
+[; ;eusartparser.c: 284:             case 0x15:
+[e :U 1558 ]
 "287
-[; ;eusartparser.c: 287:                 break;
-[e $U 1548  ]
+[; ;eusartparser.c: 287:                 var_sys_NVM.securityBandIsON=package.data.data8[0];
+[e = . _var_sys_NVM 9 *U + &U . . _package 2 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
 "288
-[; ;eusartparser.c: 288:             case 0x17:
-[e :U 1560 ]
-"291
-[; ;eusartparser.c: 291:                 var_sys_NVM.operationMode=package.data.data8[1];
-[e = . _var_sys_NVM 12 *U + &U . . _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
-"292
-[; ;eusartparser.c: 292:                 break;
+[; ;eusartparser.c: 288:                 var_sys_NVM.securityBandType=package.data.data8[1];
+[e = . _var_sys_NVM 10 *U + &U . . _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
+"289
+[; ;eusartparser.c: 289:                 break;
 [e $U 1548  ]
+"290
+[; ;eusartparser.c: 290:             case 0x16:
+[e :U 1559 ]
 "293
-[; ;eusartparser.c: 293:             case 0x18:
-[e :U 1561 ]
-"296
-[; ;eusartparser.c: 296:                 var_sys_NVM.flashLightMode=package.data.data8[1];
-[e = . _var_sys_NVM 13 *U + &U . . _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
-"297
-[; ;eusartparser.c: 297:                 break;
+[; ;eusartparser.c: 293:                 var_sys_NVM.securityBandInOpen=package.data.data8[1];
+[e = . _var_sys_NVM 11 *U + &U . . _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
+"294
+[; ;eusartparser.c: 294:                 break;
 [e $U 1548  ]
+"295
+[; ;eusartparser.c: 295:             case 0x17:
+[e :U 1560 ]
 "298
-[; ;eusartparser.c: 298:             case 0x19:
-[e :U 1562 ]
-"301
-[; ;eusartparser.c: 301:                 var_sys_NVM.programmingDistance=package.data.data8[1];
-[e = . _var_sys_NVM 14 *U + &U . . _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
-"302
-[; ;eusartparser.c: 302:                 break;
+[; ;eusartparser.c: 298:                 var_sys_NVM.operationMode=package.data.data8[1];
+[e = . _var_sys_NVM 12 *U + &U . . _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
+"299
+[; ;eusartparser.c: 299:                 break;
 [e $U 1548  ]
+"300
+[; ;eusartparser.c: 300:             case 0x18:
+[e :U 1561 ]
 "303
-[; ;eusartparser.c: 303:             case 0x1A:
-[e :U 1563 ]
-"306
-[; ;eusartparser.c: 306:                 var_sys_NVM.decelarationSensivity=package.data.data8[1];
-[e = . _var_sys_NVM 15 *U + &U . . _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
-"307
-[; ;eusartparser.c: 307:                 break;
+[; ;eusartparser.c: 303:                 var_sys_NVM.flashLightMode=package.data.data8[1];
+[e = . _var_sys_NVM 13 *U + &U . . _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
+"304
+[; ;eusartparser.c: 304:                 break;
 [e $U 1548  ]
+"305
+[; ;eusartparser.c: 305:             case 0x19:
+[e :U 1562 ]
+"308
+[; ;eusartparser.c: 308:                 var_sys_NVM.programmingDistance=package.data.data8[1];
+[e = . _var_sys_NVM 14 *U + &U . . _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
 "309
-[; ;eusartparser.c: 309:             case 0x1B:
-[e :U 1564 ]
-"312
-[; ;eusartparser.c: 312:                 var_sys_NVM.homemPresente=package.data.data8[1];
-[e = . _var_sys_NVM 16 *U + &U . . _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
+[; ;eusartparser.c: 309:                 break;
+[e $U 1548  ]
+"310
+[; ;eusartparser.c: 310:             case 0x1A:
+[e :U 1563 ]
 "313
-[; ;eusartparser.c: 313:                 break;
-[e $U 1548  ]
+[; ;eusartparser.c: 313:                 var_sys_NVM.decelarationSensivity=package.data.data8[1];
+[e = . _var_sys_NVM 15 *U + &U . . _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
 "314
-[; ;eusartparser.c: 314:             case 0x07:
-[e :U 1565 ]
-"315
-[; ;eusartparser.c: 315:             case 0x1C:
-[e :U 1566 ]
-"318
-[; ;eusartparser.c: 318:                 var_sys_NVM.logicDigital=package.data.data8[1];
-[e = . _var_sys_NVM 17 *U + &U . . _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
+[; ;eusartparser.c: 314:                 break;
+[e $U 1548  ]
+"316
+[; ;eusartparser.c: 316:             case 0x1B:
+[e :U 1564 ]
 "319
-[; ;eusartparser.c: 319:                 break;
-[e $U 1548  ]
+[; ;eusartparser.c: 319:                 var_sys_NVM.homemPresente=package.data.data8[1];
+[e = . _var_sys_NVM 16 *U + &U . . _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
 "320
-[; ;eusartparser.c: 320:             case 0x1D:
-[e :U 1567 ]
-"323
-[; ;eusartparser.c: 323:                 var_sys_NVM.softStart=package.data.data8[0];
-[e = . _var_sys_NVM 18 *U + &U . . _package 2 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
-"324
-[; ;eusartparser.c: 324:                 var_sys_NVM.softstop=package.data.data8[1];
-[e = . _var_sys_NVM 19 *U + &U . . _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
+[; ;eusartparser.c: 320:                 break;
+[e $U 1548  ]
+"321
+[; ;eusartparser.c: 321:             case 0x07:
+[e :U 1565 ]
+"322
+[; ;eusartparser.c: 322:             case 0x1C:
+[e :U 1566 ]
 "325
-[; ;eusartparser.c: 325:                 break;
-[e $U 1548  ]
+[; ;eusartparser.c: 325:                 var_sys_NVM.logicDigital=package.data.data8[1];
+[e = . _var_sys_NVM 17 *U + &U . . _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
 "326
-[; ;eusartparser.c: 326:             case 0x03:
-[e :U 1568 ]
+[; ;eusartparser.c: 326:                 break;
+[e $U 1548  ]
 "327
-[; ;eusartparser.c: 327:             case 0x1E:
-[e :U 1569 ]
+[; ;eusartparser.c: 327:             case 0x1D:
+[e :U 1567 ]
 "330
-[; ;eusartparser.c: 330:                 var_sys_NVM.ligthTime=package.data.data8[1];
-[e = . _var_sys_NVM 20 *U + &U . . _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
+[; ;eusartparser.c: 330:                 var_sys_NVM.softStart=package.data.data8[0];
+[e = . _var_sys_NVM 18 *U + &U . . _package 2 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
 "331
-[; ;eusartparser.c: 331:                 break;
-[e $U 1548  ]
+[; ;eusartparser.c: 331:                 var_sys_NVM.softstop=package.data.data8[1];
+[e = . _var_sys_NVM 19 *U + &U . . _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
 "332
-[; ;eusartparser.c: 332:             case 0x0A:
-[e :U 1570 ]
+[; ;eusartparser.c: 332:                 break;
+[e $U 1548  ]
 "333
-[; ;eusartparser.c: 333:             case 0x1F:
-[e :U 1571 ]
-"336
-[; ;eusartparser.c: 336:                 var_sys_NVM.folow_me=package.data.data8[1];
-[e = . _var_sys_NVM 21 *U + &U . . _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
+[; ;eusartparser.c: 333:             case 0x03:
+[e :U 1568 ]
+"334
+[; ;eusartparser.c: 334:             case 0x1E:
+[e :U 1569 ]
 "337
-[; ;eusartparser.c: 337:                 break;
-[e $U 1548  ]
+[; ;eusartparser.c: 337:                 var_sys_NVM.ligthTime=package.data.data8[1];
+[e = . _var_sys_NVM 20 *U + &U . . _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
 "338
-[; ;eusartparser.c: 338:             case 0x20:
-[e :U 1572 ]
-"341
-[; ;eusartparser.c: 341:                 var_sys_NVM.Stopboton=package.data.data8[1];
-[e = . _var_sys_NVM 22 *U + &U . . _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
-"342
-[; ;eusartparser.c: 342:                 break;
+[; ;eusartparser.c: 338:                 break;
 [e $U 1548  ]
+"339
+[; ;eusartparser.c: 339:             case 0x0A:
+[e :U 1570 ]
+"340
+[; ;eusartparser.c: 340:             case 0x1F:
+[e :U 1571 ]
 "343
-[; ;eusartparser.c: 343:             case 0x21:
-[e :U 1573 ]
-"346
-[; ;eusartparser.c: 346:                 var_sys_NVM.electricBrake=package.data.data8[1];
-[e = . _var_sys_NVM 23 *U + &U . . _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
-"347
-[; ;eusartparser.c: 347:                 break;
+[; ;eusartparser.c: 343:                 var_sys_NVM.folow_me=package.data.data8[1];
+[e = . _var_sys_NVM 21 *U + &U . . _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
+"344
+[; ;eusartparser.c: 344:                 break;
 [e $U 1548  ]
+"345
+[; ;eusartparser.c: 345:             case 0x20:
+[e :U 1572 ]
 "348
-[; ;eusartparser.c: 348:             case 0x22:
-[e :U 1574 ]
-"351
-[; ;eusartparser.c: 351:                 var_sys_NVM.velocityDecelaration=package.data.data8[1];
-[e = . _var_sys_NVM 24 *U + &U . . _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
-"352
-[; ;eusartparser.c: 352:                 break;
+[; ;eusartparser.c: 348:                 var_sys_NVM.Stopboton=package.data.data8[1];
+[e = . _var_sys_NVM 22 *U + &U . . _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
+"349
+[; ;eusartparser.c: 349:                 break;
 [e $U 1548  ]
+"350
+[; ;eusartparser.c: 350:             case 0x21:
+[e :U 1573 ]
 "353
-[; ;eusartparser.c: 353:             case 0x08:
-[e :U 1575 ]
+[; ;eusartparser.c: 353:                 var_sys_NVM.electricBrake=package.data.data8[1];
+[e = . _var_sys_NVM 23 *U + &U . . _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
 "354
-[; ;eusartparser.c: 354:             case 0x23:
-[e :U 1576 ]
-"357
-[; ;eusartparser.c: 357:                 var_sys_NVM.flashRGBMode=package.data.data8[1];
-[e = . _var_sys_NVM 25 *U + &U . . _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
+[; ;eusartparser.c: 354:                 break;
+[e $U 1548  ]
+"355
+[; ;eusartparser.c: 355:             case 0x22:
+[e :U 1574 ]
 "358
-[; ;eusartparser.c: 358:                 break;
-[e $U 1548  ]
+[; ;eusartparser.c: 358:                 var_sys_NVM.velocityDecelaration=package.data.data8[1];
+[e = . _var_sys_NVM 24 *U + &U . . _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
 "359
-[; ;eusartparser.c: 359:             case 0x24:
-[e :U 1577 ]
-"362
-[; ;eusartparser.c: 362:                 var_sys_NVM.Direction_motor=package.data.data8[1];
-[e = . _var_sys_NVM 27 *U + &U . . _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
-"363
-[; ;eusartparser.c: 363:                 break;
+[; ;eusartparser.c: 359:                 break;
 [e $U 1548  ]
+"360
+[; ;eusartparser.c: 360:             case 0x08:
+[e :U 1575 ]
+"361
+[; ;eusartparser.c: 361:             case 0x23:
+[e :U 1576 ]
 "364
-[; ;eusartparser.c: 364:             case 0x25:
-[e :U 1578 ]
-"367
-[; ;eusartparser.c: 367:                 var_sys_NVM.TypeofMotor=package.data.data8[1];
-[e = . _var_sys_NVM 28 *U + &U . . _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
-"368
-[; ;eusartparser.c: 368:                 break;
+[; ;eusartparser.c: 364:                 var_sys_NVM.flashRGBMode=package.data.data8[1];
+[e = . _var_sys_NVM 25 *U + &U . . _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
+"365
+[; ;eusartparser.c: 365:                 break;
 [e $U 1548  ]
+"366
+[; ;eusartparser.c: 366:             case 0x24:
+[e :U 1577 ]
 "369
-[; ;eusartparser.c: 369:             case 0x26:
-[e :U 1579 ]
-"372
-[; ;eusartparser.c: 372:                 var_sys_NVM.positionRemotesFull=package.data.data8[0];
-[e = . _var_sys_NVM 32 *U + &U . . _package 2 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
-"373
-[; ;eusartparser.c: 373:                 var_sys_NVM.positionRemotesWalk=package.data.data8[1];
-[e = . _var_sys_NVM 33 *U + &U . . _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
+[; ;eusartparser.c: 369:                 var_sys_NVM.Direction_motor=package.data.data8[1];
+[e = . _var_sys_NVM 27 *U + &U . . _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
+"370
+[; ;eusartparser.c: 370:                 break;
+[e $U 1548  ]
+"371
+[; ;eusartparser.c: 371:             case 0x25:
+[e :U 1578 ]
 "374
-[; ;eusartparser.c: 374:                 break;
+[; ;eusartparser.c: 374:                 var_sys_NVM.TypeofMotor=package.data.data8[1];
+[e = . _var_sys_NVM 28 *U + &U . . _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
+"375
+[; ;eusartparser.c: 375:                 break;
 [e $U 1548  ]
 "376
-[; ;eusartparser.c: 376:             case 0x27:
-[e :U 1580 ]
-"377
-[; ;eusartparser.c: 377:                 var_sys_NVM.counterMoves=var_sys_NVM.counterMoves|((uint32_t)(package.data.data16&0xFFFF)<<(uint8_t)(1*16));
-[e = . _var_sys_NVM 34 | . _var_sys_NVM 34 << -> & -> . . _package 2 0 `ui -> 65535 `ui `ul -> -> * -> 1 `i -> 16 `i `uc `i ]
-"378
-[; ;eusartparser.c: 378:                 var_sys_NVM.counterMoves=var_sys_NVM.counterMoves&~((uint32_t)(~package.data.data16&0xFFFF)<<(uint8_t)(1*16));
-[e = . _var_sys_NVM 34 & . _var_sys_NVM 34 ~ << -> & ~ -> . . _package 2 0 `ui -> 65535 `ui `ul -> -> * -> 1 `i -> 16 `i `uc `i ]
+[; ;eusartparser.c: 376:             case 0x26:
+[e :U 1579 ]
 "379
-[; ;eusartparser.c: 379:                 break;
-[e $U 1548  ]
+[; ;eusartparser.c: 379:                 var_sys_NVM.positionRemotesFull=package.data.data8[0];
+[e = . _var_sys_NVM 32 *U + &U . . _package 2 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
 "380
-[; ;eusartparser.c: 380:             case 0x28:
-[e :U 1581 ]
+[; ;eusartparser.c: 380:                 var_sys_NVM.positionRemotesWalk=package.data.data8[1];
+[e = . _var_sys_NVM 33 *U + &U . . _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
 "381
-[; ;eusartparser.c: 381:                 var_sys_NVM.counterMoves=var_sys_NVM.counterMoves|((uint32_t)(package.data.data16&0xFFFF)<<(uint8_t)(0*16));
-[e = . _var_sys_NVM 34 | . _var_sys_NVM 34 << -> & -> . . _package 2 0 `ui -> 65535 `ui `ul -> -> * -> 0 `i -> 16 `i `uc `i ]
-"382
-[; ;eusartparser.c: 382:                 var_sys_NVM.counterMoves=var_sys_NVM.counterMoves&~((uint32_t)(~package.data.data16&0xFFFF)<<(uint8_t)(0*16));
-[e = . _var_sys_NVM 34 & . _var_sys_NVM 34 ~ << -> & ~ -> . . _package 2 0 `ui -> 65535 `ui `ul -> -> * -> 0 `i -> 16 `i `uc `i ]
+[; ;eusartparser.c: 381:                 break;
+[e $U 1548  ]
 "383
-[; ;eusartparser.c: 383:                 break;
-[e $U 1548  ]
+[; ;eusartparser.c: 383:             case 0x27:
+[e :U 1580 ]
+"384
+[; ;eusartparser.c: 384:                 var_sys_NVM.counterMoves=var_sys_NVM.counterMoves|((uint32_t)(package.data.data16&0xFFFF)<<(uint8_t)(1*16));
+[e = . _var_sys_NVM 34 | . _var_sys_NVM 34 << -> & -> . . _package 2 0 `ui -> 65535 `ui `ul -> -> * -> 1 `i -> 16 `i `uc `i ]
 "385
-[; ;eusartparser.c: 385:             case 0x29:
-[e :U 1582 ]
+[; ;eusartparser.c: 385:                 var_sys_NVM.counterMoves=var_sys_NVM.counterMoves&~((uint32_t)(~package.data.data16&0xFFFF)<<(uint8_t)(1*16));
+[e = . _var_sys_NVM 34 & . _var_sys_NVM 34 ~ << -> & ~ -> . . _package 2 0 `ui -> 65535 `ui `ul -> -> * -> 1 `i -> 16 `i `uc `i ]
+"386
+[; ;eusartparser.c: 386:                 break;
+[e $U 1548  ]
+"387
+[; ;eusartparser.c: 387:             case 0x28:
+[e :U 1581 ]
 "388
-[; ;eusartparser.c: 388:                 var_sys_NVM.OnlyRollingCode=package.data.data8[1];
-[e = . _var_sys_NVM 35 *U + &U . . _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
+[; ;eusartparser.c: 388:                 var_sys_NVM.counterMoves=var_sys_NVM.counterMoves|((uint32_t)(package.data.data16&0xFFFF)<<(uint8_t)(0*16));
+[e = . _var_sys_NVM 34 | . _var_sys_NVM 34 << -> & -> . . _package 2 0 `ui -> 65535 `ui `ul -> -> * -> 0 `i -> 16 `i `uc `i ]
 "389
-[; ;eusartparser.c: 389:                 break;
+[; ;eusartparser.c: 389:                 var_sys_NVM.counterMoves=var_sys_NVM.counterMoves&~((uint32_t)(~package.data.data16&0xFFFF)<<(uint8_t)(0*16));
+[e = . _var_sys_NVM 34 & . _var_sys_NVM 34 ~ << -> & ~ -> . . _package 2 0 `ui -> 65535 `ui `ul -> -> * -> 0 `i -> 16 `i `uc `i ]
+"390
+[; ;eusartparser.c: 390:                 break;
 [e $U 1548  ]
-"391
-[; ;eusartparser.c: 391:             case 0x2A:
-[e :U 1583 ]
 "392
-[; ;eusartparser.c: 392:                 var_sys_NVM.learningCurrentDecelarationClose=var_sys_NVM.learningCurrentDecelarationClose|((uint32_t)(package.data.data16&0xFFFF)<<(uint8_t)(1*16));
-[e = . _var_sys_NVM 37 | . _var_sys_NVM 37 << -> & -> . . _package 2 0 `ui -> 65535 `ui `ul -> -> * -> 1 `i -> 16 `i `uc `i ]
-"393
-[; ;eusartparser.c: 393:                 var_sys_NVM.learningCurrentDecelarationClose=var_sys_NVM.learningCurrentDecelarationClose&~((uint32_t)(~package.data.data16&0xFFFF)<<(uint8_t)(1*16));
-[e = . _var_sys_NVM 37 & . _var_sys_NVM 37 ~ << -> & ~ -> . . _package 2 0 `ui -> 65535 `ui `ul -> -> * -> 1 `i -> 16 `i `uc `i ]
-"394
-[; ;eusartparser.c: 394:                 break;
-[e $U 1548  ]
+[; ;eusartparser.c: 392:             case 0x29:
+[e :U 1582 ]
 "395
-[; ;eusartparser.c: 395:             case 0x2B:
-[e :U 1584 ]
+[; ;eusartparser.c: 395:                 var_sys_NVM.OnlyRollingCode=package.data.data8[1];
+[e = . _var_sys_NVM 35 *U + &U . . _package 2 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . _package 2 1 `ui `ux ]
 "396
-[; ;eusartparser.c: 396:                 var_sys_NVM.learningCurrentDecelarationClose=var_sys_NVM.learningCurrentDecelarationClose|((uint32_t)(package.data.data16&0xFFFF)<<(uint8_t)(0*16));
-[e = . _var_sys_NVM 37 | . _var_sys_NVM 37 << -> & -> . . _package 2 0 `ui -> 65535 `ui `ul -> -> * -> 0 `i -> 16 `i `uc `i ]
-"397
-[; ;eusartparser.c: 397:                 var_sys_NVM.learningCurrentDecelarationClose=var_sys_NVM.learningCurrentDecelarationClose&~((uint32_t)(~package.data.data16&0xFFFF)<<(uint8_t)(0*16));
-[e = . _var_sys_NVM 37 & . _var_sys_NVM 37 ~ << -> & ~ -> . . _package 2 0 `ui -> 65535 `ui `ul -> -> * -> 0 `i -> 16 `i `uc `i ]
+[; ;eusartparser.c: 396:                 break;
+[e $U 1548  ]
 "398
-[; ;eusartparser.c: 398:                 break;
-[e $U 1548  ]
+[; ;eusartparser.c: 398:             case 0x2A:
+[e :U 1583 ]
+"399
+[; ;eusartparser.c: 399:                 var_sys_NVM.learningCurrentDecelarationClose=var_sys_NVM.learningCurrentDecelarationClose|((uint32_t)(package.data.data16&0xFFFF)<<(uint8_t)(1*16));
+[e = . _var_sys_NVM 37 | . _var_sys_NVM 37 << -> & -> . . _package 2 0 `ui -> 65535 `ui `ul -> -> * -> 1 `i -> 16 `i `uc `i ]
 "400
-[; ;eusartparser.c: 400:             case 0x2C:
-[e :U 1585 ]
+[; ;eusartparser.c: 400:                 var_sys_NVM.learningCurrentDecelarationClose=var_sys_NVM.learningCurrentDecelarationClose&~((uint32_t)(~package.data.data16&0xFFFF)<<(uint8_t)(1*16));
+[e = . _var_sys_NVM 37 & . _var_sys_NVM 37 ~ << -> & ~ -> . . _package 2 0 `ui -> 65535 `ui `ul -> -> * -> 1 `i -> 16 `i `uc `i ]
 "401
-[; ;eusartparser.c: 401:                 var_sys_NVM.learningCurrentDecelarationOpen=var_sys_NVM.learningCurrentDecelarationOpen|((uint32_t)(package.data.data16&0xFFFF)<<(uint8_t)(1*16));
-[e = . _var_sys_NVM 38 | . _var_sys_NVM 38 << -> & -> . . _package 2 0 `ui -> 65535 `ui `ul -> -> * -> 1 `i -> 16 `i `uc `i ]
+[; ;eusartparser.c: 401:                 break;
+[e $U 1548  ]
 "402
-[; ;eusartparser.c: 402:                 var_sys_NVM.learningCurrentDecelarationOpen=var_sys_NVM.learningCurrentDecelarationOpen&~((uint32_t)(~package.data.data16&0xFFFF)<<(uint8_t)(1*16));
-[e = . _var_sys_NVM 38 & . _var_sys_NVM 38 ~ << -> & ~ -> . . _package 2 0 `ui -> 65535 `ui `ul -> -> * -> 1 `i -> 16 `i `uc `i ]
+[; ;eusartparser.c: 402:             case 0x2B:
+[e :U 1584 ]
 "403
-[; ;eusartparser.c: 403:                 break;
-[e $U 1548  ]
+[; ;eusartparser.c: 403:                 var_sys_NVM.learningCurrentDecelarationClose=var_sys_NVM.learningCurrentDecelarationClose|((uint32_t)(package.data.data16&0xFFFF)<<(uint8_t)(0*16));
+[e = . _var_sys_NVM 37 | . _var_sys_NVM 37 << -> & -> . . _package 2 0 `ui -> 65535 `ui `ul -> -> * -> 0 `i -> 16 `i `uc `i ]
 "404
-[; ;eusartparser.c: 404:             case 0x2D:
-[e :U 1586 ]
+[; ;eusartparser.c: 404:                 var_sys_NVM.learningCurrentDecelarationClose=var_sys_NVM.learningCurrentDecelarationClose&~((uint32_t)(~package.data.data16&0xFFFF)<<(uint8_t)(0*16));
+[e = . _var_sys_NVM 37 & . _var_sys_NVM 37 ~ << -> & ~ -> . . _package 2 0 `ui -> 65535 `ui `ul -> -> * -> 0 `i -> 16 `i `uc `i ]
 "405
-[; ;eusartparser.c: 405:                 var_sys_NVM.learningCurrentDecelarationOpen=var_sys_NVM.learningCurrentDecelarationOpen|((uint32_t)(package.data.data16&0xFFFF)<<(uint8_t)(0*16));
-[e = . _var_sys_NVM 38 | . _var_sys_NVM 38 << -> & -> . . _package 2 0 `ui -> 65535 `ui `ul -> -> * -> 0 `i -> 16 `i `uc `i ]
-"406
-[; ;eusartparser.c: 406:                 var_sys_NVM.learningCurrentDecelarationOpen=var_sys_NVM.learningCurrentDecelarationOpen&~((uint32_t)(~package.data.data16&0xFFFF)<<(uint8_t)(0*16));
-[e = . _var_sys_NVM 38 & . _var_sys_NVM 38 ~ << -> & ~ -> . . _package 2 0 `ui -> 65535 `ui `ul -> -> * -> 0 `i -> 16 `i `uc `i ]
+[; ;eusartparser.c: 405:                 break;
+[e $U 1548  ]
 "407
-[; ;eusartparser.c: 407:                 break;
-[e $U 1548  ]
+[; ;eusartparser.c: 407:             case 0x2C:
+[e :U 1585 ]
+"408
+[; ;eusartparser.c: 408:                 var_sys_NVM.learningCurrentDecelarationOpen=var_sys_NVM.learningCurrentDecelarationOpen|((uint32_t)(package.data.data16&0xFFFF)<<(uint8_t)(1*16));
+[e = . _var_sys_NVM 38 | . _var_sys_NVM 38 << -> & -> . . _package 2 0 `ui -> 65535 `ui `ul -> -> * -> 1 `i -> 16 `i `uc `i ]
 "409
-[; ;eusartparser.c: 409:             case 0x2E:
-[e :U 1587 ]
+[; ;eusartparser.c: 409:                 var_sys_NVM.learningCurrentDecelarationOpen=var_sys_NVM.learningCurrentDecelarationOpen&~((uint32_t)(~package.data.data16&0xFFFF)<<(uint8_t)(1*16));
+[e = . _var_sys_NVM 38 & . _var_sys_NVM 38 ~ << -> & ~ -> . . _package 2 0 `ui -> 65535 `ui `ul -> -> * -> 1 `i -> 16 `i `uc `i ]
 "410
-[; ;eusartparser.c: 410:                 var_sys_NVM.learningCurrentNormalClose=package.data.data16;
-[e = . _var_sys_NVM 39 -> . . _package 2 0 `ui ]
+[; ;eusartparser.c: 410:                 break;
+[e $U 1548  ]
 "411
-[; ;eusartparser.c: 411:                 break;
-[e $U 1548  ]
+[; ;eusartparser.c: 411:             case 0x2D:
+[e :U 1586 ]
+"412
+[; ;eusartparser.c: 412:                 var_sys_NVM.learningCurrentDecelarationOpen=var_sys_NVM.learningCurrentDecelarationOpen|((uint32_t)(package.data.data16&0xFFFF)<<(uint8_t)(0*16));
+[e = . _var_sys_NVM 38 | . _var_sys_NVM 38 << -> & -> . . _package 2 0 `ui -> 65535 `ui `ul -> -> * -> 0 `i -> 16 `i `uc `i ]
 "413
-[; ;eusartparser.c: 413:             case 0x2F:
-[e :U 1588 ]
+[; ;eusartparser.c: 413:                 var_sys_NVM.learningCurrentDecelarationOpen=var_sys_NVM.learningCurrentDecelarationOpen&~((uint32_t)(~package.data.data16&0xFFFF)<<(uint8_t)(0*16));
+[e = . _var_sys_NVM 38 & . _var_sys_NVM 38 ~ << -> & ~ -> . . _package 2 0 `ui -> 65535 `ui `ul -> -> * -> 0 `i -> 16 `i `uc `i ]
 "414
-[; ;eusartparser.c: 414:                 var_sys_NVM.learningCurrentNormalOpen=package.data.data16;
-[e = . _var_sys_NVM 40 -> . . _package 2 0 `ui ]
-"415
-[; ;eusartparser.c: 415:                 break;
+[; ;eusartparser.c: 414:                 break;
 [e $U 1548  ]
+"416
+[; ;eusartparser.c: 416:             case 0x2E:
+[e :U 1587 ]
 "417
-[; ;eusartparser.c: 417:             case 0x30:
-[e :U 1589 ]
+[; ;eusartparser.c: 417:                 var_sys_NVM.learningCurrentNormalClose=package.data.data16;
+[e = . _var_sys_NVM 39 -> . . _package 2 0 `ui ]
 "418
-[; ;eusartparser.c: 418:                 var_sys_NVM.learningCurrentDecelarationOpen=var_sys_NVM.learningCurrentDecelarationOpen|((uint32_t)(package.data.data16&0xFFFF)<<(uint8_t)(1*16));
-[e = . _var_sys_NVM 38 | . _var_sys_NVM 38 << -> & -> . . _package 2 0 `ui -> 65535 `ui `ul -> -> * -> 1 `i -> 16 `i `uc `i ]
-"419
-[; ;eusartparser.c: 419:                 var_sys_NVM.learningCurrentDecelarationOpen=var_sys_NVM.learningCurrentDecelarationOpen&~((uint32_t)(~package.data.data16&0xFFFF)<<(uint8_t)(1*16));
-[e = . _var_sys_NVM 38 & . _var_sys_NVM 38 ~ << -> & ~ -> . . _package 2 0 `ui -> 65535 `ui `ul -> -> * -> 1 `i -> 16 `i `uc `i ]
+[; ;eusartparser.c: 418:                 break;
+[e $U 1548  ]
 "420
-[; ;eusartparser.c: 420:                 break;
-[e $U 1548  ]
+[; ;eusartparser.c: 420:             case 0x2F:
+[e :U 1588 ]
 "421
-[; ;eusartparser.c: 421:             case 0x31:
-[e :U 1590 ]
+[; ;eusartparser.c: 421:                 var_sys_NVM.learningCurrentNormalOpen=package.data.data16;
+[e = . _var_sys_NVM 40 -> . . _package 2 0 `ui ]
 "422
-[; ;eusartparser.c: 422:                 var_sys_NVM.learningCurrentDecelarationOpen=var_sys_NVM.learningCurrentDecelarationOpen|((uint32_t)(package.data.data16&0xFFFF)<<(uint8_t)(0*16));
-[e = . _var_sys_NVM 38 | . _var_sys_NVM 38 << -> & -> . . _package 2 0 `ui -> 65535 `ui `ul -> -> * -> 0 `i -> 16 `i `uc `i ]
-"423
-[; ;eusartparser.c: 423:                 var_sys_NVM.learningCurrentDecelarationOpen=var_sys_NVM.learningCurrentDecelarationOpen&~((uint32_t)(~package.data.data16&0xFFFF)<<(uint8_t)(0*16));
-[e = . _var_sys_NVM 38 & . _var_sys_NVM 38 ~ << -> & ~ -> . . _package 2 0 `ui -> 65535 `ui `ul -> -> * -> 0 `i -> 16 `i `uc `i ]
+[; ;eusartparser.c: 422:                 break;
+[e $U 1548  ]
 "424
-[; ;eusartparser.c: 424:                 break;
-[e $U 1548  ]
-"426
-[; ;eusartparser.c: 426:             case 0x32:
-[e :U 1591 ]
-"427
-[; ;eusartparser.c: 427:                 var_sys_NVM.learningCurrentDecelarationOpen=var_sys_NVM.learningCurrentDecelarationOpen|((uint32_t)(package.data.data16&0xFFFF)<<(uint8_t)(1*16));
+[; ;eusartparser.c: 424:             case 0x30:
+[e :U 1589 ]
+"425
+[; ;eusartparser.c: 425:                 var_sys_NVM.learningCurrentDecelarationOpen=var_sys_NVM.learningCurrentDecelarationOpen|((uint32_t)(package.data.data16&0xFFFF)<<(uint8_t)(1*16));
 [e = . _var_sys_NVM 38 | . _var_sys_NVM 38 << -> & -> . . _package 2 0 `ui -> 65535 `ui `ul -> -> * -> 1 `i -> 16 `i `uc `i ]
-"428
-[; ;eusartparser.c: 428:                 var_sys_NVM.learningCurrentDecelarationOpen=var_sys_NVM.learningCurrentDecelarationOpen&~((uint32_t)(~package.data.data16&0xFFFF)<<(uint8_t)(1*16));
+"426
+[; ;eusartparser.c: 426:                 var_sys_NVM.learningCurrentDecelarationOpen=var_sys_NVM.learningCurrentDecelarationOpen&~((uint32_t)(~package.data.data16&0xFFFF)<<(uint8_t)(1*16));
 [e = . _var_sys_NVM 38 & . _var_sys_NVM 38 ~ << -> & ~ -> . . _package 2 0 `ui -> 65535 `ui `ul -> -> * -> 1 `i -> 16 `i `uc `i ]
+"427
+[; ;eusartparser.c: 427:                 break;
+[e $U 1548  ]
+"428
+[; ;eusartparser.c: 428:             case 0x31:
+[e :U 1590 ]
 "429
-[; ;eusartparser.c: 429:                 break;
-[e $U 1548  ]
-"430
-[; ;eusartparser.c: 430:             case 0x33:
-[e :U 1592 ]
-"431
-[; ;eusartparser.c: 431:                 var_sys_NVM.learningCurrentDecelarationOpen=var_sys_NVM.learningCurrentDecelarationOpen|((uint32_t)(package.data.data16&0xFFFF)<<(uint8_t)(0*16));
+[; ;eusartparser.c: 429:                 var_sys_NVM.learningCurrentDecelarationOpen=var_sys_NVM.learningCurrentDecelarationOpen|((uint32_t)(package.data.data16&0xFFFF)<<(uint8_t)(0*16));
 [e = . _var_sys_NVM 38 | . _var_sys_NVM 38 << -> & -> . . _package 2 0 `ui -> 65535 `ui `ul -> -> * -> 0 `i -> 16 `i `uc `i ]
-"432
-[; ;eusartparser.c: 432:                 var_sys_NVM.learningCurrentDecelarationOpen=var_sys_NVM.learningCurrentDecelarationOpen&~((uint32_t)(~package.data.data16&0xFFFF)<<(uint8_t)(0*16));
+"430
+[; ;eusartparser.c: 430:                 var_sys_NVM.learningCurrentDecelarationOpen=var_sys_NVM.learningCurrentDecelarationOpen&~((uint32_t)(~package.data.data16&0xFFFF)<<(uint8_t)(0*16));
 [e = . _var_sys_NVM 38 & . _var_sys_NVM 38 ~ << -> & ~ -> . . _package 2 0 `ui -> 65535 `ui `ul -> -> * -> 0 `i -> 16 `i `uc `i ]
+"431
+[; ;eusartparser.c: 431:                 break;
+[e $U 1548  ]
 "433
-[; ;eusartparser.c: 433:                 break;
-[e $U 1548  ]
+[; ;eusartparser.c: 433:             case 0x32:
+[e :U 1591 ]
+"434
+[; ;eusartparser.c: 434:                 var_sys_NVM.learningCurrentDecelarationOpen=var_sys_NVM.learningCurrentDecelarationOpen|((uint32_t)(package.data.data16&0xFFFF)<<(uint8_t)(1*16));
+[e = . _var_sys_NVM 38 | . _var_sys_NVM 38 << -> & -> . . _package 2 0 `ui -> 65535 `ui `ul -> -> * -> 1 `i -> 16 `i `uc `i ]
 "435
-[; ;eusartparser.c: 435:             default:
-[e :U 1593 ]
-"437
-[; ;eusartparser.c: 437:                 break;
+[; ;eusartparser.c: 435:                 var_sys_NVM.learningCurrentDecelarationOpen=var_sys_NVM.learningCurrentDecelarationOpen&~((uint32_t)(~package.data.data16&0xFFFF)<<(uint8_t)(1*16));
+[e = . _var_sys_NVM 38 & . _var_sys_NVM 38 ~ << -> & ~ -> . . _package 2 0 `ui -> 65535 `ui `ul -> -> * -> 1 `i -> 16 `i `uc `i ]
+"436
+[; ;eusartparser.c: 436:                 break;
 [e $U 1548  ]
+"437
+[; ;eusartparser.c: 437:             case 0x33:
+[e :U 1592 ]
 "438
-[; ;eusartparser.c: 438:         }
+[; ;eusartparser.c: 438:                 var_sys_NVM.learningCurrentDecelarationOpen=var_sys_NVM.learningCurrentDecelarationOpen|((uint32_t)(package.data.data16&0xFFFF)<<(uint8_t)(0*16));
+[e = . _var_sys_NVM 38 | . _var_sys_NVM 38 << -> & -> . . _package 2 0 `ui -> 65535 `ui `ul -> -> * -> 0 `i -> 16 `i `uc `i ]
+"439
+[; ;eusartparser.c: 439:                 var_sys_NVM.learningCurrentDecelarationOpen=var_sys_NVM.learningCurrentDecelarationOpen&~((uint32_t)(~package.data.data16&0xFFFF)<<(uint8_t)(0*16));
+[e = . _var_sys_NVM 38 & . _var_sys_NVM 38 ~ << -> & ~ -> . . _package 2 0 `ui -> 65535 `ui `ul -> -> * -> 0 `i -> 16 `i `uc `i ]
+"440
+[; ;eusartparser.c: 440:                 break;
+[e $U 1548  ]
+"442
+[; ;eusartparser.c: 442:             default:
+[e :U 1593 ]
+"444
+[; ;eusartparser.c: 444:                 break;
+[e $U 1548  ]
+"445
+[; ;eusartparser.c: 445:         }
 }
 [e $U 1548  ]
 [e :U 1549 ]
@@ -2467,122 +2467,153 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 51 `i 1592
  1593 ]
 [e :U 1548 ]
-"439
-[; ;eusartparser.c: 439:     }
+"446
+[; ;eusartparser.c: 446:     }
 [e :UE 1547 ]
 }
-"441
-[; ;eusartparser.c: 441:     void eusartparser(struct package_t* package){
+"448
+[; ;eusartparser.c: 448:     void eusartparser(struct package_t* package){
 [v _eusartparser `(v ~T0 @X0 1 ef1`*S1492 ]
 {
 [e :U _eusartparser ]
 [v _package `*S1492 ~T0 @X0 1 r1 ]
 [f ]
-"442
-[; ;eusartparser.c: 442:         struct package_t a;
+"449
+[; ;eusartparser.c: 449:         struct package_t a;
 [v _a `S1492 ~T0 @X0 1 a ]
-"443
-[; ;eusartparser.c: 443:         switch(package->functioncode){
+"450
+[; ;eusartparser.c: 450:         switch(package->functioncode){
 [e $U 1596  ]
 {
-"444
-[; ;eusartparser.c: 444:             case (uint8_t)0:
+"451
+[; ;eusartparser.c: 451:             case (uint8_t)0:
 [e :U 1597 ]
-"445
-[; ;eusartparser.c: 445:                 if(programmer_enable)
+"452
+[; ;eusartparser.c: 452:                 if(programmer_enable)
 [e $ ! != -> _programmer_enable `i -> 0 `i 1598  ]
-"446
-[; ;eusartparser.c: 446:                     read_eusartparser(package);
+"453
+[; ;eusartparser.c: 453:                     read_eusartparser(package);
 [e ( _read_eusartparser (1 _package ]
 [e :U 1598 ]
-"447
-[; ;eusartparser.c: 447:                 break;
+"454
+[; ;eusartparser.c: 454:                 break;
 [e $U 1595  ]
-"449
-[; ;eusartparser.c: 449:             case (uint8_t)1:
+"456
+[; ;eusartparser.c: 456:             case (uint8_t)1:
 [e :U 1599 ]
-"450
-[; ;eusartparser.c: 450:                 if(programmer_enable)
+"457
+[; ;eusartparser.c: 457:                 if(programmer_enable)
 [e $ ! != -> _programmer_enable `i -> 0 `i 1600  ]
-"451
-[; ;eusartparser.c: 451:                     write_eusartparser(*package);
+"458
+[; ;eusartparser.c: 458:                     write_eusartparser(*package);
 [e ( _write_eusartparser (1 *U _package ]
 [e :U 1600 ]
-"452
-[; ;eusartparser.c: 452:                 break;
+"459
+[; ;eusartparser.c: 459:                 break;
 [e $U 1595  ]
-"454
-[; ;eusartparser.c: 454:             case (uint8_t)2:
+"461
+[; ;eusartparser.c: 461:             case (uint8_t)2:
 [e :U 1601 ]
-"455
-[; ;eusartparser.c: 455:                 if(programmer_enable){
+"462
+[; ;eusartparser.c: 462:                 if(programmer_enable){
 [e $ ! != -> _programmer_enable `i -> 0 `i 1602  ]
 {
-"456
-[; ;eusartparser.c: 456:                     SaveNVM_VarSystem(pageMemoryE);
-[e ( _SaveNVM_VarSystem (1 -> . `E10497 1 `uc ]
-"457
-[; ;eusartparser.c: 457:                     SaveNVM_VarSystem(pageMemoryP);
-[e ( _SaveNVM_VarSystem (1 -> . `E10497 0 `uc ]
-"458
-[; ;eusartparser.c: 458:                     programmer_enable=0;
+"463
+[; ;eusartparser.c: 463:                     SaveNVM_VarSystem(pageMemoryE);
+[e ( _SaveNVM_VarSystem (1 -> . `E10504 1 `uc ]
+"464
+[; ;eusartparser.c: 464:                     SaveNVM_VarSystem(pageMemoryP);
+[e ( _SaveNVM_VarSystem (1 -> . `E10504 0 `uc ]
+"465
+[; ;eusartparser.c: 465:                     programmer_enable=0;
 [e = _programmer_enable -> -> 0 `i `a ]
-"459
-[; ;eusartparser.c: 459:                 }
+"466
+[; ;eusartparser.c: 466:                 }
 }
 [e $U 1603  ]
-"460
-[; ;eusartparser.c: 460:                 else{
+"467
+[; ;eusartparser.c: 467:                 else{
 [e :U 1602 ]
 {
-"461
-[; ;eusartparser.c: 461:                     if((sm_state_Main_t)main_stateMachine.current_state==st_standBy)
-[e $ ! == -> -> . _main_stateMachine 0 `E10576 `ui -> . `E10576 0 `ui 1604  ]
-"462
-[; ;eusartparser.c: 462:                         programmer_enable=1;
+"468
+[; ;eusartparser.c: 468:                     if((sm_state_Main_t)main_stateMachine.current_state==st_standBy)
+[e $ ! == -> -> . _main_stateMachine 0 `E10583 `ui -> . `E10583 0 `ui 1604  ]
+"469
+[; ;eusartparser.c: 469:                         programmer_enable=1;
 [e = _programmer_enable -> -> 1 `i `a ]
 [e $U 1605  ]
-"463
-[; ;eusartparser.c: 463:                     else{
+"470
+[; ;eusartparser.c: 470:                     else{
 [e :U 1604 ]
 {
-"464
-[; ;eusartparser.c: 464:                         package->data.data16=(uint16_t)2;
+"471
+[; ;eusartparser.c: 471:                         package->data.data16=(uint16_t)2;
 [e = . . *U _package 2 0 -> -> 2 `i `us ]
-"465
-[; ;eusartparser.c: 465:                         write_package(*package);
+"472
+[; ;eusartparser.c: 472:                         write_package(*package);
 [e ( _write_package (1 *U _package ]
-"466
-[; ;eusartparser.c: 466:                         break;
+"473
+[; ;eusartparser.c: 473:                         break;
 [e $U 1595  ]
-"467
-[; ;eusartparser.c: 467:                     }
+"474
+[; ;eusartparser.c: 474:                     }
 }
 [e :U 1605 ]
-"468
-[; ;eusartparser.c: 468:                 }
+"475
+[; ;eusartparser.c: 475:                 }
 }
 [e :U 1603 ]
-"470
-[; ;eusartparser.c: 470:                 package->data.data16=(uint16_t)programmer_enable;
+"477
+[; ;eusartparser.c: 477:                 package->data.data16=(uint16_t)programmer_enable;
 [e = . . *U _package 2 0 -> _programmer_enable `us ]
-"471
-[; ;eusartparser.c: 471:                 write_package(*package);
+"478
+[; ;eusartparser.c: 478:                 write_package(*package);
 [e ( _write_package (1 *U _package ]
-"472
-[; ;eusartparser.c: 472:                 break;
+"479
+[; ;eusartparser.c: 479:                 break;
 [e $U 1595  ]
-"473
-[; ;eusartparser.c: 473:         }
+"480
+[; ;eusartparser.c: 480:             case (uint8_t)3:
+[e :U 1606 ]
+"481
+[; ;eusartparser.c: 481:                 package->functioncode=0x03;
+[e = . *U _package 0 -> -> 3 `i `E10101 ]
+"482
+[; ;eusartparser.c: 482:                 package->address=0x00;
+[e = . *U _package 1 -> -> 0 `i `uc ]
+"483
+[; ;eusartparser.c: 483:                 package->data.data16=0x0001;
+[e = . . *U _package 2 0 -> -> 1 `i `us ]
+"484
+[; ;eusartparser.c: 484:                 write_package(*package);
+[e ( _write_package (1 *U _package ]
+"485
+[; ;eusartparser.c: 485:             default:
+[e :U 1607 ]
+"486
+[; ;eusartparser.c: 486:                 package->functioncode=0x03;
+[e = . *U _package 0 -> -> 3 `i `E10101 ]
+"487
+[; ;eusartparser.c: 487:                 package->address=0x00;
+[e = . *U _package 1 -> -> 0 `i `uc ]
+"488
+[; ;eusartparser.c: 488:                 package->data.data16=0x0000;
+[e = . . *U _package 2 0 -> -> 0 `i `us ]
+"489
+[; ;eusartparser.c: 489:                 write_package(*package);
+[e ( _write_package (1 *U _package ]
+"490
+[; ;eusartparser.c: 490:         }
 }
 [e $U 1595  ]
 [e :U 1596 ]
 [e [\ -> . *U _package 0 `ui , $ -> -> -> 0 `i `uc `ui 1597
  , $ -> -> -> 1 `i `uc `ui 1599
  , $ -> -> -> 2 `i `uc `ui 1601
- 1595 ]
+ , $ -> -> -> 3 `i `uc `ui 1606
+ 1607 ]
 [e :U 1595 ]
-"474
-[; ;eusartparser.c: 474:     }
+"491
+[; ;eusartparser.c: 491:     }
 [e :UE 1594 ]
 }

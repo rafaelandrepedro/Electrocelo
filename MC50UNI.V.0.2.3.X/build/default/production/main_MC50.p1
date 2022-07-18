@@ -109,33 +109,33 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n E11130 . st_MainMenu st_EditParameter st_SaveParameter st_Counter st_SelectRemote st_SaveRemotes st_LearningMode  ]
 "118
 [; ;main_MC50.c: 118:     sm_init(&main_stateMachine,st_standBy,HIST_NONE);
-[c E11219 0 1 2 .. ]
-[n E11219 . st_standBy st_MenuConfiguration st_MotorON  ]
+[c E11226 0 1 2 .. ]
+[n E11226 . st_standBy st_MenuConfiguration st_MotorON  ]
 "119
 [; ;main_MC50.c: 119:     sm_init(&controlGate_stateMachine,st_Idle,HIST_NONE);
-[c E11227 0 1 2 3 4 5 .. ]
-[n E11227 . st_Idle st_Closed st_Opening st_Closing st_Opened st_Learning  ]
+[c E11234 0 1 2 3 4 5 .. ]
+[n E11234 . st_Idle st_Closed st_Opening st_Closing st_Opened st_Learning  ]
 "120
 [; ;main_MC50.c: 120:     sm_init(&controlLearning_stateMachine,st_InitLearning,HIST_NONE);
-[c E11263 0 1 2 3 4 5 .. ]
-[n E11263 . st_InitLearning st_WaitForClosed st_WaitLearnigOpen st_WaitLearnigClose st_WaitForOpened st_WaitForEndLearn  ]
+[c E11270 0 1 2 3 4 5 .. ]
+[n E11270 . st_InitLearning st_WaitForClosed st_WaitLearnigOpen st_WaitLearnigClose st_WaitForOpened st_WaitForEndLearn  ]
 "140
 [; ;main_MC50.c: 140:         struct package_t package;
-[c E11192 0 1 2 .. ]
-[n E11192 functioncode_t READ WRITE PROGRAMMING_ENABLE  ]
+[c E11192 0 1 2 3 4 5 6 7 8 9 .. ]
+[n E11192 functioncode_t READ WRITE PROGRAMMING_ENABLE CONFIRM NUM_COMMANDS NUM_EMPTY_COMMANDS OCCUPIED_POS EMPTY_POS SAVE_COMMAND ERASE_COMMAND  ]
 "29 ./eusartpackage.h
 [; ;./eusartpackage.h: 29:     union packagedata_t{
 [u S1507 `us 1 `uc -> 2 `i ]
 [n S1507 packagedata_t data16 data8 ]
-"46
-[; ;./eusartpackage.h: 46:     struct package_t{
+"53
+[; ;./eusartpackage.h: 53:     struct package_t{
 [s S1508 `E11192 1 `uc 1 `S1507 1 `uc 1 `uc 1 `a 1 ]
 [n S1508 package_t functioncode address data startbyte endbyte valid ]
 "213 ./mcc_generated_files/eusart1.h
 [; ;./mcc_generated_files/eusart1.h: 213: _Bool EUSART1_is_rx_ready(void);
 [v _EUSART1_is_rx_ready `(a ~T0 @X0 0 ef ]
-"72 ./eusartpackage.h
-[; ;./eusartpackage.h: 72:     struct package_t read_package();
+"79 ./eusartpackage.h
+[; ;./eusartpackage.h: 79:     struct package_t read_package();
 [v _read_package `(S1508 ~T0 @X0 0 e? ]
 "30 ./eusartparser.h
 [; ;./eusartparser.h: 30:     void eusartparser(struct package_t* package);
@@ -1700,13 +1700,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _sm_init (3 , , &U _menuConfiguration_stateMachine . `E11130 0 . `E11106 0 ]
 "118
 [; ;main_MC50.c: 118:     sm_init(&main_stateMachine,st_standBy,HIST_NONE);
-[e ( _sm_init (3 , , &U _main_stateMachine . `E11219 0 . `E11106 0 ]
+[e ( _sm_init (3 , , &U _main_stateMachine . `E11226 0 . `E11106 0 ]
 "119
 [; ;main_MC50.c: 119:     sm_init(&controlGate_stateMachine,st_Idle,HIST_NONE);
-[e ( _sm_init (3 , , &U _controlGate_stateMachine . `E11227 0 . `E11106 0 ]
+[e ( _sm_init (3 , , &U _controlGate_stateMachine . `E11234 0 . `E11106 0 ]
 "120
 [; ;main_MC50.c: 120:     sm_init(&controlLearning_stateMachine,st_InitLearning,HIST_NONE);
-[e ( _sm_init (3 , , &U _controlLearning_stateMachine . `E11263 0 . `E11106 0 ]
+[e ( _sm_init (3 , , &U _controlLearning_stateMachine . `E11270 0 . `E11106 0 ]
 "122
 [; ;main_MC50.c: 122:     ts_system.Debug_TS=(1000/50);
 [e = . _ts_system 7 / -> 1000 `i -> 50 `i ]

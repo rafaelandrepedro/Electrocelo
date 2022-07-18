@@ -7,6 +7,13 @@
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "eusartparser.c" 2
+
+
+
+
+
+
+
 # 1 "./eusartparser.h" 1
 # 11 "./eusartparser.h"
 # 1 "./eusartpackage.h" 1
@@ -16991,7 +16998,14 @@ void EUSART1_SetRxInterruptHandler(void (* interruptHandler)(void));
     enum functioncode_t{
         READ=0,
         WRITE=1,
-        PROGRAMMING_ENABLE=2
+        PROGRAMMING_ENABLE=2,
+        CONFIRM=3,
+        NUM_COMMANDS=4,
+        NUM_EMPTY_COMMANDS=5,
+        OCCUPIED_POS=6,
+        EMPTY_POS=7,
+        SAVE_COMMAND=8,
+        ERASE_COMMAND=9,
     };
 
 
@@ -17682,7 +17696,7 @@ void sm_execute_main( sm_t *psm );
     void write_eusartparser(struct package_t package);
 
     void eusartparser(struct package_t* package);
-# 1 "eusartparser.c" 2
+# 8 "eusartparser.c" 2
 
 
 
@@ -18155,5 +18169,15 @@ void sm_execute_main( sm_t *psm );
                 package->data.data16=(uint16_t)programmer_enable;
                 write_package(*package);
                 break;
+            case (uint8_t)3:
+                package->functioncode=0x03;
+                package->address=0x00;
+                package->data.data16=0x0001;
+                write_package(*package);
+            default:
+                package->functioncode=0x03;
+                package->address=0x00;
+                package->data.data16=0x0000;
+                write_package(*package);
         }
     }

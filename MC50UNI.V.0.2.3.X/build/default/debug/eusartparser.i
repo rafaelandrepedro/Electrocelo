@@ -7,6 +7,13 @@
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "eusartparser.c" 2
+
+
+
+
+
+
+
 # 1 "./eusartparser.h" 1
 # 11 "./eusartparser.h"
 # 1 "./eusartpackage.h" 1
@@ -16991,7 +16998,14 @@ void EUSART1_SetRxInterruptHandler(void (* interruptHandler)(void));
     enum functioncode_t{
         READ=0,
         WRITE=1,
-        PROGRAMMING_ENABLE=2
+        PROGRAMMING_ENABLE=2,
+        CONFIRM=3,
+        NUM_COMMANDS=4,
+        NUM_EMPTY_COMMANDS=5,
+        OCCUPIED_POS=6,
+        EMPTY_POS=7,
+        SAVE_COMMAND=8,
+        ERASE_COMMAND=9,
     };
 
 
@@ -17681,8 +17695,10 @@ void sm_execute_main( sm_t *psm );
 
     void write_eusartparser(struct package_t package);
 
+    void confirmpackage(struct package_t* package, _Bool confirm);
+
     void eusartparser(struct package_t* package);
-# 1 "eusartparser.c" 2
+# 8 "eusartparser.c" 2
 
 
 
@@ -18123,11 +18139,23 @@ void sm_execute_main( sm_t *psm );
         }
     }
 
+    void confirmpackage(struct package_t* package, _Bool confirm){
+        init_package(package);
+        package->functioncode=0x03;
+        package->address=0x00;
+        if(confirm==1)
+            package->data.data16=0x0001;
+        else
+            package->data.data16=0x0000;
+    }
+
     void eusartparser(struct package_t* package){
         struct package_t a;
+        uint8_t relcounter;
         switch(package->functioncode){
             case (uint8_t)0:
                 if(programmer_enable)
+                    package->functioncode=0x03;
                     read_eusartparser(package);
                 break;
 
@@ -18155,5 +18183,51 @@ void sm_execute_main( sm_t *psm );
                 package->data.data16=(uint16_t)programmer_enable;
                 write_package(*package);
                 break;
+            case (uint8_t)3:
+                confirmpackage(package, 1);
+                write_package(*package);
+                break;
+            case (uint8_t)4:
+                package->address=0x00;
+                package->data.data16=var_sys_NVM.positionRemotesFull;
+                for(uint8_t i=0;i<var_sys_NVM.positionRemotesFull;i++)
+                if(cmdMemoryIsEmpty(0,i)==1)
+                    package->data.data16--;
+                write_package(*package);
+                break;
+            case (uint8_t)5:
+                package->address=0x00;
+                package->data.data16=0;
+                for(uint8_t i=0;i<var_sys_NVM.positionRemotesFull;i++)
+                if(cmdMemoryIsEmpty(0,i)==1)
+                    package->data.data16++;
+                write_package(*package);
+                break;
+            case (uint8_t)6:
+                relcounter=1;
+                for(uint8_t i=0;i<var_sys_NVM.positionRemotesFull;i++)
+                    if(cmdMemoryIsEmpty(0,i)==0){
+                        package->data.data16=(uint16_t)i;
+                        package->address=relcounter;
+                        relcounter++;
+                        write_package(*package);
+                    }
+                break;
+            case (uint8_t)7:
+                relcounter=1;
+                for(uint8_t i=0;i<var_sys_NVM.positionRemotesFull;i++)
+                    if(cmdMemoryIsEmpty(0,i)==1){
+                        package->data.data16=(uint16_t)i;
+                        package->address=relcounter;
+                        relcounter++;
+                        write_package(*package);
+                    }
+                break;
+
+            default:
+                package->functioncode=0x03;
+                package->address=0x00;
+                package->data.data16=0x0000;
+                write_package(*package);
         }
     }

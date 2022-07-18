@@ -16996,7 +16996,14 @@ void EUSART1_SetRxInterruptHandler(void (* interruptHandler)(void));
     enum functioncode_t{
         READ=0,
         WRITE=1,
-        PROGRAMMING_ENABLE=2
+        PROGRAMMING_ENABLE=2,
+        CONFIRM=3,
+        NUM_COMMANDS=4,
+        NUM_EMPTY_COMMANDS=5,
+        OCCUPIED_POS=6,
+        EMPTY_POS=7,
+        SAVE_COMMAND=8,
+        ERASE_COMMAND=9,
     };
 
 

@@ -17812,7 +17812,14 @@ void EUSART1_SetRxInterruptHandler(void (* interruptHandler)(void));
     enum functioncode_t{
         READ=0,
         WRITE=1,
-        PROGRAMMING_ENABLE=2
+        PROGRAMMING_ENABLE=2,
+        CONFIRM=3,
+        NUM_COMMANDS=4,
+        NUM_EMPTY_COMMANDS=5,
+        OCCUPIED_POS=6,
+        EMPTY_POS=7,
+        SAVE_COMMAND=8,
+        ERASE_COMMAND=9,
     };
 
 
@@ -19059,24 +19066,32 @@ char setValueToEdit(menuLists_en menuType, char ParameterSelected ){
 
         case S_Menu:
         {
+            static unsigned char value=0;
             switch (ParameterSelected)
             {
                 case 0:
                 {
-                    edit_Param.Value=(unsigned char*)&var_sys_NVM.positionRemotesFull;
+      edit_Param.Value=&value;
+                    for(unsigned char posindex=0; posindex <= *(unsigned char*)&var_sys_NVM.positionRemotesFull; posindex++)
+                    {
+                        value=posindex;
+                        if(cmdMemoryIsEmpty(menu_st.parameterSelected, posindex))
+                            break;
+                    }
+                    edit_Param.Max=*(unsigned char*)&var_sys_NVM.positionRemotesFull;
                 }
                 break;
                 case 1:
                 {
                     edit_Param.Value=(unsigned char*)&var_sys_NVM.positionRemotesWalk;
+                    edit_Param.Max=*(unsigned char*)&var_sys_NVM.positionRemotesWalk;
                 }
                 break;
             }
-            edit_Param.Max=edit_Param.Value[0];
-            edit_Param.position=0;
+            edit_Param.position=*edit_Param.Value;
             edit_Param.Min=0;
             haveValueToEdit=1;
-            edit_Param.tempValue= edit_Param.Value[0];
+            edit_Param.tempValue=*edit_Param.Value;
             InitReceiver();
         }
         break;
@@ -19160,6 +19175,8 @@ void controlSelectRemote(void) {
         if(validSerial==0&&(typeRemote==Keeloq_RollingCode || (var_sys_NVM.OnlyRollingCode==NO)))
         {
             saveNewSerial(menu_st.parameterSelected,tempSerial,edit_Param.tempValue);
+            if(edit_Param.tempValue==var_sys_NVM.positionRemotesFull&&var_sys_NVM.positionRemotesFull<99)
+                var_sys_NVM.positionRemotesFull++;
             sm_send_event(&menuConfiguration_stateMachine, ev_addRemotes);
             var_sys.DistanceProgrammingActive=NO;
             var_sys.ProgrammingDistanceIs=NoCMD;

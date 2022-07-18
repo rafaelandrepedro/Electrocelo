@@ -1,3 +1,10 @@
+/* 
+ * File:   eusartparser.c
+ * Author: rafael pedro
+ *
+ * Created on July 14, 2022, 12:18 AM
+ */
+
 #include "eusartparser.h"
 #include "sm_common.h"
 #include "sm_Main.h"
@@ -438,11 +445,23 @@
         }      
     }
     
+    void confirmpackage(struct package_t* package, bool confirm){
+        init_package(package);
+        package->functioncode=0x03;
+        package->address=0x00;
+        if(confirm==TRUE)
+            package->data.data16=0x0001;
+        else
+            package->data.data16=0x0000;
+    }
+    
     void eusartparser(struct package_t* package){
         struct package_t a;
+        uint8_t relcounter;
         switch(package->functioncode){
             case (uint8_t)0://READ
                 if(programmer_enable)
+                    package->functioncode=0x03;
                     read_eusartparser(package);
                 break;
                 
@@ -470,5 +489,51 @@
                 package->data.data16=(uint16_t)programmer_enable;
                 write_package(*package);
                 break;
+            case (uint8_t)3://CONFIRM
+                confirmpackage(package, TRUE);
+                write_package(*package);
+                break;
+            case (uint8_t)4://NUM_COMMANDS
+                package->address=0x00;
+                package->data.data16=var_sys_NVM.positionRemotesFull;
+                for(uint8_t i=0;i<var_sys_NVM.positionRemotesFull;i++)
+                if(cmdMemoryIsEmpty(0,i)==TRUE)
+                    package->data.data16--;
+                write_package(*package);
+                break;
+            case (uint8_t)5://NUM_EMPTY_COMMANDS
+                package->address=0x00;
+                package->data.data16=0;
+                for(uint8_t i=0;i<var_sys_NVM.positionRemotesFull;i++)
+                if(cmdMemoryIsEmpty(0,i)==TRUE)
+                    package->data.data16++;
+                write_package(*package);
+                break;
+            case (uint8_t)6://OCCUPIED_POS
+                relcounter=1;
+                for(uint8_t i=0;i<var_sys_NVM.positionRemotesFull;i++)
+                    if(cmdMemoryIsEmpty(0,i)==FALSE){
+                        package->data.data16=(uint16_t)i;
+                        package->address=relcounter;
+                        relcounter++;
+                        write_package(*package);
+                    }
+                break;
+            case (uint8_t)7://EMPTY_POS
+                relcounter=1;
+                for(uint8_t i=0;i<var_sys_NVM.positionRemotesFull;i++)
+                    if(cmdMemoryIsEmpty(0,i)==TRUE){
+                        package->data.data16=(uint16_t)i;
+                        package->address=relcounter;
+                        relcounter++;
+                        write_package(*package);
+                    }
+                break;
+                
+            default:
+                package->functioncode=0x03;
+                package->address=0x00;
+                package->data.data16=0x0000;
+                write_package(*package);
         }       
     }

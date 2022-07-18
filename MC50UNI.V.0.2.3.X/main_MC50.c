@@ -136,7 +136,7 @@ void main(void)
     {
         //uint8_t a=EUSART1_Read();
         //EUSART1_Write(a);
-        //EUSART1_Write(a);
+        //EUSART1_Write('A');
         struct package_t package;
         if(EUSART1_is_rx_ready()){
             package=read_package();

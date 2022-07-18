@@ -13,8 +13,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n E10563 . ev_NULL ev_ParameterIsSelected ev_ParameterIsEdited ev_CancelEdition ev_ParameterIsSaved ev_showCounter ev_goto_MenuConfig ev_goto_StandBy ev_addRemotes ev_NextRemote ev_GateClosed ev_GateOpened ev_OpenGate ev_StopGate ev_CloseGate ev_ClosedGate ev_ErrorGate ev_MotorIsOpen ev_ErrorLearning ev_LearningComplete ev_SartLearning  ]
 "37
 [; ;sm_Main_MC50.c: 37:                     psm->current_state = st_MenuConfiguration;
-[c E10903 0 1 2 .. ]
-[n E10903 . st_standBy st_MenuConfiguration st_MotorON  ]
+[c E10910 0 1 2 .. ]
+[n E10910 . st_standBy st_MenuConfiguration st_MotorON  ]
 "125 ./sm_common.h
 [; ;./sm_common.h: 125: void sm_send_event(sm_t *psm, int event);
 [v _sm_send_event `(v ~T0 @X0 0 ef2`*S1494`i ]
@@ -30,11 +30,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _button_struct `VS1499 ~T0 @X0 0 e ]
 "88
 [; ;sm_Main_MC50.c: 88:                 load_New_Menu(E_Menu);
-[c E10928 0 1 2 3 4 5 6 7 8 9 10 11 12 13 .. ]
-[n E10928 . P_Menu E_Menu Direction_Menu TypeMotor_Menu P0_SMenu P1_SMenu P2_SMenu P4_SMenu P5_SMenu P6_SMenu E0_SMenu E1_SMenu S_Menu Del_Menu  ]
+[c E10935 0 1 2 3 4 5 6 7 8 9 10 11 12 13 .. ]
+[n E10935 . P_Menu E_Menu Direction_Menu TypeMotor_Menu P0_SMenu P1_SMenu P2_SMenu P4_SMenu P5_SMenu P6_SMenu E0_SMenu E1_SMenu S_Menu Del_Menu  ]
 "86 ./sm_MenuConfiguration.h
 [; ;./sm_MenuConfiguration.h: 86: void load_New_Menu(menuLists_en Menu);
-[v _load_New_Menu `(v ~T0 @X0 0 ef1`E10928 ]
+[v _load_New_Menu `(v ~T0 @X0 0 ef1`E10935 ]
 "215 ./outputs.h
 [; ;./outputs.h: 215:     void SetSegmentValueMain(char d1, char d2);
 [v _SetSegmentValueMain `(v ~T0 @X0 0 ef2`uc`uc ]
@@ -84,8 +84,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _controlGate_stateMachine `S1494 ~T0 @X0 0 e ]
 "176
 [; ;sm_Main_MC50.c: 176:             if ( controlGate_stateMachine.current_state == st_Opened )
-[c E10970 0 1 2 3 4 5 .. ]
-[n E10970 . st_Idle st_Closed st_Opening st_Closing st_Opened st_Learning  ]
+[c E10977 0 1 2 3 4 5 .. ]
+[n E10977 . st_Idle st_Closed st_Opening st_Closing st_Opened st_Learning  ]
 "107 ./main.h
 [; ;./main.h: 107: {
 [s S1491 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `ul 1 `uc 1 `uc 1 `ul 1 `ul 1 `ui 1 `ui 1 `ul 1 `ul 1 `uc 1 `uc 1 `uc 1 `uc 1 ]
@@ -1528,7 +1528,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "37
 [; ;sm_Main_MC50.c: 37:                     psm->current_state = st_MenuConfiguration;
-[e = . *U _psm 0 -> . `E10903 1 `i ]
+[e = . *U _psm 0 -> . `E10910 1 `i ]
 "38
 [; ;sm_Main_MC50.c: 38:                 }
 }
@@ -1542,7 +1542,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "41
 [; ;sm_Main_MC50.c: 41:                     psm->current_state = st_MotorON;
-[e = . *U _psm 0 -> . `E10903 2 `i ]
+[e = . *U _psm 0 -> . `E10910 2 `i ]
 "42
 [; ;sm_Main_MC50.c: 42:                 }
 }
@@ -1569,7 +1569,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "49
 [; ;sm_Main_MC50.c: 49:                 psm->current_state = st_standBy;
-[e = . *U _psm 0 -> . `E10903 0 `i ]
+[e = . *U _psm 0 -> . `E10910 0 `i ]
 "50
 [; ;sm_Main_MC50.c: 50:             }
 }
@@ -1594,7 +1594,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "57
 [; ;sm_Main_MC50.c: 57:                 psm->current_state = st_standBy;
-[e = . *U _psm 0 -> . `E10903 0 `i ]
+[e = . *U _psm 0 -> . `E10910 0 `i ]
 "58
 [; ;sm_Main_MC50.c: 58:             }
 }
@@ -1608,7 +1608,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "63
 [; ;sm_Main_MC50.c: 63:                 psm->current_state = st_MenuConfiguration;
-[e = . *U _psm 0 -> . `E10903 1 `i ]
+[e = . *U _psm 0 -> . `E10910 1 `i ]
 "64
 [; ;sm_Main_MC50.c: 64:             }
 }
@@ -1649,9 +1649,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 1510  ]
 [e :U 1511 ]
-[e [\ -> -> . *U _psm 0 `E10903 `ui , $ -> . `E10903 0 `ui 1512
- , $ -> . `E10903 1 `ui 1517
- , $ -> . `E10903 2 `ui 1519
+[e [\ -> -> . *U _psm 0 `E10910 `ui , $ -> . `E10910 0 `ui 1512
+ , $ -> . `E10910 1 `ui 1517
+ , $ -> . `E10910 2 `ui 1519
  1523 ]
 [e :U 1510 ]
 "77
@@ -1677,7 +1677,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "88
 [; ;sm_Main_MC50.c: 88:                 load_New_Menu(E_Menu);
-[e ( _load_New_Menu (1 . `E10928 1 ]
+[e ( _load_New_Menu (1 . `E10935 1 ]
 "89
 [; ;sm_Main_MC50.c: 89:                 sm_send_event(&main_stateMachine, ev_goto_MenuConfig);
 [e ( _sm_send_event (2 , &U _main_stateMachine . `E10563 6 ]
@@ -1717,7 +1717,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "102
 [; ;sm_Main_MC50.c: 102:                 load_New_Menu(P_Menu);
-[e ( _load_New_Menu (1 . `E10928 0 ]
+[e ( _load_New_Menu (1 . `E10935 0 ]
 "103
 [; ;sm_Main_MC50.c: 103:                 sm_send_event(&main_stateMachine, ev_goto_MenuConfig);
 [e ( _sm_send_event (2 , &U _main_stateMachine . `E10563 6 ]
@@ -1740,7 +1740,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "110
 [; ;sm_Main_MC50.c: 110:                 load_New_Menu(Del_Menu);
-[e ( _load_New_Menu (1 . `E10928 13 ]
+[e ( _load_New_Menu (1 . `E10935 13 ]
 "111
 [; ;sm_Main_MC50.c: 111:                 sm_send_event(&main_stateMachine, ev_goto_MenuConfig);
 [e ( _sm_send_event (2 , &U _main_stateMachine . `E10563 6 ]
@@ -1780,7 +1780,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "123
 [; ;sm_Main_MC50.c: 123:                 load_New_Menu(S_Menu);
-[e ( _load_New_Menu (1 . `E10928 12 ]
+[e ( _load_New_Menu (1 . `E10935 12 ]
 "124
 [; ;sm_Main_MC50.c: 124:                 sm_send_event(&main_stateMachine, ev_goto_MenuConfig);
 [e ( _sm_send_event (2 , &U _main_stateMachine . `E10563 6 ]
@@ -1854,7 +1854,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "145
 [; ;sm_Main_MC50.c: 145:                 load_New_Menu(S_Menu);
-[e ( _load_New_Menu (1 . `E10928 12 ]
+[e ( _load_New_Menu (1 . `E10935 12 ]
 "146
 [; ;sm_Main_MC50.c: 146:                 sm_send_event(&main_stateMachine, ev_goto_MenuConfig);
 [e ( _sm_send_event (2 , &U _main_stateMachine . `E10563 6 ]
@@ -1945,7 +1945,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _aux_in_auto_close -> . `E10397 0 `uc ]
 "176
 [; ;sm_Main_MC50.c: 176:             if ( controlGate_stateMachine.current_state == st_Opened )
-[e $ ! == . _controlGate_stateMachine 0 -> . `E10970 4 `i 1555  ]
+[e $ ! == . _controlGate_stateMachine 0 -> . `E10977 4 `i 1555  ]
 "177
 [; ;sm_Main_MC50.c: 177:             {
 {
@@ -1993,7 +1993,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 1555 ]
 "193
 [; ;sm_Main_MC50.c: 193:             if(var_sys.StateMotor==Stopped && ( (controlGate_stateMachine.current_state==st_Opened && aux_in_auto_close==NO) || controlGate_stateMachine.current_state==st_Closed || controlGate_stateMachine.current_state==st_Idle ) )
-[e $ ! && == -> . _var_sys 0 `ui -> . `E10381 0 `ui || || && == . _controlGate_stateMachine 0 -> . `E10970 4 `i == -> _aux_in_auto_close `i -> . `E10397 0 `i == . _controlGate_stateMachine 0 -> . `E10970 1 `i == . _controlGate_stateMachine 0 -> . `E10970 0 `i 1560  ]
+[e $ ! && == -> . _var_sys 0 `ui -> . `E10381 0 `ui || || && == . _controlGate_stateMachine 0 -> . `E10977 4 `i == -> _aux_in_auto_close `i -> . `E10397 0 `i == . _controlGate_stateMachine 0 -> . `E10977 1 `i == . _controlGate_stateMachine 0 -> . `E10977 0 `i 1560  ]
 "194
 [; ;sm_Main_MC50.c: 194:             {
 {
@@ -2005,7 +2005,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "197
 [; ;sm_Main_MC50.c: 197:                     load_New_Menu(E_Menu);
-[e ( _load_New_Menu (1 . `E10928 1 ]
+[e ( _load_New_Menu (1 . `E10935 1 ]
 "198
 [; ;sm_Main_MC50.c: 198:                     sm_send_event(&main_stateMachine, ev_goto_MenuConfig);
 [e ( _sm_send_event (2 , &U _main_stateMachine . `E10563 6 ]
@@ -2045,7 +2045,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "210
 [; ;sm_Main_MC50.c: 210:                     load_New_Menu(P_Menu);
-[e ( _load_New_Menu (1 . `E10928 0 ]
+[e ( _load_New_Menu (1 . `E10935 0 ]
 "212
 [; ;sm_Main_MC50.c: 212:                     button_struct.processed=1;
 [e = . _button_struct 3 -> -> 1 `i `uc ]
@@ -2054,7 +2054,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _temp -> -> 0 `i `uc ]
 "214
 [; ;sm_Main_MC50.c: 214:                     main_stateMachine.current_state = st_MenuConfiguration;
-[e = . _main_stateMachine 0 -> . `E10903 1 `i ]
+[e = . _main_stateMachine 0 -> . `E10910 1 `i ]
 "215
 [; ;sm_Main_MC50.c: 215:                     return;
 [e $UE 1509  ]
@@ -2071,7 +2071,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "220
 [; ;sm_Main_MC50.c: 220:                 load_New_Menu(Del_Menu);
-[e ( _load_New_Menu (1 . `E10928 13 ]
+[e ( _load_New_Menu (1 . `E10935 13 ]
 "221
 [; ;sm_Main_MC50.c: 221:                 sm_send_event(&main_stateMachine, ev_goto_MenuConfig);
 [e ( _sm_send_event (2 , &U _main_stateMachine . `E10563 6 ]
@@ -2111,7 +2111,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "233
 [; ;sm_Main_MC50.c: 233:                 load_New_Menu(S_Menu);
-[e ( _load_New_Menu (1 . `E10928 12 ]
+[e ( _load_New_Menu (1 . `E10935 12 ]
 "234
 [; ;sm_Main_MC50.c: 234:                 sm_send_event(&main_stateMachine, ev_goto_MenuConfig);
 [e ( _sm_send_event (2 , &U _main_stateMachine . `E10563 6 ]
@@ -2185,7 +2185,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "261
 [; ;sm_Main_MC50.c: 261:                 else if(var_sys.StateMotor==Stopped && controlGate_stateMachine.current_state==st_Closed)
 [e :U 1575 ]
-[e $ ! && == -> . _var_sys 0 `ui -> . `E10381 0 `ui == . _controlGate_stateMachine 0 -> . `E10970 1 `i 1577  ]
+[e $ ! && == -> . _var_sys 0 `ui -> . `E10381 0 `ui == . _controlGate_stateMachine 0 -> . `E10977 1 `i 1577  ]
 "262
 [; ;sm_Main_MC50.c: 262:                 {
 {
@@ -2199,7 +2199,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "265
 [; ;sm_Main_MC50.c: 265:                 else if(var_sys.StateMotor==Stopped && controlGate_stateMachine.current_state==st_Opened)
 [e :U 1577 ]
-[e $ ! && == -> . _var_sys 0 `ui -> . `E10381 0 `ui == . _controlGate_stateMachine 0 -> . `E10970 4 `i 1579  ]
+[e $ ! && == -> . _var_sys 0 `ui -> . `E10381 0 `ui == . _controlGate_stateMachine 0 -> . `E10977 4 `i 1579  ]
 "266
 [; ;sm_Main_MC50.c: 266:                 {
 {
@@ -2323,9 +2323,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 1527  ]
 [e :U 1528 ]
-[e [\ -> -> . *U _psm 0 `E10903 `ui , $ -> . `E10903 0 `ui 1529
- , $ -> . `E10903 1 `ui 1553
- , $ -> . `E10903 2 `ui 1554
+[e [\ -> -> . *U _psm 0 `E10910 `ui , $ -> . `E10910 0 `ui 1529
+ , $ -> . `E10910 1 `ui 1553
+ , $ -> . `E10910 2 `ui 1554
  1527 ]
 [e :U 1527 ]
 "320

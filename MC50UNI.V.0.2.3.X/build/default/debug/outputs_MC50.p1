@@ -99,8 +99,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _main_stateMachine `S1502 ~T0 @X0 0 e ]
 "204
 [; ;outputs_MC50.c: 204:     if ( main_stateMachine.current_state != st_MenuConfiguration && (ts_system.timeoutMenu == 0 && button_struct.timer < (1000/50)))
-[c E10929 0 1 2 .. ]
-[n E10929 . st_standBy st_MenuConfiguration st_MotorON  ]
+[c E10939 0 1 2 .. ]
+[n E10939 . st_standBy st_MenuConfiguration st_MotorON  ]
 "76 ./inputs.h
 [; ;./inputs.h: 76: {
 [s S1498 `uc 1 `uc 1 `uc 1 `uc 1 ]
@@ -2345,7 +2345,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "204
 [; ;outputs_MC50.c: 204:     if ( main_stateMachine.current_state != st_MenuConfiguration && (ts_system.timeoutMenu == 0 && button_struct.timer < (1000/50)))
-[e $ ! && != . _main_stateMachine 0 -> . `E10929 1 `i && == . _ts_system 10 -> 0 `i < -> . _button_struct 2 `i / -> 1000 `i -> 50 `i 1567  ]
+[e $ ! && != . _main_stateMachine 0 -> . `E10939 1 `i && == . _ts_system 10 -> 0 `i < -> . _button_struct 2 `i / -> 1000 `i -> 50 `i 1567  ]
 "205
 [; ;outputs_MC50.c: 205:     {
 {
