@@ -17610,7 +17610,7 @@ TypeCMD DecryptPacket_12BIT (char* data,classic_encoder_t* classic_data);
     signed long getTimeDecelaration(stateMotor_enum state);
     void ControlDecelarationFactor();
 # 11 "./inputs.h" 2
-# 75 "./inputs.h"
+# 76 "./inputs.h"
 typedef struct
 {
  unsigned char old;

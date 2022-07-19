@@ -17540,7 +17540,7 @@ void sm_send_event(sm_t *psm, int event);
 # 8 "sm_MenuConfiguration_MC50.c" 2
 
 # 1 "./inputs.h" 1
-# 75 "./inputs.h"
+# 76 "./inputs.h"
 typedef struct
 {
  unsigned char old;
@@ -17895,6 +17895,8 @@ void ControlCounterMoves(void);
 # 21 "./eusartparser.h"
     extern volatile varSystem_NVM var_sys_NVM;
     extern volatile char RFFull;
+    extern volatile varSystem var_sys;
+
     _Bool programmer_enable=0;
 
     void read_eusartparser(struct package_t* package);
@@ -18197,7 +18199,7 @@ void sm_execute_menuConfiguration( sm_t *psm ) {
             }
             else if( menu_st.actualMenu<S_Menu )
             {
-                if (button_struct.current==0 && button_struct.timer>(( 500/50)) )
+                if (button_struct.current==0x27 && button_struct.timer>(( 500/50)) )
                 {
                     ts_system.timeoutMenu=((1000/50)*5) ;
 
@@ -18240,7 +18242,7 @@ void sm_execute_menuConfiguration( sm_t *psm ) {
                     button_struct.processed=1;
                 }
             }
-            else if (button_struct.current==0x27 && button_struct.timer>( 500/50) && menu_st.actualMenu!=Del_Menu )
+            else if (button_struct.current==0x07 && button_struct.timer>( 500/50) && menu_st.actualMenu!=Del_Menu )
             {
                     ts_system.timeoutMenu=((1000/50)*5);
                     if (setValueToEdit(menu_st.actualMenu,menu_st.parameterSelected))
@@ -18313,7 +18315,7 @@ void sm_execute_menuConfiguration( sm_t *psm ) {
                 }
                 button_struct.processed=1;
             }
-            else if (button_struct.current==0 && button_struct.timer>=(( 500/50)))
+            else if (button_struct.current==0x27 && button_struct.timer>=(( 500/50)))
             {
                 ts_system.timeoutMenu=((1000/50)*5) ;
 
@@ -19209,7 +19211,7 @@ void controlSelectRemote(void) {
 
         }
     }
-    else if(edit_Param.tempValue!=edit_Param.Max && (button_struct.current==0x27 && button_struct.timer>=((1000/50)*2)))
+    else if(edit_Param.tempValue!=edit_Param.Max && (button_struct.current==0x07 && button_struct.timer>=((1000/50)*2)))
     {
         ts_system.timeoutMenu=((1000/50)*5) ;
         RemoveSerial(menu_st.parameterSelected,edit_Param.tempValue);

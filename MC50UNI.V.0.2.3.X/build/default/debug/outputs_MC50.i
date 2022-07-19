@@ -17476,7 +17476,7 @@ void ShowVersion(void);
     signed long getTimeDecelaration(stateMotor_enum state);
     void ControlDecelarationFactor();
 # 11 "./inputs.h" 2
-# 75 "./inputs.h"
+# 76 "./inputs.h"
 typedef struct
 {
  unsigned char old;
@@ -17915,6 +17915,8 @@ void EUSART1_SetRxInterruptHandler(void (* interruptHandler)(void));
 # 21 "./eusartparser.h"
     extern volatile varSystem_NVM var_sys_NVM;
     extern volatile char RFFull;
+    extern volatile varSystem var_sys;
+
     _Bool programmer_enable=0;
 
     void read_eusartparser(struct package_t* package);

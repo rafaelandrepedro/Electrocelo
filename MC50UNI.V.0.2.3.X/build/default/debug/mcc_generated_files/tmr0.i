@@ -17353,7 +17353,7 @@ void ShowVersion(void);
     signed long getTimeDecelaration(stateMotor_enum state);
     void ControlDecelarationFactor();
 # 11 "mcc_generated_files/../inputs.h" 2
-# 75 "mcc_generated_files/../inputs.h"
+# 76 "mcc_generated_files/../inputs.h"
 typedef struct
 {
  unsigned char old;

@@ -1,10 +1,10 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"103 ./inputs.h
-[; ;./inputs.h: 103: {
+"104 ./inputs.h
+[; ;./inputs.h: 104: {
 [s S1501 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 ]
 [n S1501 . FimdeCursoOpenAUX FimdeCursoOpenOLD FimdeCursoOpenTimer FimdeCursoCloseAUX FimdeCursoCloseOLD FimdeCursoCloseTimer ]
-"114
-[; ;./inputs.h: 114: {
+"115
+[; ;./inputs.h: 115: {
 [s S1502 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 ]
 [n S1502 . PhotoCellAUX PhotoCellOLD PhotoCellTimer SecurityBarAUX SecurityBarOLD SecurityBarTimer SecurityBarSTATE SecurityBar8K2AUX SecurityBar8K2OLD SecurityBar8K2Timer SecurityBar8K2STATE ]
 "39 inputs_MC50.c
@@ -64,8 +64,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "37 inputs_MC50.c
 [; ;inputs_MC50.c: 37: extern volatile varSystem var_sys;
 [v _var_sys `VS1493 ~T0 @X0 0 e ]
-"90 ./inputs.h
-[; ;./inputs.h: 90: {
+"91 ./inputs.h
+[; ;./inputs.h: 91: {
 [s S1500 `uc 1 `uc 1 `ul 1 `ui 1 `uc 1 `uc 1 `uc 1 ]
 [n S1500 . currentType currentKey currentSerial currentRolling currentPosMem timer processed ]
 "35 inputs_MC50.c
@@ -85,8 +85,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;inputs_MC50.c: 337:             SetSegmentValueIntermitentMain(dL,d1,(1000/50));
 [c E10729 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 .. ]
 [n E10729 DispValue_enum d0 d1 d2 d3 d4 d5 d6 d7 d8 d9 dA dB dC dd dE dF dP dH dL dU dr dt du dM dMinus dBar sA sB sC sD sE sF dBlank dy db dc dq dSize  ]
-"76 ./inputs.h
-[; ;./inputs.h: 76: {
+"77 ./inputs.h
+[; ;./inputs.h: 77: {
 [s S1499 `uc 1 `uc 1 `uc 1 `uc 1 ]
 [n S1499 . old current timer processed ]
 "34 inputs_MC50.c

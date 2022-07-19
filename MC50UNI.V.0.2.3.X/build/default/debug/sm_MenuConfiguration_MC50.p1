@@ -67,8 +67,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "218 ./outputs.h
 [; ;./outputs.h: 218:     void SetSegmentValueIntermitentMain(char d1, char d2,int time);
 [v _SetSegmentValueIntermitentMain `(v ~T0 @X0 0 ef3`uc`uc`i ]
-"76 ./inputs.h
-[; ;./inputs.h: 76: {
+"77 ./inputs.h
+[; ;./inputs.h: 77: {
 [s S1499 `uc 1 `uc 1 `uc 1 `uc 1 ]
 [n S1499 . old current timer processed ]
 "22 sm_MenuConfiguration_MC50.c
@@ -91,8 +91,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;sm_MenuConfiguration_MC50.c: 219:                     SetSegmentValueMain(dMinus,dMinus);
 [c E10610 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 .. ]
 [n E10610 DispValue_enum d0 d1 d2 d3 d4 d5 d6 d7 d8 d9 dA dB dC dd dE dF dP dH dL dU dr dt du dM dMinus dBar sA sB sC sD sE sF dBlank dy db dc dq dSize  ]
-"140 ./inputs.h
-[; ;./inputs.h: 140: void ClearFlag_rfCMD();
+"141 ./inputs.h
+[; ;./inputs.h: 141: void ClearFlag_rfCMD();
 [v _ClearFlag_rfCMD `(v ~T0 @X0 0 e? ]
 "86 ./sm_MenuConfiguration.h
 [; ;./sm_MenuConfiguration.h: 86: void load_New_Menu(menuLists_en Menu);
@@ -126,11 +126,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "114 ./controlMemory.h
 [; ;./controlMemory.h: 114: char cmdMemoryIsEmpty(char cmdType, char position);
 [v _cmdMemoryIsEmpty `(uc ~T0 @X0 0 ef2`uc`uc ]
-"135 ./inputs.h
-[; ;./inputs.h: 135: void InitReceiver();
+"136 ./inputs.h
+[; ;./inputs.h: 136: void InitReceiver();
 [v _InitReceiver `(v ~T0 @X0 0 e? ]
-"137
-[; ;./inputs.h: 137: signed char getSerialCmd(unsigned long* serial);
+"138
+[; ;./inputs.h: 138: signed char getSerialCmd(unsigned long* serial);
 [v _getSerialCmd `(c ~T0 @X0 0 ef1`*ul ]
 "216 ./outputs.h
 [; ;./outputs.h: 216:     void SetSegmentValue(char d1, char d2);
@@ -142,8 +142,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;sm_MenuConfiguration_MC50.c: 1174:         TypeRemote_st typeRemote = getTypeRemote();
 [c E10392 0 1 2 .. ]
 [n E10392 . Keeloq_RollingCode Keeloq_NoRollingCode DIP_12BIT  ]
-"138 ./inputs.h
-[; ;./inputs.h: 138: TypeRemote_st getTypeRemote();
+"139 ./inputs.h
+[; ;./inputs.h: 139: TypeRemote_st getTypeRemote();
 [v _getTypeRemote `(E10392 ~T0 @X0 0 e? ]
 "111 ./controlMemory.h
 [; ;./controlMemory.h: 111: void saveNewSerial(char cmdType,unsigned long tempSerial, char position);
@@ -1544,8 +1544,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "28199
 [; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f46k40.h: 28199: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"23 ./eusartparser.h
-[; ;./eusartparser.h: 23:     _Bool programmer_enable=0;
+"25 ./eusartparser.h
+[; ;./eusartparser.h: 25:     _Bool programmer_enable=0;
 [v _programmer_enable `a ~T0 @X0 1 e ]
 [i _programmer_enable
 -> -> 0 `i `a
@@ -2075,8 +2075,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;sm_MenuConfiguration_MC50.c: 194:             {
 {
 "195
-[; ;sm_MenuConfiguration_MC50.c: 195:                 if (button_struct.current==0 && button_struct.timer>(( 500/50)) )
-[e $ ! && == -> . _button_struct 1 `i -> 0 `i > -> . _button_struct 2 `i / -> 500 `i -> 50 `i 1560  ]
+[; ;sm_MenuConfiguration_MC50.c: 195:                 if (button_struct.current==0x27 && button_struct.timer>(( 500/50)) )
+[e $ ! && == -> . _button_struct 1 `i -> 39 `i > -> . _button_struct 2 `i / -> 500 `i -> 50 `i 1560  ]
 "196
 [; ;sm_MenuConfiguration_MC50.c: 196:                 {
 {
@@ -2196,9 +2196,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 1570  ]
 "238
-[; ;sm_MenuConfiguration_MC50.c: 238:             else if (button_struct.current==0x27 && button_struct.timer>( 500/50) && menu_st.actualMenu!=Del_Menu )
+[; ;sm_MenuConfiguration_MC50.c: 238:             else if (button_struct.current==0x07 && button_struct.timer>( 500/50) && menu_st.actualMenu!=Del_Menu )
 [e :U 1559 ]
-[e $ ! && && == -> . _button_struct 1 `i -> 39 `i > -> . _button_struct 2 `i / -> 500 `i -> 50 `i != -> . _menu_st 2 `ui -> . `E10813 13 `ui 1571  ]
+[e $ ! && && == -> . _button_struct 1 `i -> 7 `i > -> . _button_struct 2 `i / -> 500 `i -> 50 `i != -> . _menu_st 2 `ui -> . `E10813 13 `ui 1571  ]
 "239
 [; ;sm_MenuConfiguration_MC50.c: 239:             {
 {
@@ -2431,9 +2431,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 1588  ]
 "311
-[; ;sm_MenuConfiguration_MC50.c: 311:             else if (button_struct.current==0 && button_struct.timer>=(( 500/50)))
+[; ;sm_MenuConfiguration_MC50.c: 311:             else if (button_struct.current==0x27 && button_struct.timer>=(( 500/50)))
 [e :U 1584 ]
-[e $ ! && == -> . _button_struct 1 `i -> 0 `i >= -> . _button_struct 2 `i / -> 500 `i -> 50 `i 1589  ]
+[e $ ! && == -> . _button_struct 1 `i -> 39 `i >= -> . _button_struct 2 `i / -> 500 `i -> 50 `i 1589  ]
 "312
 [; ;sm_MenuConfiguration_MC50.c: 312:             {
 {
@@ -3855,7 +3855,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "807
 [; ;sm_MenuConfiguration_MC50.c: 807:                     haveValueToEdit=1;
 [e = _haveValueToEdit -> -> 1 `i `uc ]
-[v F11057 `*uc ~T0 @X0 1 t ]
+[v F11058 `*uc ~T0 @X0 1 t ]
 "808
 [; ;sm_MenuConfiguration_MC50.c: 808:                     edit_Param.Value = 0;
 [e = . _edit_Param 1 -> -> 0 `i `V*uc ]
@@ -4635,8 +4635,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "1064
 [; ;sm_MenuConfiguration_MC50.c: 1064:             static unsigned char value=0;
-[v F11085 `uc ~T0 @X0 1 s value ]
-[i F11085
+[v F11086 `uc ~T0 @X0 1 s value ]
+[i F11086
 -> -> 0 `i `uc
 ]
 "1065
@@ -4653,7 +4653,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "1069
 [; ;sm_MenuConfiguration_MC50.c: 1069:       edit_Param.Value=&value;
-[e = . _edit_Param 1 &U F11085 ]
+[e = . _edit_Param 1 &U F11086 ]
 "1070
 [; ;sm_MenuConfiguration_MC50.c: 1070:                     for(unsigned char posindex=0; posindex <= *(unsigned char*)&var_sys_NVM.positionRemotesFull; posindex++)
 {
@@ -4666,7 +4666,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "1072
 [; ;sm_MenuConfiguration_MC50.c: 1072:                         value=posindex;
-[e = F11085 _posindex ]
+[e = F11086 _posindex ]
 "1073
 [; ;sm_MenuConfiguration_MC50.c: 1073:                         if(cmdMemoryIsEmpty(menu_st.parameterSelected, posindex))
 [e $ ! != -> ( _cmdMemoryIsEmpty (2 , . _menu_st 4 -> _posindex `uc `i -> 0 `i 1725  ]
@@ -4709,7 +4709,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "1083
 [; ;sm_MenuConfiguration_MC50.c: 1083:                         value=posindex;
-[e = F11085 _posindex ]
+[e = F11086 _posindex ]
 "1084
 [; ;sm_MenuConfiguration_MC50.c: 1084:                         if(cmdMemoryIsEmpty(menu_st.parameterSelected, posindex))
 [e $ ! != -> ( _cmdMemoryIsEmpty (2 , . _menu_st 4 -> _posindex `uc `i -> 0 `i 1731  ]
@@ -5101,9 +5101,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 1756  ]
 "1207
-[; ;sm_MenuConfiguration_MC50.c: 1207:     else if(edit_Param.tempValue!=edit_Param.Max && (button_struct.current==0x27 && button_struct.timer>=((1000/50)*2)))
+[; ;sm_MenuConfiguration_MC50.c: 1207:     else if(edit_Param.tempValue!=edit_Param.Max && (button_struct.current==0x07 && button_struct.timer>=((1000/50)*2)))
 [e :U 1750 ]
-[e $ ! && != -> . _edit_Param 2 `i -> . _edit_Param 3 `i && == -> . _button_struct 1 `i -> 39 `i >= -> . _button_struct 2 `i * / -> 1000 `i -> 50 `i -> 2 `i 1757  ]
+[e $ ! && != -> . _edit_Param 2 `i -> . _edit_Param 3 `i && == -> . _button_struct 1 `i -> 7 `i >= -> . _button_struct 2 `i * / -> 1000 `i -> 50 `i -> 2 `i 1757  ]
 "1208
 [; ;sm_MenuConfiguration_MC50.c: 1208:     {
 {

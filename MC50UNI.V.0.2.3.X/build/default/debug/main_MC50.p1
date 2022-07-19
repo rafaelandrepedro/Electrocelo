@@ -33,12 +33,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./outputs.h: 183:     typedef struct display_st{
 [s S1497 `S1496 1 `E10901 1 `i 1 `uc 1 ]
 [n S1497 display_st display_grp lastDisplay intermitentFreq upFase ]
-"76 ./inputs.h
-[; ;./inputs.h: 76: {
+"77 ./inputs.h
+[; ;./inputs.h: 77: {
 [s S1500 `uc 1 `uc 1 `uc 1 `uc 1 ]
 [n S1500 . old current timer processed ]
-"90
-[; ;./inputs.h: 90: {
+"91
+[; ;./inputs.h: 91: {
 [s S1501 `uc 1 `uc 1 `ul 1 `ui 1 `uc 1 `uc 1 `uc 1 ]
 [n S1501 . currentType currentKey currentSerial currentRolling currentPosMem timer processed ]
 "50 main_MC50.c
@@ -85,8 +85,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "30578
 [; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f46k40.h: 30578: extern volatile __bit IOCBN3 __attribute__((address(0x789B)));
 [v _IOCBN3 `Vb ~T0 @X0 0 e@30875 ]
-"135 ./inputs.h
-[; ;./inputs.h: 135: void InitReceiver();
+"136 ./inputs.h
+[; ;./inputs.h: 136: void InitReceiver();
 [v _InitReceiver `(v ~T0 @X0 0 e? ]
 "117 ./controlMemory.h
 [; ;./controlMemory.h: 117: void loadNVM_VarSystem(void);
@@ -97,8 +97,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "216 ./outputs.h
 [; ;./outputs.h: 216:     void SetSegmentValue(char d1, char d2);
 [v _SetSegmentValue `(v ~T0 @X0 0 ef2`uc`uc ]
-"158 ./inputs.h
-[; ;./inputs.h: 158: void readInputs(void);
+"159 ./inputs.h
+[; ;./inputs.h: 159: void readInputs(void);
 [v _readInputs `(v ~T0 @X0 0 ef ]
 "97 ./sm_common.h
 [; ;./sm_common.h: 97: void sm_init(sm_t *psm, int initial_state, sm_history_t hist_mode);
@@ -109,16 +109,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n E11134 . st_MainMenu st_EditParameter st_SaveParameter st_Counter st_SelectRemote st_SaveRemotes st_LearningMode  ]
 "118
 [; ;main_MC50.c: 118:     sm_init(&main_stateMachine,st_standBy,HIST_NONE);
-[c E11241 0 1 2 .. ]
-[n E11241 . st_standBy st_MenuConfiguration st_MotorON  ]
+[c E11242 0 1 2 .. ]
+[n E11242 . st_standBy st_MenuConfiguration st_MotorON  ]
 "119
 [; ;main_MC50.c: 119:     sm_init(&controlGate_stateMachine,st_Idle,HIST_NONE);
-[c E11249 0 1 2 3 4 5 .. ]
-[n E11249 . st_Idle st_Closed st_Opening st_Closing st_Opened st_Learning  ]
+[c E11250 0 1 2 3 4 5 .. ]
+[n E11250 . st_Idle st_Closed st_Opening st_Closing st_Opened st_Learning  ]
 "120
 [; ;main_MC50.c: 120:     sm_init(&controlLearning_stateMachine,st_InitLearning,HIST_NONE);
-[c E11285 0 1 2 3 4 5 .. ]
-[n E11285 . st_InitLearning st_WaitForClosed st_WaitLearnigOpen st_WaitLearnigClose st_WaitForOpened st_WaitForEndLearn  ]
+[c E11286 0 1 2 3 4 5 .. ]
+[n E11286 . st_InitLearning st_WaitForClosed st_WaitLearnigOpen st_WaitLearnigClose st_WaitForOpened st_WaitForEndLearn  ]
 "140
 [; ;main_MC50.c: 140:         struct package_t package;
 [c E11196 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 .. ]
@@ -137,23 +137,23 @@ Version 4.0 HI-TECH Software Intermediate Code
 "87 ./eusartpackage.h
 [; ;./eusartpackage.h: 87:     struct package_t read_package();
 [v _read_package `(S1508 ~T0 @X0 0 e? ]
-"31 ./eusartparser.h
-[; ;./eusartparser.h: 31:     void eusartparser(struct package_t* package);
+"33 ./eusartparser.h
+[; ;./eusartparser.h: 33:     void eusartparser(struct package_t* package);
 [v _eusartparser `(v ~T0 @X0 0 ef1`*S1508 ]
 "308 ./main.h
 [; ;./main.h: 308: void ShowVersion(void);
 [v _ShowVersion `(v ~T0 @X0 0 ef ]
-"148 ./inputs.h
-[; ;./inputs.h: 148: void readbutton(void);
+"149 ./inputs.h
+[; ;./inputs.h: 149: void readbutton(void);
 [v _readbutton `(v ~T0 @X0 0 ef ]
-"150
-[; ;./inputs.h: 150: void readRFButtons();
+"151
+[; ;./inputs.h: 151: void readRFButtons();
 [v _readRFButtons `(v ~T0 @X0 0 e? ]
-"136
-[; ;./inputs.h: 136: signed char getKeyPressed();
+"137
+[; ;./inputs.h: 137: signed char getKeyPressed();
 [v _getKeyPressed `(c ~T0 @X0 0 e? ]
-"166
-[; ;./inputs.h: 166: void ControlInputs(void);
+"167
+[; ;./inputs.h: 167: void ControlInputs(void);
 [v _ControlInputs `(v ~T0 @X0 0 ef ]
 "102 ./controlCurrent.h
 [; ;./controlCurrent.h: 102: void ControlCurrent(void);
@@ -1565,8 +1565,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "28199
 [; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f46k40.h: 28199: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"23 ./eusartparser.h
-[; ;./eusartparser.h: 23:     _Bool programmer_enable=0;
+"25 ./eusartparser.h
+[; ;./eusartparser.h: 25:     _Bool programmer_enable=0;
 [v _programmer_enable `a ~T0 @X0 1 e ]
 [i _programmer_enable
 -> -> 0 `i `a
@@ -1700,13 +1700,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _sm_init (3 , , &U _menuConfiguration_stateMachine . `E11134 0 . `E11110 0 ]
 "118
 [; ;main_MC50.c: 118:     sm_init(&main_stateMachine,st_standBy,HIST_NONE);
-[e ( _sm_init (3 , , &U _main_stateMachine . `E11241 0 . `E11110 0 ]
+[e ( _sm_init (3 , , &U _main_stateMachine . `E11242 0 . `E11110 0 ]
 "119
 [; ;main_MC50.c: 119:     sm_init(&controlGate_stateMachine,st_Idle,HIST_NONE);
-[e ( _sm_init (3 , , &U _controlGate_stateMachine . `E11249 0 . `E11110 0 ]
+[e ( _sm_init (3 , , &U _controlGate_stateMachine . `E11250 0 . `E11110 0 ]
 "120
 [; ;main_MC50.c: 120:     sm_init(&controlLearning_stateMachine,st_InitLearning,HIST_NONE);
-[e ( _sm_init (3 , , &U _controlLearning_stateMachine . `E11285 0 . `E11110 0 ]
+[e ( _sm_init (3 , , &U _controlLearning_stateMachine . `E11286 0 . `E11110 0 ]
 "122
 [; ;main_MC50.c: 122:     ts_system.Debug_TS=(1000/50);
 [e = . _ts_system 7 / -> 1000 `i -> 50 `i ]

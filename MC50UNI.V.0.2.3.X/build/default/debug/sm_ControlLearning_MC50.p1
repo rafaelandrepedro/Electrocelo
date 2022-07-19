@@ -15,8 +15,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;sm_ControlLearning_MC50.c: 31:    TypeCMD typeOpenOrder = GetOpenOrder();
 [c E10372 0 1 2 3 4 5 6 .. ]
 [n E10372 . NoCMD TypeFull TypeWalk TypeFullOpen TypeFullClose TypeProgrammingModeWalk TypeProgrammingModeFull  ]
-"190 ./inputs.h
-[; ;./inputs.h: 190: TypeCMD GetOpenOrder(void);
+"191 ./inputs.h
+[; ;./inputs.h: 191: TypeCMD GetOpenOrder(void);
 [v _GetOpenOrder `(E10372 ~T0 @X0 0 ef ]
 "37 sm_ControlLearning_MC50.c
 [; ;sm_ControlLearning_MC50.c: 37:              if((psm->last_event==ev_GateClosed)&&(var_sys_NVM.decelarationSensivity != 0)&& (var_sys.programinAutomatic == 0))
@@ -64,8 +64,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "22 sm_ControlLearning_MC50.c
 [; ;sm_ControlLearning_MC50.c: 22: extern volatile timeslotSystem ts_system;
 [v _ts_system `VS1493 ~T0 @X0 0 e ]
-"76 ./inputs.h
-[; ;./inputs.h: 76: {
+"77 ./inputs.h
+[; ;./inputs.h: 77: {
 [s S1500 `uc 1 `uc 1 `uc 1 `uc 1 ]
 [n S1500 . old current timer processed ]
 "25 sm_ControlLearning_MC50.c
@@ -106,8 +106,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _main_stateMachine `S1494 ~T0 @X0 0 e ]
 "431 sm_ControlLearning_MC50.c
 [; ;sm_ControlLearning_MC50.c: 431:     sm_init(&main_stateMachine,st_standBy,HIST_NONE);
-[c E11035 0 1 2 .. ]
-[n E11035 . st_standBy st_MenuConfiguration st_MotorON  ]
+[c E11036 0 1 2 .. ]
+[n E11036 . st_standBy st_MenuConfiguration st_MotorON  ]
 "55 C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f46k40.h
 [; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f46k40.h: 55: __asm("RX2PPS equ 0E8Dh");
 [; <" RX2PPS equ 0E8Dh ;# ">
@@ -1494,8 +1494,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "28199
 [; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f46k40.h: 28199: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"23 ./eusartparser.h
-[; ;./eusartparser.h: 23:     _Bool programmer_enable=0;
+"25 ./eusartparser.h
+[; ;./eusartparser.h: 25:     _Bool programmer_enable=0;
 [v _programmer_enable `a ~T0 @X0 1 e ]
 [i _programmer_enable
 -> -> 0 `i `a
@@ -1949,8 +1949,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;sm_ControlLearning_MC50.c: 167:         {
 {
 "168
-[; ;sm_ControlLearning_MC50.c: 168:             if(((var_sys.FimCurso_CloseIsEnabled==YES)||(control_limit_switch == 1)) || ((button_struct.current == 0 ||typeOpenOrder == TypeFull) && var_sys.programinAutomatic == 1))
-[e $ ! || || == -> . _var_sys 3 `ui -> . `E10397 1 `ui == -> _control_limit_switch `i -> 1 `i && || == -> . _button_struct 1 `i -> 0 `i == -> _typeOpenOrder `ui -> . `E10372 1 `ui == -> . _var_sys 32 `i -> 1 `i 1553  ]
+[; ;sm_ControlLearning_MC50.c: 168:             if(((var_sys.FimCurso_CloseIsEnabled==YES)||(control_limit_switch == 1)) || ((button_struct.current == 0x27 ||typeOpenOrder == TypeFull) && var_sys.programinAutomatic == 1))
+[e $ ! || || == -> . _var_sys 3 `ui -> . `E10397 1 `ui == -> _control_limit_switch `i -> 1 `i && || == -> . _button_struct 1 `i -> 39 `i == -> _typeOpenOrder `ui -> . `E10372 1 `ui == -> . _var_sys 32 `i -> 1 `i 1553  ]
 "169
 [; ;sm_ControlLearning_MC50.c: 169:             {
 {
@@ -2285,8 +2285,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;sm_ControlLearning_MC50.c: 278:         {
 {
 "279
-[; ;sm_ControlLearning_MC50.c: 279:             if(((var_sys.FimCurso_OpenIsEnabled==YES)||control_limit_switch == 1)||(var_sys.LearningDecelaration==YES && (button_struct.current == 0 ||typeOpenOrder == TypeFull) && var_sys.programinAutomatic == 1))
-[e $ ! || || == -> . _var_sys 4 `ui -> . `E10397 1 `ui == -> _control_limit_switch `i -> 1 `i && && == -> . _var_sys 50 `ui -> . `E10397 1 `ui || == -> . _button_struct 1 `i -> 0 `i == -> _typeOpenOrder `ui -> . `E10372 1 `ui == -> . _var_sys 32 `i -> 1 `i 1577  ]
+[; ;sm_ControlLearning_MC50.c: 279:             if(((var_sys.FimCurso_OpenIsEnabled==YES)||control_limit_switch == 1)||(var_sys.LearningDecelaration==YES && (button_struct.current == 0x27 ||typeOpenOrder == TypeFull) && var_sys.programinAutomatic == 1))
+[e $ ! || || == -> . _var_sys 4 `ui -> . `E10397 1 `ui == -> _control_limit_switch `i -> 1 `i && && == -> . _var_sys 50 `ui -> . `E10397 1 `ui || == -> . _button_struct 1 `i -> 39 `i == -> _typeOpenOrder `ui -> . `E10372 1 `ui == -> . _var_sys 32 `i -> 1 `i 1577  ]
 "280
 [; ;sm_ControlLearning_MC50.c: 280:             {
 {
@@ -2346,9 +2346,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 1581  ]
 "302
-[; ;sm_ControlLearning_MC50.c: 302:             else if((button_struct.current == 0 || typeOpenOrder == TypeFull) && var_sys.programinAutomatic == 1 && var_sys.LearningDecelaration== NO){
+[; ;sm_ControlLearning_MC50.c: 302:             else if((button_struct.current == 0x27 || typeOpenOrder == TypeFull) && var_sys.programinAutomatic == 1 && var_sys.LearningDecelaration== NO){
 [e :U 1580 ]
-[e $ ! && && || == -> . _button_struct 1 `i -> 0 `i == -> _typeOpenOrder `ui -> . `E10372 1 `ui == -> . _var_sys 32 `i -> 1 `i == -> . _var_sys 50 `ui -> . `E10397 0 `ui 1582  ]
+[e $ ! && && || == -> . _button_struct 1 `i -> 39 `i == -> _typeOpenOrder `ui -> . `E10372 1 `ui == -> . _var_sys 32 `i -> 1 `i == -> . _var_sys 50 `ui -> . `E10397 0 `ui 1582  ]
 {
 "303
 [; ;sm_ControlLearning_MC50.c: 303:                 var_sys.LearningDecelaration=YES;
@@ -2443,8 +2443,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;sm_ControlLearning_MC50.c: 337:         {
 {
 "338
-[; ;sm_ControlLearning_MC50.c: 338:             if((var_sys.FimCurso_CloseIsEnabled==YES)||( var_sys.LearningDecelaration==YES && (button_struct.current == 0 || typeOpenOrder == TypeFull) && var_sys.programinAutomatic == 1))
-[e $ ! || == -> . _var_sys 3 `ui -> . `E10397 1 `ui && && == -> . _var_sys 50 `ui -> . `E10397 1 `ui || == -> . _button_struct 1 `i -> 0 `i == -> _typeOpenOrder `ui -> . `E10372 1 `ui == -> . _var_sys 32 `i -> 1 `i 1590  ]
+[; ;sm_ControlLearning_MC50.c: 338:             if((var_sys.FimCurso_CloseIsEnabled==YES)||( var_sys.LearningDecelaration==YES && (button_struct.current == 0x27 || typeOpenOrder == TypeFull) && var_sys.programinAutomatic == 1))
+[e $ ! || == -> . _var_sys 3 `ui -> . `E10397 1 `ui && && == -> . _var_sys 50 `ui -> . `E10397 1 `ui || == -> . _button_struct 1 `i -> 39 `i == -> _typeOpenOrder `ui -> . `E10372 1 `ui == -> . _var_sys 32 `i -> 1 `i 1590  ]
 "339
 [; ;sm_ControlLearning_MC50.c: 339:             {
 {
@@ -2549,9 +2549,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 1595  ]
 "374
-[; ;sm_ControlLearning_MC50.c: 374:                 else if((button_struct.current == 0 || typeOpenOrder == TypeFull)&& (var_sys.programinAutomatic == 1)){
+[; ;sm_ControlLearning_MC50.c: 374:                 else if((button_struct.current == 0x27 || typeOpenOrder == TypeFull)&& (var_sys.programinAutomatic == 1)){
 [e :U 1594 ]
-[e $ ! && || == -> . _button_struct 1 `i -> 0 `i == -> _typeOpenOrder `ui -> . `E10372 1 `ui == -> . _var_sys 32 `i -> 1 `i 1596  ]
+[e $ ! && || == -> . _button_struct 1 `i -> 39 `i == -> _typeOpenOrder `ui -> . `E10372 1 `ui == -> . _var_sys 32 `i -> 1 `i 1596  ]
 {
 "375
 [; ;sm_ControlLearning_MC50.c: 375:                 var_sys.LearningDecelaration=YES;
@@ -2717,7 +2717,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _sm_init (3 , , &U _menuConfiguration_stateMachine . `E10847 0 . `E10586 0 ]
 "431
 [; ;sm_ControlLearning_MC50.c: 431:     sm_init(&main_stateMachine,st_standBy,HIST_NONE);
-[e ( _sm_init (3 , , &U _main_stateMachine . `E11035 0 . `E10586 0 ]
+[e ( _sm_init (3 , , &U _main_stateMachine . `E11036 0 . `E10586 0 ]
 "432
 [; ;sm_ControlLearning_MC50.c: 432:     sm_init(&controlGate_stateMachine,st_Idle,HIST_NONE);
 [e ( _sm_init (3 , , &U _controlGate_stateMachine . `E10610 0 . `E10586 0 ]

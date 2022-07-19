@@ -20,6 +20,8 @@ extern "C" {
     
     extern volatile varSystem_NVM var_sys_NVM;
     extern volatile char RFFull;
+    extern volatile varSystem var_sys;
+    
     bool programmer_enable=0;
     
     void read_eusartparser(struct package_t* package);

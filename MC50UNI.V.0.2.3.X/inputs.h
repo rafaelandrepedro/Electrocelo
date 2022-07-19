@@ -43,10 +43,11 @@ extern "C" {
   //::::::::::::::::::::::::::Debug:::::::::::::::::::::::::::::::::::::::::   
     
 #define NO_KEY              0x37
-#define BTN_MENU            0//0x27
+#define BTN_MENU            0x27
 #define BTN_UP              0x17
 #define BTN_DOWN            0x00
-#define BTN_CMD             0x27//0x07 correct define 
+#define BTN_CMD             0x07//0x27 wrong define 
+    
 #define BTN_UPDOWN          0x00
 #define BTN_FULL            0x35
 #define BTN_WALK            0x33

@@ -17463,7 +17463,7 @@ void ShowVersion(void);
     signed long getTimeDecelaration(stateMotor_enum state);
     void ControlDecelarationFactor();
 # 11 "./inputs.h" 2
-# 75 "./inputs.h"
+# 76 "./inputs.h"
 typedef struct
 {
  unsigned char old;
@@ -17680,6 +17680,8 @@ void sm_send_event(sm_t *psm, int event);
 
     extern volatile varSystem_NVM var_sys_NVM;
     extern volatile char RFFull;
+    extern volatile varSystem var_sys;
+
     _Bool programmer_enable=0;
 
     void read_eusartparser(struct package_t* package);
@@ -17881,6 +17883,38 @@ void sm_execute_main( sm_t *psm );
             case 0x34:
                 package->data.data8[1]=RFFull;
                 package->data.data8[0]=0x00;
+                write_package(*package);
+                break;
+
+            case 0x35:
+                package->data.data8[1]=var_sys.photoCellIsObstructed;
+                package->data.data8[0]=var_sys.SecurityBarIsObstructed;
+                write_package(*package);
+                break;
+
+            case 0x36:
+                package->data.data8[1]=var_sys.FimCurso_CloseIsEnabled;
+                package->data.data8[0]=var_sys.FimCurso_OpenIsEnabled;
+                write_package(*package);
+                break;
+
+            case 0x37:
+                package->data.data8[1]=var_sys.Statedoorcontrol;
+                package->data.data8[0]=0x00;
+                write_package(*package);
+                break;
+
+            case 0x38:
+                package->data.data16=*(((uint16_t*)&(var_sys.PositionActual))+1);
+                write_package(*package);
+                package->data.data16=*(((uint16_t*)&(var_sys.PositionActual))+0);
+                write_package(*package);
+                break;
+
+            case 0x3A:
+                package->data.data8[1]=var_sys.PositionIsLost;
+                package->data.data8[0]=var_sys.StateVersion;
+                write_package(*package);
                 break;
 
 

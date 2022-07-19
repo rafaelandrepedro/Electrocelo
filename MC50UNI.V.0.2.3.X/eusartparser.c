@@ -183,6 +183,38 @@
             case 0x34:
                 package->data.data8[1]=RFFull;
                 package->data.data8[0]=0x00;
+                write_package(*package);
+                break;
+                
+            case 0x35:
+                package->data.data8[1]=var_sys.photoCellIsObstructed;
+                package->data.data8[0]=var_sys.SecurityBarIsObstructed;
+                write_package(*package);
+                break;
+                
+            case 0x36:
+                package->data.data8[1]=var_sys.FimCurso_CloseIsEnabled;
+                package->data.data8[0]=var_sys.FimCurso_OpenIsEnabled;
+                write_package(*package);
+                break;
+                
+            case 0x37:
+                package->data.data8[1]=var_sys.Statedoorcontrol;
+                package->data.data8[0]=0x00;
+                write_package(*package);
+                break;
+                
+            case 0x38:
+                package->data.data16=*(((uint16_t*)&(var_sys.PositionActual))+1);
+                write_package(*package);
+                package->data.data16=*(((uint16_t*)&(var_sys.PositionActual))+0);
+                write_package(*package);
+                break;
+                
+            case 0x3A:
+                package->data.data8[1]=var_sys.PositionIsLost;
+                package->data.data8[0]=var_sys.StateVersion;
+                write_package(*package);
                 break;
                 
                 

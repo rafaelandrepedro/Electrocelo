@@ -17670,7 +17670,7 @@ unsigned long calculateMean(unsigned long meanValue,unsigned long newValue);
 # 11 "sm_ControlLearning_MC50.c" 2
 
 # 1 "./inputs.h" 1
-# 75 "./inputs.h"
+# 76 "./inputs.h"
 typedef struct
 {
  unsigned char old;
@@ -18023,6 +18023,8 @@ void ControlCounterMoves(void);
 # 21 "./eusartparser.h"
     extern volatile varSystem_NVM var_sys_NVM;
     extern volatile char RFFull;
+    extern volatile varSystem var_sys;
+
     _Bool programmer_enable=0;
 
     void read_eusartparser(struct package_t* package);
@@ -18211,7 +18213,7 @@ void sm_execute_ControlLearning(sm_t* psm){
         break;
         case st_WaitForClosed:
         {
-            if(((var_sys.FimCurso_CloseIsEnabled==YES)||(control_limit_switch == 1)) || ((button_struct.current == 0 ||typeOpenOrder == TypeFull) && var_sys.programinAutomatic == 1))
+            if(((var_sys.FimCurso_CloseIsEnabled==YES)||(control_limit_switch == 1)) || ((button_struct.current == 0x27 ||typeOpenOrder == TypeFull) && var_sys.programinAutomatic == 1))
             {
 
                 control_limit_switch = 1;
@@ -18322,7 +18324,7 @@ void sm_execute_ControlLearning(sm_t* psm){
         break;
         case st_WaitForOpened:
         {
-            if(((var_sys.FimCurso_OpenIsEnabled==YES)||control_limit_switch == 1)||(var_sys.LearningDecelaration==YES && (button_struct.current == 0 ||typeOpenOrder == TypeFull) && var_sys.programinAutomatic == 1))
+            if(((var_sys.FimCurso_OpenIsEnabled==YES)||control_limit_switch == 1)||(var_sys.LearningDecelaration==YES && (button_struct.current == 0x27 ||typeOpenOrder == TypeFull) && var_sys.programinAutomatic == 1))
             {
 
                 var_sys.Counter_Learning = 0;
@@ -18345,7 +18347,7 @@ void sm_execute_ControlLearning(sm_t* psm){
             {
                 generateErrorLearnig();
             }
-            else if((button_struct.current == 0 || typeOpenOrder == TypeFull) && var_sys.programinAutomatic == 1 && var_sys.LearningDecelaration== NO){
+            else if((button_struct.current == 0x27 || typeOpenOrder == TypeFull) && var_sys.programinAutomatic == 1 && var_sys.LearningDecelaration== NO){
                 var_sys.LearningDecelaration=YES;
 
 
@@ -18381,7 +18383,7 @@ void sm_execute_ControlLearning(sm_t* psm){
         break;
         case st_WaitForEndLearn:
         {
-            if((var_sys.FimCurso_CloseIsEnabled==YES)||( var_sys.LearningDecelaration==YES && (button_struct.current == 0 || typeOpenOrder == TypeFull) && var_sys.programinAutomatic == 1))
+            if((var_sys.FimCurso_CloseIsEnabled==YES)||( var_sys.LearningDecelaration==YES && (button_struct.current == 0x27 || typeOpenOrder == TypeFull) && var_sys.programinAutomatic == 1))
             {
 
 
@@ -18417,7 +18419,7 @@ void sm_execute_ControlLearning(sm_t* psm){
             {
                 generateErrorLearnig();
             }
-                else if((button_struct.current == 0 || typeOpenOrder == TypeFull)&& (var_sys.programinAutomatic == 1)){
+                else if((button_struct.current == 0x27 || typeOpenOrder == TypeFull)&& (var_sys.programinAutomatic == 1)){
                 var_sys.LearningDecelaration=YES;
 
                 button_struct.processed = 1;
