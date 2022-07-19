@@ -17958,10 +17958,7 @@ void ControlCounterMoves(void);
 # 12 "./eusartparser.h" 2
 # 21 "./eusartparser.h"
     extern volatile varSystem_NVM var_sys_NVM;
-    extern sm_t menuConfiguration_stateMachine;
-    extern sm_t main_stateMachine;
-    extern sm_t controlGate_stateMachine;
-    extern sm_t controlLearning_stateMachine;
+    extern volatile char RFFull;
     _Bool programmer_enable=0;
 
     void read_eusartparser(struct package_t* package);

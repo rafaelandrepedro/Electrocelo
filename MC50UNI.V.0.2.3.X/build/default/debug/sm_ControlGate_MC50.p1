@@ -67,15 +67,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n E10619 . st_Idle st_Closed st_Opening st_Closing st_Opened st_Learning  ]
 "133
 [; ;sm_ControlGate_MC50.c: 133:     if ( (main_stateMachine.current_state == st_MenuConfiguration) && (menuConfiguration_stateMachine.current_state != st_LearningMode) )
-[c E10988 0 1 2 .. ]
-[n E10988 . st_standBy st_MenuConfiguration st_MotorON  ]
+[c E10985 0 1 2 .. ]
+[n E10985 . st_standBy st_MenuConfiguration st_MotorON  ]
 "19
 [; ;sm_ControlGate_MC50.c: 19: extern sm_t menuConfiguration_stateMachine;
 [v _menuConfiguration_stateMachine `S1494 ~T0 @X0 0 e ]
 "133
 [; ;sm_ControlGate_MC50.c: 133:     if ( (main_stateMachine.current_state == st_MenuConfiguration) && (menuConfiguration_stateMachine.current_state != st_LearningMode) )
-[c E10996 0 1 2 3 4 5 6 .. ]
-[n E10996 . st_MainMenu st_EditParameter st_SaveParameter st_Counter st_SelectRemote st_SaveRemotes st_LearningMode  ]
+[c E10993 0 1 2 3 4 5 6 .. ]
+[n E10993 . st_MainMenu st_EditParameter st_SaveParameter st_Counter st_SelectRemote st_SaveRemotes st_LearningMode  ]
 "190 ./inputs.h
 [; ;./inputs.h: 190: TypeCMD GetOpenOrder(void);
 [v _GetOpenOrder `(E10372 ~T0 @X0 0 ef ]
@@ -1537,8 +1537,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "28199
 [; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f46k40.h: 28199: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"26 ./eusartparser.h
-[; ;./eusartparser.h: 26:     _Bool programmer_enable=0;
+"23 ./eusartparser.h
+[; ;./eusartparser.h: 23:     _Bool programmer_enable=0;
 [v _programmer_enable `a ~T0 @X0 1 e ]
 [i _programmer_enable
 -> -> 0 `i `a
@@ -1821,7 +1821,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _typeOpenOrder `E10372 ~T0 @X0 1 a ]
 "133
 [; ;sm_ControlGate_MC50.c: 133:     if ( (main_stateMachine.current_state == st_MenuConfiguration) && (menuConfiguration_stateMachine.current_state != st_LearningMode) )
-[e $ ! && == . _main_stateMachine 0 -> . `E10988 1 `i != . _menuConfiguration_stateMachine 0 -> . `E10996 6 `i 1528  ]
+[e $ ! && == . _main_stateMachine 0 -> . `E10985 1 `i != . _menuConfiguration_stateMachine 0 -> . `E10993 6 `i 1528  ]
 "134
 [; ;sm_ControlGate_MC50.c: 134:     {
 {
@@ -2360,7 +2360,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "331
 [; ;sm_ControlGate_MC50.c: 331:     if (main_stateMachine.current_state != st_MenuConfiguration) {
-[e $ ! != . _main_stateMachine 0 -> . `E10988 1 `i 1582  ]
+[e $ ! != . _main_stateMachine 0 -> . `E10985 1 `i 1582  ]
 {
 "334
 [; ;sm_ControlGate_MC50.c: 334:         TypeCMD typeOpenOrder = GetOpenOrder();

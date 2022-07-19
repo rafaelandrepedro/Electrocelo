@@ -181,14 +181,8 @@
                 //read only
                 
             case 0x34:
-                package->data.data8[1]=(uint8_t)controlGate_stateMachine.current_state;
-                package->data.data8[0]=(uint8_t)controlLearning_stateMachine.current_state;
-                write_package(*package);
-                break;
-            case 0x35:
-                package->data.data8[1]=(uint8_t)main_stateMachine.current_state;
-                package->data.data8[0]=(uint8_t)menuConfiguration_stateMachine.current_state;
-                write_package(*package);
+                package->data.data8[1]=RFFull;
+                package->data.data8[0]=0x00;
                 break;
                 
                 

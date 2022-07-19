@@ -109,16 +109,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n E11134 . st_MainMenu st_EditParameter st_SaveParameter st_Counter st_SelectRemote st_SaveRemotes st_LearningMode  ]
 "118
 [; ;main_MC50.c: 118:     sm_init(&main_stateMachine,st_standBy,HIST_NONE);
-[c E11244 0 1 2 .. ]
-[n E11244 . st_standBy st_MenuConfiguration st_MotorON  ]
+[c E11241 0 1 2 .. ]
+[n E11241 . st_standBy st_MenuConfiguration st_MotorON  ]
 "119
 [; ;main_MC50.c: 119:     sm_init(&controlGate_stateMachine,st_Idle,HIST_NONE);
-[c E11252 0 1 2 3 4 5 .. ]
-[n E11252 . st_Idle st_Closed st_Opening st_Closing st_Opened st_Learning  ]
+[c E11249 0 1 2 3 4 5 .. ]
+[n E11249 . st_Idle st_Closed st_Opening st_Closing st_Opened st_Learning  ]
 "120
 [; ;main_MC50.c: 120:     sm_init(&controlLearning_stateMachine,st_InitLearning,HIST_NONE);
-[c E11288 0 1 2 3 4 5 .. ]
-[n E11288 . st_InitLearning st_WaitForClosed st_WaitLearnigOpen st_WaitLearnigClose st_WaitForOpened st_WaitForEndLearn  ]
+[c E11285 0 1 2 3 4 5 .. ]
+[n E11285 . st_InitLearning st_WaitForClosed st_WaitLearnigOpen st_WaitLearnigClose st_WaitForOpened st_WaitForEndLearn  ]
 "140
 [; ;main_MC50.c: 140:         struct package_t package;
 [c E11196 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 .. ]
@@ -137,8 +137,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "87 ./eusartpackage.h
 [; ;./eusartpackage.h: 87:     struct package_t read_package();
 [v _read_package `(S1508 ~T0 @X0 0 e? ]
-"34 ./eusartparser.h
-[; ;./eusartparser.h: 34:     void eusartparser(struct package_t* package);
+"31 ./eusartparser.h
+[; ;./eusartparser.h: 31:     void eusartparser(struct package_t* package);
 [v _eusartparser `(v ~T0 @X0 0 ef1`*S1508 ]
 "308 ./main.h
 [; ;./main.h: 308: void ShowVersion(void);
@@ -1565,8 +1565,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "28199
 [; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f46k40.h: 28199: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"26 ./eusartparser.h
-[; ;./eusartparser.h: 26:     _Bool programmer_enable=0;
+"23 ./eusartparser.h
+[; ;./eusartparser.h: 23:     _Bool programmer_enable=0;
 [v _programmer_enable `a ~T0 @X0 1 e ]
 [i _programmer_enable
 -> -> 0 `i `a
@@ -1700,13 +1700,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _sm_init (3 , , &U _menuConfiguration_stateMachine . `E11134 0 . `E11110 0 ]
 "118
 [; ;main_MC50.c: 118:     sm_init(&main_stateMachine,st_standBy,HIST_NONE);
-[e ( _sm_init (3 , , &U _main_stateMachine . `E11244 0 . `E11110 0 ]
+[e ( _sm_init (3 , , &U _main_stateMachine . `E11241 0 . `E11110 0 ]
 "119
 [; ;main_MC50.c: 119:     sm_init(&controlGate_stateMachine,st_Idle,HIST_NONE);
-[e ( _sm_init (3 , , &U _controlGate_stateMachine . `E11252 0 . `E11110 0 ]
+[e ( _sm_init (3 , , &U _controlGate_stateMachine . `E11249 0 . `E11110 0 ]
 "120
 [; ;main_MC50.c: 120:     sm_init(&controlLearning_stateMachine,st_InitLearning,HIST_NONE);
-[e ( _sm_init (3 , , &U _controlLearning_stateMachine . `E11288 0 . `E11110 0 ]
+[e ( _sm_init (3 , , &U _controlLearning_stateMachine . `E11285 0 . `E11110 0 ]
 "122
 [; ;main_MC50.c: 122:     ts_system.Debug_TS=(1000/50);
 [e = . _ts_system 7 / -> 1000 `i -> 50 `i ]

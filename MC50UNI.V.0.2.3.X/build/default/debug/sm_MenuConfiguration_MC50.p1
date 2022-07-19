@@ -1544,8 +1544,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "28199
 [; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f46k40.h: 28199: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"26 ./eusartparser.h
-[; ;./eusartparser.h: 26:     _Bool programmer_enable=0;
+"23 ./eusartparser.h
+[; ;./eusartparser.h: 23:     _Bool programmer_enable=0;
 [v _programmer_enable `a ~T0 @X0 1 e ]
 [i _programmer_enable
 -> -> 0 `i `a
@@ -3855,7 +3855,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "807
 [; ;sm_MenuConfiguration_MC50.c: 807:                     haveValueToEdit=1;
 [e = _haveValueToEdit -> -> 1 `i `uc ]
-[v F11060 `*uc ~T0 @X0 1 t ]
+[v F11057 `*uc ~T0 @X0 1 t ]
 "808
 [; ;sm_MenuConfiguration_MC50.c: 808:                     edit_Param.Value = 0;
 [e = . _edit_Param 1 -> -> 0 `i `V*uc ]
@@ -4635,8 +4635,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "1064
 [; ;sm_MenuConfiguration_MC50.c: 1064:             static unsigned char value=0;
-[v F11088 `uc ~T0 @X0 1 s value ]
-[i F11088
+[v F11085 `uc ~T0 @X0 1 s value ]
+[i F11085
 -> -> 0 `i `uc
 ]
 "1065
@@ -4653,7 +4653,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "1069
 [; ;sm_MenuConfiguration_MC50.c: 1069:       edit_Param.Value=&value;
-[e = . _edit_Param 1 &U F11088 ]
+[e = . _edit_Param 1 &U F11085 ]
 "1070
 [; ;sm_MenuConfiguration_MC50.c: 1070:                     for(unsigned char posindex=0; posindex <= *(unsigned char*)&var_sys_NVM.positionRemotesFull; posindex++)
 {
@@ -4666,7 +4666,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "1072
 [; ;sm_MenuConfiguration_MC50.c: 1072:                         value=posindex;
-[e = F11088 _posindex ]
+[e = F11085 _posindex ]
 "1073
 [; ;sm_MenuConfiguration_MC50.c: 1073:                         if(cmdMemoryIsEmpty(menu_st.parameterSelected, posindex))
 [e $ ! != -> ( _cmdMemoryIsEmpty (2 , . _menu_st 4 -> _posindex `uc `i -> 0 `i 1725  ]
@@ -4709,7 +4709,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "1083
 [; ;sm_MenuConfiguration_MC50.c: 1083:                         value=posindex;
-[e = F11088 _posindex ]
+[e = F11085 _posindex ]
 "1084
 [; ;sm_MenuConfiguration_MC50.c: 1084:                         if(cmdMemoryIsEmpty(menu_st.parameterSelected, posindex))
 [e $ ! != -> ( _cmdMemoryIsEmpty (2 , . _menu_st 4 -> _posindex `uc `i -> 0 `i 1731  ]

@@ -17679,10 +17679,7 @@ void sm_send_event(sm_t *psm, int event);
 
 
     extern volatile varSystem_NVM var_sys_NVM;
-    extern sm_t menuConfiguration_stateMachine;
-    extern sm_t main_stateMachine;
-    extern sm_t controlGate_stateMachine;
-    extern sm_t controlLearning_stateMachine;
+    extern volatile char RFFull;
     _Bool programmer_enable=0;
 
     void read_eusartparser(struct package_t* package);
@@ -17882,14 +17879,8 @@ void sm_execute_main( sm_t *psm );
 
 
             case 0x34:
-                package->data.data8[1]=(uint8_t)controlGate_stateMachine.current_state;
-                package->data.data8[0]=(uint8_t)controlLearning_stateMachine.current_state;
-                write_package(*package);
-                break;
-            case 0x35:
-                package->data.data8[1]=(uint8_t)main_stateMachine.current_state;
-                package->data.data8[0]=(uint8_t)menuConfiguration_stateMachine.current_state;
-                write_package(*package);
+                package->data.data8[1]=RFFull;
+                package->data.data8[0]=0x00;
                 break;
 
 

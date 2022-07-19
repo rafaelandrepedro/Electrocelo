@@ -19,10 +19,7 @@ extern "C" {
 #endif
     
     extern volatile varSystem_NVM var_sys_NVM;
-    extern sm_t menuConfiguration_stateMachine;
-    extern sm_t main_stateMachine;
-    extern sm_t controlGate_stateMachine;
-    extern sm_t controlLearning_stateMachine;
+    extern volatile char RFFull;
     bool programmer_enable=0;
     
     void read_eusartparser(struct package_t* package);
