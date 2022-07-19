@@ -17005,13 +17005,13 @@ void EUSART1_SetRxInterruptHandler(void (* interruptHandler)(void));
         SAVE_COMMAND_F=8,
         ERASE_COMMAND_F=9,
         READ_SERIAL_F=10,
-        NUM_COMMANDS_W=4,
-        NUM_EMPTY_COMMANDS_W=5,
-        OCCUPIED_POS_W=6,
-        EMPTY_POS_W=7,
-        SAVE_COMMAND_W=8,
-        ERASE_COMMAND_W=9,
-        READ_SERIAL_W=10
+        NUM_COMMANDS_W=11,
+        NUM_EMPTY_COMMANDS_W=12,
+        OCCUPIED_POS_W=13,
+        EMPTY_POS_W=14,
+        SAVE_COMMAND_W=15,
+        ERASE_COMMAND_W=16,
+        READ_SERIAL_W=17
     };
 
 

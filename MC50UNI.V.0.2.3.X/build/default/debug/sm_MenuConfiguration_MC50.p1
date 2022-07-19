@@ -138,8 +138,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "110 ./controlMemory.h
 [; ;./controlMemory.h: 110: TypeCMD validateRemoteSerialNumber(unsigned long serial, StateEnum VerifyOnlySerial, char* position);
 [v _validateRemoteSerialNumber `(E10372 ~T0 @X0 0 ef3`ul`E10397`*uc ]
-"1169 sm_MenuConfiguration_MC50.c
-[; ;sm_MenuConfiguration_MC50.c: 1169:         TypeRemote_st typeRemote = getTypeRemote();
+"1174 sm_MenuConfiguration_MC50.c
+[; ;sm_MenuConfiguration_MC50.c: 1174:         TypeRemote_st typeRemote = getTypeRemote();
 [c E10392 0 1 2 .. ]
 [n E10392 . Keeloq_RollingCode Keeloq_NoRollingCode DIP_12BIT  ]
 "138 ./inputs.h
@@ -151,8 +151,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "112
 [; ;./controlMemory.h: 112: void RemoveSerial(char cmdType, char position);
 [v _RemoveSerial `(v ~T0 @X0 0 ef2`uc`uc ]
-"1237 sm_MenuConfiguration_MC50.c
-[; ;sm_MenuConfiguration_MC50.c: 1237:             SetSegmentValueLearn(Left);
+"1244 sm_MenuConfiguration_MC50.c
+[; ;sm_MenuConfiguration_MC50.c: 1244:             SetSegmentValueLearn(Left);
 [c E10650 0 1 .. ]
 [n E10650 . Left Rigth  ]
 "217 ./outputs.h
@@ -1544,8 +1544,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "28199
 [; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f46k40.h: 28199: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"24 ./eusartparser.h
-[; ;./eusartparser.h: 24:     _Bool programmer_enable=0;
+"26 ./eusartparser.h
+[; ;./eusartparser.h: 26:     _Bool programmer_enable=0;
 [v _programmer_enable `a ~T0 @X0 1 e ]
 [i _programmer_enable
 -> -> 0 `i `a
@@ -3855,7 +3855,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "807
 [; ;sm_MenuConfiguration_MC50.c: 807:                     haveValueToEdit=1;
 [e = _haveValueToEdit -> -> 1 `i `uc ]
-[v F11057 `*uc ~T0 @X0 1 t ]
+[v F11060 `*uc ~T0 @X0 1 t ]
 "808
 [; ;sm_MenuConfiguration_MC50.c: 808:                     edit_Param.Value = 0;
 [e = . _edit_Param 1 -> -> 0 `i `V*uc ]
@@ -4635,8 +4635,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "1064
 [; ;sm_MenuConfiguration_MC50.c: 1064:             static unsigned char value=0;
-[v F11085 `uc ~T0 @X0 1 s value ]
-[i F11085
+[v F11088 `uc ~T0 @X0 1 s value ]
+[i F11088
 -> -> 0 `i `uc
 ]
 "1065
@@ -4653,7 +4653,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "1069
 [; ;sm_MenuConfiguration_MC50.c: 1069:       edit_Param.Value=&value;
-[e = . _edit_Param 1 &U F11085 ]
+[e = . _edit_Param 1 &U F11088 ]
 "1070
 [; ;sm_MenuConfiguration_MC50.c: 1070:                     for(unsigned char posindex=0; posindex <= *(unsigned char*)&var_sys_NVM.positionRemotesFull; posindex++)
 {
@@ -4666,7 +4666,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "1072
 [; ;sm_MenuConfiguration_MC50.c: 1072:                         value=posindex;
-[e = F11085 _posindex ]
+[e = F11088 _posindex ]
 "1073
 [; ;sm_MenuConfiguration_MC50.c: 1073:                         if(cmdMemoryIsEmpty(menu_st.parameterSelected, posindex))
 [e $ ! != -> ( _cmdMemoryIsEmpty (2 , . _menu_st 4 -> _posindex `uc `i -> 0 `i 1725  ]
@@ -4698,19 +4698,44 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;sm_MenuConfiguration_MC50.c: 1080:                 {
 {
 "1081
-[; ;sm_MenuConfiguration_MC50.c: 1081:                     edit_Param.Value=(unsigned char*)&var_sys_NVM.positionRemotesWalk;
-[e = . _edit_Param 1 -> &U . _var_sys_NVM 33 `*uc ]
+[; ;sm_MenuConfiguration_MC50.c: 1081:                     for(unsigned char posindex=0; posindex <= *(unsigned char*)&var_sys_NVM.positionRemotesWalk; posindex++)
+{
+[v _posindex `uc ~T0 @X0 1 a ]
+[e = _posindex -> -> 0 `i `uc ]
+[e $U 1730  ]
+[e :U 1727 ]
 "1082
-[; ;sm_MenuConfiguration_MC50.c: 1082:                     edit_Param.Max=*(unsigned char*)&var_sys_NVM.positionRemotesWalk;
-[e = . _edit_Param 3 -> *U -> &U . _var_sys_NVM 33 `*uc `uc ]
+[; ;sm_MenuConfiguration_MC50.c: 1082:                     {
+{
 "1083
-[; ;sm_MenuConfiguration_MC50.c: 1083:                 }
-}
+[; ;sm_MenuConfiguration_MC50.c: 1083:                         value=posindex;
+[e = F11088 _posindex ]
 "1084
-[; ;sm_MenuConfiguration_MC50.c: 1084:                 break;
-[e $U 1718  ]
+[; ;sm_MenuConfiguration_MC50.c: 1084:                         if(cmdMemoryIsEmpty(menu_st.parameterSelected, posindex))
+[e $ ! != -> ( _cmdMemoryIsEmpty (2 , . _menu_st 4 -> _posindex `uc `i -> 0 `i 1731  ]
 "1085
-[; ;sm_MenuConfiguration_MC50.c: 1085:             }
+[; ;sm_MenuConfiguration_MC50.c: 1085:                             break;
+[e $U 1728  ]
+[e :U 1731 ]
+"1086
+[; ;sm_MenuConfiguration_MC50.c: 1086:                     }
+}
+[e ++ _posindex -> -> 1 `i `uc ]
+[e :U 1730 ]
+[e $ <= -> _posindex `i -> *U -> &U . _var_sys_NVM 33 `*uc `i 1727  ]
+[e :U 1728 ]
+}
+"1087
+[; ;sm_MenuConfiguration_MC50.c: 1087:                     edit_Param.Max=*(unsigned char*)&var_sys_NVM.positionRemotesWalk;
+[e = . _edit_Param 3 -> *U -> &U . _var_sys_NVM 33 `*uc `uc ]
+"1088
+[; ;sm_MenuConfiguration_MC50.c: 1088:                 }
+}
+"1089
+[; ;sm_MenuConfiguration_MC50.c: 1089:                 break;
+[e $U 1718  ]
+"1090
+[; ;sm_MenuConfiguration_MC50.c: 1090:             }
 }
 [e $U 1718  ]
 [e :U 1719 ]
@@ -4718,29 +4743,29 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 1 `i 1726
  1718 ]
 [e :U 1718 ]
-"1086
-[; ;sm_MenuConfiguration_MC50.c: 1086:             edit_Param.position=*edit_Param.Value;
-[e = . _edit_Param 0 -> *U . _edit_Param 1 `uc ]
-"1087
-[; ;sm_MenuConfiguration_MC50.c: 1087:             edit_Param.Min=0;
-[e = . _edit_Param 4 -> -> 0 `i `uc ]
-"1088
-[; ;sm_MenuConfiguration_MC50.c: 1088:             haveValueToEdit=1;
-[e = _haveValueToEdit -> -> 1 `i `uc ]
-"1089
-[; ;sm_MenuConfiguration_MC50.c: 1089:             edit_Param.tempValue=*edit_Param.Value;
-[e = . _edit_Param 2 *U . _edit_Param 1 ]
-"1090
-[; ;sm_MenuConfiguration_MC50.c: 1090:             InitReceiver();
-[e ( _InitReceiver ..  ]
 "1091
-[; ;sm_MenuConfiguration_MC50.c: 1091:         }
-}
+[; ;sm_MenuConfiguration_MC50.c: 1091:             edit_Param.position=*edit_Param.Value;
+[e = . _edit_Param 0 -> *U . _edit_Param 1 `uc ]
 "1092
-[; ;sm_MenuConfiguration_MC50.c: 1092:         break;
-[e $U 1642  ]
+[; ;sm_MenuConfiguration_MC50.c: 1092:             edit_Param.Min=0;
+[e = . _edit_Param 4 -> -> 0 `i `uc ]
+"1093
+[; ;sm_MenuConfiguration_MC50.c: 1093:             haveValueToEdit=1;
+[e = _haveValueToEdit -> -> 1 `i `uc ]
 "1094
-[; ;sm_MenuConfiguration_MC50.c: 1094:     }
+[; ;sm_MenuConfiguration_MC50.c: 1094:             edit_Param.tempValue=*edit_Param.Value;
+[e = . _edit_Param 2 *U . _edit_Param 1 ]
+"1095
+[; ;sm_MenuConfiguration_MC50.c: 1095:             InitReceiver();
+[e ( _InitReceiver ..  ]
+"1096
+[; ;sm_MenuConfiguration_MC50.c: 1096:         }
+}
+"1097
+[; ;sm_MenuConfiguration_MC50.c: 1097:         break;
+[e $U 1642  ]
+"1099
+[; ;sm_MenuConfiguration_MC50.c: 1099:     }
 }
 [e $U 1642  ]
 [e :U 1643 ]
@@ -4757,458 +4782,465 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> . `E10813 12 `ui 1717
  1642 ]
 [e :U 1642 ]
-"1095
-[; ;sm_MenuConfiguration_MC50.c: 1095:     return haveValueToEdit;
+"1100
+[; ;sm_MenuConfiguration_MC50.c: 1100:     return haveValueToEdit;
 [e ) _haveValueToEdit ]
 [e $UE 1641  ]
-"1096
-[; ;sm_MenuConfiguration_MC50.c: 1096: }
+"1101
+[; ;sm_MenuConfiguration_MC50.c: 1101: }
 [e :UE 1641 ]
 }
-"1098
-[; ;sm_MenuConfiguration_MC50.c: 1098: void controlSelectRemote(void) {
+"1103
+[; ;sm_MenuConfiguration_MC50.c: 1103: void controlSelectRemote(void) {
 [v _controlSelectRemote `(v ~T0 @X0 1 ef ]
 {
 [e :U _controlSelectRemote ]
 [f ]
-"1099
-[; ;sm_MenuConfiguration_MC50.c: 1099:     unsigned long tempSerial;
+"1104
+[; ;sm_MenuConfiguration_MC50.c: 1104:     unsigned long tempSerial;
 [v _tempSerial `ul ~T0 @X0 1 a ]
-"1100
-[; ;sm_MenuConfiguration_MC50.c: 1100:     char temp=getSerialCmd(&tempSerial);
+"1105
+[; ;sm_MenuConfiguration_MC50.c: 1105:     char temp=getSerialCmd(&tempSerial);
 [v _temp `uc ~T0 @X0 1 a ]
 [e = _temp -> ( _getSerialCmd (1 &U _tempSerial `uc ]
-"1101
-[; ;sm_MenuConfiguration_MC50.c: 1101:     char validSerial;
-[v _validSerial `uc ~T0 @X0 1 a ]
-"1102
-[; ;sm_MenuConfiguration_MC50.c: 1102:     if(ts_system.timeoutMenu<=0 || button_struct.current==0x00)
-[e $ ! || <= . _ts_system 10 -> 0 `i == -> . _button_struct 1 `i -> 0 `i 1728  ]
-"1103
-[; ;sm_MenuConfiguration_MC50.c: 1103:     {
-{
-"1104
-[; ;sm_MenuConfiguration_MC50.c: 1104:         sm_send_event(&main_stateMachine, ev_goto_StandBy);
-[e ( _sm_send_event (2 , &U _main_stateMachine . `E10563 7 ]
-"1105
-[; ;sm_MenuConfiguration_MC50.c: 1105:         sm_send_event(&menuConfiguration_stateMachine, ev_CancelEdition);
-[e ( _sm_send_event (2 , &U _menuConfiguration_stateMachine . `E10563 3 ]
 "1106
-[; ;sm_MenuConfiguration_MC50.c: 1106:         var_sys.DistanceProgrammingActive=NO;
-[e = . _var_sys 43 . `E10397 0 ]
+[; ;sm_MenuConfiguration_MC50.c: 1106:     char validSerial;
+[v _validSerial `uc ~T0 @X0 1 a ]
 "1107
-[; ;sm_MenuConfiguration_MC50.c: 1107:         var_sys.ProgrammingDistanceIs=NoCMD;
-[e = . _var_sys 41 . `E10372 0 ]
+[; ;sm_MenuConfiguration_MC50.c: 1107:     if(ts_system.timeoutMenu<=0 || button_struct.current==0x00)
+[e $ ! || <= . _ts_system 10 -> 0 `i == -> . _button_struct 1 `i -> 0 `i 1733  ]
 "1108
-[; ;sm_MenuConfiguration_MC50.c: 1108:         SetSegmentValueMain(dMinus,dMinus);
-[e ( _SetSegmentValueMain (2 , -> . `E10610 24 `uc -> . `E10610 24 `uc ]
+[; ;sm_MenuConfiguration_MC50.c: 1108:     {
+{
 "1109
-[; ;sm_MenuConfiguration_MC50.c: 1109:         ClearFlag_rfCMD();
-[e ( _ClearFlag_rfCMD ..  ]
+[; ;sm_MenuConfiguration_MC50.c: 1109:         sm_send_event(&main_stateMachine, ev_goto_StandBy);
+[e ( _sm_send_event (2 , &U _main_stateMachine . `E10563 7 ]
 "1110
-[; ;sm_MenuConfiguration_MC50.c: 1110:         button_struct.processed=1;
-[e = . _button_struct 3 -> -> 1 `i `uc ]
+[; ;sm_MenuConfiguration_MC50.c: 1110:         sm_send_event(&menuConfiguration_stateMachine, ev_CancelEdition);
+[e ( _sm_send_event (2 , &U _menuConfiguration_stateMachine . `E10563 3 ]
 "1111
-[; ;sm_MenuConfiguration_MC50.c: 1111:         ts_system.timeoutMenu = 0;
-[e = . _ts_system 10 -> 0 `i ]
+[; ;sm_MenuConfiguration_MC50.c: 1111:         var_sys.DistanceProgrammingActive=NO;
+[e = . _var_sys 43 . `E10397 0 ]
+"1112
+[; ;sm_MenuConfiguration_MC50.c: 1112:         var_sys.ProgrammingDistanceIs=NoCMD;
+[e = . _var_sys 41 . `E10372 0 ]
 "1113
-[; ;sm_MenuConfiguration_MC50.c: 1113:     }
-}
-[e $U 1729  ]
+[; ;sm_MenuConfiguration_MC50.c: 1113:         SetSegmentValueMain(dMinus,dMinus);
+[e ( _SetSegmentValueMain (2 , -> . `E10610 24 `uc -> . `E10610 24 `uc ]
 "1114
-[; ;sm_MenuConfiguration_MC50.c: 1114:     else if (button_struct.current==0x00 && edit_Param.Max!=0)
-[e :U 1728 ]
-[e $ ! && == -> . _button_struct 1 `i -> 0 `i != -> . _edit_Param 3 `i -> 0 `i 1730  ]
+[; ;sm_MenuConfiguration_MC50.c: 1114:         ClearFlag_rfCMD();
+[e ( _ClearFlag_rfCMD ..  ]
 "1115
-[; ;sm_MenuConfiguration_MC50.c: 1115:     {
-{
+[; ;sm_MenuConfiguration_MC50.c: 1115:         button_struct.processed=1;
+[e = . _button_struct 3 -> -> 1 `i `uc ]
 "1116
-[; ;sm_MenuConfiguration_MC50.c: 1116:         ts_system.timeoutMenu=((1000/50)*5) ;
-[e = . _ts_system 10 * / -> 1000 `i -> 50 `i -> 5 `i ]
-"1117
-[; ;sm_MenuConfiguration_MC50.c: 1117:         if(edit_Param.tempValue<=edit_Param.Min)
-[e $ ! <= -> . _edit_Param 2 `i -> . _edit_Param 4 `i 1731  ]
+[; ;sm_MenuConfiguration_MC50.c: 1116:         ts_system.timeoutMenu = 0;
+[e = . _ts_system 10 -> 0 `i ]
 "1118
-[; ;sm_MenuConfiguration_MC50.c: 1118:         {
-{
-"1119
-[; ;sm_MenuConfiguration_MC50.c: 1119:             edit_Param.tempValue=edit_Param.Max;
-[e = . _edit_Param 2 -> . _edit_Param 3 `uc ]
-"1120
-[; ;sm_MenuConfiguration_MC50.c: 1120:         }
-}
-[e $U 1732  ]
-"1121
-[; ;sm_MenuConfiguration_MC50.c: 1121:         else
-[e :U 1731 ]
-"1122
-[; ;sm_MenuConfiguration_MC50.c: 1122:         {
-{
-"1123
-[; ;sm_MenuConfiguration_MC50.c: 1123:             edit_Param.tempValue--;
-[e -- . _edit_Param 2 -> -> 1 `i `Vuc ]
-"1124
-[; ;sm_MenuConfiguration_MC50.c: 1124:         }
-}
-[e :U 1732 ]
-"1125
-[; ;sm_MenuConfiguration_MC50.c: 1125:         if(cmdMemoryIsEmpty(menu_st.parameterSelected,edit_Param.tempValue)==1 || edit_Param.tempValue==edit_Param.Max)
-[e $ ! || == -> ( _cmdMemoryIsEmpty (2 , . _menu_st 4 -> . _edit_Param 2 `uc `i -> 1 `i == -> . _edit_Param 2 `i -> . _edit_Param 3 `i 1733  ]
-"1126
-[; ;sm_MenuConfiguration_MC50.c: 1126:         {
-{
-"1127
-[; ;sm_MenuConfiguration_MC50.c: 1127:             SetSegmentValueIntermitentMain((edit_Param.tempValue-edit_Param.tempValue%10)/10, edit_Param.tempValue%10,(1000/50));
-[e ( _SetSegmentValueIntermitentMain (3 , , -> / - -> . _edit_Param 2 `i % -> . _edit_Param 2 `i -> 10 `i -> 10 `i `uc -> % -> . _edit_Param 2 `i -> 10 `i `uc / -> 1000 `i -> 50 `i ]
-"1128
-[; ;sm_MenuConfiguration_MC50.c: 1128:         }
+[; ;sm_MenuConfiguration_MC50.c: 1118:     }
 }
 [e $U 1734  ]
-"1129
-[; ;sm_MenuConfiguration_MC50.c: 1129:         else
+"1119
+[; ;sm_MenuConfiguration_MC50.c: 1119:     else if (button_struct.current==0x00 && edit_Param.Max!=0)
 [e :U 1733 ]
-"1130
-[; ;sm_MenuConfiguration_MC50.c: 1130:         {
+[e $ ! && == -> . _button_struct 1 `i -> 0 `i != -> . _edit_Param 3 `i -> 0 `i 1735  ]
+"1120
+[; ;sm_MenuConfiguration_MC50.c: 1120:     {
 {
-"1131
-[; ;sm_MenuConfiguration_MC50.c: 1131:             SetSegmentValueMain((edit_Param.tempValue-edit_Param.tempValue%10)/10, edit_Param.tempValue%10);
-[e ( _SetSegmentValueMain (2 , -> / - -> . _edit_Param 2 `i % -> . _edit_Param 2 `i -> 10 `i -> 10 `i `uc -> % -> . _edit_Param 2 `i -> 10 `i `uc ]
-"1132
-[; ;sm_MenuConfiguration_MC50.c: 1132:         }
-}
-[e :U 1734 ]
-"1133
-[; ;sm_MenuConfiguration_MC50.c: 1133:         button_struct.processed=1;
-[e = . _button_struct 3 -> -> 1 `i `uc ]
-"1134
-[; ;sm_MenuConfiguration_MC50.c: 1134:     }
-}
-[e $U 1735  ]
-"1135
-[; ;sm_MenuConfiguration_MC50.c: 1135:     else if (button_struct.current==0x17 && edit_Param.Max!=0)
-[e :U 1730 ]
-[e $ ! && == -> . _button_struct 1 `i -> 23 `i != -> . _edit_Param 3 `i -> 0 `i 1736  ]
-"1136
-[; ;sm_MenuConfiguration_MC50.c: 1136:     {
-{
-"1137
-[; ;sm_MenuConfiguration_MC50.c: 1137:         ts_system.timeoutMenu=((1000/50)*5) ;
+"1121
+[; ;sm_MenuConfiguration_MC50.c: 1121:         ts_system.timeoutMenu=((1000/50)*5) ;
 [e = . _ts_system 10 * / -> 1000 `i -> 50 `i -> 5 `i ]
-"1138
-[; ;sm_MenuConfiguration_MC50.c: 1138:         edit_Param.tempValue++;
-[e ++ . _edit_Param 2 -> -> 1 `i `Vuc ]
-"1139
-[; ;sm_MenuConfiguration_MC50.c: 1139:         if(edit_Param.tempValue>edit_Param.Max)
-[e $ ! > -> . _edit_Param 2 `i -> . _edit_Param 3 `i 1737  ]
-"1140
-[; ;sm_MenuConfiguration_MC50.c: 1140:         {
+"1122
+[; ;sm_MenuConfiguration_MC50.c: 1122:         if(edit_Param.tempValue<=edit_Param.Min)
+[e $ ! <= -> . _edit_Param 2 `i -> . _edit_Param 4 `i 1736  ]
+"1123
+[; ;sm_MenuConfiguration_MC50.c: 1123:         {
 {
-"1141
-[; ;sm_MenuConfiguration_MC50.c: 1141:              edit_Param.tempValue=edit_Param.Min;
-[e = . _edit_Param 2 -> . _edit_Param 4 `uc ]
-"1142
-[; ;sm_MenuConfiguration_MC50.c: 1142:         }
+"1124
+[; ;sm_MenuConfiguration_MC50.c: 1124:             edit_Param.tempValue=edit_Param.Max;
+[e = . _edit_Param 2 -> . _edit_Param 3 `uc ]
+"1125
+[; ;sm_MenuConfiguration_MC50.c: 1125:         }
+}
+[e $U 1737  ]
+"1126
+[; ;sm_MenuConfiguration_MC50.c: 1126:         else
+[e :U 1736 ]
+"1127
+[; ;sm_MenuConfiguration_MC50.c: 1127:         {
+{
+"1128
+[; ;sm_MenuConfiguration_MC50.c: 1128:             edit_Param.tempValue--;
+[e -- . _edit_Param 2 -> -> 1 `i `Vuc ]
+"1129
+[; ;sm_MenuConfiguration_MC50.c: 1129:         }
 }
 [e :U 1737 ]
-"1143
-[; ;sm_MenuConfiguration_MC50.c: 1143:         if(cmdMemoryIsEmpty(menu_st.parameterSelected,edit_Param.tempValue)==1|| edit_Param.tempValue==edit_Param.Max)
+"1130
+[; ;sm_MenuConfiguration_MC50.c: 1130:         if(cmdMemoryIsEmpty(menu_st.parameterSelected,edit_Param.tempValue)==1 || edit_Param.tempValue==edit_Param.Max)
 [e $ ! || == -> ( _cmdMemoryIsEmpty (2 , . _menu_st 4 -> . _edit_Param 2 `uc `i -> 1 `i == -> . _edit_Param 2 `i -> . _edit_Param 3 `i 1738  ]
-"1144
-[; ;sm_MenuConfiguration_MC50.c: 1144:         {
+"1131
+[; ;sm_MenuConfiguration_MC50.c: 1131:         {
 {
-"1145
-[; ;sm_MenuConfiguration_MC50.c: 1145:             SetSegmentValueIntermitentMain((edit_Param.tempValue-edit_Param.tempValue%10)/10, edit_Param.tempValue%10,(1000/50));
+"1132
+[; ;sm_MenuConfiguration_MC50.c: 1132:             SetSegmentValueIntermitentMain((edit_Param.tempValue-edit_Param.tempValue%10)/10, edit_Param.tempValue%10,(1000/50));
 [e ( _SetSegmentValueIntermitentMain (3 , , -> / - -> . _edit_Param 2 `i % -> . _edit_Param 2 `i -> 10 `i -> 10 `i `uc -> % -> . _edit_Param 2 `i -> 10 `i `uc / -> 1000 `i -> 50 `i ]
-"1146
-[; ;sm_MenuConfiguration_MC50.c: 1146:         }
+"1133
+[; ;sm_MenuConfiguration_MC50.c: 1133:         }
 }
 [e $U 1739  ]
-"1147
-[; ;sm_MenuConfiguration_MC50.c: 1147:         else
+"1134
+[; ;sm_MenuConfiguration_MC50.c: 1134:         else
 [e :U 1738 ]
-"1148
-[; ;sm_MenuConfiguration_MC50.c: 1148:         {
+"1135
+[; ;sm_MenuConfiguration_MC50.c: 1135:         {
 {
-"1149
-[; ;sm_MenuConfiguration_MC50.c: 1149:             SetSegmentValue((edit_Param.tempValue-edit_Param.tempValue%10)/10, edit_Param.tempValue%10);
-[e ( _SetSegmentValue (2 , -> / - -> . _edit_Param 2 `i % -> . _edit_Param 2 `i -> 10 `i -> 10 `i `uc -> % -> . _edit_Param 2 `i -> 10 `i `uc ]
-"1150
-[; ;sm_MenuConfiguration_MC50.c: 1150:         }
+"1136
+[; ;sm_MenuConfiguration_MC50.c: 1136:             SetSegmentValueMain((edit_Param.tempValue-edit_Param.tempValue%10)/10, edit_Param.tempValue%10);
+[e ( _SetSegmentValueMain (2 , -> / - -> . _edit_Param 2 `i % -> . _edit_Param 2 `i -> 10 `i -> 10 `i `uc -> % -> . _edit_Param 2 `i -> 10 `i `uc ]
+"1137
+[; ;sm_MenuConfiguration_MC50.c: 1137:         }
 }
 [e :U 1739 ]
-"1151
-[; ;sm_MenuConfiguration_MC50.c: 1151:         button_struct.processed=1;
+"1138
+[; ;sm_MenuConfiguration_MC50.c: 1138:         button_struct.processed=1;
 [e = . _button_struct 3 -> -> 1 `i `uc ]
-"1152
-[; ;sm_MenuConfiguration_MC50.c: 1152:     }
+"1139
+[; ;sm_MenuConfiguration_MC50.c: 1139:     }
 }
 [e $U 1740  ]
-"1153
-[; ;sm_MenuConfiguration_MC50.c: 1153:     else if(edit_Param.Max>99 &&edit_Param.tempValue>99 )
-[e :U 1736 ]
-[e $ ! && > -> . _edit_Param 3 `i -> 99 `i > -> . _edit_Param 2 `i -> 99 `i 1741  ]
-"1154
-[; ;sm_MenuConfiguration_MC50.c: 1154:     {
+"1140
+[; ;sm_MenuConfiguration_MC50.c: 1140:     else if (button_struct.current==0x17 && edit_Param.Max!=0)
+[e :U 1735 ]
+[e $ ! && == -> . _button_struct 1 `i -> 23 `i != -> . _edit_Param 3 `i -> 0 `i 1741  ]
+"1141
+[; ;sm_MenuConfiguration_MC50.c: 1141:     {
 {
-"1155
-[; ;sm_MenuConfiguration_MC50.c: 1155:         if(menu_st.parameterSelected==0)
-[e $ ! == -> . _menu_st 4 `i -> 0 `i 1742  ]
-"1156
-[; ;sm_MenuConfiguration_MC50.c: 1156:         {
+"1142
+[; ;sm_MenuConfiguration_MC50.c: 1142:         ts_system.timeoutMenu=((1000/50)*5) ;
+[e = . _ts_system 10 * / -> 1000 `i -> 50 `i -> 5 `i ]
+"1143
+[; ;sm_MenuConfiguration_MC50.c: 1143:         edit_Param.tempValue++;
+[e ++ . _edit_Param 2 -> -> 1 `i `Vuc ]
+"1144
+[; ;sm_MenuConfiguration_MC50.c: 1144:         if(edit_Param.tempValue>edit_Param.Max)
+[e $ ! > -> . _edit_Param 2 `i -> . _edit_Param 3 `i 1742  ]
+"1145
+[; ;sm_MenuConfiguration_MC50.c: 1145:         {
 {
-"1157
-[; ;sm_MenuConfiguration_MC50.c: 1157:             SetSegmentValueIntermitentMain(dL, dU,( 500/50));
-[e ( _SetSegmentValueIntermitentMain (3 , , -> . `E10610 18 `uc -> . `E10610 19 `uc / -> 500 `i -> 50 `i ]
-"1158
-[; ;sm_MenuConfiguration_MC50.c: 1158:         }
+"1146
+[; ;sm_MenuConfiguration_MC50.c: 1146:              edit_Param.tempValue=edit_Param.Min;
+[e = . _edit_Param 2 -> . _edit_Param 4 `uc ]
+"1147
+[; ;sm_MenuConfiguration_MC50.c: 1147:         }
 }
-[e $U 1743  ]
-"1159
-[; ;sm_MenuConfiguration_MC50.c: 1159:         else
 [e :U 1742 ]
-"1160
-[; ;sm_MenuConfiguration_MC50.c: 1160:         {
+"1148
+[; ;sm_MenuConfiguration_MC50.c: 1148:         if(cmdMemoryIsEmpty(menu_st.parameterSelected,edit_Param.tempValue)==1|| edit_Param.tempValue==edit_Param.Max)
+[e $ ! || == -> ( _cmdMemoryIsEmpty (2 , . _menu_st 4 -> . _edit_Param 2 `uc `i -> 1 `i == -> . _edit_Param 2 `i -> . _edit_Param 3 `i 1743  ]
+"1149
+[; ;sm_MenuConfiguration_MC50.c: 1149:         {
 {
-"1161
-[; ;sm_MenuConfiguration_MC50.c: 1161:             SetSegmentValueIntermitentMain(dL, dP,( 500/50));
-[e ( _SetSegmentValueIntermitentMain (3 , , -> . `E10610 18 `uc -> . `E10610 16 `uc / -> 500 `i -> 50 `i ]
-"1162
-[; ;sm_MenuConfiguration_MC50.c: 1162:         }
-}
-[e :U 1743 ]
-"1163
-[; ;sm_MenuConfiguration_MC50.c: 1163:     }
+"1150
+[; ;sm_MenuConfiguration_MC50.c: 1150:             SetSegmentValueIntermitentMain((edit_Param.tempValue-edit_Param.tempValue%10)/10, edit_Param.tempValue%10,(1000/50));
+[e ( _SetSegmentValueIntermitentMain (3 , , -> / - -> . _edit_Param 2 `i % -> . _edit_Param 2 `i -> 10 `i -> 10 `i `uc -> % -> . _edit_Param 2 `i -> 10 `i `uc / -> 1000 `i -> 50 `i ]
+"1151
+[; ;sm_MenuConfiguration_MC50.c: 1151:         }
 }
 [e $U 1744  ]
-"1164
-[; ;sm_MenuConfiguration_MC50.c: 1164:     else if(temp!=0xff&&(temp==0||temp==1|| temp ==2 || temp ==4 || temp==8))
+"1152
+[; ;sm_MenuConfiguration_MC50.c: 1152:         else
+[e :U 1743 ]
+"1153
+[; ;sm_MenuConfiguration_MC50.c: 1153:         {
+{
+"1154
+[; ;sm_MenuConfiguration_MC50.c: 1154:             SetSegmentValue((edit_Param.tempValue-edit_Param.tempValue%10)/10, edit_Param.tempValue%10);
+[e ( _SetSegmentValue (2 , -> / - -> . _edit_Param 2 `i % -> . _edit_Param 2 `i -> 10 `i -> 10 `i `uc -> % -> . _edit_Param 2 `i -> 10 `i `uc ]
+"1155
+[; ;sm_MenuConfiguration_MC50.c: 1155:         }
+}
+[e :U 1744 ]
+"1156
+[; ;sm_MenuConfiguration_MC50.c: 1156:         button_struct.processed=1;
+[e = . _button_struct 3 -> -> 1 `i `uc ]
+"1157
+[; ;sm_MenuConfiguration_MC50.c: 1157:     }
+}
+[e $U 1745  ]
+"1158
+[; ;sm_MenuConfiguration_MC50.c: 1158:     else if(edit_Param.Max>99 &&edit_Param.tempValue>99 )
 [e :U 1741 ]
-[e $ ! && != -> _temp `i -> 255 `i || || || || == -> _temp `i -> 0 `i == -> _temp `i -> 1 `i == -> _temp `i -> 2 `i == -> _temp `i -> 4 `i == -> _temp `i -> 8 `i 1745  ]
+[e $ ! && > -> . _edit_Param 3 `i -> 99 `i > -> . _edit_Param 2 `i -> 99 `i 1746  ]
+"1159
+[; ;sm_MenuConfiguration_MC50.c: 1159:     {
+{
+"1160
+[; ;sm_MenuConfiguration_MC50.c: 1160:         if(menu_st.parameterSelected==0)
+[e $ ! == -> . _menu_st 4 `i -> 0 `i 1747  ]
+"1161
+[; ;sm_MenuConfiguration_MC50.c: 1161:         {
+{
+"1162
+[; ;sm_MenuConfiguration_MC50.c: 1162:             SetSegmentValueIntermitentMain(dL, dU,( 500/50));
+[e ( _SetSegmentValueIntermitentMain (3 , , -> . `E10610 18 `uc -> . `E10610 19 `uc / -> 500 `i -> 50 `i ]
+"1163
+[; ;sm_MenuConfiguration_MC50.c: 1163:         }
+}
+[e $U 1748  ]
+"1164
+[; ;sm_MenuConfiguration_MC50.c: 1164:         else
+[e :U 1747 ]
 "1165
-[; ;sm_MenuConfiguration_MC50.c: 1165:     {
+[; ;sm_MenuConfiguration_MC50.c: 1165:         {
 {
 "1166
-[; ;sm_MenuConfiguration_MC50.c: 1166:         char pos;
-[v _pos `uc ~T0 @X0 1 a ]
+[; ;sm_MenuConfiguration_MC50.c: 1166:             SetSegmentValueIntermitentMain(dL, dP,( 500/50));
+[e ( _SetSegmentValueIntermitentMain (3 , , -> . `E10610 18 `uc -> . `E10610 16 `uc / -> 500 `i -> 50 `i ]
 "1167
-[; ;sm_MenuConfiguration_MC50.c: 1167:         validSerial=validateRemoteSerialNumber(tempSerial,NO,&pos);
-[e = _validSerial -> ( _validateRemoteSerialNumber (3 , , _tempSerial . `E10397 0 &U _pos `uc ]
-"1169
-[; ;sm_MenuConfiguration_MC50.c: 1169:         TypeRemote_st typeRemote = getTypeRemote();
-[v _typeRemote `E10392 ~T0 @X0 1 a ]
-[e = _typeRemote ( _getTypeRemote ..  ]
-"1170
-[; ;sm_MenuConfiguration_MC50.c: 1170:         if(validSerial==0&&(typeRemote==Keeloq_RollingCode || (var_sys_NVM.OnlyRollingCode==NO)))
-[e $ ! && == -> _validSerial `i -> 0 `i || == -> _typeRemote `ui -> . `E10392 0 `ui == -> . _var_sys_NVM 35 `i -> . `E10397 0 `i 1746  ]
-"1171
-[; ;sm_MenuConfiguration_MC50.c: 1171:         {
-{
-"1172
-[; ;sm_MenuConfiguration_MC50.c: 1172:             saveNewSerial(menu_st.parameterSelected,tempSerial,edit_Param.tempValue);
-[e ( _saveNewSerial (3 , , . _menu_st 4 _tempSerial -> . _edit_Param 2 `uc ]
-"1173
-[; ;sm_MenuConfiguration_MC50.c: 1173:             if(edit_Param.tempValue==var_sys_NVM.positionRemotesFull&&var_sys_NVM.positionRemotesFull<99)
-[e $ ! && == -> . _edit_Param 2 `i -> . _var_sys_NVM 32 `i < -> . _var_sys_NVM 32 `i -> 99 `i 1747  ]
-"1174
-[; ;sm_MenuConfiguration_MC50.c: 1174:                 var_sys_NVM.positionRemotesFull++;
-[e ++ . _var_sys_NVM 32 -> -> 1 `i `Vuc ]
-[e :U 1747 ]
-"1175
-[; ;sm_MenuConfiguration_MC50.c: 1175:             sm_send_event(&menuConfiguration_stateMachine, ev_addRemotes);
-[e ( _sm_send_event (2 , &U _menuConfiguration_stateMachine . `E10563 8 ]
-"1176
-[; ;sm_MenuConfiguration_MC50.c: 1176:             var_sys.DistanceProgrammingActive=NO;
-[e = . _var_sys 43 . `E10397 0 ]
-"1177
-[; ;sm_MenuConfiguration_MC50.c: 1177:             var_sys.ProgrammingDistanceIs=NoCMD;
-[e = . _var_sys 41 . `E10372 0 ]
-"1178
-[; ;sm_MenuConfiguration_MC50.c: 1178:             ts_system.timeSinalizationDigit=(1000/50)*2;
-[e = . _ts_system 9 * / -> 1000 `i -> 50 `i -> 2 `i ]
-"1179
-[; ;sm_MenuConfiguration_MC50.c: 1179:             SetSegmentValueIntermitentMain((edit_Param.tempValue-edit_Param.tempValue%10)/10, edit_Param.tempValue%10,( 200/50));
-[e ( _SetSegmentValueIntermitentMain (3 , , -> / - -> . _edit_Param 2 `i % -> . _edit_Param 2 `i -> 10 `i -> 10 `i `uc -> % -> . _edit_Param 2 `i -> 10 `i `uc / -> 200 `i -> 50 `i ]
-"1180
-[; ;sm_MenuConfiguration_MC50.c: 1180:             if(edit_Param.Max==edit_Param.tempValue || edit_Param.Max==0 )
-[e $ ! || == -> . _edit_Param 3 `i -> . _edit_Param 2 `i == -> . _edit_Param 3 `i -> 0 `i 1748  ]
-"1181
-[; ;sm_MenuConfiguration_MC50.c: 1181:             {
-{
-"1185
-[; ;sm_MenuConfiguration_MC50.c: 1185:                 if(var_sys_NVM.positionRemotesFull==0 && var_sys_NVM.positionRemotesFull==0 && typeRemote==Keeloq_RollingCode)
-[e $ ! && && == -> . _var_sys_NVM 32 `i -> 0 `i == -> . _var_sys_NVM 32 `i -> 0 `i == -> _typeRemote `ui -> . `E10392 0 `ui 1749  ]
-"1186
-[; ;sm_MenuConfiguration_MC50.c: 1186:                 {
-{
-"1188
-[; ;sm_MenuConfiguration_MC50.c: 1188:                     var_sys_NVM.OnlyRollingCode=YES;
-[e = . _var_sys_NVM 35 -> . `E10397 1 `uc ]
-"1189
-[; ;sm_MenuConfiguration_MC50.c: 1189:                 }
-}
-[e :U 1749 ]
-"1192
-[; ;sm_MenuConfiguration_MC50.c: 1192:                 edit_Param.tempValue++;
-[e ++ . _edit_Param 2 -> -> 1 `i `Vuc ]
-"1193
-[; ;sm_MenuConfiguration_MC50.c: 1193:                 edit_Param.Value[0]=edit_Param.tempValue;
-[e = *U + . _edit_Param 1 * -> -> 0 `i `x -> -> # *U . _edit_Param 1 `i `x . _edit_Param 2 ]
-"1194
-[; ;sm_MenuConfiguration_MC50.c: 1194:                 SaveNVM_VarSystem(pageMemoryCounters);
-[e ( _SaveNVM_VarSystem (1 -> . `E10937 2 `uc ]
-"1195
-[; ;sm_MenuConfiguration_MC50.c: 1195:             }
+[; ;sm_MenuConfiguration_MC50.c: 1167:         }
 }
 [e :U 1748 ]
-"1198
-[; ;sm_MenuConfiguration_MC50.c: 1198:         }
+"1168
+[; ;sm_MenuConfiguration_MC50.c: 1168:     }
 }
+[e $U 1749  ]
+"1169
+[; ;sm_MenuConfiguration_MC50.c: 1169:     else if(temp!=0xff&&(temp==0||temp==1|| temp ==2 || temp ==4 || temp==8))
 [e :U 1746 ]
-"1199
-[; ;sm_MenuConfiguration_MC50.c: 1199:     }
-}
-[e $U 1750  ]
-"1200
-[; ;sm_MenuConfiguration_MC50.c: 1200:     else if(edit_Param.tempValue!=edit_Param.Max && (button_struct.current==0x27 && button_struct.timer>=((1000/50)*2)))
-[e :U 1745 ]
-[e $ ! && != -> . _edit_Param 2 `i -> . _edit_Param 3 `i && == -> . _button_struct 1 `i -> 39 `i >= -> . _button_struct 2 `i * / -> 1000 `i -> 50 `i -> 2 `i 1751  ]
-"1201
-[; ;sm_MenuConfiguration_MC50.c: 1201:     {
+[e $ ! && != -> _temp `i -> 255 `i || || || || == -> _temp `i -> 0 `i == -> _temp `i -> 1 `i == -> _temp `i -> 2 `i == -> _temp `i -> 4 `i == -> _temp `i -> 8 `i 1750  ]
+"1170
+[; ;sm_MenuConfiguration_MC50.c: 1170:     {
 {
+"1171
+[; ;sm_MenuConfiguration_MC50.c: 1171:         char pos;
+[v _pos `uc ~T0 @X0 1 a ]
+"1172
+[; ;sm_MenuConfiguration_MC50.c: 1172:         validSerial=validateRemoteSerialNumber(tempSerial,NO,&pos);
+[e = _validSerial -> ( _validateRemoteSerialNumber (3 , , _tempSerial . `E10397 0 &U _pos `uc ]
+"1174
+[; ;sm_MenuConfiguration_MC50.c: 1174:         TypeRemote_st typeRemote = getTypeRemote();
+[v _typeRemote `E10392 ~T0 @X0 1 a ]
+[e = _typeRemote ( _getTypeRemote ..  ]
+"1175
+[; ;sm_MenuConfiguration_MC50.c: 1175:         if(validSerial==0&&(typeRemote==Keeloq_RollingCode || (var_sys_NVM.OnlyRollingCode==NO)))
+[e $ ! && == -> _validSerial `i -> 0 `i || == -> _typeRemote `ui -> . `E10392 0 `ui == -> . _var_sys_NVM 35 `i -> . `E10397 0 `i 1751  ]
+"1176
+[; ;sm_MenuConfiguration_MC50.c: 1176:         {
+{
+"1177
+[; ;sm_MenuConfiguration_MC50.c: 1177:             saveNewSerial(menu_st.parameterSelected,tempSerial,edit_Param.tempValue);
+[e ( _saveNewSerial (3 , , . _menu_st 4 _tempSerial -> . _edit_Param 2 `uc ]
+"1178
+[; ;sm_MenuConfiguration_MC50.c: 1178:             if(menu_st.parameterSelected==0&&edit_Param.tempValue==var_sys_NVM.positionRemotesFull&&var_sys_NVM.positionRemotesFull<99)
+[e $ ! && && == -> . _menu_st 4 `i -> 0 `i == -> . _edit_Param 2 `i -> . _var_sys_NVM 32 `i < -> . _var_sys_NVM 32 `i -> 99 `i 1752  ]
+"1179
+[; ;sm_MenuConfiguration_MC50.c: 1179:                 var_sys_NVM.positionRemotesFull++;
+[e ++ . _var_sys_NVM 32 -> -> 1 `i `Vuc ]
+[e :U 1752 ]
+"1180
+[; ;sm_MenuConfiguration_MC50.c: 1180:             if(menu_st.parameterSelected==1&&edit_Param.tempValue==var_sys_NVM.positionRemotesWalk&&var_sys_NVM.positionRemotesWalk<99)
+[e $ ! && && == -> . _menu_st 4 `i -> 1 `i == -> . _edit_Param 2 `i -> . _var_sys_NVM 33 `i < -> . _var_sys_NVM 33 `i -> 99 `i 1753  ]
+"1181
+[; ;sm_MenuConfiguration_MC50.c: 1181:                 var_sys_NVM.positionRemotesWalk++;
+[e ++ . _var_sys_NVM 33 -> -> 1 `i `Vuc ]
+[e :U 1753 ]
+"1182
+[; ;sm_MenuConfiguration_MC50.c: 1182:             sm_send_event(&menuConfiguration_stateMachine, ev_addRemotes);
+[e ( _sm_send_event (2 , &U _menuConfiguration_stateMachine . `E10563 8 ]
+"1183
+[; ;sm_MenuConfiguration_MC50.c: 1183:             var_sys.DistanceProgrammingActive=NO;
+[e = . _var_sys 43 . `E10397 0 ]
+"1184
+[; ;sm_MenuConfiguration_MC50.c: 1184:             var_sys.ProgrammingDistanceIs=NoCMD;
+[e = . _var_sys 41 . `E10372 0 ]
+"1185
+[; ;sm_MenuConfiguration_MC50.c: 1185:             ts_system.timeSinalizationDigit=(1000/50)*2;
+[e = . _ts_system 9 * / -> 1000 `i -> 50 `i -> 2 `i ]
+"1186
+[; ;sm_MenuConfiguration_MC50.c: 1186:             SetSegmentValueIntermitentMain((edit_Param.tempValue-edit_Param.tempValue%10)/10, edit_Param.tempValue%10,( 200/50));
+[e ( _SetSegmentValueIntermitentMain (3 , , -> / - -> . _edit_Param 2 `i % -> . _edit_Param 2 `i -> 10 `i -> 10 `i `uc -> % -> . _edit_Param 2 `i -> 10 `i `uc / -> 200 `i -> 50 `i ]
+"1187
+[; ;sm_MenuConfiguration_MC50.c: 1187:             if(edit_Param.Max==edit_Param.tempValue || edit_Param.Max==0 )
+[e $ ! || == -> . _edit_Param 3 `i -> . _edit_Param 2 `i == -> . _edit_Param 3 `i -> 0 `i 1754  ]
+"1188
+[; ;sm_MenuConfiguration_MC50.c: 1188:             {
+{
+"1192
+[; ;sm_MenuConfiguration_MC50.c: 1192:                 if(var_sys_NVM.positionRemotesFull==0 && var_sys_NVM.positionRemotesWalk==0 && typeRemote==Keeloq_RollingCode)
+[e $ ! && && == -> . _var_sys_NVM 32 `i -> 0 `i == -> . _var_sys_NVM 33 `i -> 0 `i == -> _typeRemote `ui -> . `E10392 0 `ui 1755  ]
+"1193
+[; ;sm_MenuConfiguration_MC50.c: 1193:                 {
+{
+"1195
+[; ;sm_MenuConfiguration_MC50.c: 1195:                     var_sys_NVM.OnlyRollingCode=YES;
+[e = . _var_sys_NVM 35 -> . `E10397 1 `uc ]
+"1196
+[; ;sm_MenuConfiguration_MC50.c: 1196:                 }
+}
+[e :U 1755 ]
+"1199
+[; ;sm_MenuConfiguration_MC50.c: 1199:                 edit_Param.tempValue++;
+[e ++ . _edit_Param 2 -> -> 1 `i `Vuc ]
+"1200
+[; ;sm_MenuConfiguration_MC50.c: 1200:                 edit_Param.Value[0]=edit_Param.tempValue;
+[e = *U + . _edit_Param 1 * -> -> 0 `i `x -> -> # *U . _edit_Param 1 `i `x . _edit_Param 2 ]
+"1201
+[; ;sm_MenuConfiguration_MC50.c: 1201:                 SaveNVM_VarSystem(pageMemoryCounters);
+[e ( _SaveNVM_VarSystem (1 -> . `E10937 2 `uc ]
 "1202
-[; ;sm_MenuConfiguration_MC50.c: 1202:         ts_system.timeoutMenu=((1000/50)*5) ;
-[e = . _ts_system 10 * / -> 1000 `i -> 50 `i -> 5 `i ]
-"1203
-[; ;sm_MenuConfiguration_MC50.c: 1203:         RemoveSerial(menu_st.parameterSelected,edit_Param.tempValue);
-[e ( _RemoveSerial (2 , . _menu_st 4 -> . _edit_Param 2 `uc ]
-"1204
-[; ;sm_MenuConfiguration_MC50.c: 1204:         SetSegmentValueIntermitentMain((edit_Param.tempValue-edit_Param.tempValue%10)/10, edit_Param.tempValue%10,(1000/50));
-[e ( _SetSegmentValueIntermitentMain (3 , , -> / - -> . _edit_Param 2 `i % -> . _edit_Param 2 `i -> 10 `i -> 10 `i `uc -> % -> . _edit_Param 2 `i -> 10 `i `uc / -> 1000 `i -> 50 `i ]
+[; ;sm_MenuConfiguration_MC50.c: 1202:             }
+}
+[e :U 1754 ]
+"1205
+[; ;sm_MenuConfiguration_MC50.c: 1205:         }
+}
+[e :U 1751 ]
 "1206
 [; ;sm_MenuConfiguration_MC50.c: 1206:     }
 }
-[e :U 1751 ]
-[e :U 1750 ]
-[e :U 1744 ]
-[e :U 1740 ]
-[e :U 1735 ]
-[e :U 1729 ]
+[e $U 1756  ]
 "1207
-[; ;sm_MenuConfiguration_MC50.c: 1207: }
-[e :UE 1727 ]
-}
+[; ;sm_MenuConfiguration_MC50.c: 1207:     else if(edit_Param.tempValue!=edit_Param.Max && (button_struct.current==0x27 && button_struct.timer>=((1000/50)*2)))
+[e :U 1750 ]
+[e $ ! && != -> . _edit_Param 2 `i -> . _edit_Param 3 `i && == -> . _button_struct 1 `i -> 39 `i >= -> . _button_struct 2 `i * / -> 1000 `i -> 50 `i -> 2 `i 1757  ]
+"1208
+[; ;sm_MenuConfiguration_MC50.c: 1208:     {
+{
 "1209
-[; ;sm_MenuConfiguration_MC50.c: 1209: void controlSaveRemote(void){
+[; ;sm_MenuConfiguration_MC50.c: 1209:         ts_system.timeoutMenu=((1000/50)*5) ;
+[e = . _ts_system 10 * / -> 1000 `i -> 50 `i -> 5 `i ]
+"1210
+[; ;sm_MenuConfiguration_MC50.c: 1210:         RemoveSerial(menu_st.parameterSelected,edit_Param.tempValue);
+[e ( _RemoveSerial (2 , . _menu_st 4 -> . _edit_Param 2 `uc ]
+"1211
+[; ;sm_MenuConfiguration_MC50.c: 1211:         SetSegmentValueIntermitentMain((edit_Param.tempValue-edit_Param.tempValue%10)/10, edit_Param.tempValue%10,(1000/50));
+[e ( _SetSegmentValueIntermitentMain (3 , , -> / - -> . _edit_Param 2 `i % -> . _edit_Param 2 `i -> 10 `i -> 10 `i `uc -> % -> . _edit_Param 2 `i -> 10 `i `uc / -> 1000 `i -> 50 `i ]
+"1213
+[; ;sm_MenuConfiguration_MC50.c: 1213:     }
+}
+[e :U 1757 ]
+[e :U 1756 ]
+[e :U 1749 ]
+[e :U 1745 ]
+[e :U 1740 ]
+[e :U 1734 ]
+"1214
+[; ;sm_MenuConfiguration_MC50.c: 1214: }
+[e :UE 1732 ]
+}
+"1216
+[; ;sm_MenuConfiguration_MC50.c: 1216: void controlSaveRemote(void){
 [v _controlSaveRemote `(v ~T0 @X0 1 ef ]
 {
 [e :U _controlSaveRemote ]
 [f ]
-"1210
-[; ;sm_MenuConfiguration_MC50.c: 1210:      if (ts_system.timeSinalizationDigit<=0)
-[e $ ! <= . _ts_system 9 -> 0 `i 1753  ]
-"1211
-[; ;sm_MenuConfiguration_MC50.c: 1211:      {
-{
-"1212
-[; ;sm_MenuConfiguration_MC50.c: 1212:          if(edit_Param.Max==0)
-[e $ ! == -> . _edit_Param 3 `i -> 0 `i 1754  ]
-"1213
-[; ;sm_MenuConfiguration_MC50.c: 1213:          {
-{
-"1214
-[; ;sm_MenuConfiguration_MC50.c: 1214:              ts_system.timeoutMenu=10*(1000/50);
-[e = . _ts_system 10 * -> 10 `i / -> 1000 `i -> 50 `i ]
-"1215
-[; ;sm_MenuConfiguration_MC50.c: 1215:              sm_send_event(&menuConfiguration_stateMachine, ev_NextRemote);
-[e ( _sm_send_event (2 , &U _menuConfiguration_stateMachine . `E10563 9 ]
-"1216
-[; ;sm_MenuConfiguration_MC50.c: 1216:              SetSegmentValueIntermitentMain((edit_Param.tempValue-edit_Param.tempValue%10)/10, edit_Param.tempValue%10,(1000/50));
-[e ( _SetSegmentValueIntermitentMain (3 , , -> / - -> . _edit_Param 2 `i % -> . _edit_Param 2 `i -> 10 `i -> 10 `i `uc -> % -> . _edit_Param 2 `i -> 10 `i `uc / -> 1000 `i -> 50 `i ]
 "1217
-[; ;sm_MenuConfiguration_MC50.c: 1217:          }
-}
-[e $U 1755  ]
+[; ;sm_MenuConfiguration_MC50.c: 1217:      if (ts_system.timeSinalizationDigit<=0)
+[e $ ! <= . _ts_system 9 -> 0 `i 1759  ]
 "1218
-[; ;sm_MenuConfiguration_MC50.c: 1218:          else
-[e :U 1754 ]
-"1219
-[; ;sm_MenuConfiguration_MC50.c: 1219:          {
+[; ;sm_MenuConfiguration_MC50.c: 1218:      {
 {
+"1219
+[; ;sm_MenuConfiguration_MC50.c: 1219:          if(edit_Param.Max==0)
+[e $ ! == -> . _edit_Param 3 `i -> 0 `i 1760  ]
 "1220
-[; ;sm_MenuConfiguration_MC50.c: 1220:             sm_send_event(&main_stateMachine, ev_goto_StandBy);
-[e ( _sm_send_event (2 , &U _main_stateMachine . `E10563 7 ]
+[; ;sm_MenuConfiguration_MC50.c: 1220:          {
+{
 "1221
-[; ;sm_MenuConfiguration_MC50.c: 1221:             sm_send_event(&menuConfiguration_stateMachine, ev_ParameterIsSaved);
-[e ( _sm_send_event (2 , &U _menuConfiguration_stateMachine . `E10563 4 ]
+[; ;sm_MenuConfiguration_MC50.c: 1221:              ts_system.timeoutMenu=10*(1000/50);
+[e = . _ts_system 10 * -> 10 `i / -> 1000 `i -> 50 `i ]
 "1222
-[; ;sm_MenuConfiguration_MC50.c: 1222:             SetSegmentValueMain(dMinus,dMinus);
-[e ( _SetSegmentValueMain (2 , -> . `E10610 24 `uc -> . `E10610 24 `uc ]
+[; ;sm_MenuConfiguration_MC50.c: 1222:              sm_send_event(&menuConfiguration_stateMachine, ev_NextRemote);
+[e ( _sm_send_event (2 , &U _menuConfiguration_stateMachine . `E10563 9 ]
 "1223
-[; ;sm_MenuConfiguration_MC50.c: 1223:             ClearFlag_rfCMD();
-[e ( _ClearFlag_rfCMD ..  ]
+[; ;sm_MenuConfiguration_MC50.c: 1223:              SetSegmentValueIntermitentMain((edit_Param.tempValue-edit_Param.tempValue%10)/10, edit_Param.tempValue%10,(1000/50));
+[e ( _SetSegmentValueIntermitentMain (3 , , -> / - -> . _edit_Param 2 `i % -> . _edit_Param 2 `i -> 10 `i -> 10 `i `uc -> % -> . _edit_Param 2 `i -> 10 `i `uc / -> 1000 `i -> 50 `i ]
 "1224
-[; ;sm_MenuConfiguration_MC50.c: 1224:             ts_system.timeoutMenu = 0;
-[e = . _ts_system 10 -> 0 `i ]
+[; ;sm_MenuConfiguration_MC50.c: 1224:          }
+}
+[e $U 1761  ]
 "1225
-[; ;sm_MenuConfiguration_MC50.c: 1225:          }
-}
-[e :U 1755 ]
+[; ;sm_MenuConfiguration_MC50.c: 1225:          else
+[e :U 1760 ]
 "1226
-[; ;sm_MenuConfiguration_MC50.c: 1226:      }
-}
-[e :U 1753 ]
+[; ;sm_MenuConfiguration_MC50.c: 1226:          {
+{
+"1227
+[; ;sm_MenuConfiguration_MC50.c: 1227:             sm_send_event(&main_stateMachine, ev_goto_StandBy);
+[e ( _sm_send_event (2 , &U _main_stateMachine . `E10563 7 ]
 "1228
-[; ;sm_MenuConfiguration_MC50.c: 1228: }
-[e :UE 1752 ]
-}
+[; ;sm_MenuConfiguration_MC50.c: 1228:             sm_send_event(&menuConfiguration_stateMachine, ev_ParameterIsSaved);
+[e ( _sm_send_event (2 , &U _menuConfiguration_stateMachine . `E10563 4 ]
+"1229
+[; ;sm_MenuConfiguration_MC50.c: 1229:             SetSegmentValueMain(dMinus,dMinus);
+[e ( _SetSegmentValueMain (2 , -> . `E10610 24 `uc -> . `E10610 24 `uc ]
 "1230
-[; ;sm_MenuConfiguration_MC50.c: 1230: void controlLearnDigit(void)
-[v _controlLearnDigit `(v ~T0 @X0 1 ef ]
+[; ;sm_MenuConfiguration_MC50.c: 1230:             ClearFlag_rfCMD();
+[e ( _ClearFlag_rfCMD ..  ]
 "1231
-[; ;sm_MenuConfiguration_MC50.c: 1231: {
+[; ;sm_MenuConfiguration_MC50.c: 1231:             ts_system.timeoutMenu = 0;
+[e = . _ts_system 10 -> 0 `i ]
+"1232
+[; ;sm_MenuConfiguration_MC50.c: 1232:          }
+}
+[e :U 1761 ]
+"1233
+[; ;sm_MenuConfiguration_MC50.c: 1233:      }
+}
+[e :U 1759 ]
+"1235
+[; ;sm_MenuConfiguration_MC50.c: 1235: }
+[e :UE 1758 ]
+}
+"1237
+[; ;sm_MenuConfiguration_MC50.c: 1237: void controlLearnDigit(void)
+[v _controlLearnDigit `(v ~T0 @X0 1 ef ]
+"1238
+[; ;sm_MenuConfiguration_MC50.c: 1238: {
 {
 [e :U _controlLearnDigit ]
 [f ]
-"1232
-[; ;sm_MenuConfiguration_MC50.c: 1232:     if(ts_system.timeSinalizationDigit<=0 )
-[e $ ! <= . _ts_system 9 -> 0 `i 1757  ]
-"1233
-[; ;sm_MenuConfiguration_MC50.c: 1233:     {
-{
-"1234
-[; ;sm_MenuConfiguration_MC50.c: 1234:         ts_system.timeSinalizationDigit=( 100/50);
-[e = . _ts_system 9 / -> 100 `i -> 50 `i ]
-"1235
-[; ;sm_MenuConfiguration_MC50.c: 1235:         if(var_sys.StateMotor==InClose)
-[e $ ! == -> . _var_sys 0 `ui -> . `E10381 3 `ui 1758  ]
-"1236
-[; ;sm_MenuConfiguration_MC50.c: 1236:         {
-{
-"1237
-[; ;sm_MenuConfiguration_MC50.c: 1237:             SetSegmentValueLearn(Left);
-[e ( _SetSegmentValueLearn (1 . `E10650 0 ]
-"1238
-[; ;sm_MenuConfiguration_MC50.c: 1238:         }
-}
-[e $U 1759  ]
 "1239
-[; ;sm_MenuConfiguration_MC50.c: 1239:         else
-[e :U 1758 ]
+[; ;sm_MenuConfiguration_MC50.c: 1239:     if(ts_system.timeSinalizationDigit<=0 )
+[e $ ! <= . _ts_system 9 -> 0 `i 1763  ]
 "1240
-[; ;sm_MenuConfiguration_MC50.c: 1240:         {
+[; ;sm_MenuConfiguration_MC50.c: 1240:     {
 {
 "1241
-[; ;sm_MenuConfiguration_MC50.c: 1241:             SetSegmentValueLearn(Rigth);
-[e ( _SetSegmentValueLearn (1 . `E10650 1 ]
+[; ;sm_MenuConfiguration_MC50.c: 1241:         ts_system.timeSinalizationDigit=( 100/50);
+[e = . _ts_system 9 / -> 100 `i -> 50 `i ]
 "1242
-[; ;sm_MenuConfiguration_MC50.c: 1242:         }
-}
-[e :U 1759 ]
+[; ;sm_MenuConfiguration_MC50.c: 1242:         if(var_sys.StateMotor==InClose)
+[e $ ! == -> . _var_sys 0 `ui -> . `E10381 3 `ui 1764  ]
 "1243
-[; ;sm_MenuConfiguration_MC50.c: 1243:     }
-}
-[e :U 1757 ]
+[; ;sm_MenuConfiguration_MC50.c: 1243:         {
+{
 "1244
-[; ;sm_MenuConfiguration_MC50.c: 1244: }
-[e :UE 1756 ]
+[; ;sm_MenuConfiguration_MC50.c: 1244:             SetSegmentValueLearn(Left);
+[e ( _SetSegmentValueLearn (1 . `E10650 0 ]
+"1245
+[; ;sm_MenuConfiguration_MC50.c: 1245:         }
+}
+[e $U 1765  ]
+"1246
+[; ;sm_MenuConfiguration_MC50.c: 1246:         else
+[e :U 1764 ]
+"1247
+[; ;sm_MenuConfiguration_MC50.c: 1247:         {
+{
+"1248
+[; ;sm_MenuConfiguration_MC50.c: 1248:             SetSegmentValueLearn(Rigth);
+[e ( _SetSegmentValueLearn (1 . `E10650 1 ]
+"1249
+[; ;sm_MenuConfiguration_MC50.c: 1249:         }
+}
+[e :U 1765 ]
+"1250
+[; ;sm_MenuConfiguration_MC50.c: 1250:     }
+}
+[e :U 1763 ]
+"1251
+[; ;sm_MenuConfiguration_MC50.c: 1251: }
+[e :UE 1762 ]
 }

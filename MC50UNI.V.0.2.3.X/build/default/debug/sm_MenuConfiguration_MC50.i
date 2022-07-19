@@ -17821,13 +17821,13 @@ void EUSART1_SetRxInterruptHandler(void (* interruptHandler)(void));
         SAVE_COMMAND_F=8,
         ERASE_COMMAND_F=9,
         READ_SERIAL_F=10,
-        NUM_COMMANDS_W=4,
-        NUM_EMPTY_COMMANDS_W=5,
-        OCCUPIED_POS_W=6,
-        EMPTY_POS_W=7,
-        SAVE_COMMAND_W=8,
-        ERASE_COMMAND_W=9,
-        READ_SERIAL_W=10
+        NUM_COMMANDS_W=11,
+        NUM_EMPTY_COMMANDS_W=12,
+        OCCUPIED_POS_W=13,
+        EMPTY_POS_W=14,
+        SAVE_COMMAND_W=15,
+        ERASE_COMMAND_W=16,
+        READ_SERIAL_W=17
     };
 
 
@@ -17892,20 +17892,12 @@ void ResetDefaultMemory(unsigned char type);
 void loadNVM_VarSystem(void);
 void ControlCounterMoves(void);
 # 12 "./eusartparser.h" 2
-
-
-# 1 "./sm_Main.h" 1
-# 14 "./eusartparser.h" 2
-
-
-
-
-
-
-
-
+# 21 "./eusartparser.h"
     extern volatile varSystem_NVM var_sys_NVM;
+    extern sm_t menuConfiguration_stateMachine;
     extern sm_t main_stateMachine;
+    extern sm_t controlGate_stateMachine;
+    extern sm_t controlLearning_stateMachine;
     _Bool programmer_enable=0;
 
     void read_eusartparser(struct package_t* package);
@@ -19094,7 +19086,12 @@ char setValueToEdit(menuLists_en menuType, char ParameterSelected ){
                 break;
                 case 1:
                 {
-                    edit_Param.Value=(unsigned char*)&var_sys_NVM.positionRemotesWalk;
+                    for(unsigned char posindex=0; posindex <= *(unsigned char*)&var_sys_NVM.positionRemotesWalk; posindex++)
+                    {
+                        value=posindex;
+                        if(cmdMemoryIsEmpty(menu_st.parameterSelected, posindex))
+                            break;
+                    }
                     edit_Param.Max=*(unsigned char*)&var_sys_NVM.positionRemotesWalk;
                 }
                 break;
@@ -19186,8 +19183,10 @@ void controlSelectRemote(void) {
         if(validSerial==0&&(typeRemote==Keeloq_RollingCode || (var_sys_NVM.OnlyRollingCode==NO)))
         {
             saveNewSerial(menu_st.parameterSelected,tempSerial,edit_Param.tempValue);
-            if(edit_Param.tempValue==var_sys_NVM.positionRemotesFull&&var_sys_NVM.positionRemotesFull<99)
+            if(menu_st.parameterSelected==0&&edit_Param.tempValue==var_sys_NVM.positionRemotesFull&&var_sys_NVM.positionRemotesFull<99)
                 var_sys_NVM.positionRemotesFull++;
+            if(menu_st.parameterSelected==1&&edit_Param.tempValue==var_sys_NVM.positionRemotesWalk&&var_sys_NVM.positionRemotesWalk<99)
+                var_sys_NVM.positionRemotesWalk++;
             sm_send_event(&menuConfiguration_stateMachine, ev_addRemotes);
             var_sys.DistanceProgrammingActive=NO;
             var_sys.ProgrammingDistanceIs=NoCMD;
@@ -19198,7 +19197,7 @@ void controlSelectRemote(void) {
 
 
 
-                if(var_sys_NVM.positionRemotesFull==0 && var_sys_NVM.positionRemotesFull==0 && typeRemote==Keeloq_RollingCode)
+                if(var_sys_NVM.positionRemotesFull==0 && var_sys_NVM.positionRemotesWalk==0 && typeRemote==Keeloq_RollingCode)
                 {
 
                     var_sys_NVM.OnlyRollingCode=YES;

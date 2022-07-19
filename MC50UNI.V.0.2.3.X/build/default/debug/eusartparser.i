@@ -17007,13 +17007,13 @@ void EUSART1_SetRxInterruptHandler(void (* interruptHandler)(void));
         SAVE_COMMAND_F=8,
         ERASE_COMMAND_F=9,
         READ_SERIAL_F=10,
-        NUM_COMMANDS_W=4,
-        NUM_EMPTY_COMMANDS_W=5,
-        OCCUPIED_POS_W=6,
-        EMPTY_POS_W=7,
-        SAVE_COMMAND_W=8,
-        ERASE_COMMAND_W=9,
-        READ_SERIAL_W=10
+        NUM_COMMANDS_W=11,
+        NUM_EMPTY_COMMANDS_W=12,
+        OCCUPIED_POS_W=13,
+        EMPTY_POS_W=14,
+        SAVE_COMMAND_W=15,
+        ERASE_COMMAND_W=16,
+        READ_SERIAL_W=17
     };
 
 
@@ -17671,24 +17671,6 @@ int sm_get_current_state(sm_t *psm);
 void sm_send_event(sm_t *psm, int event);
 # 13 "./eusartparser.h" 2
 
-# 1 "./sm_Main.h" 1
-# 15 "./sm_Main.h"
-# 1 "./eusartparser.h" 1
-# 15 "./sm_Main.h" 2
-
-
-typedef enum {
- st_standBy=0,
- st_MenuConfiguration=1,
-        st_MotorON=2,
-}sm_state_Main_t;
-
-
-extern sm_t main_stateMachine;
-
-void sm_execute_main( sm_t *psm );
-# 14 "./eusartparser.h" 2
-
 
 
 
@@ -17697,7 +17679,10 @@ void sm_execute_main( sm_t *psm );
 
 
     extern volatile varSystem_NVM var_sys_NVM;
+    extern sm_t menuConfiguration_stateMachine;
     extern sm_t main_stateMachine;
+    extern sm_t controlGate_stateMachine;
+    extern sm_t controlLearning_stateMachine;
     _Bool programmer_enable=0;
 
     void read_eusartparser(struct package_t* package);
@@ -17710,238 +17695,204 @@ void sm_execute_main( sm_t *psm );
 # 8 "eusartparser.c" 2
 
 
+# 1 "./sm_Main.h" 1
+# 17 "./sm_Main.h"
+typedef enum {
+ st_standBy=0,
+ st_MenuConfiguration=1,
+        st_MotorON=2,
+}sm_state_Main_t;
+
+
+extern sm_t main_stateMachine;
+
+void sm_execute_main( sm_t *psm );
+# 10 "eusartparser.c" 2
 
 
     void read_eusartparser(struct package_t* package){
         switch(package->address){
             case 0x00:
             case 0x10:
-
-
                 package->data.data8[1]=var_sys_NVM.decelarationClose;
                 package->data.data8[0]=var_sys_NVM.decelarationOpen;
                 write_package(*package);
                 break;
             case 0x11:
-
-
                 package->data.data8[1]=var_sys_NVM.motorSensitivity;
                 package->data.data8[0]=var_sys_NVM.motorPower;
                 write_package(*package);
                 break;
             case 0x12:
-
-
                 package->data.data8[1]=var_sys_NVM.walkTime;
                 package->data.data8[0]=0x00;
                 write_package(*package);
                 break;
             case 0x02:
             case 0x13:
-
-
                 package->data.data8[1]=var_sys_NVM.autoTimeWalkClose;
                 package->data.data8[0]=var_sys_NVM.autoTimeFullClose;
                 write_package(*package);
                 break;
             case 0x05:
             case 0x14:
-
-
                 package->data.data8[1]=var_sys_NVM.photoCellInOpen;
                 package->data.data8[0]=var_sys_NVM.photoCellIsON;
                 write_package(*package);
                 break;
             case 0x15:
-
-
                 package->data.data8[1]=var_sys_NVM.securityBandType;
                 package->data.data8[0]=var_sys_NVM.securityBandIsON;
                 write_package(*package);
                 break;
             case 0x16:
-
-
                 package->data.data8[1]=var_sys_NVM.securityBandInOpen;
                 package->data.data8[0]=0x00;
                 write_package(*package);
                 break;
             case 0x17:
-
-
                 package->data.data8[1]=var_sys_NVM.operationMode;
                 package->data.data8[0]=0x00;
                 write_package(*package);
                 break;
             case 0x18:
-
-
                 package->data.data8[1]=var_sys_NVM.flashLightMode;
                 package->data.data8[0]=0x00;
                 write_package(*package);
                 break;
             case 0x19:
-
-
                 package->data.data8[1]=var_sys_NVM.programmingDistance;
                 package->data.data8[0]=0x00;
                 write_package(*package);
                 break;
             case 0x1A:
-
-
                 package->data.data8[1]=var_sys_NVM.decelarationSensivity;
                 package->data.data8[0]=0x00;
                 write_package(*package);
                 break;
 
             case 0x1B:
-
-
                 package->data.data8[1]=var_sys_NVM.homemPresente;
                 package->data.data8[0]=0x00;
                 write_package(*package);
                 break;
             case 0x07:
             case 0x1C:
-
-
                 package->data.data8[1]=var_sys_NVM.logicDigital;
                 package->data.data8[0]=0x00;
                 write_package(*package);
                 break;
             case 0x1D:
-
-
                 package->data.data8[1]=var_sys_NVM.softstop;
                 package->data.data8[0]=var_sys_NVM.softStart;
                 write_package(*package);
                 break;
             case 0x03:
             case 0x1E:
-
-
                 package->data.data8[1]=var_sys_NVM.ligthTime;
                 package->data.data8[0]=0x00;
                 write_package(*package);
                 break;
             case 0x0A:
             case 0x1F:
-
-
                 package->data.data8[1]=var_sys_NVM.folow_me;
                 package->data.data8[0]=0x00;
                 write_package(*package);
                 break;
             case 0x20:
-
-
                 package->data.data8[1]=var_sys_NVM.Stopboton;
                 package->data.data8[0]=0x00;
                 write_package(*package);
                 break;
             case 0x21:
-
-
                 package->data.data8[1]=var_sys_NVM.electricBrake;
                 package->data.data8[0]=0x00;
                 write_package(*package);
                 break;
             case 0x22:
-
-
                 package->data.data8[1]=var_sys_NVM.velocityDecelaration;
                 package->data.data8[0]=0x00;
                 write_package(*package);
                 break;
             case 0x08:
             case 0x23:
-
-
                 package->data.data8[1]=var_sys_NVM.flashRGBMode;
                 package->data.data8[0]=0x00;
                 write_package(*package);
                 break;
             case 0x24:
-
-
                 package->data.data8[1]=var_sys_NVM.Direction_motor;
                 package->data.data8[0]=0x00;
                 write_package(*package);
                 break;
             case 0x25:
-
-
                 package->data.data8[1]=var_sys_NVM.TypeofMotor;
                 package->data.data8[0]=0x00;
                 write_package(*package);
                 break;
             case 0x26:
-
-
                 package->data.data8[1]=var_sys_NVM.positionRemotesWalk;
                 package->data.data8[0]=var_sys_NVM.positionRemotesFull;
                 write_package(*package);
                 break;
             case 0x27:
-
-
                 package->data.data16=*(((uint16_t*)&(var_sys_NVM.counterMoves))+1);
                 write_package(*package);
                 package->data.data16=*(((uint16_t*)&(var_sys_NVM.counterMoves))+0);
                 write_package(*package);
                 break;
             case 0x29:
-
-
                 package->data.data8[1]=var_sys_NVM.OnlyRollingCode;
                 package->data.data8[0]=0x00;
                 write_package(*package);
                 break;
             case 0x2A:
-
-
                 package->data.data16=*(((uint16_t*)&(var_sys_NVM.learningCurrentDecelarationClose))+1);
                 write_package(*package);
                 package->data.data16=*(((uint16_t*)&(var_sys_NVM.learningCurrentDecelarationClose))+0);
                 write_package(*package);
                 break;
             case 0x2C:
-
-
                 package->data.data16=*(((uint16_t*)&(var_sys_NVM.learningCurrentDecelarationOpen))+1);
                 write_package(*package);
                 package->data.data16=*(((uint16_t*)&(var_sys_NVM.learningCurrentDecelarationOpen))+0);
                 write_package(*package);
                 break;
             case 0x2E:
-
-
                 package->data.data16=var_sys_NVM.learningCurrentNormalClose;
                 write_package(*package);
                 break;
             case 0x2F:
-
-
                 package->data.data16=var_sys_NVM.learningCurrentNormalOpen;
                 write_package(*package);
                 break;
             case 0x30:
-
-
                 package->data.data16=*(((uint16_t*)&(var_sys_NVM.learningTimeToOpen))+1);
                 write_package(*package);
                 package->data.data16=*(((uint16_t*)&(var_sys_NVM.learningTimeToOpen))+0);
                 write_package(*package);
                 break;
             case 0x32:
-
-
                 package->data.data16=*(((uint16_t*)&(var_sys_NVM.learningTimeToClose))+1);
                 write_package(*package);
                 package->data.data16=*(((uint16_t*)&(var_sys_NVM.learningTimeToClose))+0);
                 write_package(*package);
                 break;
+
+
+
+            case 0x34:
+                package->data.data8[1]=(uint8_t)controlGate_stateMachine.current_state;
+                package->data.data8[0]=(uint8_t)controlLearning_stateMachine.current_state;
+                write_package(*package);
+                break;
+            case 0x35:
+                package->data.data8[1]=(uint8_t)main_stateMachine.current_state;
+                package->data.data8[0]=(uint8_t)menuConfiguration_stateMachine.current_state;
+                write_package(*package);
+                break;
+
+
             default:
 
                 break;
@@ -17954,131 +17905,85 @@ void sm_execute_main( sm_t *psm );
         switch((uint8_t)package.address){
             case 0x00:
             case 0x10:
-
-
                 var_sys_NVM.decelarationOpen=package.data.data8[0];
                 var_sys_NVM.decelarationClose=package.data.data8[1];
                 break;
             case 0x11:
-
-
                 var_sys_NVM.motorPower=package.data.data8[0];
                 var_sys_NVM.motorSensitivity=package.data.data8[1];
                 break;
             case 0x12:
-
-
                 var_sys_NVM.walkTime=package.data.data8[1];
                 break;
             case 0x02:
             case 0x13:
-
-
                 var_sys_NVM.autoTimeFullClose=package.data.data8[0];
                 var_sys_NVM.autoTimeWalkClose=package.data.data8[1];
                 break;
             case 0x05:
             case 0x14:
-
-
                 var_sys_NVM.photoCellIsON=package.data.data8[0];
                 var_sys_NVM.photoCellInOpen=package.data.data8[1];
                 break;
             case 0x15:
-
-
                 var_sys_NVM.securityBandIsON=package.data.data8[0];
                 var_sys_NVM.securityBandType=package.data.data8[1];
                 break;
             case 0x16:
-
-
                 var_sys_NVM.securityBandInOpen=package.data.data8[1];
                 break;
             case 0x17:
-
-
                 var_sys_NVM.operationMode=package.data.data8[1];
                 break;
             case 0x18:
-
-
                 var_sys_NVM.flashLightMode=package.data.data8[1];
                 break;
             case 0x19:
-
-
                 var_sys_NVM.programmingDistance=package.data.data8[1];
                 break;
             case 0x1A:
-
-
                 var_sys_NVM.decelarationSensivity=package.data.data8[1];
                 break;
 
             case 0x1B:
-
-
                 var_sys_NVM.homemPresente=package.data.data8[1];
                 break;
             case 0x07:
             case 0x1C:
-
-
                 var_sys_NVM.logicDigital=package.data.data8[1];
                 break;
             case 0x1D:
-
-
                 var_sys_NVM.softStart=package.data.data8[0];
                 var_sys_NVM.softstop=package.data.data8[1];
                 break;
             case 0x03:
             case 0x1E:
-
-
                 var_sys_NVM.ligthTime=package.data.data8[1];
                 break;
             case 0x0A:
             case 0x1F:
-
-
                 var_sys_NVM.folow_me=package.data.data8[1];
                 break;
             case 0x20:
-
-
                 var_sys_NVM.Stopboton=package.data.data8[1];
                 break;
             case 0x21:
-
-
                 var_sys_NVM.electricBrake=package.data.data8[1];
                 break;
             case 0x22:
-
-
                 var_sys_NVM.velocityDecelaration=package.data.data8[1];
                 break;
             case 0x08:
             case 0x23:
-
-
                 var_sys_NVM.flashRGBMode=package.data.data8[1];
                 break;
             case 0x24:
-
-
                 var_sys_NVM.Direction_motor=package.data.data8[1];
                 break;
             case 0x25:
-
-
                 var_sys_NVM.TypeofMotor=package.data.data8[1];
                 break;
             case 0x26:
-
-
                 var_sys_NVM.positionRemotesFull=package.data.data8[0];
                 var_sys_NVM.positionRemotesWalk=package.data.data8[1];
                 break;
@@ -18093,8 +17998,6 @@ void sm_execute_main( sm_t *psm );
                 break;
 
             case 0x29:
-
-
                 var_sys_NVM.OnlyRollingCode=package.data.data8[1];
                 break;
 
@@ -18125,21 +18028,21 @@ void sm_execute_main( sm_t *psm );
                 break;
 
             case 0x30:
-                var_sys_NVM.learningCurrentDecelarationOpen=var_sys_NVM.learningCurrentDecelarationOpen|((uint32_t)(package.data.data16&0xFFFF)<<(uint8_t)(1*16));
-                var_sys_NVM.learningCurrentDecelarationOpen=var_sys_NVM.learningCurrentDecelarationOpen&~((uint32_t)(~package.data.data16&0xFFFF)<<(uint8_t)(1*16));
+                var_sys_NVM.learningTimeToOpen=var_sys_NVM.learningTimeToOpen|((uint32_t)(package.data.data16&0xFFFF)<<(uint8_t)(1*16));
+                var_sys_NVM.learningTimeToOpen=var_sys_NVM.learningTimeToOpen&~((uint32_t)(~package.data.data16&0xFFFF)<<(uint8_t)(1*16));
                 break;
             case 0x31:
-                var_sys_NVM.learningCurrentDecelarationOpen=var_sys_NVM.learningCurrentDecelarationOpen|((uint32_t)(package.data.data16&0xFFFF)<<(uint8_t)(0*16));
-                var_sys_NVM.learningCurrentDecelarationOpen=var_sys_NVM.learningCurrentDecelarationOpen&~((uint32_t)(~package.data.data16&0xFFFF)<<(uint8_t)(0*16));
+                var_sys_NVM.learningTimeToOpen=var_sys_NVM.learningTimeToOpen|((uint32_t)(package.data.data16&0xFFFF)<<(uint8_t)(0*16));
+                var_sys_NVM.learningTimeToOpen=var_sys_NVM.learningTimeToOpen&~((uint32_t)(~package.data.data16&0xFFFF)<<(uint8_t)(0*16));
                 break;
 
             case 0x32:
-                var_sys_NVM.learningCurrentDecelarationOpen=var_sys_NVM.learningCurrentDecelarationOpen|((uint32_t)(package.data.data16&0xFFFF)<<(uint8_t)(1*16));
-                var_sys_NVM.learningCurrentDecelarationOpen=var_sys_NVM.learningCurrentDecelarationOpen&~((uint32_t)(~package.data.data16&0xFFFF)<<(uint8_t)(1*16));
+                var_sys_NVM.learningTimeToClose=var_sys_NVM.learningTimeToClose|((uint32_t)(package.data.data16&0xFFFF)<<(uint8_t)(1*16));
+                var_sys_NVM.learningTimeToClose=var_sys_NVM.learningTimeToClose&~((uint32_t)(~package.data.data16&0xFFFF)<<(uint8_t)(1*16));
                 break;
             case 0x33:
-                var_sys_NVM.learningCurrentDecelarationOpen=var_sys_NVM.learningCurrentDecelarationOpen|((uint32_t)(package.data.data16&0xFFFF)<<(uint8_t)(0*16));
-                var_sys_NVM.learningCurrentDecelarationOpen=var_sys_NVM.learningCurrentDecelarationOpen&~((uint32_t)(~package.data.data16&0xFFFF)<<(uint8_t)(0*16));
+                var_sys_NVM.learningTimeToClose=var_sys_NVM.learningTimeToClose|((uint32_t)(package.data.data16&0xFFFF)<<(uint8_t)(0*16));
+                var_sys_NVM.learningTimeToClose=var_sys_NVM.learningTimeToClose&~((uint32_t)(~package.data.data16&0xFFFF)<<(uint8_t)(0*16));
                 break;
 
             default:
@@ -18167,13 +18070,13 @@ void sm_execute_main( sm_t *psm );
         char pos;
 
         switch(package->functioncode){
-            case (uint8_t)0:
+            case READ:
                 read_eusartparser(package);
                 confirmpackage(package, 1);
                 write_package(*package);
                 break;
 
-            case (uint8_t)1:
+            case WRITE:
                 if(programmer_enable){
                     write_eusartparser(*package);
                     confirmpackage(package, 1);
@@ -18185,7 +18088,7 @@ void sm_execute_main( sm_t *psm );
                 }
                 break;
 
-            case (uint8_t)2:
+            case PROGRAMMING_ENABLE:
                 if(programmer_enable){
                     SaveNVM_VarSystem(pageMemoryE);
                     SaveNVM_VarSystem(pageMemoryP);
@@ -18208,11 +18111,11 @@ void sm_execute_main( sm_t *psm );
                 confirmpackage(package, 1);
                 write_package(*package);
                 break;
-            case (uint8_t)3:
+            case CONFIRM:
                 confirmpackage(package, 1);
                 write_package(*package);
                 break;
-            case (uint8_t)4:
+            case NUM_COMMANDS_F:
                     package->address=0x00;
                     package->data.data16=var_sys_NVM.positionRemotesFull;
                     for(uint8_t i=0;i<var_sys_NVM.positionRemotesFull;i++)
@@ -18222,7 +18125,7 @@ void sm_execute_main( sm_t *psm );
                     confirmpackage(package, 1);
                     write_package(*package);
                 break;
-            case (uint8_t)5:
+            case NUM_EMPTY_COMMANDS_F:
 
                 package->address=0x00;
                 package->data.data16=0;
@@ -18233,7 +18136,7 @@ void sm_execute_main( sm_t *psm );
                 confirmpackage(package, 1);
                 write_package(*package);
                 break;
-            case (uint8_t)6:
+            case OCCUPIED_POS_F:
                 relcounter=0;
                 for(uint8_t i=0;i<var_sys_NVM.positionRemotesFull;i++)
                     if(cmdMemoryIsEmpty(0,i)==0){
@@ -18245,7 +18148,7 @@ void sm_execute_main( sm_t *psm );
                 confirmpackage(package, 1);
                 write_package(*package);
                 break;
-            case (uint8_t)7:
+            case EMPTY_POS_F:
                 relcounter=0;
                 for(uint8_t i=0;i<var_sys_NVM.positionRemotesFull;i++)
                     if(cmdMemoryIsEmpty(0,i)==1){
@@ -18257,7 +18160,7 @@ void sm_execute_main( sm_t *psm );
                 confirmpackage(package, 1);
                 write_package(*package);
                 break;
-            case (uint8_t)8:
+            case SAVE_COMMAND_F:
                 if(programmer_enable){
                     if(save_f==0){
                         buffer=package->data.data16;
@@ -18296,7 +18199,7 @@ void sm_execute_main( sm_t *psm );
                     write_package(*package);
                 }
                 break;
-            case (uint8_t)9:
+            case ERASE_COMMAND_F:
                 if(programmer_enable){
                     for(uint8_t i=0;;i++)
                         if(cmdMemoryIsEmpty(0,i)==0&&package->address==0){
@@ -18321,7 +18224,7 @@ void sm_execute_main( sm_t *psm );
                     write_package(*package);
                 }
                 break;
-            case (uint8_t)10:
+            case READ_SERIAL_F:
                 for(uint8_t i=0;;i++)
                     if(cmdMemoryIsEmpty(0,i)==0&&package->address==0){
                         ReadSerial(0, &serial, i);
@@ -18342,30 +18245,30 @@ void sm_execute_main( sm_t *psm );
                         break;
                     }
                 break;
-            case (uint8_t)11:
+            case NUM_COMMANDS_W:
                     package->address=0x00;
-                    package->data.data16=var_sys_NVM.positionRemotesFull;
-                    for(uint8_t i=0;i<var_sys_NVM.positionRemotesFull;i++)
+                    package->data.data16=var_sys_NVM.positionRemotesWalk;
+                    for(uint8_t i=0;i<var_sys_NVM.positionRemotesWalk;i++)
                     if(cmdMemoryIsEmpty(1,i)==1)
                         package->data.data16--;
                     write_package(*package);
                     confirmpackage(package, 1);
                     write_package(*package);
                 break;
-            case (uint8_t)12:
+            case NUM_EMPTY_COMMANDS_W:
 
                 package->address=0x00;
                 package->data.data16=0;
-                for(uint8_t i=0;i<var_sys_NVM.positionRemotesFull;i++)
+                for(uint8_t i=0;i<var_sys_NVM.positionRemotesWalk;i++)
                 if(cmdMemoryIsEmpty(1,i)==1)
                     package->data.data16++;
                 write_package(*package);
                 confirmpackage(package, 1);
                 write_package(*package);
                 break;
-            case (uint8_t)13:
+            case OCCUPIED_POS_W:
                 relcounter=0;
-                for(uint8_t i=0;i<var_sys_NVM.positionRemotesFull;i++)
+                for(uint8_t i=0;i<var_sys_NVM.positionRemotesWalk;i++)
                     if(cmdMemoryIsEmpty(1,i)==0){
                         package->data.data16=(uint16_t)i;
                         package->address=relcounter;
@@ -18375,9 +18278,9 @@ void sm_execute_main( sm_t *psm );
                 confirmpackage(package, 1);
                 write_package(*package);
                 break;
-            case (uint8_t)14:
+            case EMPTY_POS_W:
                 relcounter=0;
-                for(uint8_t i=0;i<var_sys_NVM.positionRemotesFull;i++)
+                for(uint8_t i=0;i<var_sys_NVM.positionRemotesWalk;i++)
                     if(cmdMemoryIsEmpty(1,i)==1){
                         package->data.data16=(uint16_t)i;
                         package->address=relcounter;
@@ -18387,7 +18290,7 @@ void sm_execute_main( sm_t *psm );
                 confirmpackage(package, 1);
                 write_package(*package);
                 break;
-            case (uint8_t)15:
+            case SAVE_COMMAND_W:
                 if(programmer_enable){
                     if(save_f==0){
                         buffer=package->data.data16;
@@ -18408,7 +18311,7 @@ void sm_execute_main( sm_t *psm );
                                 else if(cmdMemoryIsEmpty(1,i)==1){
                                     package->address--;
                                 }
-                                else if(i==var_sys_NVM.positionRemotesFull){
+                                else if(i==var_sys_NVM.positionRemotesWalk){
                                     confirmpackage(package, 0);
                                     write_package(*package);
                                     break;
@@ -18426,7 +18329,7 @@ void sm_execute_main( sm_t *psm );
                     write_package(*package);
                 }
                 break;
-            case (uint8_t)16:
+            case ERASE_COMMAND_W:
                 if(programmer_enable){
                     for(uint8_t i=0;;i++)
                         if(cmdMemoryIsEmpty(1,i)==0&&package->address==0){
@@ -18439,7 +18342,7 @@ void sm_execute_main( sm_t *psm );
                         else if(cmdMemoryIsEmpty(1,i)==0){
                             package->address--;
                         }
-                        else if(i==var_sys_NVM.positionRemotesFull){
+                        else if(i==var_sys_NVM.positionRemotesWalk){
                             confirmpackage(package, 0);
                             write_package(*package);
                             save_f=0;
@@ -18451,7 +18354,7 @@ void sm_execute_main( sm_t *psm );
                     write_package(*package);
                 }
                 break;
-            case (uint8_t)17:
+            case READ_SERIAL_W:
                 for(uint8_t i=0;;i++)
                     if(cmdMemoryIsEmpty(1,i)==0&&package->address==0){
                         ReadSerial(1, &serial, i);
@@ -18466,7 +18369,7 @@ void sm_execute_main( sm_t *psm );
                     else if(cmdMemoryIsEmpty(1,i)==0){
                         package->address--;
                     }
-                    else if(i==var_sys_NVM.positionRemotesFull){
+                    else if(i==var_sys_NVM.positionRemotesWalk){
                         confirmpackage(package, 0);
                         write_package(*package);
                         break;

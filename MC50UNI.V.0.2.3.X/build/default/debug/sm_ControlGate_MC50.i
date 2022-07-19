@@ -17885,13 +17885,13 @@ void EUSART1_SetRxInterruptHandler(void (* interruptHandler)(void));
         SAVE_COMMAND_F=8,
         ERASE_COMMAND_F=9,
         READ_SERIAL_F=10,
-        NUM_COMMANDS_W=4,
-        NUM_EMPTY_COMMANDS_W=5,
-        OCCUPIED_POS_W=6,
-        EMPTY_POS_W=7,
-        SAVE_COMMAND_W=8,
-        ERASE_COMMAND_W=9,
-        READ_SERIAL_W=10
+        NUM_COMMANDS_W=11,
+        NUM_EMPTY_COMMANDS_W=12,
+        OCCUPIED_POS_W=13,
+        EMPTY_POS_W=14,
+        SAVE_COMMAND_W=15,
+        ERASE_COMMAND_W=16,
+        READ_SERIAL_W=17
     };
 
 
@@ -17956,20 +17956,12 @@ void ResetDefaultMemory(unsigned char type);
 void loadNVM_VarSystem(void);
 void ControlCounterMoves(void);
 # 12 "./eusartparser.h" 2
-
-
-# 1 "./sm_Main.h" 1
-# 14 "./eusartparser.h" 2
-
-
-
-
-
-
-
-
+# 21 "./eusartparser.h"
     extern volatile varSystem_NVM var_sys_NVM;
+    extern sm_t menuConfiguration_stateMachine;
     extern sm_t main_stateMachine;
+    extern sm_t controlGate_stateMachine;
+    extern sm_t controlLearning_stateMachine;
     _Bool programmer_enable=0;
 
     void read_eusartparser(struct package_t* package);

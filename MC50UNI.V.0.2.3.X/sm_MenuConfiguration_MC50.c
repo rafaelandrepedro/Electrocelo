@@ -1078,7 +1078,12 @@ char setValueToEdit(menuLists_en menuType, char ParameterSelected ){
                 break;
                 case 1:
                 {
-                    edit_Param.Value=(unsigned char*)&var_sys_NVM.positionRemotesWalk;
+                    for(unsigned char posindex=0; posindex <= *(unsigned char*)&var_sys_NVM.positionRemotesWalk; posindex++)
+                    {
+                        value=posindex;
+                        if(cmdMemoryIsEmpty(menu_st.parameterSelected, posindex))
+                            break;
+                    }
                     edit_Param.Max=*(unsigned char*)&var_sys_NVM.positionRemotesWalk;
                 }
                 break;
@@ -1170,8 +1175,10 @@ void controlSelectRemote(void) {
         if(validSerial==0&&(typeRemote==Keeloq_RollingCode || (var_sys_NVM.OnlyRollingCode==NO)))
         {
             saveNewSerial(menu_st.parameterSelected,tempSerial,edit_Param.tempValue);
-            if(edit_Param.tempValue==var_sys_NVM.positionRemotesFull&&var_sys_NVM.positionRemotesFull<99)
+            if(menu_st.parameterSelected==0&&edit_Param.tempValue==var_sys_NVM.positionRemotesFull&&var_sys_NVM.positionRemotesFull<99)
                 var_sys_NVM.positionRemotesFull++;
+            if(menu_st.parameterSelected==1&&edit_Param.tempValue==var_sys_NVM.positionRemotesWalk&&var_sys_NVM.positionRemotesWalk<99)
+                var_sys_NVM.positionRemotesWalk++;
             sm_send_event(&menuConfiguration_stateMachine, ev_addRemotes);
             var_sys.DistanceProgrammingActive=NO;
             var_sys.ProgrammingDistanceIs=NoCMD;
@@ -1182,7 +1189,7 @@ void controlSelectRemote(void) {
 
                 //Validação a verificar se aceita comandos 12BIT ou NO_ROLLINGCODE
 
-                if(var_sys_NVM.positionRemotesFull==0 && var_sys_NVM.positionRemotesFull==0 && typeRemote==Keeloq_RollingCode)
+                if(var_sys_NVM.positionRemotesFull==0 && var_sys_NVM.positionRemotesWalk==0 && typeRemote==Keeloq_RollingCode)
                 {
 //                    EUSART_Write_String((char*)"OR");
                     var_sys_NVM.OnlyRollingCode=YES;
