@@ -4,15 +4,24 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/rafaelpetter/Documents/GitHub/Electrocelos/MC50UNI.V.0.2.3.X/mcc_generated_files/drivers/i2c_simple_master.c</file>
+            <file>file:/C:/Users/rafaelpetter/Documents/GitHub/Electrocelos/MC50UNI.V.0.2.3.X/eusartparser.h</file>
             <file>file:/C:/Users/rafaelpetter/Documents/GitHub/Electrocelos/MC50UNI.V.0.2.3.X/controlMemory_MC50.c</file>
             <file>file:/C:/Users/rafaelpetter/Documents/GitHub/Electrocelos/MC50UNI.V.0.2.3.X/controlMemory.h</file>
             <file>file:/C:/Users/rafaelpetter/Documents/GitHub/Electrocelos/MC50UNI.V.0.2.3.X/mcc_generated_files/eusart1.h</file>
             <file>file:/C:/Users/rafaelpetter/Documents/GitHub/Electrocelos/MC50UNI.V.0.2.3.X/sm_MenuConfiguration_MC50.c</file>
             <file>file:/C:/Users/rafaelpetter/Documents/GitHub/Electrocelos/MC50UNI.V.0.2.3.X/inputs.h</file>
             <file>file:/C:/Users/rafaelpetter/Documents/GitHub/Electrocelos/MC50UNI.V.0.2.3.X/mcc_generated_files/drivers/i2c_simple_master.h</file>
-            <file>file:/C:/Users/rafaelpetter/Documents/GitHub/Electrocelos/MC50UNI.V.0.2.3.X/sm_MenuConfiguration.h</file>
             <file>file:/C:/Users/rafaelpetter/Documents/GitHub/Electrocelos/MC50UNI.V.0.2.3.X/mcc_generated_files/eusart1.c</file>
+            <file>file:/C:/Users/rafaelpetter/Documents/GitHub/Electrocelos/MC50UNI.V.0.2.3.X/sm_ControlGate_MC50.c</file>
+            <file>file:/C:/Users/rafaelpetter/Documents/GitHub/Electrocelos/MC50UNI.V.0.2.3.X/main.h</file>
+            <file>file:/C:/Users/rafaelpetter/Documents/GitHub/Electrocelos/MC50UNI.V.0.2.3.X/mcc_generated_files/adcc.h</file>
+            <file>file:/C:/Users/rafaelpetter/Documents/GitHub/Electrocelos/MC50UNI.V.0.2.3.X/eusartpackage.h</file>
+            <file>file:/C:/Users/rafaelpetter/Documents/GitHub/Electrocelos/MC50UNI.V.0.2.3.X/eusartpackage.c</file>
             <file>file:/C:/Users/rafaelpetter/Documents/GitHub/Electrocelos/MC50UNI.V.0.2.3.X/main_MC50.c</file>
+            <file>file:/C:/Users/rafaelpetter/Documents/GitHub/Electrocelos/MC50UNI.V.0.2.3.X/sm_common.h</file>
+            <file>file:/C:/Users/rafaelpetter/Documents/GitHub/Electrocelos/MC50UNI.V.0.2.3.X/sm_Main_MC50.c</file>
+            <file>file:/C:/Users/rafaelpetter/Documents/GitHub/Electrocelos/MC50UNI.V.0.2.3.X/eusartparser.c</file>
+            <file>file:/C:/Users/rafaelpetter/Documents/GitHub/Electrocelos/MC50UNI.V.0.2.3.X/sm_common_MC50.c</file>
         </group>
     </open-files>
 </project-private>

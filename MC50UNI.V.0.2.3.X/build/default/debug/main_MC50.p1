@@ -109,16 +109,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n E11134 . st_MainMenu st_EditParameter st_SaveParameter st_Counter st_SelectRemote st_SaveRemotes st_LearningMode  ]
 "118
 [; ;main_MC50.c: 118:     sm_init(&main_stateMachine,st_standBy,HIST_NONE);
-[c E11242 0 1 2 .. ]
-[n E11242 . st_standBy st_MenuConfiguration st_MotorON  ]
+[c E11243 0 1 2 .. ]
+[n E11243 . st_standBy st_MenuConfiguration st_MotorON  ]
 "119
 [; ;main_MC50.c: 119:     sm_init(&controlGate_stateMachine,st_Idle,HIST_NONE);
-[c E11250 0 1 2 3 4 5 .. ]
-[n E11250 . st_Idle st_Closed st_Opening st_Closing st_Opened st_Learning  ]
+[c E11251 0 1 2 3 4 5 .. ]
+[n E11251 . st_Idle st_Closed st_Opening st_Closing st_Opened st_Learning  ]
 "120
 [; ;main_MC50.c: 120:     sm_init(&controlLearning_stateMachine,st_InitLearning,HIST_NONE);
-[c E11286 0 1 2 3 4 5 .. ]
-[n E11286 . st_InitLearning st_WaitForClosed st_WaitLearnigOpen st_WaitLearnigClose st_WaitForOpened st_WaitForEndLearn  ]
+[c E11287 0 1 2 3 4 5 .. ]
+[n E11287 . st_InitLearning st_WaitForClosed st_WaitLearnigOpen st_WaitLearnigClose st_WaitForOpened st_WaitForEndLearn  ]
 "140
 [; ;main_MC50.c: 140:         struct package_t package;
 [c E11196 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 .. ]
@@ -1700,13 +1700,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _sm_init (3 , , &U _menuConfiguration_stateMachine . `E11134 0 . `E11110 0 ]
 "118
 [; ;main_MC50.c: 118:     sm_init(&main_stateMachine,st_standBy,HIST_NONE);
-[e ( _sm_init (3 , , &U _main_stateMachine . `E11242 0 . `E11110 0 ]
+[e ( _sm_init (3 , , &U _main_stateMachine . `E11243 0 . `E11110 0 ]
 "119
 [; ;main_MC50.c: 119:     sm_init(&controlGate_stateMachine,st_Idle,HIST_NONE);
-[e ( _sm_init (3 , , &U _controlGate_stateMachine . `E11250 0 . `E11110 0 ]
+[e ( _sm_init (3 , , &U _controlGate_stateMachine . `E11251 0 . `E11110 0 ]
 "120
 [; ;main_MC50.c: 120:     sm_init(&controlLearning_stateMachine,st_InitLearning,HIST_NONE);
-[e ( _sm_init (3 , , &U _controlLearning_stateMachine . `E11286 0 . `E11110 0 ]
+[e ( _sm_init (3 , , &U _controlLearning_stateMachine . `E11287 0 . `E11110 0 ]
 "122
 [; ;main_MC50.c: 122:     ts_system.Debug_TS=(1000/50);
 [e = . _ts_system 7 / -> 1000 `i -> 50 `i ]

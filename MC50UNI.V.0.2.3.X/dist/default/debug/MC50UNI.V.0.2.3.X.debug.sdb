@@ -450,13 +450,13 @@ st_SaveRemotes 5
 st_LearningMode 6
 ]
 "118
-[e E11242 . `uc
+[e E11243 . `uc
 st_standBy 0
 st_MenuConfiguration 1
 st_MotorON 2
 ]
 "119
-[e E11250 . `uc
+[e E11251 . `uc
 st_Idle 0
 st_Closed 1
 st_Opening 2
@@ -465,7 +465,7 @@ st_Opened 4
 st_Learning 5
 ]
 "120
-[e E11286 . `uc
+[e E11287 . `uc
 st_InitLearning 0
 st_WaitForClosed 1
 st_WaitLearnigOpen 2
@@ -572,7 +572,7 @@ HIST_NONE 0
 HIST_SHALLOW 1
 HIST_DEEP 2
 ]
-[e E10952 . `uc
+[e E10953 . `uc
 st_standBy 0
 st_MenuConfiguration 1
 st_MotorON 2
@@ -707,12 +707,12 @@ st_Opened 4
 st_Learning 5
 ]
 "133
-[e E10986 . `uc
+[e E10987 . `uc
 st_standBy 0
 st_MenuConfiguration 1
 st_MotorON 2
 ]
-[e E10994 . `uc
+[e E10995 . `uc
 st_MainMenu 0
 st_EditParameter 1
 st_SaveParameter 2
@@ -861,7 +861,7 @@ st_SaveRemotes 5
 st_LearningMode 6
 ]
 "431
-[e E11036 . `uc
+[e E11037 . `uc
 st_standBy 0
 st_MenuConfiguration 1
 st_MotorON 2
@@ -897,13 +897,13 @@ ev_LearningComplete 19
 ev_SartLearning 20
 ]
 "37
-[e E10926 . `uc
+[e E10927 . `uc
 st_standBy 0
 st_MenuConfiguration 1
 st_MotorON 2
 ]
 "88
-[e E10951 . `uc
+[e E10952 . `uc
 P_Menu 0
 E_Menu 1
 Direction_Menu 2
@@ -988,7 +988,7 @@ Active 1
 EmAlarme 2
 ]
 "176
-[e E10993 . `uc
+[e E10994 . `uc
 st_Idle 0
 st_Closed 1
 st_Opening 2
@@ -1177,7 +1177,7 @@ SAVE_COMMAND_W 15
 ERASE_COMMAND_W 16
 READ_SERIAL_W 17
 ]
-"12 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\eusartparser.c
+"14 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\eusartparser.c
 [e E10101 functioncode_t `uc
 READ 0
 WRITE 1
@@ -1198,7 +1198,7 @@ SAVE_COMMAND_W 15
 ERASE_COMMAND_W 16
 READ_SERIAL_W 17
 ]
-"190
+"192
 [e E10145 . `uc
 Stopped 0
 InOpenFull 1
@@ -1225,20 +1225,20 @@ Clear 0
 Active 1
 EmAlarme 2
 ]
-"418
+"421
 [e E10512 . `uc
 pageMemoryP 0
 pageMemoryE 1
 pageMemoryCounters 2
 pageMemoryLearningVars 3
 ]
-"423
+"429
 [e E10571 . `uc
 HIST_NONE 0
 HIST_SHALLOW 1
 HIST_DEEP 2
 ]
-[e E10608 . `uc
+[e E10609 . `uc
 st_standBy 0
 st_MenuConfiguration 1
 st_MotorON 2
@@ -1327,14 +1327,16 @@ st_MotorON 2
 [v _read_package read_package `(S4783  1 e 7 0 ]
 "50
 [v _write_package write_package `(v  1 e 1 0 ]
-"12 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\eusartparser.c
+"14 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\eusartparser.c
 [v _read_eusartparser read_eusartparser `(v  1 e 1 0 ]
-"227
+"229
 [v _write_eusartparser write_eusartparser `(v  1 e 1 0 ]
-"379
+"381
 [v _confirmpackage confirmpackage `(v  1 e 1 0 ]
-"389
+"391
 [v _eusartparser eusartparser `(v  1 e 1 0 ]
+"720
+[v _updateChangesToUart updateChangesToUart `(v  1 e 1 0 ]
 "41 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\inputs_MC50.c
 [v _rxi rxi `(v  1 e 1 0 ]
 "207
@@ -2430,6 +2432,8 @@ st_MotorON 2
 [v _erroranterior erroranterior `VEui  1 e 2 0 ]
 "16 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\controlMemory_MC50.c
 [v _memoryTEMP memoryTEMP `[4]ul  1 e 16 0 ]
+"12 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\eusartparser.c
+[v _done_changes done_changes `a  1 s 1 done_changes ]
 "15 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\inputs_MC50.c
 [v _BufferRF BufferRF `[9]uc  1 e 9 0 ]
 "16
@@ -3238,65 +3242,65 @@ st_MotorON 2
 [v getKeyPressed@temp temp `c  1 a 1 15 ]
 "224
 } 0
-"389 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\eusartparser.c
+"391 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\eusartparser.c
 [v _eusartparser eusartparser `(v  1 e 1 0 ]
 {
-"629
-[v eusartparser@i_7384 i `uc  1 a 1 28 ]
-"499
-[v eusartparser@i_7376 i `uc  1 a 1 25 ]
-"659
-[v eusartparser@i_7385 i `uc  1 a 1 29 ]
-"529
-[v eusartparser@i_7377 i `uc  1 a 1 26 ]
-"683
-[v eusartparser@i_7386 i `uc  1 a 1 30 ]
-"608
-[v eusartparser@i_7383 i `uc  1 a 1 24 ]
-"596
-[v eusartparser@i_7382 i `uc  1 a 1 23 ]
-"587
-[v eusartparser@i_7381 i `uc  1 a 1 19 ]
-"576
-[v eusartparser@i_7380 i `uc  1 a 1 18 ]
-"553
-[v eusartparser@i_7378 i `uc  1 a 1 27 ]
-"478
-[v eusartparser@i_7375 i `uc  1 a 1 22 ]
-"466
-[v eusartparser@i_7374 i `uc  1 a 1 21 ]
-"457
-[v eusartparser@i_7373 i `uc  1 a 1 17 ]
-"446
+"638
+[v eusartparser@i_7389 i `uc  1 a 1 28 ]
+"506
+[v eusartparser@i_7381 i `uc  1 a 1 25 ]
+"669
+[v eusartparser@i_7390 i `uc  1 a 1 29 ]
+"537
+[v eusartparser@i_7382 i `uc  1 a 1 26 ]
+"693
+[v eusartparser@i_7391 i `uc  1 a 1 30 ]
+"616
+[v eusartparser@i_7388 i `uc  1 a 1 24 ]
+"604
+[v eusartparser@i_7387 i `uc  1 a 1 23 ]
+"595
+[v eusartparser@i_7386 i `uc  1 a 1 19 ]
+"584
+[v eusartparser@i_7385 i `uc  1 a 1 18 ]
+"561
+[v eusartparser@i_7383 i `uc  1 a 1 27 ]
+"484
+[v eusartparser@i_7380 i `uc  1 a 1 22 ]
+"472
+[v eusartparser@i_7379 i `uc  1 a 1 21 ]
+"463
+[v eusartparser@i_7378 i `uc  1 a 1 17 ]
+"452
 [v eusartparser@i i `uc  1 a 1 16 ]
-"394
+"396
 [v eusartparser@serial serial `ul  1 a 4 32 ]
-"391
+"393
 [v eusartparser@relcounter relcounter `uc  1 a 1 31 ]
-"395
+"397
 [v eusartparser@pos pos `uc  1 a 1 20 ]
 [u S4780 packagedata_t 2 `us 1 data16 2 0 `[2]uc 1 data8 2 0 ]
-"389
+"391
 [s S4783 package_t 7 `E11196 1 functioncode 1 0 `uc 1 address 1 1 `S4780 1 data 2 2 `uc 1 startbyte 1 4 `uc 1 endbyte 1 5 `a 1 valid 1 6 ]
 [v eusartparser@package package `*.39S4783  1 p 2 8 ]
-"392
+"394
 [v eusartparser@save_f save_f `a  1 s 1 save_f ]
-"393
+"395
 [v eusartparser@buffer buffer `us  1 s 2 buffer ]
-"708
+"718
 } 0
-"227
+"229
 [v _write_eusartparser write_eusartparser `(v  1 e 1 0 ]
 {
-"229
+"231
 [v write_eusartparser@debug2 debug2 `VEi  1 a 2 32 ]
-"228
+"230
 [v write_eusartparser@debug debug `VEi  1 a 2 30 ]
 [u S4780 packagedata_t 2 `us 1 data16 2 0 `[2]uc 1 data8 2 0 ]
-"227
+"229
 [s S4783 package_t 7 `E11196 1 functioncode 1 0 `uc 1 address 1 1 `S4780 1 data 2 2 `uc 1 startbyte 1 4 `uc 1 endbyte 1 5 `a 1 valid 1 6 ]
 [v write_eusartparser@package package `S4783  1 p 7 15 ]
-"377
+"379
 } 0
 "27 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\controlMemory_MC50.c
 [v _validateRemoteSerialNumber validateRemoteSerialNumber `(E10539  1 e 1 0 ]
@@ -3313,24 +3317,24 @@ st_MotorON 2
 [v validateRemoteSerialNumber@position position `*.39uc  1 p 2 50 ]
 "79
 } 0
-"81
-[v _saveNewSerial saveNewSerial `(v  1 e 1 0 ]
+"720 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\eusartparser.c
+[v _updateChangesToUart updateChangesToUart `(v  1 e 1 0 ]
 {
-[v saveNewSerial@cmdType cmdType `uc  1 a 1 wreg ]
-[v saveNewSerial@cmdType cmdType `uc  1 a 1 wreg ]
-[v saveNewSerial@tempSerial tempSerial `ul  1 p 4 0 ]
-[v saveNewSerial@position position `uc  1 p 1 4 ]
-"83
-[v saveNewSerial@cmdType cmdType `uc  1 a 1 57 ]
-"93
+"725
+[v updateChangesToUart@i i `uc  1 a 1 27 ]
+[u S4780 packagedata_t 2 `us 1 data16 2 0 `[2]uc 1 data8 2 0 ]
+"721
+[s S4783 package_t 7 `E11196 1 functioncode 1 0 `uc 1 address 1 1 `S4780 1 data 2 2 `uc 1 startbyte 1 4 `uc 1 endbyte 1 5 `a 1 valid 1 6 ]
+[v updateChangesToUart@package package `S4783  1 a 7 28 ]
+"729
 } 0
-"12 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\eusartparser.c
+"14
 [v _read_eusartparser read_eusartparser `(v  1 e 1 0 ]
 {
 [u S4780 packagedata_t 2 `us 1 data16 2 0 `[2]uc 1 data8 2 0 ]
 [s S4783 package_t 7 `E11196 1 functioncode 1 0 `uc 1 address 1 1 `S4780 1 data 2 2 `uc 1 startbyte 1 4 `uc 1 endbyte 1 5 `a 1 valid 1 6 ]
 [v read_eusartparser@package package `*.39S4783  1 p 2 23 ]
-"225
+"227
 } 0
 "50 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\eusartpackage.c
 [v _write_package write_package `(v  1 e 1 0 ]
@@ -3348,14 +3352,25 @@ st_MotorON 2
 [v EUSART1_Write@txData txData `uc  1 a 1 15 ]
 "194
 } 0
-"379 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\eusartparser.c
+"81 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\controlMemory_MC50.c
+[v _saveNewSerial saveNewSerial `(v  1 e 1 0 ]
+{
+[v saveNewSerial@cmdType cmdType `uc  1 a 1 wreg ]
+[v saveNewSerial@cmdType cmdType `uc  1 a 1 wreg ]
+[v saveNewSerial@tempSerial tempSerial `ul  1 p 4 0 ]
+[v saveNewSerial@position position `uc  1 p 1 4 ]
+"83
+[v saveNewSerial@cmdType cmdType `uc  1 a 1 57 ]
+"93
+} 0
+"381 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\eusartparser.c
 [v _confirmpackage confirmpackage `(v  1 e 1 0 ]
 {
 [u S4780 packagedata_t 2 `us 1 data16 2 0 `[2]uc 1 data8 2 0 ]
 [s S4783 package_t 7 `E11196 1 functioncode 1 0 `uc 1 address 1 1 `S4780 1 data 2 2 `uc 1 startbyte 1 4 `uc 1 endbyte 1 5 `a 1 valid 1 6 ]
 [v confirmpackage@package package `*.39S4783  1 p 2 17 ]
 [v confirmpackage@confirm confirm `a  1 p 1 19 ]
-"387
+"389
 } 0
 "11 C:\Users\rafaelpetter\Documents\GitHub\Electrocelos\MC50UNI.V.0.2.3.X\eusartpackage.c
 [v _init_package init_package `(v  1 e 1 0 ]

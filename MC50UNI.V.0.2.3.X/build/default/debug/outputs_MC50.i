@@ -17926,6 +17926,8 @@ void EUSART1_SetRxInterruptHandler(void (* interruptHandler)(void));
     void confirmpackage(struct package_t* package, _Bool confirm);
 
     void eusartparser(struct package_t* package);
+
+    void updateChangesToUart(void);
 # 15 "./sm_Main.h" 2
 
 

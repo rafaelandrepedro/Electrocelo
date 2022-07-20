@@ -31,6 +31,8 @@ extern "C" {
     void confirmpackage(struct package_t* package, bool confirm);
     
     void eusartparser(struct package_t* package);
+    
+    void updateChangesToUart(void);
 
 #ifdef	__cplusplus
 }

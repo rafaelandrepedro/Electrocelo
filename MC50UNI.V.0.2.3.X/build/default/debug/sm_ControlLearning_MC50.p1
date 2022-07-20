@@ -106,8 +106,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _main_stateMachine `S1494 ~T0 @X0 0 e ]
 "431 sm_ControlLearning_MC50.c
 [; ;sm_ControlLearning_MC50.c: 431:     sm_init(&main_stateMachine,st_standBy,HIST_NONE);
-[c E11036 0 1 2 .. ]
-[n E11036 . st_standBy st_MenuConfiguration st_MotorON  ]
+[c E11037 0 1 2 .. ]
+[n E11037 . st_standBy st_MenuConfiguration st_MotorON  ]
 "55 C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f46k40.h
 [; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f46k40.h: 55: __asm("RX2PPS equ 0E8Dh");
 [; <" RX2PPS equ 0E8Dh ;# ">
@@ -2717,7 +2717,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _sm_init (3 , , &U _menuConfiguration_stateMachine . `E10847 0 . `E10586 0 ]
 "431
 [; ;sm_ControlLearning_MC50.c: 431:     sm_init(&main_stateMachine,st_standBy,HIST_NONE);
-[e ( _sm_init (3 , , &U _main_stateMachine . `E11036 0 . `E10586 0 ]
+[e ( _sm_init (3 , , &U _main_stateMachine . `E11037 0 . `E10586 0 ]
 "432
 [; ;sm_ControlLearning_MC50.c: 432:     sm_init(&controlGate_stateMachine,st_Idle,HIST_NONE);
 [e ( _sm_init (3 , , &U _controlGate_stateMachine . `E10610 0 . `E10586 0 ]
