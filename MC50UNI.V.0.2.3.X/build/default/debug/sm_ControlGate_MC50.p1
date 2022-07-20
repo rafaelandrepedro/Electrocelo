@@ -67,17 +67,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n E10619 . st_Idle st_Closed st_Opening st_Closing st_Opened st_Learning  ]
 "133
 [; ;sm_ControlGate_MC50.c: 133:     if ( (main_stateMachine.current_state == st_MenuConfiguration) && (menuConfiguration_stateMachine.current_state != st_LearningMode) )
-[c E10986 0 1 2 .. ]
-[n E10986 . st_standBy st_MenuConfiguration st_MotorON  ]
+[c E10987 0 1 2 .. ]
+[n E10987 . st_standBy st_MenuConfiguration st_MotorON  ]
 "19
 [; ;sm_ControlGate_MC50.c: 19: extern sm_t menuConfiguration_stateMachine;
 [v _menuConfiguration_stateMachine `S1494 ~T0 @X0 0 e ]
 "133
 [; ;sm_ControlGate_MC50.c: 133:     if ( (main_stateMachine.current_state == st_MenuConfiguration) && (menuConfiguration_stateMachine.current_state != st_LearningMode) )
-[c E10994 0 1 2 3 4 5 6 .. ]
-[n E10994 . st_MainMenu st_EditParameter st_SaveParameter st_Counter st_SelectRemote st_SaveRemotes st_LearningMode  ]
-"190 ./inputs.h
-[; ;./inputs.h: 190: TypeCMD GetOpenOrder(void);
+[c E10995 0 1 2 3 4 5 6 .. ]
+[n E10995 . st_MainMenu st_EditParameter st_SaveParameter st_Counter st_SelectRemote st_SaveRemotes st_LearningMode  ]
+"191 ./inputs.h
+[; ;./inputs.h: 191: TypeCMD GetOpenOrder(void);
 [v _GetOpenOrder `(E10372 ~T0 @X0 0 ef ]
 "219 ./outputs.h
 [; ;./outputs.h: 219:     void SetSegmentValueIntermitent(char d1, char d2,int time);
@@ -86,8 +86,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;sm_ControlGate_MC50.c: 253:                 SetSegmentValueIntermitent(dE,dr, (1000/50));
 [c E10645 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 .. ]
 [n E10645 DispValue_enum d0 d1 d2 d3 d4 d5 d6 d7 d8 d9 dA dB dC dd dE dF dP dH dL dU dr dt du dM dMinus dBar sA sB sC sD sE sF dBlank dy db dc dq dSize  ]
-"76 ./inputs.h
-[; ;./inputs.h: 76: {
+"77 ./inputs.h
+[; ;./inputs.h: 77: {
 [s S1499 `uc 1 `uc 1 `uc 1 `uc 1 ]
 [n S1499 . old current timer processed ]
 "25 sm_ControlGate_MC50.c
@@ -111,11 +111,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "20 sm_ControlGate_MC50.c
 [; ;sm_ControlGate_MC50.c: 20: extern sm_t controlLearning_stateMachine;
 [v _controlLearning_stateMachine `S1494 ~T0 @X0 0 e ]
-"174 ./inputs.h
-[; ;./inputs.h: 174: StateEnum GetSecurityStateInOpening();
+"175 ./inputs.h
+[; ;./inputs.h: 175: StateEnum GetSecurityStateInOpening();
 [v _GetSecurityStateInOpening `(E10397 ~T0 @X0 0 e? ]
-"182
-[; ;./inputs.h: 182: StateEnum GetSecurityStateInClosing();
+"183
+[; ;./inputs.h: 183: StateEnum GetSecurityStateInClosing();
 [v _GetSecurityStateInClosing `(E10397 ~T0 @X0 0 e? ]
 "228 ./outputs.h
 [; ;./outputs.h: 228:     void controlVelocity(void);
@@ -1821,7 +1821,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _typeOpenOrder `E10372 ~T0 @X0 1 a ]
 "133
 [; ;sm_ControlGate_MC50.c: 133:     if ( (main_stateMachine.current_state == st_MenuConfiguration) && (menuConfiguration_stateMachine.current_state != st_LearningMode) )
-[e $ ! && == . _main_stateMachine 0 -> . `E10986 1 `i != . _menuConfiguration_stateMachine 0 -> . `E10994 6 `i 1528  ]
+[e $ ! && == . _main_stateMachine 0 -> . `E10987 1 `i != . _menuConfiguration_stateMachine 0 -> . `E10995 6 `i 1528  ]
 "134
 [; ;sm_ControlGate_MC50.c: 134:     {
 {
@@ -2180,8 +2180,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;sm_ControlGate_MC50.c: 254:                 ts_system.timeSinalizationDigit = ( 500/50);
 [e = . _ts_system 9 / -> 500 `i -> 50 `i ]
 "255
-[; ;sm_ControlGate_MC50.c: 255:                 if ((typeOpenOrder != NoCMD) ||(button_struct.current==0 || button_struct.current==0x00 ||button_struct.current==0x17 ))
-[e $ ! || != -> _typeOpenOrder `ui -> . `E10372 0 `ui || || == -> . _button_struct 1 `i -> 0 `i == -> . _button_struct 1 `i -> 0 `i == -> . _button_struct 1 `i -> 23 `i 1574  ]
+[; ;sm_ControlGate_MC50.c: 255:                 if ((typeOpenOrder != NoCMD) ||(button_struct.current==0x27 || button_struct.current==0x00 ||button_struct.current==0x17 ))
+[e $ ! || != -> _typeOpenOrder `ui -> . `E10372 0 `ui || || == -> . _button_struct 1 `i -> 39 `i == -> . _button_struct 1 `i -> 0 `i == -> . _button_struct 1 `i -> 23 `i 1574  ]
 "256
 [; ;sm_ControlGate_MC50.c: 256:                 {
 {
@@ -2360,7 +2360,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "331
 [; ;sm_ControlGate_MC50.c: 331:     if (main_stateMachine.current_state != st_MenuConfiguration) {
-[e $ ! != . _main_stateMachine 0 -> . `E10986 1 `i 1582  ]
+[e $ ! != . _main_stateMachine 0 -> . `E10987 1 `i 1582  ]
 {
 "334
 [; ;sm_ControlGate_MC50.c: 334:         TypeCMD typeOpenOrder = GetOpenOrder();

@@ -17654,7 +17654,7 @@ void setPositionInvertionInOpening();
 # 11 "sm_ControlGate_MC50.c" 2
 
 # 1 "./inputs.h" 1
-# 75 "./inputs.h"
+# 76 "./inputs.h"
 typedef struct
 {
  unsigned char old;
@@ -17970,6 +17970,8 @@ void ControlCounterMoves(void);
     void confirmpackage(struct package_t* package, _Bool confirm);
 
     void eusartparser(struct package_t* package);
+
+    void updateChangesToUart(void);
 # 15 "./sm_Main.h" 2
 
 
@@ -18300,7 +18302,7 @@ void sm_execute_ControlGate(sm_t *psm) {
                 typeOpenOrder = GetOpenOrder();
                 SetSegmentValueIntermitent(dE,dr, (1000/50));
                 ts_system.timeSinalizationDigit = ( 500/50);
-                if ((typeOpenOrder != NoCMD) ||(button_struct.current==0 || button_struct.current==0x00 ||button_struct.current==0x17 ))
+                if ((typeOpenOrder != NoCMD) ||(button_struct.current==0x27 || button_struct.current==0x00 ||button_struct.current==0x17 ))
                 {
                     var_sys.WorkTimeMaxAlarmState = Clear;
                     var_sys.NumberOffErrors = 0;
