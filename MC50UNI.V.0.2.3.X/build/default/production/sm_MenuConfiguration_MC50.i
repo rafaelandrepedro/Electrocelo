@@ -17540,7 +17540,7 @@ void sm_send_event(sm_t *psm, int event);
 # 8 "sm_MenuConfiguration_MC50.c" 2
 
 # 1 "./inputs.h" 1
-# 75 "./inputs.h"
+# 76 "./inputs.h"
 typedef struct
 {
  unsigned char old;
@@ -17814,12 +17814,20 @@ void EUSART1_SetRxInterruptHandler(void (* interruptHandler)(void));
         WRITE=1,
         PROGRAMMING_ENABLE=2,
         CONFIRM=3,
-        NUM_COMMANDS=4,
-        NUM_EMPTY_COMMANDS=5,
-        OCCUPIED_POS=6,
-        EMPTY_POS=7,
-        SAVE_COMMAND=8,
-        ERASE_COMMAND=9,
+        NUM_COMMANDS_F=4,
+        NUM_EMPTY_COMMANDS_F=5,
+        OCCUPIED_POS_F=6,
+        EMPTY_POS_F=7,
+        SAVE_COMMAND_F=8,
+        ERASE_COMMAND_F=9,
+        READ_SERIAL_F=10,
+        NUM_COMMANDS_W=11,
+        NUM_EMPTY_COMMANDS_W=12,
+        OCCUPIED_POS_W=13,
+        EMPTY_POS_W=14,
+        SAVE_COMMAND_W=15,
+        ERASE_COMMAND_W=16,
+        READ_SERIAL_W=17
     };
 
 
@@ -17877,33 +17885,29 @@ typedef enum {
 TypeCMD validateRemoteSerialNumber(unsigned long serial, StateEnum VerifyOnlySerial, char* position);
 void saveNewSerial(char cmdType,unsigned long tempSerial, char position);
 void RemoveSerial(char cmdType, char position);
+void ReadSerial(char cmdType, unsigned long* tempSerial, char position);
 char cmdMemoryIsEmpty(char cmdType, char position);
 void SaveNVM_VarSystem(unsigned char page);
 void ResetDefaultMemory(unsigned char type);
 void loadNVM_VarSystem(void);
 void ControlCounterMoves(void);
 # 12 "./eusartparser.h" 2
-
-
-# 1 "./sm_Main.h" 1
-# 14 "./eusartparser.h" 2
-
-
-
-
-
-
-
-
+# 21 "./eusartparser.h"
     extern volatile varSystem_NVM var_sys_NVM;
-    extern sm_t main_stateMachine;
+    extern volatile char RFFull;
+    extern volatile varSystem var_sys;
+
     _Bool programmer_enable=0;
 
-    void read_eusartparser(struct package_t* package);
+    _Bool read_eusartparser(struct package_t* package);
 
     void write_eusartparser(struct package_t package);
 
+    void confirmpackage(struct package_t* package, _Bool confirm);
+
     void eusartparser(struct package_t* package);
+
+    void updateChangesToUart(void);
 # 15 "./sm_Main.h" 2
 
 
@@ -18197,7 +18201,7 @@ void sm_execute_menuConfiguration( sm_t *psm ) {
             }
             else if( menu_st.actualMenu<S_Menu )
             {
-                if (button_struct.current==0 && button_struct.timer>(( 500/50)) )
+                if (button_struct.current==0x27 && button_struct.timer>(( 500/50)) )
                 {
                     ts_system.timeoutMenu=((1000/50)*5) ;
 
@@ -18240,7 +18244,7 @@ void sm_execute_menuConfiguration( sm_t *psm ) {
                     button_struct.processed=1;
                 }
             }
-            else if (button_struct.current==0x27 && button_struct.timer>( 500/50) && menu_st.actualMenu!=Del_Menu )
+            else if (button_struct.current==0x07 && button_struct.timer>( 500/50) && menu_st.actualMenu!=Del_Menu )
             {
                     ts_system.timeoutMenu=((1000/50)*5);
                     if (setValueToEdit(menu_st.actualMenu,menu_st.parameterSelected))
@@ -18313,7 +18317,7 @@ void sm_execute_menuConfiguration( sm_t *psm ) {
                 }
                 button_struct.processed=1;
             }
-            else if (button_struct.current==0 && button_struct.timer>=(( 500/50)))
+            else if (button_struct.current==0x27 && button_struct.timer>=(( 500/50)))
             {
                 ts_system.timeoutMenu=((1000/50)*5) ;
 
@@ -19083,7 +19087,12 @@ char setValueToEdit(menuLists_en menuType, char ParameterSelected ){
                 break;
                 case 1:
                 {
-                    edit_Param.Value=(unsigned char*)&var_sys_NVM.positionRemotesWalk;
+                    for(unsigned char posindex=0; posindex <= *(unsigned char*)&var_sys_NVM.positionRemotesWalk; posindex++)
+                    {
+                        value=posindex;
+                        if(cmdMemoryIsEmpty(menu_st.parameterSelected, posindex))
+                            break;
+                    }
                     edit_Param.Max=*(unsigned char*)&var_sys_NVM.positionRemotesWalk;
                 }
                 break;
@@ -19175,8 +19184,10 @@ void controlSelectRemote(void) {
         if(validSerial==0&&(typeRemote==Keeloq_RollingCode || (var_sys_NVM.OnlyRollingCode==NO)))
         {
             saveNewSerial(menu_st.parameterSelected,tempSerial,edit_Param.tempValue);
-            if(edit_Param.tempValue==var_sys_NVM.positionRemotesFull&&var_sys_NVM.positionRemotesFull<99)
+            if(menu_st.parameterSelected==0&&edit_Param.tempValue==var_sys_NVM.positionRemotesFull&&var_sys_NVM.positionRemotesFull<99)
                 var_sys_NVM.positionRemotesFull++;
+            if(menu_st.parameterSelected==1&&edit_Param.tempValue==var_sys_NVM.positionRemotesWalk&&var_sys_NVM.positionRemotesWalk<99)
+                var_sys_NVM.positionRemotesWalk++;
             sm_send_event(&menuConfiguration_stateMachine, ev_addRemotes);
             var_sys.DistanceProgrammingActive=NO;
             var_sys.ProgrammingDistanceIs=NoCMD;
@@ -19187,7 +19198,7 @@ void controlSelectRemote(void) {
 
 
 
-                if(var_sys_NVM.positionRemotesFull==0 && var_sys_NVM.positionRemotesFull==0 && typeRemote==Keeloq_RollingCode)
+                if(var_sys_NVM.positionRemotesFull==0 && var_sys_NVM.positionRemotesWalk==0 && typeRemote==Keeloq_RollingCode)
                 {
 
                     var_sys_NVM.OnlyRollingCode=YES;
@@ -19202,7 +19213,7 @@ void controlSelectRemote(void) {
 
         }
     }
-    else if(edit_Param.tempValue!=edit_Param.Max && (button_struct.current==0x27 && button_struct.timer>=((1000/50)*2)))
+    else if(edit_Param.tempValue!=edit_Param.Max && (button_struct.current==0x07 && button_struct.timer>=((1000/50)*2)))
     {
         ts_system.timeoutMenu=((1000/50)*5) ;
         RemoveSerial(menu_st.parameterSelected,edit_Param.tempValue);

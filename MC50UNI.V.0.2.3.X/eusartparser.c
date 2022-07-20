@@ -9,7 +9,7 @@
 #include "sm_common.h"
 #include "sm_Main.h"
 
-    void read_eusartparser(struct package_t* package){
+    bool read_eusartparser(struct package_t* package){
         switch(package->address){
             case 0x00:
             case 0x10:
@@ -220,8 +220,10 @@
                 
             default:
                 //address not avaliable
+                return 0;
                 break;
         }      
+        return 1;
     }
     
     void write_eusartparser(struct package_t package){
@@ -396,8 +398,7 @@
         
         switch(package->functioncode){
             case READ://READ
-                read_eusartparser(package);
-                confirmpackage(package, TRUE);
+                confirmpackage(package, read_eusartparser(package));
                 write_package(*package);
                 break;
                 
@@ -417,6 +418,7 @@
                 if(programmer_enable){
                     SaveNVM_VarSystem(pageMemoryE);
                     SaveNVM_VarSystem(pageMemoryP);
+                    updateChangesToUart();
                     programmer_enable=0;
                 }
                 else{
@@ -705,4 +707,14 @@
                 confirmpackage(package, FALSE);
                 write_package(*package);
         }       
+    }
+
+    void updateChangesToUart(void){
+        package_t package;
+        init_package(&package);
+        package.functioncode=0x00;
+        package.data.data16=0x0000;
+        for (uint8_t i=0x00;i<=0x3A;i++)
+        package.address=i;
+        eusartparser(&package);
     }

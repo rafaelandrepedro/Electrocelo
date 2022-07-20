@@ -17610,7 +17610,7 @@ TypeCMD DecryptPacket_12BIT (char* data,classic_encoder_t* classic_data);
     signed long getTimeDecelaration(stateMotor_enum state);
     void ControlDecelarationFactor();
 # 11 "./inputs.h" 2
-# 75 "./inputs.h"
+# 76 "./inputs.h"
 typedef struct
 {
  unsigned char old;
@@ -17745,6 +17745,7 @@ typedef enum {
 TypeCMD validateRemoteSerialNumber(unsigned long serial, StateEnum VerifyOnlySerial, char* position);
 void saveNewSerial(char cmdType,unsigned long tempSerial, char position);
 void RemoveSerial(char cmdType, char position);
+void ReadSerial(char cmdType, unsigned long* tempSerial, char position);
 char cmdMemoryIsEmpty(char cmdType, char position);
 void SaveNVM_VarSystem(unsigned char page);
 void ResetDefaultMemory(unsigned char type);

@@ -21,25 +21,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 "54 ./mcc_generated_files/examples/i2c1_master_example.h
 [; ;./mcc_generated_files/examples/i2c1_master_example.h: 54: uint8_t I2C1_Read1ByteRegister(i2c1_address_t address, uint8_t reg);
 [v _I2C1_Read1ByteRegister `(uc ~T0 @X0 0 ef2`uc`uc ]
-"115 ./controlMemory.h
-[; ;./controlMemory.h: 115: void ResetDefaultMemory(unsigned char type);
+"116 ./controlMemory.h
+[; ;./controlMemory.h: 116: void ResetDefaultMemory(unsigned char type);
 [v _ResetDefaultMemory `(v ~T0 @X0 0 ef1`uc ]
-"143 controlMemory_MC50.c
-[; ;controlMemory_MC50.c: 143:         ResetDefaultMemory(SC);
+"155 controlMemory_MC50.c
+[; ;controlMemory_MC50.c: 155:         ResetDefaultMemory(SC);
 [c E10921 0 1 2 .. ]
 [n E10921 . SC SE br  ]
-"114 ./controlMemory.h
-[; ;./controlMemory.h: 114: void SaveNVM_VarSystem(unsigned char page);
+"115 ./controlMemory.h
+[; ;./controlMemory.h: 115: void SaveNVM_VarSystem(unsigned char page);
 [v _SaveNVM_VarSystem `(v ~T0 @X0 0 ef1`uc ]
-"150 controlMemory_MC50.c
-[; ;controlMemory_MC50.c: 150:         SaveNVM_VarSystem(pageMemoryLearningVars);
+"162 controlMemory_MC50.c
+[; ;controlMemory_MC50.c: 162:         SaveNVM_VarSystem(pageMemoryLearningVars);
 [c E10915 0 1 2 3 .. ]
 [n E10915 . pageMemoryP pageMemoryE pageMemoryCounters pageMemoryLearningVars  ]
 "24
 [; ;controlMemory_MC50.c: 24: void checkNVM_VarSystem ( void );
 [v _checkNVM_VarSystem `(v ~T0 @X0 0 ef ]
-"168
-[; ;controlMemory_MC50.c: 168:     var_sys.actualCounterMoves=var_sys_NVM.counterMoves;
+"180
+[; ;controlMemory_MC50.c: 180:     var_sys.actualCounterMoves=var_sys_NVM.counterMoves;
 [c E10548 0 1 2 3 .. ]
 [n E10548 . Stopped InOpenFull InOpenWalk InClose  ]
 [c E10570 0 1 2 .. ]
@@ -1731,946 +1731,991 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 1523 ]
 }
 "110
-[; ;controlMemory_MC50.c: 110: char cmdMemoryIsEmpty(char cmdType, char position)
-[v _cmdMemoryIsEmpty `(uc ~T0 @X0 1 ef2`uc`uc ]
+[; ;controlMemory_MC50.c: 110: void ReadSerial(char cmdType, unsigned long* tempSerial, char position)
+[v _ReadSerial `(v ~T0 @X0 1 ef3`uc`*ul`uc ]
 "111
 [; ;controlMemory_MC50.c: 111: {
 {
-[e :U _cmdMemoryIsEmpty ]
+[e :U _ReadSerial ]
 "110
-[; ;controlMemory_MC50.c: 110: char cmdMemoryIsEmpty(char cmdType, char position)
+[; ;controlMemory_MC50.c: 110: void ReadSerial(char cmdType, unsigned long* tempSerial, char position)
 [v _cmdType `uc ~T0 @X0 1 r1 ]
-[v _position `uc ~T0 @X0 1 r2 ]
+[v _tempSerial `*ul ~T0 @X0 1 r2 ]
+[v _position `uc ~T0 @X0 1 r3 ]
 "111
 [; ;controlMemory_MC50.c: 111: {
 [f ]
 "112
-[; ;controlMemory_MC50.c: 112:     unsigned long tempSerial=0;
-[v _tempSerial `ul ~T0 @X0 1 a ]
-[e = _tempSerial -> -> -> 0 `i `l `ul ]
-"115
-[; ;controlMemory_MC50.c: 115:      if(cmdType==0)
+[; ;controlMemory_MC50.c: 112:     if(cmdType==0)
 [e $ ! == -> _cmdType `i -> 0 `i 1527  ]
-"116
-[; ;controlMemory_MC50.c: 116:     {
+"113
+[; ;controlMemory_MC50.c: 113:     {
 {
-"117
-[; ;controlMemory_MC50.c: 117:          i2c_readDataBlock(0x50, (uint16_t)(0x0200 + (position * 4)),(char*)&tempSerial, 4);
-[e ( _i2c_readDataBlock (4 , , , -> -> 80 `i `uc -> + -> 512 `i * -> _position `i -> 4 `i `us -> -> &U _tempSerial `*uc `*v -> -> 4 `i `ui ]
-"118
-[; ;controlMemory_MC50.c: 118:     }
+"114
+[; ;controlMemory_MC50.c: 114:        i2c_readDataBlock(0x50, (uint16_t)(0x0200 + (position * 4)), (char*)tempSerial, 4);
+[e ( _i2c_readDataBlock (4 , , , -> -> 80 `i `uc -> + -> 512 `i * -> _position `i -> 4 `i `us -> -> _tempSerial `*uc `*v -> -> 4 `i `ui ]
+"115
+[; ;controlMemory_MC50.c: 115:     }
 }
 [e $U 1528  ]
-"119
-[; ;controlMemory_MC50.c: 119:     else
+"116
+[; ;controlMemory_MC50.c: 116:     else
 [e :U 1527 ]
-"120
-[; ;controlMemory_MC50.c: 120:     {
+"117
+[; ;controlMemory_MC50.c: 117:     {
 {
-"121
-[; ;controlMemory_MC50.c: 121:          i2c_readDataBlock(0x50, (uint16_t)(0x0500 + (position * 4)),(char*)&tempSerial, 4);
-[e ( _i2c_readDataBlock (4 , , , -> -> 80 `i `uc -> + -> 1280 `i * -> _position `i -> 4 `i `us -> -> &U _tempSerial `*uc `*v -> -> 4 `i `ui ]
-"122
-[; ;controlMemory_MC50.c: 122:     }
+"118
+[; ;controlMemory_MC50.c: 118:        i2c_readDataBlock(0x50, (uint16_t)(0x0500 + (position * 4)), (char*)tempSerial, 4);
+[e ( _i2c_readDataBlock (4 , , , -> -> 80 `i `uc -> + -> 1280 `i * -> _position `i -> 4 `i `us -> -> _tempSerial `*uc `*v -> -> 4 `i `ui ]
+"119
+[; ;controlMemory_MC50.c: 119:     }
 }
 [e :U 1528 ]
-"124
-[; ;controlMemory_MC50.c: 124:      if( tempSerial==0)
-[e $ ! == _tempSerial -> -> -> 0 `i `l `ul 1529  ]
-"125
-[; ;controlMemory_MC50.c: 125:      {
-{
-"126
-[; ;controlMemory_MC50.c: 126:          return 1;
-[e ) -> -> 1 `i `uc ]
-[e $UE 1526  ]
-"127
-[; ;controlMemory_MC50.c: 127:      }
-}
-[e $U 1530  ]
-"128
-[; ;controlMemory_MC50.c: 128:      else
-[e :U 1529 ]
-"129
-[; ;controlMemory_MC50.c: 129:      {
-{
-"130
-[; ;controlMemory_MC50.c: 130:          return 0;
-[e ) -> -> 0 `i `uc ]
-[e $UE 1526  ]
-"131
-[; ;controlMemory_MC50.c: 131:      }
-}
-[e :U 1530 ]
-"132
-[; ;controlMemory_MC50.c: 132: }
+"120
+[; ;controlMemory_MC50.c: 120: }
 [e :UE 1526 ]
 }
+"122
+[; ;controlMemory_MC50.c: 122: char cmdMemoryIsEmpty(char cmdType, char position)
+[v _cmdMemoryIsEmpty `(uc ~T0 @X0 1 ef2`uc`uc ]
+"123
+[; ;controlMemory_MC50.c: 123: {
+{
+[e :U _cmdMemoryIsEmpty ]
+"122
+[; ;controlMemory_MC50.c: 122: char cmdMemoryIsEmpty(char cmdType, char position)
+[v _cmdType `uc ~T0 @X0 1 r1 ]
+[v _position `uc ~T0 @X0 1 r2 ]
+"123
+[; ;controlMemory_MC50.c: 123: {
+[f ]
+"124
+[; ;controlMemory_MC50.c: 124:     unsigned long tempSerial=0;
+[v _tempSerial `ul ~T0 @X0 1 a ]
+[e = _tempSerial -> -> -> 0 `i `l `ul ]
+"127
+[; ;controlMemory_MC50.c: 127:      if(cmdType==0)
+[e $ ! == -> _cmdType `i -> 0 `i 1530  ]
+"128
+[; ;controlMemory_MC50.c: 128:     {
+{
+"129
+[; ;controlMemory_MC50.c: 129:          i2c_readDataBlock(0x50, (uint16_t)(0x0200 + (position * 4)),(char*)&tempSerial, 4);
+[e ( _i2c_readDataBlock (4 , , , -> -> 80 `i `uc -> + -> 512 `i * -> _position `i -> 4 `i `us -> -> &U _tempSerial `*uc `*v -> -> 4 `i `ui ]
+"130
+[; ;controlMemory_MC50.c: 130:     }
+}
+[e $U 1531  ]
+"131
+[; ;controlMemory_MC50.c: 131:     else
+[e :U 1530 ]
+"132
+[; ;controlMemory_MC50.c: 132:     {
+{
+"133
+[; ;controlMemory_MC50.c: 133:          i2c_readDataBlock(0x50, (uint16_t)(0x0500 + (position * 4)),(char*)&tempSerial, 4);
+[e ( _i2c_readDataBlock (4 , , , -> -> 80 `i `uc -> + -> 1280 `i * -> _position `i -> 4 `i `us -> -> &U _tempSerial `*uc `*v -> -> 4 `i `ui ]
+"134
+[; ;controlMemory_MC50.c: 134:     }
+}
+[e :U 1531 ]
+"136
+[; ;controlMemory_MC50.c: 136:      if( tempSerial==0)
+[e $ ! == _tempSerial -> -> -> 0 `i `l `ul 1532  ]
+"137
+[; ;controlMemory_MC50.c: 137:      {
+{
+"138
+[; ;controlMemory_MC50.c: 138:          return 1;
+[e ) -> -> 1 `i `uc ]
+[e $UE 1529  ]
 "139
-[; ;controlMemory_MC50.c: 139: void loadNVM_VarSystem(void)
-[v _loadNVM_VarSystem `(v ~T0 @X0 1 ef ]
+[; ;controlMemory_MC50.c: 139:      }
+}
+[e $U 1533  ]
 "140
-[; ;controlMemory_MC50.c: 140: {
+[; ;controlMemory_MC50.c: 140:      else
+[e :U 1532 ]
+"141
+[; ;controlMemory_MC50.c: 141:      {
+{
+"142
+[; ;controlMemory_MC50.c: 142:          return 0;
+[e ) -> -> 0 `i `uc ]
+[e $UE 1529  ]
+"143
+[; ;controlMemory_MC50.c: 143:      }
+}
+[e :U 1533 ]
+"144
+[; ;controlMemory_MC50.c: 144: }
+[e :UE 1529 ]
+}
+"151
+[; ;controlMemory_MC50.c: 151: void loadNVM_VarSystem(void)
+[v _loadNVM_VarSystem `(v ~T0 @X0 1 ef ]
+"152
+[; ;controlMemory_MC50.c: 152: {
 {
 [e :U _loadNVM_VarSystem ]
 [f ]
-"141
-[; ;controlMemory_MC50.c: 141:     if((I2C1_Read1ByteRegister(0x50, 0) == 0xFF) && (I2C1_Read1ByteRegister(0x50, 16) == 0xFF))
-[e $ ! && == -> ( _I2C1_Read1ByteRegister (2 , -> -> 80 `i `uc -> -> 0 `i `uc `i -> 255 `i == -> ( _I2C1_Read1ByteRegister (2 , -> -> 80 `i `uc -> -> 16 `i `uc `i -> 255 `i 1532  ]
-"142
-[; ;controlMemory_MC50.c: 142:     {
-{
-"143
-[; ;controlMemory_MC50.c: 143:         ResetDefaultMemory(SC);
-[e ( _ResetDefaultMemory (1 -> . `E10921 0 `uc ]
-"144
-[; ;controlMemory_MC50.c: 144:         var_sys_NVM.learningTimeToClose = 0;
-[e = . _var_sys_NVM 42 -> -> -> 0 `i `l `ul ]
-"145
-[; ;controlMemory_MC50.c: 145:         var_sys_NVM.learningTimeToOpen = 0;
-[e = . _var_sys_NVM 41 -> -> -> 0 `i `l `ul ]
-"146
-[; ;controlMemory_MC50.c: 146:         var_sys_NVM.learningCurrentNormalClose = 0;
-[e = . _var_sys_NVM 39 -> -> 0 `i `ui ]
-"147
-[; ;controlMemory_MC50.c: 147:         var_sys_NVM.learningCurrentNormalOpen = 0;
-[e = . _var_sys_NVM 40 -> -> 0 `i `ui ]
-"148
-[; ;controlMemory_MC50.c: 148:         var_sys_NVM.learningCurrentDecelarationClose = 0;
-[e = . _var_sys_NVM 37 -> -> -> 0 `i `l `ul ]
-"149
-[; ;controlMemory_MC50.c: 149:         var_sys_NVM.learningCurrentDecelarationOpen = 0;
-[e = . _var_sys_NVM 38 -> -> -> 0 `i `l `ul ]
-"150
-[; ;controlMemory_MC50.c: 150:         SaveNVM_VarSystem(pageMemoryLearningVars);
-[e ( _SaveNVM_VarSystem (1 -> . `E10915 3 `uc ]
-"151
-[; ;controlMemory_MC50.c: 151:         var_sys_NVM.positionRemotesFull = 0;
-[e = . _var_sys_NVM 32 -> -> 0 `i `uc ]
-"152
-[; ;controlMemory_MC50.c: 152:         var_sys_NVM.positionRemotesWalk = 0;
-[e = . _var_sys_NVM 33 -> -> 0 `i `uc ]
 "153
-[; ;controlMemory_MC50.c: 153:         var_sys_NVM.OnlyRollingCode = NO;
-[e = . _var_sys_NVM 35 -> . `E10564 0 `uc ]
+[; ;controlMemory_MC50.c: 153:     if((I2C1_Read1ByteRegister(0x50, 0) == 0xFF) && (I2C1_Read1ByteRegister(0x50, 16) == 0xFF))
+[e $ ! && == -> ( _I2C1_Read1ByteRegister (2 , -> -> 80 `i `uc -> -> 0 `i `uc `i -> 255 `i == -> ( _I2C1_Read1ByteRegister (2 , -> -> 80 `i `uc -> -> 16 `i `uc `i -> 255 `i 1535  ]
 "154
-[; ;controlMemory_MC50.c: 154:         var_sys_NVM.counterMoves = 0;
-[e = . _var_sys_NVM 34 -> -> -> 0 `i `l `ul ]
-"155
-[; ;controlMemory_MC50.c: 155:        SaveNVM_VarSystem(pageMemoryCounters);
-[e ( _SaveNVM_VarSystem (1 -> . `E10915 2 `uc ]
-"157
-[; ;controlMemory_MC50.c: 157:          var_sys_NVM.TypeofMotor = 0;
-[e = . _var_sys_NVM 28 -> -> 0 `i `uc ]
-"158
-[; ;controlMemory_MC50.c: 158:     }
-}
-[e :U 1532 ]
-"160
-[; ;controlMemory_MC50.c: 160:     i2c_readDataBlock(0x50, (uint16_t)(pageMemoryP * 16),(char*)&var_sys_NVM,16);
-[e ( _i2c_readDataBlock (4 , , , -> -> 80 `i `uc -> * -> . `E10915 0 `i -> 16 `i `us -> -> &U _var_sys_NVM `*uc `*v -> -> 16 `i `ui ]
-"161
-[; ;controlMemory_MC50.c: 161:     i2c_readDataBlock(0x50, (uint16_t)(pageMemoryE * 16),(char*)&var_sys_NVM.homemPresente, 16);
-[e ( _i2c_readDataBlock (4 , , , -> -> 80 `i `uc -> * -> . `E10915 1 `i -> 16 `i `us -> -> &U . _var_sys_NVM 16 `*uc `*v -> -> 16 `i `ui ]
-"162
-[; ;controlMemory_MC50.c: 162:     i2c_readDataBlock(0x50, (uint16_t)(pageMemoryCounters * 16),(char*)&var_sys_NVM.positionRemotesFull,16);
-[e ( _i2c_readDataBlock (4 , , , -> -> 80 `i `uc -> * -> . `E10915 2 `i -> 16 `i `us -> -> &U . _var_sys_NVM 32 `*uc `*v -> -> 16 `i `ui ]
-"163
-[; ;controlMemory_MC50.c: 163:     i2c_readDataBlock(0x50, (uint16_t)(pageMemoryLearningVars * 16),(char*)&var_sys_NVM.learningCurrentNormalClose, 16);
-[e ( _i2c_readDataBlock (4 , , , -> -> 80 `i `uc -> * -> . `E10915 3 `i -> 16 `i `us -> -> &U . _var_sys_NVM 39 `*uc `*v -> -> 16 `i `ui ]
-"166
-[; ;controlMemory_MC50.c: 166:     checkNVM_VarSystem();
-[e ( _checkNVM_VarSystem ..  ]
-"168
-[; ;controlMemory_MC50.c: 168:     var_sys.actualCounterMoves=var_sys_NVM.counterMoves;
-[e = . _var_sys 42 . _var_sys_NVM 34 ]
-"169
-[; ;controlMemory_MC50.c: 169: }
-[e :UE 1531 ]
-}
-"175
-[; ;controlMemory_MC50.c: 175: void SaveNVM_VarSystem(unsigned char page)
-[v _SaveNVM_VarSystem `(v ~T0 @X0 1 ef1`uc ]
-"176
-[; ;controlMemory_MC50.c: 176: {
+[; ;controlMemory_MC50.c: 154:     {
 {
-[e :U _SaveNVM_VarSystem ]
+"155
+[; ;controlMemory_MC50.c: 155:         ResetDefaultMemory(SC);
+[e ( _ResetDefaultMemory (1 -> . `E10921 0 `uc ]
+"156
+[; ;controlMemory_MC50.c: 156:         var_sys_NVM.learningTimeToClose = 0;
+[e = . _var_sys_NVM 42 -> -> -> 0 `i `l `ul ]
+"157
+[; ;controlMemory_MC50.c: 157:         var_sys_NVM.learningTimeToOpen = 0;
+[e = . _var_sys_NVM 41 -> -> -> 0 `i `l `ul ]
+"158
+[; ;controlMemory_MC50.c: 158:         var_sys_NVM.learningCurrentNormalClose = 0;
+[e = . _var_sys_NVM 39 -> -> 0 `i `ui ]
+"159
+[; ;controlMemory_MC50.c: 159:         var_sys_NVM.learningCurrentNormalOpen = 0;
+[e = . _var_sys_NVM 40 -> -> 0 `i `ui ]
+"160
+[; ;controlMemory_MC50.c: 160:         var_sys_NVM.learningCurrentDecelarationClose = 0;
+[e = . _var_sys_NVM 37 -> -> -> 0 `i `l `ul ]
+"161
+[; ;controlMemory_MC50.c: 161:         var_sys_NVM.learningCurrentDecelarationOpen = 0;
+[e = . _var_sys_NVM 38 -> -> -> 0 `i `l `ul ]
+"162
+[; ;controlMemory_MC50.c: 162:         SaveNVM_VarSystem(pageMemoryLearningVars);
+[e ( _SaveNVM_VarSystem (1 -> . `E10915 3 `uc ]
+"163
+[; ;controlMemory_MC50.c: 163:         var_sys_NVM.positionRemotesFull = 0;
+[e = . _var_sys_NVM 32 -> -> 0 `i `uc ]
+"164
+[; ;controlMemory_MC50.c: 164:         var_sys_NVM.positionRemotesWalk = 0;
+[e = . _var_sys_NVM 33 -> -> 0 `i `uc ]
+"165
+[; ;controlMemory_MC50.c: 165:         var_sys_NVM.OnlyRollingCode = NO;
+[e = . _var_sys_NVM 35 -> . `E10564 0 `uc ]
+"166
+[; ;controlMemory_MC50.c: 166:         var_sys_NVM.counterMoves = 0;
+[e = . _var_sys_NVM 34 -> -> -> 0 `i `l `ul ]
+"167
+[; ;controlMemory_MC50.c: 167:        SaveNVM_VarSystem(pageMemoryCounters);
+[e ( _SaveNVM_VarSystem (1 -> . `E10915 2 `uc ]
+"169
+[; ;controlMemory_MC50.c: 169:          var_sys_NVM.TypeofMotor = 0;
+[e = . _var_sys_NVM 28 -> -> 0 `i `uc ]
+"170
+[; ;controlMemory_MC50.c: 170:     }
+}
+[e :U 1535 ]
+"172
+[; ;controlMemory_MC50.c: 172:     i2c_readDataBlock(0x50, (uint16_t)(pageMemoryP * 16),(char*)&var_sys_NVM,16);
+[e ( _i2c_readDataBlock (4 , , , -> -> 80 `i `uc -> * -> . `E10915 0 `i -> 16 `i `us -> -> &U _var_sys_NVM `*uc `*v -> -> 16 `i `ui ]
+"173
+[; ;controlMemory_MC50.c: 173:     i2c_readDataBlock(0x50, (uint16_t)(pageMemoryE * 16),(char*)&var_sys_NVM.homemPresente, 16);
+[e ( _i2c_readDataBlock (4 , , , -> -> 80 `i `uc -> * -> . `E10915 1 `i -> 16 `i `us -> -> &U . _var_sys_NVM 16 `*uc `*v -> -> 16 `i `ui ]
+"174
+[; ;controlMemory_MC50.c: 174:     i2c_readDataBlock(0x50, (uint16_t)(pageMemoryCounters * 16),(char*)&var_sys_NVM.positionRemotesFull,16);
+[e ( _i2c_readDataBlock (4 , , , -> -> 80 `i `uc -> * -> . `E10915 2 `i -> 16 `i `us -> -> &U . _var_sys_NVM 32 `*uc `*v -> -> 16 `i `ui ]
 "175
-[; ;controlMemory_MC50.c: 175: void SaveNVM_VarSystem(unsigned char page)
-[v _page `uc ~T0 @X0 1 r1 ]
-"176
-[; ;controlMemory_MC50.c: 176: {
-[f ]
-"177
-[; ;controlMemory_MC50.c: 177:     unsigned int tempAdd=page*16;
-[v _tempAdd `ui ~T0 @X0 1 a ]
-[e = _tempAdd -> * -> _page `i -> 16 `i `ui ]
+[; ;controlMemory_MC50.c: 175:     i2c_readDataBlock(0x50, (uint16_t)(pageMemoryLearningVars * 16),(char*)&var_sys_NVM.learningCurrentNormalClose, 16);
+[e ( _i2c_readDataBlock (4 , , , -> -> 80 `i `uc -> * -> . `E10915 3 `i -> 16 `i `us -> -> &U . _var_sys_NVM 39 `*uc `*v -> -> 16 `i `ui ]
 "178
-[; ;controlMemory_MC50.c: 178:     char* point=(char*)&var_sys_NVM;
-[v _point `*uc ~T0 @X0 1 a ]
-[e = _point -> &U _var_sys_NVM `*uc ]
-"179
-[; ;controlMemory_MC50.c: 179:     point=point+tempAdd;
-[e = _point + _point * -> _tempAdd `ux -> -> # *U _point `ui `ux ]
+[; ;controlMemory_MC50.c: 178:     checkNVM_VarSystem();
+[e ( _checkNVM_VarSystem ..  ]
 "180
-[; ;controlMemory_MC50.c: 180:    i2c_writeNBytes(0x50, tempAdd, point, 16);
-[e ( _i2c_writeNBytes (4 , , , -> -> 80 `i `uc -> _tempAdd `us -> _point `*v -> -> 16 `i `ui ]
+[; ;controlMemory_MC50.c: 180:     var_sys.actualCounterMoves=var_sys_NVM.counterMoves;
+[e = . _var_sys 42 . _var_sys_NVM 34 ]
 "181
 [; ;controlMemory_MC50.c: 181: }
-[e :UE 1533 ]
-}
-"186
-[; ;controlMemory_MC50.c: 186: void ResetDefaultMemory(unsigned char type)
-[v _ResetDefaultMemory `(v ~T0 @X0 1 ef1`uc ]
-"187
-[; ;controlMemory_MC50.c: 187: {
-{
-[e :U _ResetDefaultMemory ]
-"186
-[; ;controlMemory_MC50.c: 186: void ResetDefaultMemory(unsigned char type)
-[v _type `uc ~T0 @X0 1 r1 ]
-"187
-[; ;controlMemory_MC50.c: 187: {
-[f ]
-"190
-[; ;controlMemory_MC50.c: 190:     var_sys_NVM.decelarationOpen = 3;
-[e = . _var_sys_NVM 0 -> -> 3 `i `uc ]
-"191
-[; ;controlMemory_MC50.c: 191:     var_sys_NVM.motorPower = 9;
-[e = . _var_sys_NVM 2 -> -> 9 `i `uc ]
-"192
-[; ;controlMemory_MC50.c: 192:     var_sys_NVM.decelarationClose = 3;
-[e = . _var_sys_NVM 1 -> -> 3 `i `uc ]
-"193
-[; ;controlMemory_MC50.c: 193:     var_sys_NVM.photoCellIsON = 0;
-[e = . _var_sys_NVM 7 -> -> 0 `i `uc ]
-"194
-[; ;controlMemory_MC50.c: 194:     var_sys_NVM.photoCellInOpen = 0;
-[e = . _var_sys_NVM 8 -> -> 0 `i `uc ]
-"195
-[; ;controlMemory_MC50.c: 195:     var_sys_NVM.securityBandIsON = 0 ;
-[e = . _var_sys_NVM 9 -> -> 0 `i `uc ]
-"196
-[; ;controlMemory_MC50.c: 196:     var_sys_NVM.securityBandType = 1;
-[e = . _var_sys_NVM 10 -> -> 1 `i `uc ]
-"197
-[; ;controlMemory_MC50.c: 197:     var_sys_NVM.securityBandInOpen = 0;
-[e = . _var_sys_NVM 11 -> -> 0 `i `uc ]
-"198
-[; ;controlMemory_MC50.c: 198:     var_sys_NVM.flashLightMode = 0;
-[e = . _var_sys_NVM 13 -> -> 0 `i `uc ]
-"199
-[; ;controlMemory_MC50.c: 199:     var_sys_NVM.programmingDistance = 0;
-[e = . _var_sys_NVM 14 -> -> 0 `i `uc ]
-"200
-[; ;controlMemory_MC50.c: 200:     var_sys_NVM.decelarationSensivity = 0;
-[e = . _var_sys_NVM 15 -> -> 0 `i `uc ]
-"201
-[; ;controlMemory_MC50.c: 201:     var_sys_NVM.homemPresente = 0;
-[e = . _var_sys_NVM 16 -> -> 0 `i `uc ]
-"202
-[; ;controlMemory_MC50.c: 202:     var_sys_NVM.autoTimeWalkClose = 0;
-[e = . _var_sys_NVM 6 -> -> 0 `i `uc ]
-"203
-[; ;controlMemory_MC50.c: 203:     var_sys_NVM.ligthTime = 3;
-[e = . _var_sys_NVM 20 -> -> 3 `i `uc ]
-"204
-[; ;controlMemory_MC50.c: 204:     var_sys_NVM.folow_me = 0;
-[e = . _var_sys_NVM 21 -> -> 0 `i `uc ]
-"205
-[; ;controlMemory_MC50.c: 205:     var_sys_NVM.electricBrake = 0;
-[e = . _var_sys_NVM 23 -> -> 0 `i `uc ]
-"206
-[; ;controlMemory_MC50.c: 206:     var_sys_NVM.autoTimeWalkClose = 0;
-[e = . _var_sys_NVM 6 -> -> 0 `i `uc ]
-"207
-[; ;controlMemory_MC50.c: 207:     var_sys_NVM.Direction_motor = 1 ;
-[e = . _var_sys_NVM 27 -> -> 1 `i `uc ]
-"210
-[; ;controlMemory_MC50.c: 210:     if (type == SC){
-[e $ ! == -> _type `i -> . `E10921 0 `i 1535  ]
-{
-"212
-[; ;controlMemory_MC50.c: 212:         var_sys_NVM.motorSensitivity = 0;
-[e = . _var_sys_NVM 3 -> -> 0 `i `uc ]
-"213
-[; ;controlMemory_MC50.c: 213:         var_sys_NVM.logicDigital = 0;
-[e = . _var_sys_NVM 17 -> -> 0 `i `uc ]
-"214
-[; ;controlMemory_MC50.c: 214:         var_sys_NVM.Stopboton = 0;
-[e = . _var_sys_NVM 22 -> -> 0 `i `uc ]
-"215
-[; ;controlMemory_MC50.c: 215:         var_sys_NVM.autoTimeFullClose = 0;
-[e = . _var_sys_NVM 5 -> -> 0 `i `uc ]
-"216
-[; ;controlMemory_MC50.c: 216:         var_sys_NVM.operationMode = 0;
-[e = . _var_sys_NVM 12 -> -> 0 `i `uc ]
-"217
-[; ;controlMemory_MC50.c: 217:         var_sys_NVM.velocityDecelaration = 5;
-[e = . _var_sys_NVM 24 -> -> 5 `i `uc ]
-"218
-[; ;controlMemory_MC50.c: 218:         var_sys_NVM.flashRGBMode = 3;
-[e = . _var_sys_NVM 25 -> -> 3 `i `uc ]
-"219
-[; ;controlMemory_MC50.c: 219:         var_sys_NVM.softstop = 0;
-[e = . _var_sys_NVM 19 -> -> 0 `i `uc ]
-"220
-[; ;controlMemory_MC50.c: 220:         var_sys_NVM.softStart = 0;
-[e = . _var_sys_NVM 18 -> -> 0 `i `uc ]
-"221
-[; ;controlMemory_MC50.c: 221:         var_sys_NVM.walkTime = 10;
-[e = . _var_sys_NVM 4 -> -> 10 `i `uc ]
-"223
-[; ;controlMemory_MC50.c: 223:     }
-}
-[e $U 1536  ]
-"224
-[; ;controlMemory_MC50.c: 224:     else if (type == SE){
-[e :U 1535 ]
-[e $ ! == -> _type `i -> . `E10921 1 `i 1537  ]
-{
-"225
-[; ;controlMemory_MC50.c: 225:         var_sys_NVM.decelarationClose = 4;
-[e = . _var_sys_NVM 1 -> -> 4 `i `uc ]
-"226
-[; ;controlMemory_MC50.c: 226:         var_sys_NVM.decelarationOpen = 4;
-[e = . _var_sys_NVM 0 -> -> 4 `i `uc ]
-"227
-[; ;controlMemory_MC50.c: 227:         var_sys_NVM.motorSensitivity = 4;
-[e = . _var_sys_NVM 3 -> -> 4 `i `uc ]
-"228
-[; ;controlMemory_MC50.c: 228:         var_sys_NVM.logicDigital = 1;
-[e = . _var_sys_NVM 17 -> -> 1 `i `uc ]
-"229
-[; ;controlMemory_MC50.c: 229:         var_sys_NVM.Stopboton = 1;
-[e = . _var_sys_NVM 22 -> -> 1 `i `uc ]
-"230
-[; ;controlMemory_MC50.c: 230:         var_sys_NVM.autoTimeFullClose = 0;
-[e = . _var_sys_NVM 5 -> -> 0 `i `uc ]
-"231
-[; ;controlMemory_MC50.c: 231:         var_sys_NVM.operationMode = 0;
-[e = . _var_sys_NVM 12 -> -> 0 `i `uc ]
-"232
-[; ;controlMemory_MC50.c: 232:         var_sys_NVM.velocityDecelaration = 5;
-[e = . _var_sys_NVM 24 -> -> 5 `i `uc ]
-"233
-[; ;controlMemory_MC50.c: 233:         var_sys_NVM.flashRGBMode = 3;
-[e = . _var_sys_NVM 25 -> -> 3 `i `uc ]
-"234
-[; ;controlMemory_MC50.c: 234:         var_sys_NVM.softstop = 0;
-[e = . _var_sys_NVM 19 -> -> 0 `i `uc ]
-"235
-[; ;controlMemory_MC50.c: 235:         var_sys_NVM.softStart = 5;
-[e = . _var_sys_NVM 18 -> -> 5 `i `uc ]
-"236
-[; ;controlMemory_MC50.c: 236:         var_sys_NVM.walkTime = 0;
-[e = . _var_sys_NVM 4 -> -> 0 `i `uc ]
-"237
-[; ;controlMemory_MC50.c: 237:         var_sys_NVM.Direction_motor = 0 ;
-[e = . _var_sys_NVM 27 -> -> 0 `i `uc ]
-"239
-[; ;controlMemory_MC50.c: 239:     }
-}
-[e $U 1538  ]
-"240
-[; ;controlMemory_MC50.c: 240:     else if (type == br){
-[e :U 1537 ]
-[e $ ! == -> _type `i -> . `E10921 2 `i 1539  ]
-{
-"241
-[; ;controlMemory_MC50.c: 241:         var_sys_NVM.decelarationClose = 6;
-[e = . _var_sys_NVM 1 -> -> 6 `i `uc ]
-"242
-[; ;controlMemory_MC50.c: 242:         var_sys_NVM.decelarationOpen = 2;
-[e = . _var_sys_NVM 0 -> -> 2 `i `uc ]
-"243
-[; ;controlMemory_MC50.c: 243:         var_sys_NVM.motorSensitivity = 0;
-[e = . _var_sys_NVM 3 -> -> 0 `i `uc ]
-"244
-[; ;controlMemory_MC50.c: 244:         var_sys_NVM.logicDigital = 0;
-[e = . _var_sys_NVM 17 -> -> 0 `i `uc ]
-"245
-[; ;controlMemory_MC50.c: 245:         var_sys_NVM.Stopboton = 0;
-[e = . _var_sys_NVM 22 -> -> 0 `i `uc ]
-"246
-[; ;controlMemory_MC50.c: 246:         var_sys_NVM.autoTimeFullClose = 0;
-[e = . _var_sys_NVM 5 -> -> 0 `i `uc ]
-"247
-[; ;controlMemory_MC50.c: 247:         var_sys_NVM.operationMode = 2;
-[e = . _var_sys_NVM 12 -> -> 2 `i `uc ]
-"248
-[; ;controlMemory_MC50.c: 248:         var_sys_NVM.velocityDecelaration = 5;
-[e = . _var_sys_NVM 24 -> -> 5 `i `uc ]
-"249
-[; ;controlMemory_MC50.c: 249:         var_sys_NVM.flashRGBMode = 1;
-[e = . _var_sys_NVM 25 -> -> 1 `i `uc ]
-"250
-[; ;controlMemory_MC50.c: 250:         var_sys_NVM.softstop = 5;
-[e = . _var_sys_NVM 19 -> -> 5 `i `uc ]
-"251
-[; ;controlMemory_MC50.c: 251:         var_sys_NVM.softStart = 0;
-[e = . _var_sys_NVM 18 -> -> 0 `i `uc ]
-"252
-[; ;controlMemory_MC50.c: 252:         var_sys_NVM.walkTime = 0;
-[e = . _var_sys_NVM 4 -> -> 0 `i `uc ]
-"254
-[; ;controlMemory_MC50.c: 254:     }
-}
-[e :U 1539 ]
-[e :U 1538 ]
-[e :U 1536 ]
-"260
-[; ;controlMemory_MC50.c: 260:     SaveNVM_VarSystem(pageMemoryE);
-[e ( _SaveNVM_VarSystem (1 -> . `E10915 1 `uc ]
-"261
-[; ;controlMemory_MC50.c: 261:     SaveNVM_VarSystem(pageMemoryP);
-[e ( _SaveNVM_VarSystem (1 -> . `E10915 0 `uc ]
-"266
-[; ;controlMemory_MC50.c: 266:     var_sys_NVM.learningTimeToClose = 0;
-[e = . _var_sys_NVM 42 -> -> -> 0 `i `l `ul ]
-"267
-[; ;controlMemory_MC50.c: 267:     var_sys_NVM.learningTimeToOpen = 0;
-[e = . _var_sys_NVM 41 -> -> -> 0 `i `l `ul ]
-"268
-[; ;controlMemory_MC50.c: 268:     var_sys_NVM.learningCurrentNormalClose = 0;
-[e = . _var_sys_NVM 39 -> -> 0 `i `ui ]
-"269
-[; ;controlMemory_MC50.c: 269:     var_sys_NVM.learningCurrentNormalOpen = 0;
-[e = . _var_sys_NVM 40 -> -> 0 `i `ui ]
-"270
-[; ;controlMemory_MC50.c: 270:     var_sys_NVM.learningCurrentDecelarationClose = 0;
-[e = . _var_sys_NVM 37 -> -> -> 0 `i `l `ul ]
-"271
-[; ;controlMemory_MC50.c: 271:     var_sys_NVM.learningCurrentDecelarationOpen = 0;
-[e = . _var_sys_NVM 38 -> -> -> 0 `i `l `ul ]
-"277
-[; ;controlMemory_MC50.c: 277:     if ((PORTAbits.RA2 == 0) && (PORTAbits.RA1 == 0) && (PORTBbits.RB0 == 0)&&(PORTAbits.RA5==0)){
-[e $ ! && && && == -> . . _PORTAbits 0 2 `i -> 0 `i == -> . . _PORTAbits 0 1 `i -> 0 `i == -> . . _PORTBbits 0 0 `i -> 0 `i == -> . . _PORTAbits 0 5 `i -> 0 `i 1540  ]
-{
-"278
-[; ;controlMemory_MC50.c: 278:      var_sys.actualCounterMoves = 0;
-[e = . _var_sys 42 -> -> -> 0 `i `l `ul ]
-"279
-[; ;controlMemory_MC50.c: 279:      var_sys_NVM.counterMoves = 0;
-[e = . _var_sys_NVM 34 -> -> -> 0 `i `l `ul ]
-"280
-[; ;controlMemory_MC50.c: 280:     }
-}
-[e :U 1540 ]
-"284
-[; ;controlMemory_MC50.c: 284:     SaveNVM_VarSystem(pageMemoryCounters);
-[e ( _SaveNVM_VarSystem (1 -> . `E10915 2 `uc ]
-"285
-[; ;controlMemory_MC50.c: 285:     SaveNVM_VarSystem(pageMemoryLearningVars);
-[e ( _SaveNVM_VarSystem (1 -> . `E10915 3 `uc ]
-"287
-[; ;controlMemory_MC50.c: 287: }
 [e :UE 1534 ]
 }
-"293
-[; ;controlMemory_MC50.c: 293: void ControlCounterMoves(void)
+"187
+[; ;controlMemory_MC50.c: 187: void SaveNVM_VarSystem(unsigned char page)
+[v _SaveNVM_VarSystem `(v ~T0 @X0 1 ef1`uc ]
+"188
+[; ;controlMemory_MC50.c: 188: {
+{
+[e :U _SaveNVM_VarSystem ]
+"187
+[; ;controlMemory_MC50.c: 187: void SaveNVM_VarSystem(unsigned char page)
+[v _page `uc ~T0 @X0 1 r1 ]
+"188
+[; ;controlMemory_MC50.c: 188: {
+[f ]
+"189
+[; ;controlMemory_MC50.c: 189:     unsigned int tempAdd=page*16;
+[v _tempAdd `ui ~T0 @X0 1 a ]
+[e = _tempAdd -> * -> _page `i -> 16 `i `ui ]
+"190
+[; ;controlMemory_MC50.c: 190:     char* point=(char*)&var_sys_NVM;
+[v _point `*uc ~T0 @X0 1 a ]
+[e = _point -> &U _var_sys_NVM `*uc ]
+"191
+[; ;controlMemory_MC50.c: 191:     point=point+tempAdd;
+[e = _point + _point * -> _tempAdd `ux -> -> # *U _point `ui `ux ]
+"192
+[; ;controlMemory_MC50.c: 192:    i2c_writeNBytes(0x50, tempAdd, point, 16);
+[e ( _i2c_writeNBytes (4 , , , -> -> 80 `i `uc -> _tempAdd `us -> _point `*v -> -> 16 `i `ui ]
+"193
+[; ;controlMemory_MC50.c: 193: }
+[e :UE 1536 ]
+}
+"198
+[; ;controlMemory_MC50.c: 198: void ResetDefaultMemory(unsigned char type)
+[v _ResetDefaultMemory `(v ~T0 @X0 1 ef1`uc ]
+"199
+[; ;controlMemory_MC50.c: 199: {
+{
+[e :U _ResetDefaultMemory ]
+"198
+[; ;controlMemory_MC50.c: 198: void ResetDefaultMemory(unsigned char type)
+[v _type `uc ~T0 @X0 1 r1 ]
+"199
+[; ;controlMemory_MC50.c: 199: {
+[f ]
+"202
+[; ;controlMemory_MC50.c: 202:     var_sys_NVM.decelarationOpen = 3;
+[e = . _var_sys_NVM 0 -> -> 3 `i `uc ]
+"203
+[; ;controlMemory_MC50.c: 203:     var_sys_NVM.motorPower = 9;
+[e = . _var_sys_NVM 2 -> -> 9 `i `uc ]
+"204
+[; ;controlMemory_MC50.c: 204:     var_sys_NVM.decelarationClose = 3;
+[e = . _var_sys_NVM 1 -> -> 3 `i `uc ]
+"205
+[; ;controlMemory_MC50.c: 205:     var_sys_NVM.photoCellIsON = 0;
+[e = . _var_sys_NVM 7 -> -> 0 `i `uc ]
+"206
+[; ;controlMemory_MC50.c: 206:     var_sys_NVM.photoCellInOpen = 0;
+[e = . _var_sys_NVM 8 -> -> 0 `i `uc ]
+"207
+[; ;controlMemory_MC50.c: 207:     var_sys_NVM.securityBandIsON = 0 ;
+[e = . _var_sys_NVM 9 -> -> 0 `i `uc ]
+"208
+[; ;controlMemory_MC50.c: 208:     var_sys_NVM.securityBandType = 1;
+[e = . _var_sys_NVM 10 -> -> 1 `i `uc ]
+"209
+[; ;controlMemory_MC50.c: 209:     var_sys_NVM.securityBandInOpen = 0;
+[e = . _var_sys_NVM 11 -> -> 0 `i `uc ]
+"210
+[; ;controlMemory_MC50.c: 210:     var_sys_NVM.flashLightMode = 0;
+[e = . _var_sys_NVM 13 -> -> 0 `i `uc ]
+"211
+[; ;controlMemory_MC50.c: 211:     var_sys_NVM.programmingDistance = 0;
+[e = . _var_sys_NVM 14 -> -> 0 `i `uc ]
+"212
+[; ;controlMemory_MC50.c: 212:     var_sys_NVM.decelarationSensivity = 0;
+[e = . _var_sys_NVM 15 -> -> 0 `i `uc ]
+"213
+[; ;controlMemory_MC50.c: 213:     var_sys_NVM.homemPresente = 0;
+[e = . _var_sys_NVM 16 -> -> 0 `i `uc ]
+"214
+[; ;controlMemory_MC50.c: 214:     var_sys_NVM.autoTimeWalkClose = 0;
+[e = . _var_sys_NVM 6 -> -> 0 `i `uc ]
+"215
+[; ;controlMemory_MC50.c: 215:     var_sys_NVM.ligthTime = 3;
+[e = . _var_sys_NVM 20 -> -> 3 `i `uc ]
+"216
+[; ;controlMemory_MC50.c: 216:     var_sys_NVM.folow_me = 0;
+[e = . _var_sys_NVM 21 -> -> 0 `i `uc ]
+"217
+[; ;controlMemory_MC50.c: 217:     var_sys_NVM.electricBrake = 0;
+[e = . _var_sys_NVM 23 -> -> 0 `i `uc ]
+"218
+[; ;controlMemory_MC50.c: 218:     var_sys_NVM.autoTimeWalkClose = 0;
+[e = . _var_sys_NVM 6 -> -> 0 `i `uc ]
+"219
+[; ;controlMemory_MC50.c: 219:     var_sys_NVM.Direction_motor = 1 ;
+[e = . _var_sys_NVM 27 -> -> 1 `i `uc ]
+"222
+[; ;controlMemory_MC50.c: 222:     if (type == SC){
+[e $ ! == -> _type `i -> . `E10921 0 `i 1538  ]
+{
+"224
+[; ;controlMemory_MC50.c: 224:         var_sys_NVM.motorSensitivity = 0;
+[e = . _var_sys_NVM 3 -> -> 0 `i `uc ]
+"225
+[; ;controlMemory_MC50.c: 225:         var_sys_NVM.logicDigital = 0;
+[e = . _var_sys_NVM 17 -> -> 0 `i `uc ]
+"226
+[; ;controlMemory_MC50.c: 226:         var_sys_NVM.Stopboton = 0;
+[e = . _var_sys_NVM 22 -> -> 0 `i `uc ]
+"227
+[; ;controlMemory_MC50.c: 227:         var_sys_NVM.autoTimeFullClose = 0;
+[e = . _var_sys_NVM 5 -> -> 0 `i `uc ]
+"228
+[; ;controlMemory_MC50.c: 228:         var_sys_NVM.operationMode = 0;
+[e = . _var_sys_NVM 12 -> -> 0 `i `uc ]
+"229
+[; ;controlMemory_MC50.c: 229:         var_sys_NVM.velocityDecelaration = 5;
+[e = . _var_sys_NVM 24 -> -> 5 `i `uc ]
+"230
+[; ;controlMemory_MC50.c: 230:         var_sys_NVM.flashRGBMode = 3;
+[e = . _var_sys_NVM 25 -> -> 3 `i `uc ]
+"231
+[; ;controlMemory_MC50.c: 231:         var_sys_NVM.softstop = 0;
+[e = . _var_sys_NVM 19 -> -> 0 `i `uc ]
+"232
+[; ;controlMemory_MC50.c: 232:         var_sys_NVM.softStart = 0;
+[e = . _var_sys_NVM 18 -> -> 0 `i `uc ]
+"233
+[; ;controlMemory_MC50.c: 233:         var_sys_NVM.walkTime = 10;
+[e = . _var_sys_NVM 4 -> -> 10 `i `uc ]
+"235
+[; ;controlMemory_MC50.c: 235:     }
+}
+[e $U 1539  ]
+"236
+[; ;controlMemory_MC50.c: 236:     else if (type == SE){
+[e :U 1538 ]
+[e $ ! == -> _type `i -> . `E10921 1 `i 1540  ]
+{
+"237
+[; ;controlMemory_MC50.c: 237:         var_sys_NVM.decelarationClose = 4;
+[e = . _var_sys_NVM 1 -> -> 4 `i `uc ]
+"238
+[; ;controlMemory_MC50.c: 238:         var_sys_NVM.decelarationOpen = 4;
+[e = . _var_sys_NVM 0 -> -> 4 `i `uc ]
+"239
+[; ;controlMemory_MC50.c: 239:         var_sys_NVM.motorSensitivity = 4;
+[e = . _var_sys_NVM 3 -> -> 4 `i `uc ]
+"240
+[; ;controlMemory_MC50.c: 240:         var_sys_NVM.logicDigital = 1;
+[e = . _var_sys_NVM 17 -> -> 1 `i `uc ]
+"241
+[; ;controlMemory_MC50.c: 241:         var_sys_NVM.Stopboton = 1;
+[e = . _var_sys_NVM 22 -> -> 1 `i `uc ]
+"242
+[; ;controlMemory_MC50.c: 242:         var_sys_NVM.autoTimeFullClose = 0;
+[e = . _var_sys_NVM 5 -> -> 0 `i `uc ]
+"243
+[; ;controlMemory_MC50.c: 243:         var_sys_NVM.operationMode = 0;
+[e = . _var_sys_NVM 12 -> -> 0 `i `uc ]
+"244
+[; ;controlMemory_MC50.c: 244:         var_sys_NVM.velocityDecelaration = 5;
+[e = . _var_sys_NVM 24 -> -> 5 `i `uc ]
+"245
+[; ;controlMemory_MC50.c: 245:         var_sys_NVM.flashRGBMode = 3;
+[e = . _var_sys_NVM 25 -> -> 3 `i `uc ]
+"246
+[; ;controlMemory_MC50.c: 246:         var_sys_NVM.softstop = 0;
+[e = . _var_sys_NVM 19 -> -> 0 `i `uc ]
+"247
+[; ;controlMemory_MC50.c: 247:         var_sys_NVM.softStart = 5;
+[e = . _var_sys_NVM 18 -> -> 5 `i `uc ]
+"248
+[; ;controlMemory_MC50.c: 248:         var_sys_NVM.walkTime = 0;
+[e = . _var_sys_NVM 4 -> -> 0 `i `uc ]
+"249
+[; ;controlMemory_MC50.c: 249:         var_sys_NVM.Direction_motor = 0 ;
+[e = . _var_sys_NVM 27 -> -> 0 `i `uc ]
+"251
+[; ;controlMemory_MC50.c: 251:     }
+}
+[e $U 1541  ]
+"252
+[; ;controlMemory_MC50.c: 252:     else if (type == br){
+[e :U 1540 ]
+[e $ ! == -> _type `i -> . `E10921 2 `i 1542  ]
+{
+"253
+[; ;controlMemory_MC50.c: 253:         var_sys_NVM.decelarationClose = 6;
+[e = . _var_sys_NVM 1 -> -> 6 `i `uc ]
+"254
+[; ;controlMemory_MC50.c: 254:         var_sys_NVM.decelarationOpen = 2;
+[e = . _var_sys_NVM 0 -> -> 2 `i `uc ]
+"255
+[; ;controlMemory_MC50.c: 255:         var_sys_NVM.motorSensitivity = 0;
+[e = . _var_sys_NVM 3 -> -> 0 `i `uc ]
+"256
+[; ;controlMemory_MC50.c: 256:         var_sys_NVM.logicDigital = 0;
+[e = . _var_sys_NVM 17 -> -> 0 `i `uc ]
+"257
+[; ;controlMemory_MC50.c: 257:         var_sys_NVM.Stopboton = 0;
+[e = . _var_sys_NVM 22 -> -> 0 `i `uc ]
+"258
+[; ;controlMemory_MC50.c: 258:         var_sys_NVM.autoTimeFullClose = 0;
+[e = . _var_sys_NVM 5 -> -> 0 `i `uc ]
+"259
+[; ;controlMemory_MC50.c: 259:         var_sys_NVM.operationMode = 2;
+[e = . _var_sys_NVM 12 -> -> 2 `i `uc ]
+"260
+[; ;controlMemory_MC50.c: 260:         var_sys_NVM.velocityDecelaration = 5;
+[e = . _var_sys_NVM 24 -> -> 5 `i `uc ]
+"261
+[; ;controlMemory_MC50.c: 261:         var_sys_NVM.flashRGBMode = 1;
+[e = . _var_sys_NVM 25 -> -> 1 `i `uc ]
+"262
+[; ;controlMemory_MC50.c: 262:         var_sys_NVM.softstop = 5;
+[e = . _var_sys_NVM 19 -> -> 5 `i `uc ]
+"263
+[; ;controlMemory_MC50.c: 263:         var_sys_NVM.softStart = 0;
+[e = . _var_sys_NVM 18 -> -> 0 `i `uc ]
+"264
+[; ;controlMemory_MC50.c: 264:         var_sys_NVM.walkTime = 0;
+[e = . _var_sys_NVM 4 -> -> 0 `i `uc ]
+"266
+[; ;controlMemory_MC50.c: 266:     }
+}
+[e :U 1542 ]
+[e :U 1541 ]
+[e :U 1539 ]
+"272
+[; ;controlMemory_MC50.c: 272:     SaveNVM_VarSystem(pageMemoryE);
+[e ( _SaveNVM_VarSystem (1 -> . `E10915 1 `uc ]
+"273
+[; ;controlMemory_MC50.c: 273:     SaveNVM_VarSystem(pageMemoryP);
+[e ( _SaveNVM_VarSystem (1 -> . `E10915 0 `uc ]
+"278
+[; ;controlMemory_MC50.c: 278:     var_sys_NVM.learningTimeToClose = 0;
+[e = . _var_sys_NVM 42 -> -> -> 0 `i `l `ul ]
+"279
+[; ;controlMemory_MC50.c: 279:     var_sys_NVM.learningTimeToOpen = 0;
+[e = . _var_sys_NVM 41 -> -> -> 0 `i `l `ul ]
+"280
+[; ;controlMemory_MC50.c: 280:     var_sys_NVM.learningCurrentNormalClose = 0;
+[e = . _var_sys_NVM 39 -> -> 0 `i `ui ]
+"281
+[; ;controlMemory_MC50.c: 281:     var_sys_NVM.learningCurrentNormalOpen = 0;
+[e = . _var_sys_NVM 40 -> -> 0 `i `ui ]
+"282
+[; ;controlMemory_MC50.c: 282:     var_sys_NVM.learningCurrentDecelarationClose = 0;
+[e = . _var_sys_NVM 37 -> -> -> 0 `i `l `ul ]
+"283
+[; ;controlMemory_MC50.c: 283:     var_sys_NVM.learningCurrentDecelarationOpen = 0;
+[e = . _var_sys_NVM 38 -> -> -> 0 `i `l `ul ]
+"289
+[; ;controlMemory_MC50.c: 289:     if ((PORTAbits.RA2 == 0) && (PORTAbits.RA1 == 0) && (PORTBbits.RB0 == 0)&&(PORTAbits.RA5==0)){
+[e $ ! && && && == -> . . _PORTAbits 0 2 `i -> 0 `i == -> . . _PORTAbits 0 1 `i -> 0 `i == -> . . _PORTBbits 0 0 `i -> 0 `i == -> . . _PORTAbits 0 5 `i -> 0 `i 1543  ]
+{
+"290
+[; ;controlMemory_MC50.c: 290:      var_sys.actualCounterMoves = 0;
+[e = . _var_sys 42 -> -> -> 0 `i `l `ul ]
+"291
+[; ;controlMemory_MC50.c: 291:      var_sys_NVM.counterMoves = 0;
+[e = . _var_sys_NVM 34 -> -> -> 0 `i `l `ul ]
+"292
+[; ;controlMemory_MC50.c: 292:     }
+}
+[e :U 1543 ]
+"296
+[; ;controlMemory_MC50.c: 296:     SaveNVM_VarSystem(pageMemoryCounters);
+[e ( _SaveNVM_VarSystem (1 -> . `E10915 2 `uc ]
+"297
+[; ;controlMemory_MC50.c: 297:     SaveNVM_VarSystem(pageMemoryLearningVars);
+[e ( _SaveNVM_VarSystem (1 -> . `E10915 3 `uc ]
+"299
+[; ;controlMemory_MC50.c: 299: }
+[e :UE 1537 ]
+}
+"305
+[; ;controlMemory_MC50.c: 305: void ControlCounterMoves(void)
 [v _ControlCounterMoves `(v ~T0 @X0 1 ef ]
-"294
-[; ;controlMemory_MC50.c: 294: {
+"306
+[; ;controlMemory_MC50.c: 306: {
 {
 [e :U _ControlCounterMoves ]
 [f ]
-"296
-[; ;controlMemory_MC50.c: 296:     if(ts_system.timeBetweenSaveCounters<=0)
-[e $ ! <= . _ts_system 21 -> 0 `i 1542  ]
-"297
-[; ;controlMemory_MC50.c: 297:     {
+"308
+[; ;controlMemory_MC50.c: 308:     if(ts_system.timeBetweenSaveCounters<=0)
+[e $ ! <= . _ts_system 21 -> 0 `i 1545  ]
+"309
+[; ;controlMemory_MC50.c: 309:     {
 {
-"298
-[; ;controlMemory_MC50.c: 298:        ts_system.timeBetweenSaveCounters=((1000/50)*60)*5;
+"310
+[; ;controlMemory_MC50.c: 310:        ts_system.timeBetweenSaveCounters=((1000/50)*60)*5;
 [e = . _ts_system 21 * * / -> 1000 `i -> 50 `i -> 60 `i -> 5 `i ]
-"300
-[; ;controlMemory_MC50.c: 300:        if(var_sys.actualCounterMoves!=var_sys_NVM.counterMoves)
-[e $ ! != . _var_sys 42 . _var_sys_NVM 34 1543  ]
-"301
-[; ;controlMemory_MC50.c: 301:        {
+"312
+[; ;controlMemory_MC50.c: 312:        if(var_sys.actualCounterMoves!=var_sys_NVM.counterMoves)
+[e $ ! != . _var_sys 42 . _var_sys_NVM 34 1546  ]
+"313
+[; ;controlMemory_MC50.c: 313:        {
 {
-"302
-[; ;controlMemory_MC50.c: 302:            var_sys_NVM.counterMoves=var_sys.actualCounterMoves;
-[e = . _var_sys_NVM 34 . _var_sys 42 ]
-"303
-[; ;controlMemory_MC50.c: 303:            SaveNVM_VarSystem(pageMemoryCounters);
-[e ( _SaveNVM_VarSystem (1 -> . `E10915 2 `uc ]
-"304
-[; ;controlMemory_MC50.c: 304:        }
-}
-[e :U 1543 ]
-"305
-[; ;controlMemory_MC50.c: 305:     }
-}
-[e :U 1542 ]
-"306
-[; ;controlMemory_MC50.c: 306: }
-[e :UE 1541 ]
-}
 "314
-[; ;controlMemory_MC50.c: 314: void checkNVM_VarSystem ( void )
-[v _checkNVM_VarSystem `(v ~T0 @X0 1 ef ]
+[; ;controlMemory_MC50.c: 314:            var_sys_NVM.counterMoves=var_sys.actualCounterMoves;
+[e = . _var_sys_NVM 34 . _var_sys 42 ]
 "315
-[; ;controlMemory_MC50.c: 315: {
+[; ;controlMemory_MC50.c: 315:            SaveNVM_VarSystem(pageMemoryCounters);
+[e ( _SaveNVM_VarSystem (1 -> . `E10915 2 `uc ]
+"316
+[; ;controlMemory_MC50.c: 316:        }
+}
+[e :U 1546 ]
+"317
+[; ;controlMemory_MC50.c: 317:     }
+}
+[e :U 1545 ]
+"318
+[; ;controlMemory_MC50.c: 318: }
+[e :UE 1544 ]
+}
+"326
+[; ;controlMemory_MC50.c: 326: void checkNVM_VarSystem ( void )
+[v _checkNVM_VarSystem `(v ~T0 @X0 1 ef ]
+"327
+[; ;controlMemory_MC50.c: 327: {
 {
 [e :U _checkNVM_VarSystem ]
 [f ]
-"316
-[; ;controlMemory_MC50.c: 316:     char saveParam;
-[v _saveParam `uc ~T0 @X0 1 a ]
-"319
-[; ;controlMemory_MC50.c: 319:     saveParam = 0;
-[e = _saveParam -> -> 0 `i `uc ]
-"327
-[; ;controlMemory_MC50.c: 327:     if ( var_sys_NVM.decelarationOpen>45 )
-[e $ ! > -> . _var_sys_NVM 0 `i -> 45 `i 1545  ]
 "328
-[; ;controlMemory_MC50.c: 328:     {
-{
-"330
-[; ;controlMemory_MC50.c: 330:         var_sys_NVM.decelarationOpen = 3;
-[e = . _var_sys_NVM 0 -> -> 3 `i `uc ]
+[; ;controlMemory_MC50.c: 328:     char saveParam;
+[v _saveParam `uc ~T0 @X0 1 a ]
 "331
-[; ;controlMemory_MC50.c: 331:         saveParam=1;
-[e = _saveParam -> -> 1 `i `uc ]
-"332
-[; ;controlMemory_MC50.c: 332:     }
-}
-[e :U 1545 ]
-"334
-[; ;controlMemory_MC50.c: 334:     if ( var_sys_NVM.decelarationClose>45 )
-[e $ ! > -> . _var_sys_NVM 1 `i -> 45 `i 1546  ]
-"335
-[; ;controlMemory_MC50.c: 335:     {
-{
-"337
-[; ;controlMemory_MC50.c: 337:         var_sys_NVM.decelarationClose = 3;
-[e = . _var_sys_NVM 1 -> -> 3 `i `uc ]
-"338
-[; ;controlMemory_MC50.c: 338:         saveParam=1;
-[e = _saveParam -> -> 1 `i `uc ]
+[; ;controlMemory_MC50.c: 331:     saveParam = 0;
+[e = _saveParam -> -> 0 `i `uc ]
 "339
-[; ;controlMemory_MC50.c: 339:     }
-}
-[e :U 1546 ]
-"341
-[; ;controlMemory_MC50.c: 341:     if ( (var_sys_NVM.motorPower<1) || (var_sys_NVM.motorPower>9) )
-[e $ ! || < -> . _var_sys_NVM 2 `i -> 1 `i > -> . _var_sys_NVM 2 `i -> 9 `i 1547  ]
+[; ;controlMemory_MC50.c: 339:     if ( var_sys_NVM.decelarationOpen>45 )
+[e $ ! > -> . _var_sys_NVM 0 `i -> 45 `i 1548  ]
+"340
+[; ;controlMemory_MC50.c: 340:     {
+{
 "342
-[; ;controlMemory_MC50.c: 342:     {
-{
+[; ;controlMemory_MC50.c: 342:         var_sys_NVM.decelarationOpen = 3;
+[e = . _var_sys_NVM 0 -> -> 3 `i `uc ]
+"343
+[; ;controlMemory_MC50.c: 343:         saveParam=1;
+[e = _saveParam -> -> 1 `i `uc ]
 "344
-[; ;controlMemory_MC50.c: 344:         var_sys_NVM.motorPower = 9;
-[e = . _var_sys_NVM 2 -> -> 9 `i `uc ]
-"345
-[; ;controlMemory_MC50.c: 345:         saveParam=1;
-[e = _saveParam -> -> 1 `i `uc ]
-"346
-[; ;controlMemory_MC50.c: 346:     }
-}
-[e :U 1547 ]
-"348
-[; ;controlMemory_MC50.c: 348:     if ( var_sys_NVM.motorSensitivity>9 )
-[e $ ! > -> . _var_sys_NVM 3 `i -> 9 `i 1548  ]
-"349
-[; ;controlMemory_MC50.c: 349:     {
-{
-"351
-[; ;controlMemory_MC50.c: 351:         var_sys_NVM.motorSensitivity = 0;
-[e = . _var_sys_NVM 3 -> -> 0 `i `uc ]
-"352
-[; ;controlMemory_MC50.c: 352:         saveParam=1;
-[e = _saveParam -> -> 1 `i `uc ]
-"353
-[; ;controlMemory_MC50.c: 353:     }
+[; ;controlMemory_MC50.c: 344:     }
 }
 [e :U 1548 ]
-"355
-[; ;controlMemory_MC50.c: 355:     if ( var_sys_NVM.walkTime>99 )
-[e $ ! > -> . _var_sys_NVM 4 `i -> 99 `i 1549  ]
-"356
-[; ;controlMemory_MC50.c: 356:     {
+"346
+[; ;controlMemory_MC50.c: 346:     if ( var_sys_NVM.decelarationClose>45 )
+[e $ ! > -> . _var_sys_NVM 1 `i -> 45 `i 1549  ]
+"347
+[; ;controlMemory_MC50.c: 347:     {
 {
-"358
-[; ;controlMemory_MC50.c: 358:         var_sys_NVM.walkTime = 10;
-[e = . _var_sys_NVM 4 -> -> 10 `i `uc ]
-"359
-[; ;controlMemory_MC50.c: 359:         saveParam=1;
+"349
+[; ;controlMemory_MC50.c: 349:         var_sys_NVM.decelarationClose = 3;
+[e = . _var_sys_NVM 1 -> -> 3 `i `uc ]
+"350
+[; ;controlMemory_MC50.c: 350:         saveParam=1;
 [e = _saveParam -> -> 1 `i `uc ]
-"360
-[; ;controlMemory_MC50.c: 360:     }
+"351
+[; ;controlMemory_MC50.c: 351:     }
 }
 [e :U 1549 ]
-"362
-[; ;controlMemory_MC50.c: 362:     if ( var_sys_NVM.autoTimeFullClose>99 )
-[e $ ! > -> . _var_sys_NVM 5 `i -> 99 `i 1550  ]
-"363
-[; ;controlMemory_MC50.c: 363:     {
+"353
+[; ;controlMemory_MC50.c: 353:     if ( (var_sys_NVM.motorPower<1) || (var_sys_NVM.motorPower>9) )
+[e $ ! || < -> . _var_sys_NVM 2 `i -> 1 `i > -> . _var_sys_NVM 2 `i -> 9 `i 1550  ]
+"354
+[; ;controlMemory_MC50.c: 354:     {
 {
-"365
-[; ;controlMemory_MC50.c: 365:         var_sys_NVM.autoTimeFullClose = 0;
-[e = . _var_sys_NVM 5 -> -> 0 `i `uc ]
-"366
-[; ;controlMemory_MC50.c: 366:         saveParam=1;
+"356
+[; ;controlMemory_MC50.c: 356:         var_sys_NVM.motorPower = 9;
+[e = . _var_sys_NVM 2 -> -> 9 `i `uc ]
+"357
+[; ;controlMemory_MC50.c: 357:         saveParam=1;
 [e = _saveParam -> -> 1 `i `uc ]
-"367
-[; ;controlMemory_MC50.c: 367:     }
+"358
+[; ;controlMemory_MC50.c: 358:     }
 }
 [e :U 1550 ]
-"369
-[; ;controlMemory_MC50.c: 369:     if ( var_sys_NVM.autoTimeWalkClose>99 )
-[e $ ! > -> . _var_sys_NVM 6 `i -> 99 `i 1551  ]
-"370
-[; ;controlMemory_MC50.c: 370:     {
+"360
+[; ;controlMemory_MC50.c: 360:     if ( var_sys_NVM.motorSensitivity>9 )
+[e $ ! > -> . _var_sys_NVM 3 `i -> 9 `i 1551  ]
+"361
+[; ;controlMemory_MC50.c: 361:     {
 {
-"372
-[; ;controlMemory_MC50.c: 372:         var_sys_NVM.autoTimeWalkClose = 0;
-[e = . _var_sys_NVM 6 -> -> 0 `i `uc ]
-"373
-[; ;controlMemory_MC50.c: 373:         saveParam=1;
+"363
+[; ;controlMemory_MC50.c: 363:         var_sys_NVM.motorSensitivity = 0;
+[e = . _var_sys_NVM 3 -> -> 0 `i `uc ]
+"364
+[; ;controlMemory_MC50.c: 364:         saveParam=1;
 [e = _saveParam -> -> 1 `i `uc ]
-"374
-[; ;controlMemory_MC50.c: 374:     }
+"365
+[; ;controlMemory_MC50.c: 365:     }
 }
 [e :U 1551 ]
-"376
-[; ;controlMemory_MC50.c: 376:     if ( var_sys_NVM.photoCellIsON>1 )
-[e $ ! > -> . _var_sys_NVM 7 `i -> 1 `i 1552  ]
-"377
-[; ;controlMemory_MC50.c: 377:     {
+"367
+[; ;controlMemory_MC50.c: 367:     if ( var_sys_NVM.walkTime>99 )
+[e $ ! > -> . _var_sys_NVM 4 `i -> 99 `i 1552  ]
+"368
+[; ;controlMemory_MC50.c: 368:     {
 {
-"379
-[; ;controlMemory_MC50.c: 379:         var_sys_NVM.photoCellIsON = 0;
-[e = . _var_sys_NVM 7 -> -> 0 `i `uc ]
-"380
-[; ;controlMemory_MC50.c: 380:         saveParam=1;
+"370
+[; ;controlMemory_MC50.c: 370:         var_sys_NVM.walkTime = 10;
+[e = . _var_sys_NVM 4 -> -> 10 `i `uc ]
+"371
+[; ;controlMemory_MC50.c: 371:         saveParam=1;
 [e = _saveParam -> -> 1 `i `uc ]
-"381
-[; ;controlMemory_MC50.c: 381:     }
+"372
+[; ;controlMemory_MC50.c: 372:     }
 }
 [e :U 1552 ]
-"383
-[; ;controlMemory_MC50.c: 383:     if ( var_sys_NVM.photoCellInOpen>1 )
-[e $ ! > -> . _var_sys_NVM 8 `i -> 1 `i 1553  ]
-"384
-[; ;controlMemory_MC50.c: 384:     {
+"374
+[; ;controlMemory_MC50.c: 374:     if ( var_sys_NVM.autoTimeFullClose>99 )
+[e $ ! > -> . _var_sys_NVM 5 `i -> 99 `i 1553  ]
+"375
+[; ;controlMemory_MC50.c: 375:     {
 {
-"386
-[; ;controlMemory_MC50.c: 386:         var_sys_NVM.photoCellInOpen = 0;
-[e = . _var_sys_NVM 8 -> -> 0 `i `uc ]
-"387
-[; ;controlMemory_MC50.c: 387:         saveParam=1;
+"377
+[; ;controlMemory_MC50.c: 377:         var_sys_NVM.autoTimeFullClose = 0;
+[e = . _var_sys_NVM 5 -> -> 0 `i `uc ]
+"378
+[; ;controlMemory_MC50.c: 378:         saveParam=1;
 [e = _saveParam -> -> 1 `i `uc ]
-"388
-[; ;controlMemory_MC50.c: 388:     }
+"379
+[; ;controlMemory_MC50.c: 379:     }
 }
 [e :U 1553 ]
-"390
-[; ;controlMemory_MC50.c: 390:     if ( var_sys_NVM.securityBandIsON>1 )
-[e $ ! > -> . _var_sys_NVM 9 `i -> 1 `i 1554  ]
-"391
-[; ;controlMemory_MC50.c: 391:     {
+"381
+[; ;controlMemory_MC50.c: 381:     if ( var_sys_NVM.autoTimeWalkClose>99 )
+[e $ ! > -> . _var_sys_NVM 6 `i -> 99 `i 1554  ]
+"382
+[; ;controlMemory_MC50.c: 382:     {
 {
-"393
-[; ;controlMemory_MC50.c: 393:         var_sys_NVM.securityBandIsON = 0 ;
-[e = . _var_sys_NVM 9 -> -> 0 `i `uc ]
-"394
-[; ;controlMemory_MC50.c: 394:         saveParam=1;
+"384
+[; ;controlMemory_MC50.c: 384:         var_sys_NVM.autoTimeWalkClose = 0;
+[e = . _var_sys_NVM 6 -> -> 0 `i `uc ]
+"385
+[; ;controlMemory_MC50.c: 385:         saveParam=1;
 [e = _saveParam -> -> 1 `i `uc ]
-"395
-[; ;controlMemory_MC50.c: 395:     }
+"386
+[; ;controlMemory_MC50.c: 386:     }
 }
 [e :U 1554 ]
-"397
-[; ;controlMemory_MC50.c: 397:     if ( var_sys_NVM.securityBandType>1 )
-[e $ ! > -> . _var_sys_NVM 10 `i -> 1 `i 1555  ]
-"398
-[; ;controlMemory_MC50.c: 398:     {
+"388
+[; ;controlMemory_MC50.c: 388:     if ( var_sys_NVM.photoCellIsON>1 )
+[e $ ! > -> . _var_sys_NVM 7 `i -> 1 `i 1555  ]
+"389
+[; ;controlMemory_MC50.c: 389:     {
 {
-"400
-[; ;controlMemory_MC50.c: 400:         var_sys_NVM.securityBandType = 1;
-[e = . _var_sys_NVM 10 -> -> 1 `i `uc ]
-"401
-[; ;controlMemory_MC50.c: 401:         saveParam=1;
+"391
+[; ;controlMemory_MC50.c: 391:         var_sys_NVM.photoCellIsON = 0;
+[e = . _var_sys_NVM 7 -> -> 0 `i `uc ]
+"392
+[; ;controlMemory_MC50.c: 392:         saveParam=1;
 [e = _saveParam -> -> 1 `i `uc ]
-"402
-[; ;controlMemory_MC50.c: 402:     }
+"393
+[; ;controlMemory_MC50.c: 393:     }
 }
 [e :U 1555 ]
-"404
-[; ;controlMemory_MC50.c: 404:     if ( var_sys_NVM.securityBandInOpen>1 )
-[e $ ! > -> . _var_sys_NVM 11 `i -> 1 `i 1556  ]
-"405
-[; ;controlMemory_MC50.c: 405:     {
+"395
+[; ;controlMemory_MC50.c: 395:     if ( var_sys_NVM.photoCellInOpen>1 )
+[e $ ! > -> . _var_sys_NVM 8 `i -> 1 `i 1556  ]
+"396
+[; ;controlMemory_MC50.c: 396:     {
 {
-"407
-[; ;controlMemory_MC50.c: 407:         var_sys_NVM.securityBandInOpen = 0;
-[e = . _var_sys_NVM 11 -> -> 0 `i `uc ]
-"408
-[; ;controlMemory_MC50.c: 408:         saveParam=1;
+"398
+[; ;controlMemory_MC50.c: 398:         var_sys_NVM.photoCellInOpen = 0;
+[e = . _var_sys_NVM 8 -> -> 0 `i `uc ]
+"399
+[; ;controlMemory_MC50.c: 399:         saveParam=1;
 [e = _saveParam -> -> 1 `i `uc ]
-"409
-[; ;controlMemory_MC50.c: 409:     }
+"400
+[; ;controlMemory_MC50.c: 400:     }
 }
 [e :U 1556 ]
-"411
-[; ;controlMemory_MC50.c: 411:     if ( var_sys_NVM.operationMode>2 )
-[e $ ! > -> . _var_sys_NVM 12 `i -> 2 `i 1557  ]
-"412
-[; ;controlMemory_MC50.c: 412:     {
+"402
+[; ;controlMemory_MC50.c: 402:     if ( var_sys_NVM.securityBandIsON>1 )
+[e $ ! > -> . _var_sys_NVM 9 `i -> 1 `i 1557  ]
+"403
+[; ;controlMemory_MC50.c: 403:     {
 {
-"414
-[; ;controlMemory_MC50.c: 414:         var_sys_NVM.operationMode = 0;
-[e = . _var_sys_NVM 12 -> -> 0 `i `uc ]
-"415
-[; ;controlMemory_MC50.c: 415:         saveParam=1;
+"405
+[; ;controlMemory_MC50.c: 405:         var_sys_NVM.securityBandIsON = 0 ;
+[e = . _var_sys_NVM 9 -> -> 0 `i `uc ]
+"406
+[; ;controlMemory_MC50.c: 406:         saveParam=1;
 [e = _saveParam -> -> 1 `i `uc ]
-"416
-[; ;controlMemory_MC50.c: 416:     }
+"407
+[; ;controlMemory_MC50.c: 407:     }
 }
 [e :U 1557 ]
-"418
-[; ;controlMemory_MC50.c: 418:     if ( var_sys_NVM.flashLightMode>3 )
-[e $ ! > -> . _var_sys_NVM 13 `i -> 3 `i 1558  ]
-"419
-[; ;controlMemory_MC50.c: 419:     {
+"409
+[; ;controlMemory_MC50.c: 409:     if ( var_sys_NVM.securityBandType>1 )
+[e $ ! > -> . _var_sys_NVM 10 `i -> 1 `i 1558  ]
+"410
+[; ;controlMemory_MC50.c: 410:     {
 {
-"421
-[; ;controlMemory_MC50.c: 421:         var_sys_NVM.flashLightMode = 0;
-[e = . _var_sys_NVM 13 -> -> 0 `i `uc ]
-"422
-[; ;controlMemory_MC50.c: 422:         saveParam=1;
+"412
+[; ;controlMemory_MC50.c: 412:         var_sys_NVM.securityBandType = 1;
+[e = . _var_sys_NVM 10 -> -> 1 `i `uc ]
+"413
+[; ;controlMemory_MC50.c: 413:         saveParam=1;
 [e = _saveParam -> -> 1 `i `uc ]
-"423
-[; ;controlMemory_MC50.c: 423:     }
+"414
+[; ;controlMemory_MC50.c: 414:     }
 }
 [e :U 1558 ]
-"425
-[; ;controlMemory_MC50.c: 425:     if ( var_sys_NVM.programmingDistance>1 )
-[e $ ! > -> . _var_sys_NVM 14 `i -> 1 `i 1559  ]
-"426
-[; ;controlMemory_MC50.c: 426:     {
+"416
+[; ;controlMemory_MC50.c: 416:     if ( var_sys_NVM.securityBandInOpen>1 )
+[e $ ! > -> . _var_sys_NVM 11 `i -> 1 `i 1559  ]
+"417
+[; ;controlMemory_MC50.c: 417:     {
 {
-"428
-[; ;controlMemory_MC50.c: 428:         var_sys_NVM.programmingDistance = 0;
-[e = . _var_sys_NVM 14 -> -> 0 `i `uc ]
-"429
-[; ;controlMemory_MC50.c: 429:         saveParam=1;
+"419
+[; ;controlMemory_MC50.c: 419:         var_sys_NVM.securityBandInOpen = 0;
+[e = . _var_sys_NVM 11 -> -> 0 `i `uc ]
+"420
+[; ;controlMemory_MC50.c: 420:         saveParam=1;
 [e = _saveParam -> -> 1 `i `uc ]
-"430
-[; ;controlMemory_MC50.c: 430:     }
+"421
+[; ;controlMemory_MC50.c: 421:     }
 }
 [e :U 1559 ]
-"432
-[; ;controlMemory_MC50.c: 432:     if ( var_sys_NVM.decelarationSensivity>9 )
-[e $ ! > -> . _var_sys_NVM 15 `i -> 9 `i 1560  ]
-"433
-[; ;controlMemory_MC50.c: 433:     {
+"423
+[; ;controlMemory_MC50.c: 423:     if ( var_sys_NVM.operationMode>2 )
+[e $ ! > -> . _var_sys_NVM 12 `i -> 2 `i 1560  ]
+"424
+[; ;controlMemory_MC50.c: 424:     {
 {
-"435
-[; ;controlMemory_MC50.c: 435:         var_sys_NVM.decelarationSensivity = 0;
-[e = . _var_sys_NVM 15 -> -> 0 `i `uc ]
-"436
-[; ;controlMemory_MC50.c: 436:         saveParam=1;
+"426
+[; ;controlMemory_MC50.c: 426:         var_sys_NVM.operationMode = 0;
+[e = . _var_sys_NVM 12 -> -> 0 `i `uc ]
+"427
+[; ;controlMemory_MC50.c: 427:         saveParam=1;
 [e = _saveParam -> -> 1 `i `uc ]
-"437
-[; ;controlMemory_MC50.c: 437:     }
+"428
+[; ;controlMemory_MC50.c: 428:     }
 }
 [e :U 1560 ]
-"441
-[; ;controlMemory_MC50.c: 441:     if ( var_sys_NVM.homemPresente>2 )
-[e $ ! > -> . _var_sys_NVM 16 `i -> 2 `i 1561  ]
-"442
-[; ;controlMemory_MC50.c: 442:     {
+"430
+[; ;controlMemory_MC50.c: 430:     if ( var_sys_NVM.flashLightMode>3 )
+[e $ ! > -> . _var_sys_NVM 13 `i -> 3 `i 1561  ]
+"431
+[; ;controlMemory_MC50.c: 431:     {
 {
-"444
-[; ;controlMemory_MC50.c: 444:         var_sys_NVM.homemPresente = 0;
-[e = . _var_sys_NVM 16 -> -> 0 `i `uc ]
-"445
-[; ;controlMemory_MC50.c: 445:         saveParam=1;
+"433
+[; ;controlMemory_MC50.c: 433:         var_sys_NVM.flashLightMode = 0;
+[e = . _var_sys_NVM 13 -> -> 0 `i `uc ]
+"434
+[; ;controlMemory_MC50.c: 434:         saveParam=1;
 [e = _saveParam -> -> 1 `i `uc ]
-"446
-[; ;controlMemory_MC50.c: 446:     }
+"435
+[; ;controlMemory_MC50.c: 435:     }
 }
 [e :U 1561 ]
-"448
-[; ;controlMemory_MC50.c: 448:     if ( var_sys_NVM.logicDigital>1 )
-[e $ ! > -> . _var_sys_NVM 17 `i -> 1 `i 1562  ]
-"449
-[; ;controlMemory_MC50.c: 449:     {
+"437
+[; ;controlMemory_MC50.c: 437:     if ( var_sys_NVM.programmingDistance>1 )
+[e $ ! > -> . _var_sys_NVM 14 `i -> 1 `i 1562  ]
+"438
+[; ;controlMemory_MC50.c: 438:     {
 {
-"451
-[; ;controlMemory_MC50.c: 451:         var_sys_NVM.logicDigital = 0;
-[e = . _var_sys_NVM 17 -> -> 0 `i `uc ]
-"452
-[; ;controlMemory_MC50.c: 452:         saveParam=1;
+"440
+[; ;controlMemory_MC50.c: 440:         var_sys_NVM.programmingDistance = 0;
+[e = . _var_sys_NVM 14 -> -> 0 `i `uc ]
+"441
+[; ;controlMemory_MC50.c: 441:         saveParam=1;
 [e = _saveParam -> -> 1 `i `uc ]
-"453
-[; ;controlMemory_MC50.c: 453:     }
+"442
+[; ;controlMemory_MC50.c: 442:     }
 }
 [e :U 1562 ]
-"455
-[; ;controlMemory_MC50.c: 455:     if ( var_sys_NVM.softStart>9 )
-[e $ ! > -> . _var_sys_NVM 18 `i -> 9 `i 1563  ]
-"456
-[; ;controlMemory_MC50.c: 456:     {
+"444
+[; ;controlMemory_MC50.c: 444:     if ( var_sys_NVM.decelarationSensivity>9 )
+[e $ ! > -> . _var_sys_NVM 15 `i -> 9 `i 1563  ]
+"445
+[; ;controlMemory_MC50.c: 445:     {
 {
-"458
-[; ;controlMemory_MC50.c: 458:         var_sys_NVM.softStart = 0;
-[e = . _var_sys_NVM 18 -> -> 0 `i `uc ]
-"459
-[; ;controlMemory_MC50.c: 459:         saveParam=1;
+"447
+[; ;controlMemory_MC50.c: 447:         var_sys_NVM.decelarationSensivity = 0;
+[e = . _var_sys_NVM 15 -> -> 0 `i `uc ]
+"448
+[; ;controlMemory_MC50.c: 448:         saveParam=1;
 [e = _saveParam -> -> 1 `i `uc ]
-"460
-[; ;controlMemory_MC50.c: 460:     }
+"449
+[; ;controlMemory_MC50.c: 449:     }
 }
 [e :U 1563 ]
-"463
-[; ;controlMemory_MC50.c: 463:     if ( var_sys_NVM.ligthTime>99 )
-[e $ ! > -> . _var_sys_NVM 20 `i -> 99 `i 1564  ]
-"464
-[; ;controlMemory_MC50.c: 464:     {
+"453
+[; ;controlMemory_MC50.c: 453:     if ( var_sys_NVM.homemPresente>2 )
+[e $ ! > -> . _var_sys_NVM 16 `i -> 2 `i 1564  ]
+"454
+[; ;controlMemory_MC50.c: 454:     {
 {
-"466
-[; ;controlMemory_MC50.c: 466:         var_sys_NVM.ligthTime = 3;
-[e = . _var_sys_NVM 20 -> -> 3 `i `uc ]
-"467
-[; ;controlMemory_MC50.c: 467:         saveParam=1;
+"456
+[; ;controlMemory_MC50.c: 456:         var_sys_NVM.homemPresente = 0;
+[e = . _var_sys_NVM 16 -> -> 0 `i `uc ]
+"457
+[; ;controlMemory_MC50.c: 457:         saveParam=1;
 [e = _saveParam -> -> 1 `i `uc ]
-"468
-[; ;controlMemory_MC50.c: 468:     }
+"458
+[; ;controlMemory_MC50.c: 458:     }
 }
 [e :U 1564 ]
-"470
-[; ;controlMemory_MC50.c: 470:     if ( var_sys_NVM.folow_me>9 )
-[e $ ! > -> . _var_sys_NVM 21 `i -> 9 `i 1565  ]
-"471
-[; ;controlMemory_MC50.c: 471:     {
+"460
+[; ;controlMemory_MC50.c: 460:     if ( var_sys_NVM.logicDigital>1 )
+[e $ ! > -> . _var_sys_NVM 17 `i -> 1 `i 1565  ]
+"461
+[; ;controlMemory_MC50.c: 461:     {
 {
-"473
-[; ;controlMemory_MC50.c: 473:         var_sys_NVM.folow_me = 0;
-[e = . _var_sys_NVM 21 -> -> 0 `i `uc ]
-"474
-[; ;controlMemory_MC50.c: 474:         saveParam=1;
+"463
+[; ;controlMemory_MC50.c: 463:         var_sys_NVM.logicDigital = 0;
+[e = . _var_sys_NVM 17 -> -> 0 `i `uc ]
+"464
+[; ;controlMemory_MC50.c: 464:         saveParam=1;
 [e = _saveParam -> -> 1 `i `uc ]
-"475
-[; ;controlMemory_MC50.c: 475:     }
+"465
+[; ;controlMemory_MC50.c: 465:     }
 }
 [e :U 1565 ]
-"479
-[; ;controlMemory_MC50.c: 479:     if ( var_sys_NVM.electricBrake>1 )
-[e $ ! > -> . _var_sys_NVM 23 `i -> 1 `i 1566  ]
-"480
-[; ;controlMemory_MC50.c: 480:     {
+"467
+[; ;controlMemory_MC50.c: 467:     if ( var_sys_NVM.softStart>9 )
+[e $ ! > -> . _var_sys_NVM 18 `i -> 9 `i 1566  ]
+"468
+[; ;controlMemory_MC50.c: 468:     {
 {
-"482
-[; ;controlMemory_MC50.c: 482:         var_sys_NVM.electricBrake = 0;
-[e = . _var_sys_NVM 23 -> -> 0 `i `uc ]
-"483
-[; ;controlMemory_MC50.c: 483:         saveParam=1;
+"470
+[; ;controlMemory_MC50.c: 470:         var_sys_NVM.softStart = 0;
+[e = . _var_sys_NVM 18 -> -> 0 `i `uc ]
+"471
+[; ;controlMemory_MC50.c: 471:         saveParam=1;
 [e = _saveParam -> -> 1 `i `uc ]
-"484
-[; ;controlMemory_MC50.c: 484:     }
+"472
+[; ;controlMemory_MC50.c: 472:     }
 }
 [e :U 1566 ]
-"486
-[; ;controlMemory_MC50.c: 486:     if ( (var_sys_NVM.velocityDecelaration<1) || (var_sys_NVM.velocityDecelaration>9) )
-[e $ ! || < -> . _var_sys_NVM 24 `i -> 1 `i > -> . _var_sys_NVM 24 `i -> 9 `i 1567  ]
-"487
-[; ;controlMemory_MC50.c: 487:     {
+"475
+[; ;controlMemory_MC50.c: 475:     if ( var_sys_NVM.ligthTime>99 )
+[e $ ! > -> . _var_sys_NVM 20 `i -> 99 `i 1567  ]
+"476
+[; ;controlMemory_MC50.c: 476:     {
 {
-"489
-[; ;controlMemory_MC50.c: 489:         var_sys_NVM.velocityDecelaration = 5;
-[e = . _var_sys_NVM 24 -> -> 5 `i `uc ]
-"490
-[; ;controlMemory_MC50.c: 490:         saveParam=1;
+"478
+[; ;controlMemory_MC50.c: 478:         var_sys_NVM.ligthTime = 3;
+[e = . _var_sys_NVM 20 -> -> 3 `i `uc ]
+"479
+[; ;controlMemory_MC50.c: 479:         saveParam=1;
 [e = _saveParam -> -> 1 `i `uc ]
-"491
-[; ;controlMemory_MC50.c: 491:     }
+"480
+[; ;controlMemory_MC50.c: 480:     }
 }
 [e :U 1567 ]
-"493
-[; ;controlMemory_MC50.c: 493:     if ( var_sys_NVM.flashRGBMode>3 )
-[e $ ! > -> . _var_sys_NVM 25 `i -> 3 `i 1568  ]
-"494
-[; ;controlMemory_MC50.c: 494:     {
+"482
+[; ;controlMemory_MC50.c: 482:     if ( var_sys_NVM.folow_me>9 )
+[e $ ! > -> . _var_sys_NVM 21 `i -> 9 `i 1568  ]
+"483
+[; ;controlMemory_MC50.c: 483:     {
 {
-"496
-[; ;controlMemory_MC50.c: 496:         var_sys_NVM.flashRGBMode = 3;
-[e = . _var_sys_NVM 25 -> -> 3 `i `uc ]
-"497
-[; ;controlMemory_MC50.c: 497:         saveParam=1;
+"485
+[; ;controlMemory_MC50.c: 485:         var_sys_NVM.folow_me = 0;
+[e = . _var_sys_NVM 21 -> -> 0 `i `uc ]
+"486
+[; ;controlMemory_MC50.c: 486:         saveParam=1;
 [e = _saveParam -> -> 1 `i `uc ]
-"498
-[; ;controlMemory_MC50.c: 498:     }
+"487
+[; ;controlMemory_MC50.c: 487:     }
 }
 [e :U 1568 ]
-"499
-[; ;controlMemory_MC50.c: 499:         if ( var_sys_NVM.Stopboton > 1 )
-[e $ ! > -> . _var_sys_NVM 22 `i -> 1 `i 1569  ]
-"500
-[; ;controlMemory_MC50.c: 500:     {
+"491
+[; ;controlMemory_MC50.c: 491:     if ( var_sys_NVM.electricBrake>1 )
+[e $ ! > -> . _var_sys_NVM 23 `i -> 1 `i 1569  ]
+"492
+[; ;controlMemory_MC50.c: 492:     {
 {
-"502
-[; ;controlMemory_MC50.c: 502:         var_sys_NVM.Stopboton = 0 ;
-[e = . _var_sys_NVM 22 -> -> 0 `i `uc ]
-"503
-[; ;controlMemory_MC50.c: 503:         saveParam=1;
+"494
+[; ;controlMemory_MC50.c: 494:         var_sys_NVM.electricBrake = 0;
+[e = . _var_sys_NVM 23 -> -> 0 `i `uc ]
+"495
+[; ;controlMemory_MC50.c: 495:         saveParam=1;
 [e = _saveParam -> -> 1 `i `uc ]
-"504
-[; ;controlMemory_MC50.c: 504:     }
+"496
+[; ;controlMemory_MC50.c: 496:     }
 }
 [e :U 1569 ]
+"498
+[; ;controlMemory_MC50.c: 498:     if ( (var_sys_NVM.velocityDecelaration<1) || (var_sys_NVM.velocityDecelaration>9) )
+[e $ ! || < -> . _var_sys_NVM 24 `i -> 1 `i > -> . _var_sys_NVM 24 `i -> 9 `i 1570  ]
+"499
+[; ;controlMemory_MC50.c: 499:     {
+{
+"501
+[; ;controlMemory_MC50.c: 501:         var_sys_NVM.velocityDecelaration = 5;
+[e = . _var_sys_NVM 24 -> -> 5 `i `uc ]
+"502
+[; ;controlMemory_MC50.c: 502:         saveParam=1;
+[e = _saveParam -> -> 1 `i `uc ]
+"503
+[; ;controlMemory_MC50.c: 503:     }
+}
+[e :U 1570 ]
 "505
-[; ;controlMemory_MC50.c: 505:         if ( var_sys_NVM.Direction_motor>1 )
-[e $ ! > -> . _var_sys_NVM 27 `i -> 1 `i 1570  ]
+[; ;controlMemory_MC50.c: 505:     if ( var_sys_NVM.flashRGBMode>3 )
+[e $ ! > -> . _var_sys_NVM 25 `i -> 3 `i 1571  ]
 "506
 [; ;controlMemory_MC50.c: 506:     {
 {
 "508
-[; ;controlMemory_MC50.c: 508:         var_sys_NVM.Direction_motor = 1;
-[e = . _var_sys_NVM 27 -> -> 1 `i `uc ]
+[; ;controlMemory_MC50.c: 508:         var_sys_NVM.flashRGBMode = 3;
+[e = . _var_sys_NVM 25 -> -> 3 `i `uc ]
 "509
 [; ;controlMemory_MC50.c: 509:         saveParam=1;
 [e = _saveParam -> -> 1 `i `uc ]
 "510
 [; ;controlMemory_MC50.c: 510:     }
 }
-[e :U 1570 ]
+[e :U 1571 ]
 "511
-[; ;controlMemory_MC50.c: 511:         if ( var_sys_NVM.softstop>9 )
-[e $ ! > -> . _var_sys_NVM 19 `i -> 9 `i 1571  ]
+[; ;controlMemory_MC50.c: 511:         if ( var_sys_NVM.Stopboton > 1 )
+[e $ ! > -> . _var_sys_NVM 22 `i -> 1 `i 1572  ]
 "512
 [; ;controlMemory_MC50.c: 512:     {
 {
 "514
-[; ;controlMemory_MC50.c: 514:         var_sys_NVM.softstop = 0;
-[e = . _var_sys_NVM 19 -> -> 0 `i `uc ]
+[; ;controlMemory_MC50.c: 514:         var_sys_NVM.Stopboton = 0 ;
+[e = . _var_sys_NVM 22 -> -> 0 `i `uc ]
 "515
 [; ;controlMemory_MC50.c: 515:         saveParam=1;
 [e = _saveParam -> -> 1 `i `uc ]
 "516
 [; ;controlMemory_MC50.c: 516:     }
 }
-[e :U 1571 ]
-"540
-[; ;controlMemory_MC50.c: 540:     if ( saveParam != 0 )
-[e $ ! != -> _saveParam `i -> 0 `i 1572  ]
-"541
-[; ;controlMemory_MC50.c: 541:     {
-{
-"542
-[; ;controlMemory_MC50.c: 542:         SaveNVM_VarSystem(pageMemoryP);
-[e ( _SaveNVM_VarSystem (1 -> . `E10915 0 `uc ]
-"543
-[; ;controlMemory_MC50.c: 543:         SaveNVM_VarSystem(pageMemoryE);
-[e ( _SaveNVM_VarSystem (1 -> . `E10915 1 `uc ]
-"544
-[; ;controlMemory_MC50.c: 544:     }
-}
 [e :U 1572 ]
-"545
-[; ;controlMemory_MC50.c: 545: }
-[e :UE 1544 ]
+"517
+[; ;controlMemory_MC50.c: 517:         if ( var_sys_NVM.Direction_motor>1 )
+[e $ ! > -> . _var_sys_NVM 27 `i -> 1 `i 1573  ]
+"518
+[; ;controlMemory_MC50.c: 518:     {
+{
+"520
+[; ;controlMemory_MC50.c: 520:         var_sys_NVM.Direction_motor = 1;
+[e = . _var_sys_NVM 27 -> -> 1 `i `uc ]
+"521
+[; ;controlMemory_MC50.c: 521:         saveParam=1;
+[e = _saveParam -> -> 1 `i `uc ]
+"522
+[; ;controlMemory_MC50.c: 522:     }
+}
+[e :U 1573 ]
+"523
+[; ;controlMemory_MC50.c: 523:         if ( var_sys_NVM.softstop>9 )
+[e $ ! > -> . _var_sys_NVM 19 `i -> 9 `i 1574  ]
+"524
+[; ;controlMemory_MC50.c: 524:     {
+{
+"526
+[; ;controlMemory_MC50.c: 526:         var_sys_NVM.softstop = 0;
+[e = . _var_sys_NVM 19 -> -> 0 `i `uc ]
+"527
+[; ;controlMemory_MC50.c: 527:         saveParam=1;
+[e = _saveParam -> -> 1 `i `uc ]
+"528
+[; ;controlMemory_MC50.c: 528:     }
+}
+[e :U 1574 ]
+"552
+[; ;controlMemory_MC50.c: 552:     if ( saveParam != 0 )
+[e $ ! != -> _saveParam `i -> 0 `i 1575  ]
+"553
+[; ;controlMemory_MC50.c: 553:     {
+{
+"554
+[; ;controlMemory_MC50.c: 554:         SaveNVM_VarSystem(pageMemoryP);
+[e ( _SaveNVM_VarSystem (1 -> . `E10915 0 `uc ]
+"555
+[; ;controlMemory_MC50.c: 555:         SaveNVM_VarSystem(pageMemoryE);
+[e ( _SaveNVM_VarSystem (1 -> . `E10915 1 `uc ]
+"556
+[; ;controlMemory_MC50.c: 556:     }
+}
+[e :U 1575 ]
+"557
+[; ;controlMemory_MC50.c: 557: }
+[e :UE 1547 ]
 }

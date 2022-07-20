@@ -17533,7 +17533,7 @@ void ShowVersion(void);
     signed long getTimeDecelaration(stateMotor_enum state);
     void ControlDecelarationFactor();
 # 11 "./inputs.h" 2
-# 75 "./inputs.h"
+# 76 "./inputs.h"
 typedef struct
 {
  unsigned char old;
@@ -17668,6 +17668,7 @@ typedef enum {
 TypeCMD validateRemoteSerialNumber(unsigned long serial, StateEnum VerifyOnlySerial, char* position);
 void saveNewSerial(char cmdType,unsigned long tempSerial, char position);
 void RemoveSerial(char cmdType, char position);
+void ReadSerial(char cmdType, unsigned long* tempSerial, char position);
 char cmdMemoryIsEmpty(char cmdType, char position);
 void SaveNVM_VarSystem(unsigned char page);
 void ResetDefaultMemory(unsigned char type);
@@ -18263,6 +18264,18 @@ void RemoveSerial(char cmdType, char position)
     }
 }
 
+void ReadSerial(char cmdType, unsigned long* tempSerial, char position)
+{
+    if(cmdType==0)
+    {
+       i2c_readDataBlock(0x50, (uint16_t)(0x0200 + (position * 4)), (char*)tempSerial, 4);
+    }
+    else
+    {
+       i2c_readDataBlock(0x50, (uint16_t)(0x0500 + (position * 4)), (char*)tempSerial, 4);
+    }
+}
+
 char cmdMemoryIsEmpty(char cmdType, char position)
 {
     unsigned long tempSerial=0;
@@ -18670,7 +18683,7 @@ void checkNVM_VarSystem ( void )
         var_sys_NVM.softstop = 0;
         saveParam=1;
     }
-# 540 "controlMemory_MC50.c"
+# 552 "controlMemory_MC50.c"
     if ( saveParam != 0 )
     {
         SaveNVM_VarSystem(pageMemoryP);

@@ -99,10 +99,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _main_stateMachine `S1502 ~T0 @X0 0 e ]
 "204
 [; ;outputs_MC50.c: 204:     if ( main_stateMachine.current_state != st_MenuConfiguration && (ts_system.timeoutMenu == 0 && button_struct.timer < (1000/50)))
-[c E10936 0 1 2 .. ]
-[n E10936 . st_standBy st_MenuConfiguration st_MotorON  ]
-"76 ./inputs.h
-[; ;./inputs.h: 76: {
+[c E10953 0 1 2 .. ]
+[n E10953 . st_standBy st_MenuConfiguration st_MotorON  ]
+"77 ./inputs.h
+[; ;./inputs.h: 77: {
 [s S1498 `uc 1 `uc 1 `uc 1 `uc 1 ]
 [n S1498 . old current timer processed ]
 "21 outputs_MC50.c
@@ -1695,8 +1695,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "28199
 [; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f46k40.h: 28199: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"24 ./eusartparser.h
-[; ;./eusartparser.h: 24:     _Bool programmer_enable=0;
+"25 ./eusartparser.h
+[; ;./eusartparser.h: 25:     _Bool programmer_enable=0;
 [v _programmer_enable `a ~T0 @X0 1 e ]
 [i _programmer_enable
 -> -> 0 `i `a
@@ -2345,7 +2345,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "204
 [; ;outputs_MC50.c: 204:     if ( main_stateMachine.current_state != st_MenuConfiguration && (ts_system.timeoutMenu == 0 && button_struct.timer < (1000/50)))
-[e $ ! && != . _main_stateMachine 0 -> . `E10936 1 `i && == . _ts_system 10 -> 0 `i < -> . _button_struct 2 `i / -> 1000 `i -> 50 `i 1567  ]
+[e $ ! && != . _main_stateMachine 0 -> . `E10953 1 `i && == . _ts_system 10 -> 0 `i < -> . _button_struct 2 `i / -> 1000 `i -> 50 `i 1567  ]
 "205
 [; ;outputs_MC50.c: 205:     {
 {

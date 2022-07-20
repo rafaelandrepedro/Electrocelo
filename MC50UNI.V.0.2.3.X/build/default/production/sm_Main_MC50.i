@@ -17539,7 +17539,7 @@ void sm_send_event(sm_t *psm, int event);
 # 7 "sm_Main_MC50.c" 2
 
 # 1 "./inputs.h" 1
-# 75 "./inputs.h"
+# 76 "./inputs.h"
 typedef struct
 {
  unsigned char old;
@@ -17735,12 +17735,20 @@ void EUSART1_SetRxInterruptHandler(void (* interruptHandler)(void));
         WRITE=1,
         PROGRAMMING_ENABLE=2,
         CONFIRM=3,
-        NUM_COMMANDS=4,
-        NUM_EMPTY_COMMANDS=5,
-        OCCUPIED_POS=6,
-        EMPTY_POS=7,
-        SAVE_COMMAND=8,
-        ERASE_COMMAND=9,
+        NUM_COMMANDS_F=4,
+        NUM_EMPTY_COMMANDS_F=5,
+        OCCUPIED_POS_F=6,
+        EMPTY_POS_F=7,
+        SAVE_COMMAND_F=8,
+        ERASE_COMMAND_F=9,
+        READ_SERIAL_F=10,
+        NUM_COMMANDS_W=11,
+        NUM_EMPTY_COMMANDS_W=12,
+        OCCUPIED_POS_W=13,
+        EMPTY_POS_W=14,
+        SAVE_COMMAND_W=15,
+        ERASE_COMMAND_W=16,
+        READ_SERIAL_W=17
     };
 
 
@@ -17798,33 +17806,29 @@ typedef enum {
 TypeCMD validateRemoteSerialNumber(unsigned long serial, StateEnum VerifyOnlySerial, char* position);
 void saveNewSerial(char cmdType,unsigned long tempSerial, char position);
 void RemoveSerial(char cmdType, char position);
+void ReadSerial(char cmdType, unsigned long* tempSerial, char position);
 char cmdMemoryIsEmpty(char cmdType, char position);
 void SaveNVM_VarSystem(unsigned char page);
 void ResetDefaultMemory(unsigned char type);
 void loadNVM_VarSystem(void);
 void ControlCounterMoves(void);
 # 12 "./eusartparser.h" 2
-
-
-# 1 "./sm_Main.h" 1
-# 14 "./eusartparser.h" 2
-
-
-
-
-
-
-
-
+# 21 "./eusartparser.h"
     extern volatile varSystem_NVM var_sys_NVM;
-    extern sm_t main_stateMachine;
+    extern volatile char RFFull;
+    extern volatile varSystem var_sys;
+
     _Bool programmer_enable=0;
 
-    void read_eusartparser(struct package_t* package);
+    _Bool read_eusartparser(struct package_t* package);
 
     void write_eusartparser(struct package_t package);
 
+    void confirmpackage(struct package_t* package, _Bool confirm);
+
     void eusartparser(struct package_t* package);
+
+    void updateChangesToUart(void);
 # 15 "./sm_Main.h" 2
 
 
@@ -18088,14 +18092,14 @@ void sm_execute_main( sm_t *psm ) {
     {
         case st_standBy:
         {
-            if (button_struct.current==0 && button_struct.timer>((1000/50)*5))
+            if (button_struct.current==0x27 && button_struct.timer>((1000/50)*5))
             {
                 load_New_Menu(E_Menu);
                 sm_send_event(&main_stateMachine, ev_goto_MenuConfig);
                 button_struct.processed=1;
                 temp=0;
             }
-            else if (button_struct.current==0 && button_struct.timer>((1000/50)*1))
+            else if (button_struct.current==0x27 && button_struct.timer>((1000/50)*1))
             {
 
 
@@ -18109,7 +18113,7 @@ void sm_execute_main( sm_t *psm ) {
                 button_struct.processed=1;
                 temp=0;
             }
-            else if (button_struct.current==0x27 && button_struct.timer>((1000/50)*6))
+            else if (button_struct.current==0x07 && button_struct.timer>((1000/50)*6))
             {
 
                 load_New_Menu(Del_Menu);
@@ -18117,7 +18121,7 @@ void sm_execute_main( sm_t *psm ) {
                 button_struct.processed=1;
                 temp=0;
             }
-            else if (button_struct.current==0x27 && button_struct.timer>((1000/50)))
+            else if (button_struct.current==0x07 && button_struct.timer>((1000/50)))
             {
 
                 SetSegmentValueMain(d5,dU);
@@ -18197,14 +18201,14 @@ void sm_execute_main( sm_t *psm ) {
 
             if(var_sys.StateMotor==Stopped && ( (controlGate_stateMachine.current_state==st_Opened && aux_in_auto_close==NO) || controlGate_stateMachine.current_state==st_Closed || controlGate_stateMachine.current_state==st_Idle ) )
             {
-                if (button_struct.current==0 && button_struct.timer>((1000/50)*5))
+                if (button_struct.current==0x27 && button_struct.timer>((1000/50)*5))
                 {
                     load_New_Menu(E_Menu);
                     sm_send_event(&main_stateMachine, ev_goto_MenuConfig);
                     button_struct.processed=1;
                     temp=0;
                 }
-                else if (button_struct.current==0 && button_struct.timer>((1000/50)*1))
+                else if (button_struct.current==0x27 && button_struct.timer>((1000/50)*1))
                 {
 
                     SetSegmentValueMain(dP,d0);
@@ -18219,7 +18223,7 @@ void sm_execute_main( sm_t *psm ) {
                     main_stateMachine.current_state = st_MenuConfiguration;
                     return;
                 }
-                else if (button_struct.current==0x27 && button_struct.timer>((1000/50)*6))
+                else if (button_struct.current==0x07 && button_struct.timer>((1000/50)*6))
             {
 
                 load_New_Menu(Del_Menu);
@@ -18227,7 +18231,7 @@ void sm_execute_main( sm_t *psm ) {
                 button_struct.processed=1;
                 temp=0;
             }
-            else if (button_struct.current==0x27 && button_struct.timer>((1000/50)))
+            else if (button_struct.current==0x07 && button_struct.timer>((1000/50)))
             {
 
                 SetSegmentValueMain(d5,dU);
@@ -18245,7 +18249,7 @@ void sm_execute_main( sm_t *psm ) {
 
 
 
-            if( ts_system.timeSinalizationDigit<=0 && (button_struct.current!=0 && button_struct.current!=0x27) )
+            if( ts_system.timeSinalizationDigit<=0 && (button_struct.current!=0x27 && button_struct.current!=0x07) )
             {
                 if(var_sys.StateMotor==InClose )
                 {

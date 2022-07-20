@@ -17000,12 +17000,20 @@ void EUSART1_SetRxInterruptHandler(void (* interruptHandler)(void));
         WRITE=1,
         PROGRAMMING_ENABLE=2,
         CONFIRM=3,
-        NUM_COMMANDS=4,
-        NUM_EMPTY_COMMANDS=5,
-        OCCUPIED_POS=6,
-        EMPTY_POS=7,
-        SAVE_COMMAND=8,
-        ERASE_COMMAND=9,
+        NUM_COMMANDS_F=4,
+        NUM_EMPTY_COMMANDS_F=5,
+        OCCUPIED_POS_F=6,
+        EMPTY_POS_F=7,
+        SAVE_COMMAND_F=8,
+        ERASE_COMMAND_F=9,
+        READ_SERIAL_F=10,
+        NUM_COMMANDS_W=11,
+        NUM_EMPTY_COMMANDS_W=12,
+        OCCUPIED_POS_W=13,
+        EMPTY_POS_W=14,
+        SAVE_COMMAND_W=15,
+        ERASE_COMMAND_W=16,
+        READ_SERIAL_W=17
     };
 
 
@@ -17455,7 +17463,7 @@ void ShowVersion(void);
     signed long getTimeDecelaration(stateMotor_enum state);
     void ControlDecelarationFactor();
 # 11 "./inputs.h" 2
-# 75 "./inputs.h"
+# 76 "./inputs.h"
 typedef struct
 {
  unsigned char old;
@@ -17590,6 +17598,7 @@ typedef enum {
 TypeCMD validateRemoteSerialNumber(unsigned long serial, StateEnum VerifyOnlySerial, char* position);
 void saveNewSerial(char cmdType,unsigned long tempSerial, char position);
 void RemoveSerial(char cmdType, char position);
+void ReadSerial(char cmdType, unsigned long* tempSerial, char position);
 char cmdMemoryIsEmpty(char cmdType, char position);
 void SaveNVM_VarSystem(unsigned char page);
 void ResetDefaultMemory(unsigned char type);
@@ -17662,12 +17671,33 @@ int sm_get_current_state(sm_t *psm);
 void sm_send_event(sm_t *psm, int event);
 # 13 "./eusartparser.h" 2
 
+
+
+
+
+
+
+
+    extern volatile varSystem_NVM var_sys_NVM;
+    extern volatile char RFFull;
+    extern volatile varSystem var_sys;
+
+    _Bool programmer_enable=0;
+
+    _Bool read_eusartparser(struct package_t* package);
+
+    void write_eusartparser(struct package_t package);
+
+    void confirmpackage(struct package_t* package, _Bool confirm);
+
+    void eusartparser(struct package_t* package);
+
+    void updateChangesToUart(void);
+# 8 "eusartparser.c" 2
+
+
 # 1 "./sm_Main.h" 1
-# 15 "./sm_Main.h"
-# 1 "./eusartparser.h" 1
-# 15 "./sm_Main.h" 2
-
-
+# 17 "./sm_Main.h"
 typedef enum {
  st_standBy=0,
  st_MenuConfiguration=1,
@@ -17678,263 +17708,224 @@ typedef enum {
 extern sm_t main_stateMachine;
 
 void sm_execute_main( sm_t *psm );
-# 14 "./eusartparser.h" 2
+# 10 "eusartparser.c" 2
 
 
-
-
-
-
-
-
-    extern volatile varSystem_NVM var_sys_NVM;
-    extern sm_t main_stateMachine;
-    _Bool programmer_enable=0;
-
-    void read_eusartparser(struct package_t* package);
-
-    void write_eusartparser(struct package_t package);
-
-    void eusartparser(struct package_t* package);
-# 8 "eusartparser.c" 2
-
-
-
-
-    void read_eusartparser(struct package_t* package){
+    _Bool read_eusartparser(struct package_t* package){
         switch(package->address){
             case 0x00:
             case 0x10:
-
-
                 package->data.data8[1]=var_sys_NVM.decelarationClose;
                 package->data.data8[0]=var_sys_NVM.decelarationOpen;
                 write_package(*package);
                 break;
             case 0x11:
-
-
                 package->data.data8[1]=var_sys_NVM.motorSensitivity;
                 package->data.data8[0]=var_sys_NVM.motorPower;
                 write_package(*package);
                 break;
             case 0x12:
-
-
                 package->data.data8[1]=var_sys_NVM.walkTime;
                 package->data.data8[0]=0x00;
                 write_package(*package);
                 break;
             case 0x02:
             case 0x13:
-
-
                 package->data.data8[1]=var_sys_NVM.autoTimeWalkClose;
                 package->data.data8[0]=var_sys_NVM.autoTimeFullClose;
                 write_package(*package);
                 break;
             case 0x05:
             case 0x14:
-
-
                 package->data.data8[1]=var_sys_NVM.photoCellInOpen;
                 package->data.data8[0]=var_sys_NVM.photoCellIsON;
                 write_package(*package);
                 break;
             case 0x15:
-
-
                 package->data.data8[1]=var_sys_NVM.securityBandType;
                 package->data.data8[0]=var_sys_NVM.securityBandIsON;
                 write_package(*package);
                 break;
             case 0x16:
-
-
                 package->data.data8[1]=var_sys_NVM.securityBandInOpen;
                 package->data.data8[0]=0x00;
                 write_package(*package);
                 break;
             case 0x17:
-
-
                 package->data.data8[1]=var_sys_NVM.operationMode;
                 package->data.data8[0]=0x00;
                 write_package(*package);
                 break;
             case 0x18:
-
-
                 package->data.data8[1]=var_sys_NVM.flashLightMode;
                 package->data.data8[0]=0x00;
                 write_package(*package);
                 break;
             case 0x19:
-
-
                 package->data.data8[1]=var_sys_NVM.programmingDistance;
                 package->data.data8[0]=0x00;
                 write_package(*package);
                 break;
             case 0x1A:
-
-
                 package->data.data8[1]=var_sys_NVM.decelarationSensivity;
                 package->data.data8[0]=0x00;
                 write_package(*package);
                 break;
 
             case 0x1B:
-
-
                 package->data.data8[1]=var_sys_NVM.homemPresente;
                 package->data.data8[0]=0x00;
                 write_package(*package);
                 break;
             case 0x07:
             case 0x1C:
-
-
                 package->data.data8[1]=var_sys_NVM.logicDigital;
                 package->data.data8[0]=0x00;
                 write_package(*package);
                 break;
             case 0x1D:
-
-
                 package->data.data8[1]=var_sys_NVM.softstop;
                 package->data.data8[0]=var_sys_NVM.softStart;
                 write_package(*package);
                 break;
             case 0x03:
             case 0x1E:
-
-
                 package->data.data8[1]=var_sys_NVM.ligthTime;
                 package->data.data8[0]=0x00;
                 write_package(*package);
                 break;
             case 0x0A:
             case 0x1F:
-
-
                 package->data.data8[1]=var_sys_NVM.folow_me;
                 package->data.data8[0]=0x00;
                 write_package(*package);
                 break;
             case 0x20:
-
-
                 package->data.data8[1]=var_sys_NVM.Stopboton;
                 package->data.data8[0]=0x00;
                 write_package(*package);
                 break;
             case 0x21:
-
-
                 package->data.data8[1]=var_sys_NVM.electricBrake;
                 package->data.data8[0]=0x00;
                 write_package(*package);
                 break;
             case 0x22:
-
-
                 package->data.data8[1]=var_sys_NVM.velocityDecelaration;
                 package->data.data8[0]=0x00;
                 write_package(*package);
                 break;
             case 0x08:
             case 0x23:
-
-
                 package->data.data8[1]=var_sys_NVM.flashRGBMode;
                 package->data.data8[0]=0x00;
                 write_package(*package);
                 break;
             case 0x24:
-
-
                 package->data.data8[1]=var_sys_NVM.Direction_motor;
                 package->data.data8[0]=0x00;
                 write_package(*package);
                 break;
             case 0x25:
-
-
                 package->data.data8[1]=var_sys_NVM.TypeofMotor;
                 package->data.data8[0]=0x00;
                 write_package(*package);
                 break;
             case 0x26:
-
-
                 package->data.data8[1]=var_sys_NVM.positionRemotesWalk;
                 package->data.data8[0]=var_sys_NVM.positionRemotesFull;
                 write_package(*package);
                 break;
             case 0x27:
-
-
                 package->data.data16=*(((uint16_t*)&(var_sys_NVM.counterMoves))+1);
                 write_package(*package);
                 package->data.data16=*(((uint16_t*)&(var_sys_NVM.counterMoves))+0);
                 write_package(*package);
                 break;
             case 0x29:
-
-
                 package->data.data8[1]=var_sys_NVM.OnlyRollingCode;
                 package->data.data8[0]=0x00;
                 write_package(*package);
                 break;
             case 0x2A:
-
-
                 package->data.data16=*(((uint16_t*)&(var_sys_NVM.learningCurrentDecelarationClose))+1);
                 write_package(*package);
                 package->data.data16=*(((uint16_t*)&(var_sys_NVM.learningCurrentDecelarationClose))+0);
                 write_package(*package);
                 break;
             case 0x2C:
-
-
                 package->data.data16=*(((uint16_t*)&(var_sys_NVM.learningCurrentDecelarationOpen))+1);
                 write_package(*package);
                 package->data.data16=*(((uint16_t*)&(var_sys_NVM.learningCurrentDecelarationOpen))+0);
                 write_package(*package);
                 break;
             case 0x2E:
-
-
                 package->data.data16=var_sys_NVM.learningCurrentNormalClose;
                 write_package(*package);
                 break;
             case 0x2F:
-
-
                 package->data.data16=var_sys_NVM.learningCurrentNormalOpen;
                 write_package(*package);
                 break;
             case 0x30:
-
-
                 package->data.data16=*(((uint16_t*)&(var_sys_NVM.learningTimeToOpen))+1);
                 write_package(*package);
                 package->data.data16=*(((uint16_t*)&(var_sys_NVM.learningTimeToOpen))+0);
                 write_package(*package);
                 break;
             case 0x32:
-
-
                 package->data.data16=*(((uint16_t*)&(var_sys_NVM.learningTimeToClose))+1);
                 write_package(*package);
                 package->data.data16=*(((uint16_t*)&(var_sys_NVM.learningTimeToClose))+0);
                 write_package(*package);
                 break;
+
+
+
+            case 0x34:
+                package->data.data8[1]=RFFull;
+                package->data.data8[0]=0x00;
+                write_package(*package);
+                break;
+
+            case 0x35:
+                package->data.data8[1]=var_sys.photoCellIsObstructed;
+                package->data.data8[0]=var_sys.SecurityBarIsObstructed;
+                write_package(*package);
+                break;
+
+            case 0x36:
+                package->data.data8[1]=var_sys.FimCurso_CloseIsEnabled;
+                package->data.data8[0]=var_sys.FimCurso_OpenIsEnabled;
+                write_package(*package);
+                break;
+
+            case 0x37:
+                package->data.data8[1]=var_sys.Statedoorcontrol;
+                package->data.data8[0]=0x00;
+                write_package(*package);
+                break;
+
+            case 0x38:
+                package->data.data16=*(((uint16_t*)&(var_sys.PositionActual))+1);
+                write_package(*package);
+                package->data.data16=*(((uint16_t*)&(var_sys.PositionActual))+0);
+                write_package(*package);
+                break;
+
+            case 0x3A:
+                package->data.data8[1]=var_sys.PositionIsLost;
+                package->data.data8[0]=var_sys.StateVersion;
+                write_package(*package);
+                break;
+
+
             default:
 
+                return 0;
                 break;
         }
+        return 1;
     }
 
     void write_eusartparser(struct package_t package){
@@ -17943,131 +17934,85 @@ void sm_execute_main( sm_t *psm );
         switch((uint8_t)package.address){
             case 0x00:
             case 0x10:
-
-
                 var_sys_NVM.decelarationOpen=package.data.data8[0];
                 var_sys_NVM.decelarationClose=package.data.data8[1];
                 break;
             case 0x11:
-
-
                 var_sys_NVM.motorPower=package.data.data8[0];
                 var_sys_NVM.motorSensitivity=package.data.data8[1];
                 break;
             case 0x12:
-
-
                 var_sys_NVM.walkTime=package.data.data8[1];
                 break;
             case 0x02:
             case 0x13:
-
-
                 var_sys_NVM.autoTimeFullClose=package.data.data8[0];
                 var_sys_NVM.autoTimeWalkClose=package.data.data8[1];
                 break;
             case 0x05:
             case 0x14:
-
-
                 var_sys_NVM.photoCellIsON=package.data.data8[0];
                 var_sys_NVM.photoCellInOpen=package.data.data8[1];
                 break;
             case 0x15:
-
-
                 var_sys_NVM.securityBandIsON=package.data.data8[0];
                 var_sys_NVM.securityBandType=package.data.data8[1];
                 break;
             case 0x16:
-
-
                 var_sys_NVM.securityBandInOpen=package.data.data8[1];
                 break;
             case 0x17:
-
-
                 var_sys_NVM.operationMode=package.data.data8[1];
                 break;
             case 0x18:
-
-
                 var_sys_NVM.flashLightMode=package.data.data8[1];
                 break;
             case 0x19:
-
-
                 var_sys_NVM.programmingDistance=package.data.data8[1];
                 break;
             case 0x1A:
-
-
                 var_sys_NVM.decelarationSensivity=package.data.data8[1];
                 break;
 
             case 0x1B:
-
-
                 var_sys_NVM.homemPresente=package.data.data8[1];
                 break;
             case 0x07:
             case 0x1C:
-
-
                 var_sys_NVM.logicDigital=package.data.data8[1];
                 break;
             case 0x1D:
-
-
                 var_sys_NVM.softStart=package.data.data8[0];
                 var_sys_NVM.softstop=package.data.data8[1];
                 break;
             case 0x03:
             case 0x1E:
-
-
                 var_sys_NVM.ligthTime=package.data.data8[1];
                 break;
             case 0x0A:
             case 0x1F:
-
-
                 var_sys_NVM.folow_me=package.data.data8[1];
                 break;
             case 0x20:
-
-
                 var_sys_NVM.Stopboton=package.data.data8[1];
                 break;
             case 0x21:
-
-
                 var_sys_NVM.electricBrake=package.data.data8[1];
                 break;
             case 0x22:
-
-
                 var_sys_NVM.velocityDecelaration=package.data.data8[1];
                 break;
             case 0x08:
             case 0x23:
-
-
                 var_sys_NVM.flashRGBMode=package.data.data8[1];
                 break;
             case 0x24:
-
-
                 var_sys_NVM.Direction_motor=package.data.data8[1];
                 break;
             case 0x25:
-
-
                 var_sys_NVM.TypeofMotor=package.data.data8[1];
                 break;
             case 0x26:
-
-
                 var_sys_NVM.positionRemotesFull=package.data.data8[0];
                 var_sys_NVM.positionRemotesWalk=package.data.data8[1];
                 break;
@@ -18082,8 +18027,6 @@ void sm_execute_main( sm_t *psm );
                 break;
 
             case 0x29:
-
-
                 var_sys_NVM.OnlyRollingCode=package.data.data8[1];
                 break;
 
@@ -18114,21 +18057,21 @@ void sm_execute_main( sm_t *psm );
                 break;
 
             case 0x30:
-                var_sys_NVM.learningCurrentDecelarationOpen=var_sys_NVM.learningCurrentDecelarationOpen|((uint32_t)(package.data.data16&0xFFFF)<<(uint8_t)(1*16));
-                var_sys_NVM.learningCurrentDecelarationOpen=var_sys_NVM.learningCurrentDecelarationOpen&~((uint32_t)(~package.data.data16&0xFFFF)<<(uint8_t)(1*16));
+                var_sys_NVM.learningTimeToOpen=var_sys_NVM.learningTimeToOpen|((uint32_t)(package.data.data16&0xFFFF)<<(uint8_t)(1*16));
+                var_sys_NVM.learningTimeToOpen=var_sys_NVM.learningTimeToOpen&~((uint32_t)(~package.data.data16&0xFFFF)<<(uint8_t)(1*16));
                 break;
             case 0x31:
-                var_sys_NVM.learningCurrentDecelarationOpen=var_sys_NVM.learningCurrentDecelarationOpen|((uint32_t)(package.data.data16&0xFFFF)<<(uint8_t)(0*16));
-                var_sys_NVM.learningCurrentDecelarationOpen=var_sys_NVM.learningCurrentDecelarationOpen&~((uint32_t)(~package.data.data16&0xFFFF)<<(uint8_t)(0*16));
+                var_sys_NVM.learningTimeToOpen=var_sys_NVM.learningTimeToOpen|((uint32_t)(package.data.data16&0xFFFF)<<(uint8_t)(0*16));
+                var_sys_NVM.learningTimeToOpen=var_sys_NVM.learningTimeToOpen&~((uint32_t)(~package.data.data16&0xFFFF)<<(uint8_t)(0*16));
                 break;
 
             case 0x32:
-                var_sys_NVM.learningCurrentDecelarationOpen=var_sys_NVM.learningCurrentDecelarationOpen|((uint32_t)(package.data.data16&0xFFFF)<<(uint8_t)(1*16));
-                var_sys_NVM.learningCurrentDecelarationOpen=var_sys_NVM.learningCurrentDecelarationOpen&~((uint32_t)(~package.data.data16&0xFFFF)<<(uint8_t)(1*16));
+                var_sys_NVM.learningTimeToClose=var_sys_NVM.learningTimeToClose|((uint32_t)(package.data.data16&0xFFFF)<<(uint8_t)(1*16));
+                var_sys_NVM.learningTimeToClose=var_sys_NVM.learningTimeToClose&~((uint32_t)(~package.data.data16&0xFFFF)<<(uint8_t)(1*16));
                 break;
             case 0x33:
-                var_sys_NVM.learningCurrentDecelarationOpen=var_sys_NVM.learningCurrentDecelarationOpen|((uint32_t)(package.data.data16&0xFFFF)<<(uint8_t)(0*16));
-                var_sys_NVM.learningCurrentDecelarationOpen=var_sys_NVM.learningCurrentDecelarationOpen&~((uint32_t)(~package.data.data16&0xFFFF)<<(uint8_t)(0*16));
+                var_sys_NVM.learningTimeToClose=var_sys_NVM.learningTimeToClose|((uint32_t)(package.data.data16&0xFFFF)<<(uint8_t)(0*16));
+                var_sys_NVM.learningTimeToClose=var_sys_NVM.learningTimeToClose&~((uint32_t)(~package.data.data16&0xFFFF)<<(uint8_t)(0*16));
                 break;
 
             default:
@@ -18137,23 +18080,47 @@ void sm_execute_main( sm_t *psm );
         }
     }
 
+    void confirmpackage(struct package_t* package, _Bool confirm){
+        init_package(package);
+        package->functioncode=0x03;
+        package->address=0x00;
+        if(confirm==1)
+            package->data.data16=0x0001;
+        else
+            package->data.data16=0x0000;
+    }
+
     void eusartparser(struct package_t* package){
         struct package_t a;
+        uint8_t relcounter;
+        static _Bool save_f=0;
+        static uint16_t buffer=0x0000;
+        uint32_t serial;
+        char pos;
+
         switch(package->functioncode){
-            case (uint8_t)0:
-                if(programmer_enable)
-                    read_eusartparser(package);
+            case READ:
+                confirmpackage(package, read_eusartparser(package));
+                write_package(*package);
                 break;
 
-            case (uint8_t)1:
-                if(programmer_enable)
+            case WRITE:
+                if(programmer_enable){
                     write_eusartparser(*package);
+                    confirmpackage(package, 1);
+                    write_package(*package);
+                }
+                else{
+                    confirmpackage(package, 0);
+                    write_package(*package);
+                }
                 break;
 
-            case (uint8_t)2:
+            case PROGRAMMING_ENABLE:
                 if(programmer_enable){
                     SaveNVM_VarSystem(pageMemoryE);
                     SaveNVM_VarSystem(pageMemoryP);
+                    updateChangesToUart();
                     programmer_enable=0;
                 }
                 else{
@@ -18162,22 +18129,294 @@ void sm_execute_main( sm_t *psm );
                     else{
                         package->data.data16=(uint16_t)2;
                         write_package(*package);
+                        confirmpackage(package, 1);
+                        write_package(*package);
                         break;
                     }
                 }
 
                 package->data.data16=(uint16_t)programmer_enable;
                 write_package(*package);
-                break;
-            case (uint8_t)3:
-                package->functioncode=0x03;
-                package->address=0x00;
-                package->data.data16=0x0001;
+                confirmpackage(package, 1);
                 write_package(*package);
-            default:
-                package->functioncode=0x03;
+                break;
+            case CONFIRM:
+                confirmpackage(package, 1);
+                write_package(*package);
+                break;
+            case NUM_COMMANDS_F:
+                    package->address=0x00;
+                    package->data.data16=var_sys_NVM.positionRemotesFull;
+                    for(uint8_t i=0;i<var_sys_NVM.positionRemotesFull;i++)
+                    if(cmdMemoryIsEmpty(0,i)==1)
+                        package->data.data16--;
+                    write_package(*package);
+                    confirmpackage(package, 1);
+                    write_package(*package);
+                break;
+            case NUM_EMPTY_COMMANDS_F:
+
                 package->address=0x00;
-                package->data.data16=0x0000;
+                package->data.data16=0;
+                for(uint8_t i=0;i<var_sys_NVM.positionRemotesFull;i++)
+                if(cmdMemoryIsEmpty(0,i)==1)
+                    package->data.data16++;
+                write_package(*package);
+                confirmpackage(package, 1);
+                write_package(*package);
+                break;
+            case OCCUPIED_POS_F:
+                relcounter=0;
+                for(uint8_t i=0;i<var_sys_NVM.positionRemotesFull;i++)
+                    if(cmdMemoryIsEmpty(0,i)==0){
+                        package->data.data16=(uint16_t)i;
+                        package->address=relcounter;
+                        relcounter++;
+                        write_package(*package);
+                    }
+                confirmpackage(package, 1);
+                write_package(*package);
+                break;
+            case EMPTY_POS_F:
+                relcounter=0;
+                for(uint8_t i=0;i<var_sys_NVM.positionRemotesFull;i++)
+                    if(cmdMemoryIsEmpty(0,i)==1){
+                        package->data.data16=(uint16_t)i;
+                        package->address=relcounter;
+                        relcounter++;
+                        write_package(*package);
+                    }
+                confirmpackage(package, 1);
+                write_package(*package);
+                break;
+            case SAVE_COMMAND_F:
+                if(programmer_enable){
+                    if(save_f==0){
+                        buffer=package->data.data16;
+                        confirmpackage(package, 1);
+                        write_package(*package);
+                        save_f=1;
+                    }
+                    else{
+                        serial=((uint32_t)buffer<<16)+(uint32_t)package->data.data16;
+                        if(validateRemoteSerialNumber(serial, NO, &pos)==NoCMD){
+                            for(uint8_t i=0;;i++)
+                                if(cmdMemoryIsEmpty(0,i)==1&&package->address==0){
+                                    saveNewSerial(0,serial,i);
+                                    confirmpackage(package, 1);
+                                    write_package(*package);
+                                    break;
+                                }
+                                else if(cmdMemoryIsEmpty(0,i)==1){
+                                    package->address--;
+                                }
+                                else if(i==var_sys_NVM.positionRemotesFull){
+                                    confirmpackage(package, 0);
+                                    write_package(*package);
+                                    break;
+                                }
+                        }
+                        else{
+                            confirmpackage(package, 0);
+                            write_package(*package);
+                        }
+                        save_f=0;
+                    }
+                }
+                else{
+                    confirmpackage(package, 0);
+                    write_package(*package);
+                }
+                break;
+            case ERASE_COMMAND_F:
+                if(programmer_enable){
+                    for(uint8_t i=0;;i++)
+                        if(cmdMemoryIsEmpty(0,i)==0&&package->address==0){
+                            RemoveSerial(0, i);
+                            confirmpackage(package, 1);
+                            write_package(*package);
+                            save_f=0;
+                            break;
+                        }
+                        else if(cmdMemoryIsEmpty(0,i)==0){
+                            package->address--;
+                        }
+                        else if(i==var_sys_NVM.positionRemotesFull){
+                            confirmpackage(package, 0);
+                            write_package(*package);
+                            save_f=0;
+                            break;
+                        }
+                }
+                else{
+                    confirmpackage(package, 0);
+                    write_package(*package);
+                }
+                break;
+            case READ_SERIAL_F:
+                for(uint8_t i=0;;i++)
+                    if(cmdMemoryIsEmpty(0,i)==0&&package->address==0){
+                        ReadSerial(0, &serial, i);
+                        package->data.data16=(uint16_t)serial;
+                        write_package(*package);
+                        package->data.data16=(uint16_t)(serial>>16);
+                        write_package(*package);
+                        confirmpackage(package, 1);
+                        write_package(*package);
+                        break;
+                    }
+                    else if(cmdMemoryIsEmpty(0,i)==0){
+                        package->address--;
+                    }
+                    else if(i==var_sys_NVM.positionRemotesFull){
+                        confirmpackage(package, 0);
+                        write_package(*package);
+                        break;
+                    }
+                break;
+            case NUM_COMMANDS_W:
+                    package->address=0x00;
+                    package->data.data16=var_sys_NVM.positionRemotesWalk;
+                    for(uint8_t i=0;i<var_sys_NVM.positionRemotesWalk;i++)
+                    if(cmdMemoryIsEmpty(1,i)==1)
+                        package->data.data16--;
+                    write_package(*package);
+                    confirmpackage(package, 1);
+                    write_package(*package);
+                break;
+            case NUM_EMPTY_COMMANDS_W:
+
+                package->address=0x00;
+                package->data.data16=0;
+                for(uint8_t i=0;i<var_sys_NVM.positionRemotesWalk;i++)
+                if(cmdMemoryIsEmpty(1,i)==1)
+                    package->data.data16++;
+                write_package(*package);
+                confirmpackage(package, 1);
+                write_package(*package);
+                break;
+            case OCCUPIED_POS_W:
+                relcounter=0;
+                for(uint8_t i=0;i<var_sys_NVM.positionRemotesWalk;i++)
+                    if(cmdMemoryIsEmpty(1,i)==0){
+                        package->data.data16=(uint16_t)i;
+                        package->address=relcounter;
+                        relcounter++;
+                        write_package(*package);
+                    }
+                confirmpackage(package, 1);
+                write_package(*package);
+                break;
+            case EMPTY_POS_W:
+                relcounter=0;
+                for(uint8_t i=0;i<var_sys_NVM.positionRemotesWalk;i++)
+                    if(cmdMemoryIsEmpty(1,i)==1){
+                        package->data.data16=(uint16_t)i;
+                        package->address=relcounter;
+                        relcounter++;
+                        write_package(*package);
+                    }
+                confirmpackage(package, 1);
+                write_package(*package);
+                break;
+            case SAVE_COMMAND_W:
+                if(programmer_enable){
+                    if(save_f==0){
+                        buffer=package->data.data16;
+                        confirmpackage(package, 1);
+                        write_package(*package);
+                        save_f=1;
+                    }
+                    else{
+                        serial=((uint32_t)buffer<<16)+(uint32_t)package->data.data16;
+                        if(validateRemoteSerialNumber(serial, NO, &pos)==NoCMD){
+                            for(uint8_t i=0;;i++)
+                                if(cmdMemoryIsEmpty(1,i)==1&&package->address==0){
+                                    saveNewSerial(1,serial,i);
+                                    confirmpackage(package, 1);
+                                    write_package(*package);
+                                    break;
+                                }
+                                else if(cmdMemoryIsEmpty(1,i)==1){
+                                    package->address--;
+                                }
+                                else if(i==var_sys_NVM.positionRemotesWalk){
+                                    confirmpackage(package, 0);
+                                    write_package(*package);
+                                    break;
+                                }
+                        }
+                        else{
+                            confirmpackage(package, 0);
+                            write_package(*package);
+                        }
+                        save_f=0;
+                    }
+                }
+                else{
+                    confirmpackage(package, 0);
+                    write_package(*package);
+                }
+                break;
+            case ERASE_COMMAND_W:
+                if(programmer_enable){
+                    for(uint8_t i=0;;i++)
+                        if(cmdMemoryIsEmpty(1,i)==0&&package->address==0){
+                            RemoveSerial(1, i);
+                            confirmpackage(package, 1);
+                            write_package(*package);
+                            save_f=0;
+                            break;
+                        }
+                        else if(cmdMemoryIsEmpty(1,i)==0){
+                            package->address--;
+                        }
+                        else if(i==var_sys_NVM.positionRemotesWalk){
+                            confirmpackage(package, 0);
+                            write_package(*package);
+                            save_f=0;
+                            break;
+                        }
+                }
+                else{
+                    confirmpackage(package, 0);
+                    write_package(*package);
+                }
+                break;
+            case READ_SERIAL_W:
+                for(uint8_t i=0;;i++)
+                    if(cmdMemoryIsEmpty(1,i)==0&&package->address==0){
+                        ReadSerial(1, &serial, i);
+                        package->data.data16=(uint16_t)serial;
+                        write_package(*package);
+                        package->data.data16=(uint16_t)(serial>>16);
+                        write_package(*package);
+                        confirmpackage(package, 1);
+                        write_package(*package);
+                        break;
+                    }
+                    else if(cmdMemoryIsEmpty(1,i)==0){
+                        package->address--;
+                    }
+                    else if(i==var_sys_NVM.positionRemotesWalk){
+                        confirmpackage(package, 0);
+                        write_package(*package);
+                        break;
+                    }
+                break;
+
+            default:
+                confirmpackage(package, 0);
                 write_package(*package);
         }
+    }
+
+    void updateChangesToUart(void){
+        package_t package;
+        init_package(&package);
+        package.functioncode=0x00;
+        package.data.data16=0x0000;
+        for (uint8_t i=0x00;i<=0x3A;i++)
+        package.address=i;
+        eusartparser(&package);
     }

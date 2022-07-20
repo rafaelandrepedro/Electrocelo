@@ -17899,13 +17899,15 @@ void ControlCounterMoves(void);
 
     _Bool programmer_enable=0;
 
-    void read_eusartparser(struct package_t* package);
+    _Bool read_eusartparser(struct package_t* package);
 
     void write_eusartparser(struct package_t package);
 
     void confirmpackage(struct package_t* package, _Bool confirm);
 
     void eusartparser(struct package_t* package);
+
+    void updateChangesToUart(void);
 # 15 "./sm_Main.h" 2
 
 

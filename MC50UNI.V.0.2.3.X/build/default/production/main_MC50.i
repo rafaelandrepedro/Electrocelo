@@ -17958,7 +17958,7 @@ void ShowVersion(void);
     signed long getTimeDecelaration(stateMotor_enum state);
     void ControlDecelarationFactor();
 # 11 "./inputs.h" 2
-# 75 "./inputs.h"
+# 76 "./inputs.h"
 typedef struct
 {
  unsigned char old;
@@ -18096,6 +18096,7 @@ typedef enum {
 TypeCMD validateRemoteSerialNumber(unsigned long serial, StateEnum VerifyOnlySerial, char* position);
 void saveNewSerial(char cmdType,unsigned long tempSerial, char position);
 void RemoveSerial(char cmdType, char position);
+void ReadSerial(char cmdType, unsigned long* tempSerial, char position);
 char cmdMemoryIsEmpty(char cmdType, char position);
 void SaveNVM_VarSystem(unsigned char page);
 void ResetDefaultMemory(unsigned char type);
@@ -18295,12 +18296,20 @@ void controlLearnDigit(void);
         WRITE=1,
         PROGRAMMING_ENABLE=2,
         CONFIRM=3,
-        NUM_COMMANDS=4,
-        NUM_EMPTY_COMMANDS=5,
-        OCCUPIED_POS=6,
-        EMPTY_POS=7,
-        SAVE_COMMAND=8,
-        ERASE_COMMAND=9,
+        NUM_COMMANDS_F=4,
+        NUM_EMPTY_COMMANDS_F=5,
+        OCCUPIED_POS_F=6,
+        EMPTY_POS_F=7,
+        SAVE_COMMAND_F=8,
+        ERASE_COMMAND_F=9,
+        READ_SERIAL_F=10,
+        NUM_COMMANDS_W=11,
+        NUM_EMPTY_COMMANDS_W=12,
+        OCCUPIED_POS_W=13,
+        EMPTY_POS_W=14,
+        SAVE_COMMAND_W=15,
+        ERASE_COMMAND_W=16,
+        READ_SERIAL_W=17
     };
 
 
@@ -18339,28 +18348,22 @@ void controlLearnDigit(void);
 
     void write_package(const struct package_t package);
 # 11 "./eusartparser.h" 2
-
-
-
-# 1 "./sm_Main.h" 1
-# 14 "./eusartparser.h" 2
-
-
-
-
-
-
-
-
+# 21 "./eusartparser.h"
     extern volatile varSystem_NVM var_sys_NVM;
-    extern sm_t main_stateMachine;
+    extern volatile char RFFull;
+    extern volatile varSystem var_sys;
+
     _Bool programmer_enable=0;
 
-    void read_eusartparser(struct package_t* package);
+    _Bool read_eusartparser(struct package_t* package);
 
     void write_eusartparser(struct package_t package);
 
+    void confirmpackage(struct package_t* package, _Bool confirm);
+
     void eusartparser(struct package_t* package);
+
+    void updateChangesToUart(void);
 # 15 "./sm_Main.h" 2
 
 

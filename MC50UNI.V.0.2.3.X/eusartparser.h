@@ -24,13 +24,15 @@ extern "C" {
     
     bool programmer_enable=0;
     
-    void read_eusartparser(struct package_t* package);
+    bool read_eusartparser(struct package_t* package);
     
     void write_eusartparser(struct package_t package);
     
     void confirmpackage(struct package_t* package, bool confirm);
     
     void eusartparser(struct package_t* package);
+    
+    void updateChangesToUart(void);
 
 #ifdef	__cplusplus
 }

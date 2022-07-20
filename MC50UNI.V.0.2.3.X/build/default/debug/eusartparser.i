@@ -17684,13 +17684,15 @@ void sm_send_event(sm_t *psm, int event);
 
     _Bool programmer_enable=0;
 
-    void read_eusartparser(struct package_t* package);
+    _Bool read_eusartparser(struct package_t* package);
 
     void write_eusartparser(struct package_t package);
 
     void confirmpackage(struct package_t* package, _Bool confirm);
 
     void eusartparser(struct package_t* package);
+
+    void updateChangesToUart(void);
 # 8 "eusartparser.c" 2
 
 
@@ -17709,7 +17711,7 @@ void sm_execute_main( sm_t *psm );
 # 10 "eusartparser.c" 2
 
 
-    void read_eusartparser(struct package_t* package){
+    _Bool read_eusartparser(struct package_t* package){
         switch(package->address){
             case 0x00:
             case 0x10:
@@ -17920,8 +17922,10 @@ void sm_execute_main( sm_t *psm );
 
             default:
 
+                return 0;
                 break;
         }
+        return 1;
     }
 
     void write_eusartparser(struct package_t package){
@@ -18096,8 +18100,7 @@ void sm_execute_main( sm_t *psm );
 
         switch(package->functioncode){
             case READ:
-                read_eusartparser(package);
-                confirmpackage(package, 1);
+                confirmpackage(package, read_eusartparser(package));
                 write_package(*package);
                 break;
 
@@ -18117,6 +18120,7 @@ void sm_execute_main( sm_t *psm );
                 if(programmer_enable){
                     SaveNVM_VarSystem(pageMemoryE);
                     SaveNVM_VarSystem(pageMemoryP);
+                    updateChangesToUart();
                     programmer_enable=0;
                 }
                 else{
@@ -18405,4 +18409,14 @@ void sm_execute_main( sm_t *psm );
                 confirmpackage(package, 0);
                 write_package(*package);
         }
+    }
+
+    void updateChangesToUart(void){
+        package_t package;
+        init_package(&package);
+        package.functioncode=0x00;
+        package.data.data16=0x0000;
+        for (uint8_t i=0x00;i<=0x3A;i++)
+        package.address=i;
+        eusartparser(&package);
     }
