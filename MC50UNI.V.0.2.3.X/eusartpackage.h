@@ -52,7 +52,8 @@ extern "C" {
         EMPTY_POS_W=14,
         SAVE_COMMAND_W=15,
         ERASE_COMMAND_W=16,
-        READ_SERIAL_W=17
+        READ_SERIAL_W=17,
+        READ_ALL
     };
     
     /*

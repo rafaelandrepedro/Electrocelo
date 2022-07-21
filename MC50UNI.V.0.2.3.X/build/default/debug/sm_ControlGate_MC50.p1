@@ -67,15 +67,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n E10619 . st_Idle st_Closed st_Opening st_Closing st_Opened st_Learning  ]
 "133
 [; ;sm_ControlGate_MC50.c: 133:     if ( (main_stateMachine.current_state == st_MenuConfiguration) && (menuConfiguration_stateMachine.current_state != st_LearningMode) )
-[c E10987 0 1 2 .. ]
-[n E10987 . st_standBy st_MenuConfiguration st_MotorON  ]
+[c E10988 0 1 2 .. ]
+[n E10988 . st_standBy st_MenuConfiguration st_MotorON  ]
 "19
 [; ;sm_ControlGate_MC50.c: 19: extern sm_t menuConfiguration_stateMachine;
 [v _menuConfiguration_stateMachine `S1494 ~T0 @X0 0 e ]
 "133
 [; ;sm_ControlGate_MC50.c: 133:     if ( (main_stateMachine.current_state == st_MenuConfiguration) && (menuConfiguration_stateMachine.current_state != st_LearningMode) )
-[c E10995 0 1 2 3 4 5 6 .. ]
-[n E10995 . st_MainMenu st_EditParameter st_SaveParameter st_Counter st_SelectRemote st_SaveRemotes st_LearningMode  ]
+[c E10996 0 1 2 3 4 5 6 .. ]
+[n E10996 . st_MainMenu st_EditParameter st_SaveParameter st_Counter st_SelectRemote st_SaveRemotes st_LearningMode  ]
 "191 ./inputs.h
 [; ;./inputs.h: 191: TypeCMD GetOpenOrder(void);
 [v _GetOpenOrder `(E10372 ~T0 @X0 0 ef ]
@@ -1821,7 +1821,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _typeOpenOrder `E10372 ~T0 @X0 1 a ]
 "133
 [; ;sm_ControlGate_MC50.c: 133:     if ( (main_stateMachine.current_state == st_MenuConfiguration) && (menuConfiguration_stateMachine.current_state != st_LearningMode) )
-[e $ ! && == . _main_stateMachine 0 -> . `E10987 1 `i != . _menuConfiguration_stateMachine 0 -> . `E10995 6 `i 1528  ]
+[e $ ! && == . _main_stateMachine 0 -> . `E10988 1 `i != . _menuConfiguration_stateMachine 0 -> . `E10996 6 `i 1528  ]
 "134
 [; ;sm_ControlGate_MC50.c: 134:     {
 {
@@ -2360,7 +2360,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "331
 [; ;sm_ControlGate_MC50.c: 331:     if (main_stateMachine.current_state != st_MenuConfiguration) {
-[e $ ! != . _main_stateMachine 0 -> . `E10987 1 `i 1582  ]
+[e $ ! != . _main_stateMachine 0 -> . `E10988 1 `i 1582  ]
 {
 "334
 [; ;sm_ControlGate_MC50.c: 334:         TypeCMD typeOpenOrder = GetOpenOrder();

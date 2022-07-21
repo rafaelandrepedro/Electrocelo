@@ -17013,7 +17013,8 @@ void EUSART1_SetRxInterruptHandler(void (* interruptHandler)(void));
         EMPTY_POS_W=14,
         SAVE_COMMAND_W=15,
         ERASE_COMMAND_W=16,
-        READ_SERIAL_W=17
+        READ_SERIAL_W=17,
+        READ_ALL
     };
 
 
@@ -17684,7 +17685,7 @@ void sm_send_event(sm_t *psm, int event);
 
     _Bool programmer_enable=0;
 
-    void read_eusartparser(struct package_t* package);
+    _Bool read_eusartparser(struct package_t* package);
 
     void write_eusartparser(struct package_t package);
 
@@ -17713,7 +17714,7 @@ void sm_execute_main( sm_t *psm );
 
 static _Bool done_changes=0;
 
-void read_eusartparser(struct package_t* package){
+_Bool read_eusartparser(struct package_t* package){
     switch(package->address){
         case 0x00:
         case 0x10:
@@ -17924,8 +17925,10 @@ void read_eusartparser(struct package_t* package){
 
         default:
 
+            return 0;
             break;
     }
+    return 1;
 }
 
 void write_eusartparser(struct package_t package){
@@ -18122,9 +18125,6 @@ void eusartparser(struct package_t* package){
             if(programmer_enable){
                 SaveNVM_VarSystem(pageMemoryE);
                 SaveNVM_VarSystem(pageMemoryP);
-                if(done_changes==1)
-                    updateChangesToUart();
-                done_changes=0;
                 programmer_enable=0;
             }
             else{
@@ -18143,6 +18143,10 @@ void eusartparser(struct package_t* package){
             write_package(*package);
             confirmpackage(package, 1);
             write_package(*package);
+
+            if(done_changes==1)
+                updateChangesToUart();
+            done_changes=0;
             break;
         case CONFIRM:
             confirmpackage(package, 1);
@@ -18412,7 +18416,9 @@ void eusartparser(struct package_t* package){
                     break;
                 }
             break;
-
+        case READ_ALL:
+            updateChangesToUart();
+            break;
         default:
             confirmpackage(package, 0);
             write_package(*package);
@@ -18422,10 +18428,15 @@ void eusartparser(struct package_t* package){
 void updateChangesToUart(void){
     struct package_t package;
     init_package(&package);
-    package.functioncode=0x00;
+    package.functioncode=0x12;
+    package.address=0x00;
     package.data.data16=0x0000;
+    write_package(package);
+    package.functioncode=0x00;
     for (uint8_t i=0x00;i<=0x3A;i++){
         package.address=i;
         read_eusartparser(&package);
     }
+    confirmpackage(&package, 1);
+    write_package(package);
 }

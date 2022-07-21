@@ -11,7 +11,7 @@
 
 static bool done_changes=FALSE;
 
-void read_eusartparser(struct package_t* package){
+bool read_eusartparser(struct package_t* package){
     switch(package->address){
         case 0x00:
         case 0x10:
@@ -222,8 +222,10 @@ void read_eusartparser(struct package_t* package){
 
         default:
             //address not avaliable
+            return 0;
             break;
     }      
+    return 1;
 }
 
 void write_eusartparser(struct package_t package){
@@ -420,9 +422,6 @@ void eusartparser(struct package_t* package){
             if(programmer_enable){
                 SaveNVM_VarSystem(pageMemoryE);
                 SaveNVM_VarSystem(pageMemoryP);
-                if(done_changes==TRUE)
-                    updateChangesToUart();
-                done_changes=FALSE;
                 programmer_enable=0;
             }
             else{
@@ -441,6 +440,10 @@ void eusartparser(struct package_t* package){
             write_package(*package);
             confirmpackage(package, TRUE);
             write_package(*package);
+            
+            if(done_changes==TRUE)
+                updateChangesToUart();
+            done_changes=FALSE;
             break;
         case CONFIRM://CONFIRM
             confirmpackage(package, TRUE);
@@ -710,7 +713,9 @@ void eusartparser(struct package_t* package){
                     break;
                 }
             break;
-
+        case READ_ALL://READ_ALL
+            updateChangesToUart();
+            break;
         default:
             confirmpackage(package, FALSE);
             write_package(*package);
@@ -720,10 +725,15 @@ void eusartparser(struct package_t* package){
 void updateChangesToUart(void){
     struct package_t package;
     init_package(&package);
-    package.functioncode=0x00;
+    package.functioncode=0x12;
+    package.address=0x00;
     package.data.data16=0x0000;
+    write_package(package);
+    package.functioncode=0x00;
     for (uint8_t i=0x00;i<=0x3A;i++){
         package.address=i;
         read_eusartparser(&package);
     }
+    confirmpackage(&package, TRUE);
+    write_package(package);
 }

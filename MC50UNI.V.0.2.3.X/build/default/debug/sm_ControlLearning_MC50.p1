@@ -89,8 +89,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _SaveNVM_VarSystem `(v ~T0 @X0 0 ef1`uc ]
 "362 sm_ControlLearning_MC50.c
 [; ;sm_ControlLearning_MC50.c: 362:                 SaveNVM_VarSystem(pageMemoryP);
-[c E10988 0 1 2 3 .. ]
-[n E10988 . pageMemoryP pageMemoryE pageMemoryCounters pageMemoryLearningVars  ]
+[c E10989 0 1 2 3 .. ]
+[n E10989 . pageMemoryP pageMemoryE pageMemoryCounters pageMemoryLearningVars  ]
 "97 ./sm_common.h
 [; ;./sm_common.h: 97: void sm_init(sm_t *psm, int initial_state, sm_history_t hist_mode);
 [v _sm_init `(v ~T0 @X0 0 ef3`*S1494`i`E10586 ]
@@ -106,8 +106,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _main_stateMachine `S1494 ~T0 @X0 0 e ]
 "431 sm_ControlLearning_MC50.c
 [; ;sm_ControlLearning_MC50.c: 431:     sm_init(&main_stateMachine,st_standBy,HIST_NONE);
-[c E11037 0 1 2 .. ]
-[n E11037 . st_standBy st_MenuConfiguration st_MotorON  ]
+[c E11038 0 1 2 .. ]
+[n E11038 . st_standBy st_MenuConfiguration st_MotorON  ]
 "55 C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f46k40.h
 [; ;C:\Program Files\Microchip\xc8\v2.36\pic\include\proc\pic18f46k40.h: 55: __asm("RX2PPS equ 0E8Dh");
 [; <" RX2PPS equ 0E8Dh ;# ">
@@ -2514,13 +2514,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . _var_sys_NVM 37 -> . _learn_st 7 `ul ]
 "362
 [; ;sm_ControlLearning_MC50.c: 362:                 SaveNVM_VarSystem(pageMemoryP);
-[e ( _SaveNVM_VarSystem (1 -> . `E10988 0 `uc ]
+[e ( _SaveNVM_VarSystem (1 -> . `E10989 0 `uc ]
 "363
 [; ;sm_ControlLearning_MC50.c: 363:                 SaveNVM_VarSystem(pageMemoryLearningVars);
-[e ( _SaveNVM_VarSystem (1 -> . `E10988 3 `uc ]
+[e ( _SaveNVM_VarSystem (1 -> . `E10989 3 `uc ]
 "364
 [; ;sm_ControlLearning_MC50.c: 364:                 SaveNVM_VarSystem(pageMemoryCounters);
-[e ( _SaveNVM_VarSystem (1 -> . `E10988 2 `uc ]
+[e ( _SaveNVM_VarSystem (1 -> . `E10989 2 `uc ]
 "365
 [; ;sm_ControlLearning_MC50.c: 365:                 var_sys.LearningIsEnabled=NO;
 [e = . _var_sys 28 -> . `E10397 0 `uc ]
@@ -2717,7 +2717,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _sm_init (3 , , &U _menuConfiguration_stateMachine . `E10847 0 . `E10586 0 ]
 "431
 [; ;sm_ControlLearning_MC50.c: 431:     sm_init(&main_stateMachine,st_standBy,HIST_NONE);
-[e ( _sm_init (3 , , &U _main_stateMachine . `E11037 0 . `E10586 0 ]
+[e ( _sm_init (3 , , &U _main_stateMachine . `E11038 0 . `E10586 0 ]
 "432
 [; ;sm_ControlLearning_MC50.c: 432:     sm_init(&controlGate_stateMachine,st_Idle,HIST_NONE);
 [e ( _sm_init (3 , , &U _controlGate_stateMachine . `E10610 0 . `E10586 0 ]
