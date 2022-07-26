@@ -219,7 +219,18 @@ bool read_eusartparser(struct package_t* package){
             write_package(*package);
             break;
 
-
+        case 0x01:
+        case 0x04:
+        case 0x06:
+        case 0x09:
+        case 0x0B:
+        case 0x0C:
+        case 0x0D:
+        case 0x0E:
+        case 0x0F:
+            package->data.data16=0x00;
+            write_package(*package);
+            break;
         default:
             //address not avaliable
             return 0;
@@ -728,7 +739,6 @@ void updateChangesToUart(void){
     package.functioncode=0x12;
     package.address=0x00;
     package.data.data16=0x0000;
-    write_package(package);
     package.functioncode=0x00;
     for (uint8_t i=0x00;i<=0x3A;i++){
         package.address=i;

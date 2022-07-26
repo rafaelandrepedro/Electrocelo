@@ -18310,7 +18310,7 @@ void controlLearnDigit(void);
         SAVE_COMMAND_W=15,
         ERASE_COMMAND_W=16,
         READ_SERIAL_W=17,
-        READ_ALL
+        READ_ALL=18
     };
 
 
