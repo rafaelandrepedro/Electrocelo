@@ -1,0 +1,47 @@
+#### Instruções de geração de imagens ####
+-As imagens devem ser 480x272 (horizontal) e devem estar em formato .bmp
+-Utilizando o DGUS (DGUS toolV7.387) selecionar "DWIN ICO generation"->"Select the path of image file"->"Generate ICO File"->"Build ICO"->guardar com nome "32.ICO"
+
+#### Instruções para abrir e guardar projecto ####
+-selecionar "Open"->"DWprj.hmi"
+-Editar o projecto
+-"Save"->"Generate"->"Save"
+
+#### Mudar a resolução do projecto ####
+-selecionar "setting"->"set resolution"
+-selecionar a resolução (neste caso 272x480)
+
+#### Gerar config file ####
+-No menu principal selecionar a opção em chinês que aparece em "DGUS config tool"
+-Verificar se as definições são identicas às apresentadas no config.bmp anexo
+-Selecionar a segunda opção do canto inferior direito (as opções estão traduzidas no config2.bmp anexo)
+
+#### Enviar projeto para o display ####
+-Utilizar um cartão SD de 8 ou 16 Gb
+-formatar o cartão através da consola com o comando    format/q d:/fs:fat32/a:4096    (substituir d: pelo dispositivo ou unidade respectiva)
+-copiar a pasta DWIN_SET para o cartão (o nome não deve ser modificado)
+-inserir o cartão no display com a alimentação desligada
+-aguardar até surgir a frase "Output .DAT Files:0000"
+-desligar a alimentação, remover o cartão e realimentar o display
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
